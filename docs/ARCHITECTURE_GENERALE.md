@@ -80,3 +80,20 @@ L'agence dispose d'un collège d'agents aux périmètres hermétiques :
 - **Agent Proposition & Devis :** Clone le template Google Docs approprié, substitue les variables du prospect et prépare le devis pour validation.
 - **Agent Développeur & Intégrateur :** Implémente le code, gère les repositories GitHub, configure les scripts d'automatisation.
 - **Agent Contrôle Qualité & Conformité (Auditeur) :** Vérifie la solidité des livrables, l'absence de régression et le respect strict du secret d'affaires et du RGPD.
+
+---
+
+## 6. EXIGENCES PERMANENTES DE CONCEPTION ET D'EXPLOITATION SYNTESIA (INTÉGRATION STRATÉGIQUE & REPORT AGIA-010+)
+
+Conformément aux directives stratégiques consolidées du fondateur (AGIA-002 à AGIA-009) et au complément stratégique permanent pris en compte lors d'AGIA-009 sans modifier les décisions antérieures :
+
+1. **Identité et Positionnement Opérationnel Permanent :**
+   - **SYNTESIA** intervient comme partenaire d'ingénierie opérationnelle et de transformation B2B : **comprendre les opérations → identifier les inefficacités → concevoir des systèmes adaptés → intégrer les outils existants → automatiser les processus → déployer des agents IA encadrés → accompagner durablement les équipes**.
+   - **Hiérarchie du portefeuille préservée :** `WORKSTATION-IA` (environnement d'ingénierie et d'orchestration), `LAB` (structure mère active de la gamme logicielle `Omni-X` : `OMNISECUR`, `OMNIRENOV / RELANCE-DEVIS`, `OMNIPATRIMOINE`), et `SYNTESIA` (marque commerciale France prioritaire & Algérie second marché à stratégie propre).
+2. **Gouvernance Technique, Design & Sécurité Permanente :**
+   - **Réflexe Bibliothèque Technologique (`docs/bibliotheque_technologique/`) :** Consulter systématiquement l'inventaire qualifié avant tout développement, privilégier les ressources sélectionnées par le fondateur (*Refero*, *REA*, *Agency Agents*, *Understand-Anything*, *Chatwoot*, *OpenSEO*, *Moteur Leads Universel v2*).
+   - **Référence de conception UI/UX (`Refero Styles`) :** Ancrer toute création ou refonte d'interface sur un *Reference Lock* (`DESIGN.md`) issu de produits réels et compilé de manière 100 % autonome (zéro dépendance CDN externe, zéro fuite d'IP visiteur).
+   - **Supervision humaine souveraine (*Sas Dirigeant*) & Bienséance :** Aucun engagement commercial, financier ou juridique autonome ; séparation stricte des environnements `TEST` / `PROD` ; protection anti-injection (`CWE-1236` / XSS), anti-doublon et minimisation des données dans les journaux (`Zéro PII dans les logs`).
+3. **Séquencement des Développements Suivants (Reportés à `AGIA-010` et missions ultérieures) :**
+   - Conformément à l'instruction du fondateur pendant `AGIA-009`, tout nouveau développement fonctionnel ou extension d'architecture découlant des compléments stratégiques (ainsi que l'intégration de tout cahier des charges complémentaire transmis par le fondateur, les démonstrateurs sectoriels additionnels et le Lot Phase 2A d'`OMNISECUR`) est formellement inscrit au backlog d'**`AGIA-010`** et des missions suivantes, afin de préserver l'intégrité et le gel de la recette pré-production `AGIA-009`.
+

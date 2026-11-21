@@ -572,3 +572,36 @@ img, svg, video, canvas {
 @media (min-width: 1024px) {
   .lg\:hidden { display: none; }
 }
+
+
+/* === AGIA-009 A11Y KEYBOARD FOCUS & 768px/1024px RESPONSIVE POLISH === */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--syn-ink);
+  outline-offset: 2px;
+}
+
+header nav a,
+header .syn-btn-primary,
+header .syn-btn-secondary {
+  white-space: nowrap;
+}
+
+@media (min-width: 640px) {
+  .syn-btn-secondary {
+    white-space: nowrap;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  header nav.space-x-8 > :not([hidden]) ~ :not([hidden]) {
+    margin-left: 1.15rem;
+  }
+  header .syn-btn-primary {
+    padding: 0.65rem 1.15rem;
+    font-size: 0.8125rem;
+  }
+}
