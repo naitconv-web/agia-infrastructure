@@ -1,6 +1,6 @@
 {
-  "mission_id": "AGIA-012",
-  "generated_at_utc": "2026-11-21T20:07:10Z",
+  "mission_id": "AGIA-013",
+  "generated_at_utc": "2026-11-21T20:24:29Z",
   "objective": "Concevoir, implémenter et valider par 6 tests de résistance le Harness Engineering commun aux projets SYNTESIA (0 dépendance à la mémoire conversationnelle).",
   "current_state": {
     "status": "CONFIRMED",
@@ -8,8 +8,8 @@
     "attempt": 1,
     "max_attempts": 3,
     "branch": "main",
-    "head_commit": "8b231ca",
-    "summary": "Entite facturante micro-entreprise verifiee active (Mounir Nait Mohand, SIRET 849 261 870 00018) et IBAN integres au kit de facturation AGIA-012 et mentions legales pre-prod. Aucune publication effectuee."
+    "head_commit": "608f750",
+    "summary": "Audit ECC/JCODE (NO-GO installation) et Audit o2switch + mise en pause sites FR/DZ (lecture seule)"
   },
   "confirmed_decisions": [
     "DEC-01: Régime financier F1 (0,00 € autonome)",
@@ -104,7 +104,7 @@
     },
     {
       "path": "docs/harness/state/harness_memory.json",
-      "sha256_12": "e6bc1d85c9d7"
+      "sha256_12": "88acfc0d8d49"
     },
     {
       "path": "scripts/harness_ctl.py",
@@ -124,11 +124,11 @@
     }
   ],
   "commits_made": [
+    "608f750 feat(AGIA-012): integrate verified EI SIRET 849 261 870 00018 & IBAN into private billing kit and preprod legal page (no publication)",
     "8b231ca feat(AGIA-012): Revenue First acquisition plan (1490 EUR / 40% deposit, 6 prioritized FR PME prospects, outreach scripts, 48h plan) & checkpoint",
     "7925982 feat(AGIA-011): deploy SYNTESIA Harness Engineering (6 layers, AGENTS.md, memory registry, preflight/checkpoint CLI & 6/6 resilience tests)",
     "91a1eec feat(AGIA-010): actionable commercial kit (1490 EUR / 145k DZD offer, pitch, proposal, 15 FR/DZ prospects) & interactive client demonstrator",
-    "9395ae9 chore(git): remove pycache artifact and ignore __pycache__",
-    "0d6d91b feat(AGIA-009): independent browser/CRM functional & security acceptance (CWE-1236, dedup, E.164, 4 viewports) and 4 validation reports"
+    "9395ae9 chore(git): remove pycache artifact and ignore __pycache__"
   ],
   "tests_executed": {
     "resilience_tests": "6/6 PASSED (Test A: Perte conversation, Test B: Changement modèle, Test C: Interruption brutale, Test D: Contradiction, Test E: Multi-projets, Test F: Preuve d'exécution)",

@@ -143,9 +143,12 @@
       "maturity": "TESTE",
       "repository": "naitconv-web/agia-infrastructure",
       "commercial_offer": "1 490 EUR HT setup + 190 EUR/mois (France) | 145 000 DZD setup + 19 000 DZD/mois (Algérie)",
+      "sites_fr_dz_state": "ON_HOLD_PRESERVED (developpements suspendus, fichiers/configs/domaines/DNS preserves)",
+      "ecc_jcode_decision": "NO_GO_INSTALL (Harness SYNTESIA natif conserve sans installation tierce)",
       "next_actions": [
-        "Exécution par le fondateur des 5 décisions Go-Live (CHECKLIST_PRODUCTION_SYNTESIA.md)",
-        "Présentation du démonstrateur (sites/demonstrateur/index.html) aux premiers prospects sélectionnés"
+        "Fourniture par le fondateur des 7 captures cPanel o2switch (sans secret) pour completer INVENTAIRE_INFRASTRUCTURE_O2SWITCH.md",
+        "Presentation du demonstrateur (sites/demonstrateur/index.html) aux premiers prospects selectionnes",
+        "Execution par le fondateur des decisions Go-Live et validation avant tout deploiement o2switch"
       ]
     },
     "OMNISECUR": {
