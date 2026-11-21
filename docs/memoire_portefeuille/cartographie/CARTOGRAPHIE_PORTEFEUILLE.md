@@ -1,59 +1,48 @@
-# CARTOGRAPHIE STRATÉGIQUE DU PORTEFEUILLE WORKSTATION-IA & ACTIFS DU FONDATEUR
-**Référence :** SYNTESIA-MEMOIRE-001 (Version Révisée — Mission AGIA-003)  
-**Statut :** VALIDATION STRATÉGIQUE RÉALISÉE — RÉFÉRENTIEL SOURCÉ ET AUDITÉ  
-**Date d'établissement :** 21 novembre 2026  
+# CARTOGRAPHIE DU PORTEFEUILLE WORKSTATION-IA & ACTIFS DU FONDATEUR
+**Référence :** SYNTESIA-MEMOIRE-001 (Révision Finale AGIA-003)  
+**Statut du Référentiel :** `AUDIT DOCUMENTAIRE TERMINÉ — VALIDATION DU FONDATEUR EN ATTENTE`  
+**Date de révision :** 21 novembre 2026  
 **Auteur :** Antigravity Systems Architect / CTO SYNTESIA  
 
 ---
 
-## 1. VISION D'ENSEMBLE DE L'ÉCOSYSTÈME
+## 1. DISTINCTION FONDAMENTALE DES ENTITÉS ET PÉRIMÈTRES
 
-L'écosystème entrepreneurial du fondateur repose sur 4 piliers majeurs, interconnectés par une doctrine commune de gouvernance lean, d'automatisation et de souveraineté des données :
-
-```
-                                  ┌─────────────────────────────────────────┐
-                                  │           FONDATEUR / DIRIGEANT         │
-                                  │          (Mounir NAIT MOHAND)           │
-                                  └────────────────────┬────────────────────┘
-                                                       │
-         ┌─────────────────────────┬───────────────────┴───────────────────┬─────────────────────────┐
-         ▼                         ▼                                       ▼                         ▼
-┌───────────────────┐    ┌───────────────────┐                   ┌───────────────────┐     ┌───────────────────┐
-│     PILIER 1      │    │     PILIER 2      │                   │     PILIER 3      │     │     PILIER 4      │
-│     SYNTESIA      │    │  STRUCTURE MÈRE   │                   │    STRUCTURES     │     │  EXPÉRIENCE CHR   │
-│   (Agence IA &    │    │   LAB / WORKST.   │                   │   COMMERCIALES    │     │   (Hôtellerie &   │
-│ Transformation)   │    │(Noyau Orchestr.)  │                   │    & E-COMMERCE   │     │   Restauration)   │
-└────────┬──────────┘    └─────────┬─────────┘                   └─────────┬─────────┘     └─────────┬─────────┘
-         │                         │                                       │                         │
-  ┌──────┴──────┐           ┌──────┴──────┐                 ┌──────────────┼──────────────┐          │
-  ▼             ▼           ▼             ▼                 ▼              ▼              ▼          ▼
-France       Algérie   Architecture C  Bus Lean v3     OMNISECUR      RELANCE-DEVIS   AMBRESSENCE Savoir-faire
-(2 Vert.:   (Second     (Souverain      (Shards &       (Sécurité      (Porte BTP /   (E-commerce  opérat. réel
-Sécurité     Marché)    < 80 Mo RAM)    Preflight)      Privée B2B)    OMNIRENOV)     Parfumerie)  & dossier B&B
-& BTP)                                                                                             (candidature)
-```
+Pour éviter toute confusion conceptuelle ou juridique, le référentiel sépare formellement cinq natures d'objets :
+1. **WORKSTATION-IA (Système d'orchestration technique) :** Infrastructure et méthodologie de travail multi-agents du fondateur (Architecture C spécifiée, protocole Bus Lean v3.0, règles de gouvernance et de mémoire).
+2. **LAB (Structure mère faîtière de solutions) :** Structure organisationnelle active d'incubation et d'édition des solutions logicielles de la gamme « Omni-X » (`OMNISECUR`, `OMNIRENOV / RELANCE-DEVIS`, `OMNIPATRIMOINE`).
+3. **SYNTESIA (Agence opérationnelle B2B) :** Marque commerciale de conseil, transformation numérique, automatisation et intégration d'agents IA (Marché prioritaire France avec 2 verticales d'égale priorité : Sécurité Privée et BTP/Rénovation ; Second marché : Algérie).
+4. **Structures Juridiques Porteuses :**
+   - *Micro-entreprise existante du fondateur* (Mounir NAIT MOHAND).
+   - *SASU ATLAS GLOBAL TRADING* (Société en cours de constitution à Albi, statuts révisés le 30/10/2026 — immatriculation effective au RCS non démontrée dans le Drive).
+   - *Entité e-commerce dédiée (`NAIT STORE`)* mentionnée pour l'isolation budgétaire d'AMBRESSENCE.
+5. **Actifs Expérientiels & Candidatures CHR :** Compétences professionnelles du fondateur en hôtellerie/restauration et dossiers d'étude de reprise (ex. candidature en gérance mandat B&B Hôtel Douai).
 
 ---
 
-## 2. MATRICE DÉTAILLÉE DU PORTEFEUILLE ET CLASSIFICATION ÉPISTÉMIQUE
+## 2. NOMENCLATURE OFFICIELLE DES STATUTS DE VÉRIFICATION
 
-Chaque élément est classé selon son niveau de certitude vérifié :
-- `[DÉCISION CONFIRMÉE]` : Arbitrage formel validé par le fondateur dans `REGISTRE-DECISIONS.md`.
-- `[DOCUMENT SOURCE]` : Information extraite d'un document ou d'un rapport technique de référence vérifié.
-- `[DOSSIER D'ÉTUDE / CANDIDATURE]` : Projet ou opportunité analysée sans engager les performances personnelles du fondateur.
-- `[DÉVELOPPEMENT SÉQUENCÉ]` : Projet actif dans la stratégie du LAB dont l'exécution technique est planifiée dans un second temps.
-- `[PISTE EN PAUSE]` : Idée exploratoire classée formellement en attente.
+Conformément aux règles strictes d'audit AGIA-003, chaque élément est qualifié uniquement par l'un des 5 statuts suivants :
+- **`CONFIRMÉ PAR SOURCE`** : Décision ou information écrite vérifiée dans un document officiel original du Drive (`REGISTRE-DECISIONS.md`, statuts PDF, journaux d'audit).
+- **`VÉRIFIÉ TECHNIQUEMENT`** : Preuve technique directe consultée et inspectée (journaux bruts d'exécution des tests, manifestes SHA-256, dépôts Git accessibles).
+- **`DÉCLARÉ MAIS NON VÉRIFIÉ`** : Affirmation présente dans un document de synthèse dont la preuve primaire sous-jacente n'est pas accessible depuis l'environnement d'audit (ex. dépôt privé non attaché renvoyant `HTTP 403`, état du PC local Windows 11).
+- **`À CLARIFIER`** : Point présentant une divergence entre documents ou nécessitant un arbitrage du fondateur.
+- **`NON DÉMONTRÉ`** : Élément absent des preuves ou non finalisé (ex. certificat de dépôt de capital ou Kbis final d'une société en formation).
 
-| Nom du Projet | Rôle dans l'Écosystème | Statut Organisationnel Réel | Niveau de Certitude | Emplacement Drive / Git de Référence |
-| :--- | :--- | :--- | :--- | :--- |
-| **STRUCTURE MÈRE LAB** | Structure faîtière et laboratoire d'incubation des solutions Omni-X | **Structure mère active** | `[DÉCISION CONFIRMÉE]` | `WORKSTATION-IA` (`1YLmAB3t...`) & `LAB-ARCH-001` (`1SKhv8HQ...`) |
-| **WORKSTATION-IA** | Cerveau d'orchestration hybride souverain (< 80 Mo RAM, Architecture C) | **Spécifié & Audité à 75%** | `[DOCUMENT SOURCE]` | `LAB-ARCH-001` (`1CcEAPM9...`) & `LAB-ARCH-002` (`1y2LXAYc...`) |
-| **OMNISECUR** | Logiciel d'exploitation pour dirigeants de sécurité privée (CSI / IDCC 1351) | **Code v2.3.2 certifié (95 tests verts) & Démo validée** | `[DÉCISION CONFIRMÉE]` | `PROJETS/OMNISECUR` (`1BQd8Ohcc...`) & `naitconv-web/omnisecur` |
-| **RELANCE-DEVIS (OMNIRENOV)** | Solution B2B d'acompte rapide et relance de devis pour artisans du bâtiment | **Test Meta Ads validé / Règle Zéro Code initial** | `[DÉCISION CONFIRMÉE]` | `PROJETS/RELANCE-DEVIS` (`13OOCqJY...`) / `omnisecur-launch-kit` |
-| **OMNIPATRIMOINE** | Outils et plateforme d'ingénierie patrimoniale pour indépendants | **Développement séquentiel planifié (Niveau 3)** | `[DÉVELOPPEMENT SÉQUENCÉ]` | `PROJETS/FUTURS_PROJETS` (`1dyOS9MR...`) |
-| **SYNTESIA** | Agence de conseil, transformation numérique et intégration IA | **Fondation assainie, 2 verticales prioritaires (Sécurité & BTP)** | `[DÉCISION CONFIRMÉE]` | `_AGIA_PILOTAGE` (`17gFy4ia...`) & `naitconv-web/agia-infrastructure` |
-| **AMBRESSENCE** | E-commerce de parfums de niche (NAIT STORE) | **Staging prêt / En attente pièces Kbis** | `[DOCUMENT SOURCE]` | `PROJETS/AMBRESSENCE` (`1Kwtctpd...`) & `naitconv-web/AMBRESSENCE` |
-| **SASU ATLAS GLOBAL TRADING** | Structure juridique envisagée pour porter les solutions logicielles et e-commerce | **Statuts en formation (révisés au 30/10/2026)** | `[DOCUMENT SOURCE]` | `_ADMINISTRATION_JURIDIQUE/ATLAS-GLOBAL-TRADING` (`1FPLPQLr...`) |
-| **EXPÉRIENCE CHR (HÔTELS & RESTOS)** | Compétence d'exploitation et gestion d'actifs hôteliers / restauration | **Savoir-faire réel acquis & Dossier candidature B&B Douai** | `[DOSSIER D'ÉTUDE / CANDIDATURE]` | Racine Drive : dossier PDF (`1eJY7N5k7VE...`) |
-| **INSTACAR (Algérie)** | Plateforme automobile pour l'Algérie | **Idée exploratoire en pause** | `[PISTE EN PAUSE]` | `BRAINSTORMING/IDEES-EN-PAUSE` (`15i3mvt4...`) |
-| **ARBITRAGE EBAY PARFUMS** | Test d'arbitrage places de marché | **Idée exploratoire non engagée** | `[PISTE EN PAUSE]` | `BRAINSTORMING/ARBITRAGE-EBAY-PARFUMS` (`1x2YIOZ...`) |
+---
+
+## 3. MATRICE EXHAUSTIVE DU PORTEFEUILLE (11 COMPOSANTS RECENSÉS)
+
+| # | Nom du Projet / Entité | Catégorie | État d'Avancement Réel | Statut de Preuve | Sources Originales & Dépôts Réels |
+| :- | :--- | :--- | :--- | :--- | :--- |
+| **01** | **LAB** | Structure mère faîtière (Gamme Omni-X) | Structure mère active accueillant OMNISECUR, OMNIRENOV, OMNIPATRIMOINE | `CONFIRMÉ PAR SOURCE` | Drive `README-PORTEFEUILLE.md` (`13_Qt4DU...`) & `WS-2026-006` |
+| **02** | **WORKSTATION-IA** | Système d'orchestration multi-agents | Spécification Architecture C (< 80 Mo RAM cible) & Bus Lean v3.0 adopté. Dépôt `lab-core` non créé. | `CONFIRMÉ PAR SOURCE` | Drive `LAB-ARCH-001` (`1CcEAPM9...`), `LAB-ARCH-002` (`1y2LXAYc...`), `REGISTRE-DECISIONS.md` |
+| **03** | **SYNTESIA** | Agence Conseil & Intégration IA | Socle technique assaini (AGIA-001/002/Lot 1). Non publié en prod. | `VÉRIFIÉ TECHNIQUEMENT` | GitHub `naitconv-web/agia-infrastructure` & Drive `_AGIA_PILOTAGE` (`17gFy4ia...`) |
+| **04** | **OMNISECUR** | Solution LAB Niveau 2 (Sécurité Privée) | Code v2.3.2 (`f6b1a87`) : sorties brutes de tests 95/95 & manifeste SHA-256 consultés sur Drive. Dépôt Git privé en `HTTP 403` depuis VM. | `VÉRIFIÉ TECHNIQUEMENT` *(via archives Drive)* / `DÉCLARÉ MAIS NON VÉRIFIÉ` *(sur repo Git live)* | Drive `SORTIES-BRUTES-TESTS-ET-BUILD-f6b1a87.txt` (`1BXe_-qm...`), `GIT-MANIFEST.json` (`1GiyjMM2...`) ; GitHub `omnisecur` & `omnisecur-launch-kit` |
+| **05** | **RELANCE-DEVIS (OMNIRENOV)** | Solution LAB Niveau 2 (Bâtiment / BTP) | Test commercial 100 % Inbound Meta Ads (règle Zéro Code applicatif). **Correction : aucun dépôt Git propre**, scripts d'extraction mutualisés mais kit commercial sur Drive. | `CONFIRMÉ PAR SOURCE` | Drive `PROJETS/RELANCE-DEVIS` (`13OOCqJY...`) & `README.md` (`1LjqiYyK...`) |
+| **06** | **OMNIPATRIMOINE** | Solution LAB Niveau 3 (Patrimoine) | Développement séquentiel planifié après revenus N1/N2. Aucun dossier technique actif. | `CONFIRMÉ PAR SOURCE` *(séquençage)* / `NON DÉMONTRÉ` *(livrables)* | Drive `README-PORTEFEUILLE.md` (`13_Qt4DU...`) & `FUTURS_PROJETS` (`1dyOS9MR...`) |
+| **07** | **AMBRESSENCE** | E-commerce B2C Parfumerie (Hors LAB) | Staging o2switch prêt déclarativement, blocage Kbis `NAIT STORE`. Dépôts Git en `HTTP 403` depuis VM. | `CONFIRMÉ PAR SOURCE` *(docs)* / `DÉCLARÉ MAIS NON VÉRIFIÉ` *(staging & Git)* | Drive `PROJETS/AMBRESSENCE` (`1Kwtctpd...`) ; GitHub `AMBRESSENCE` & `ambressence.com` |
+| **08** | **SASU ATLAS GLOBAL TRADING** | Structure juridique commerciale | **En cours de constitution** (statuts révisés le 30/10/2026, capital 500 € Albi). Immatriculation et dépôt capital non présents. | `CONFIRMÉ PAR SOURCE` *(statuts en formation)* / `NON DÉMONTRÉ` *(immatriculation effective)* | Drive `_ADMINISTRATION_JURIDIQUE/ATLAS-GLOBAL-TRADING` (`1FPLPQLr...`) |
+| **09** | **EXPÉRIENCE CHR & DOSSIER B&B DOUAI** | Actif expérientiel & Candidature gérance | Compétences fondateur déclarées ; dossier de candidature gérance mandat B&B Douai (mai 2026). Chiffres (828 K€) = historique de l'hôtel cible. | `CONFIRMÉ PAR SOURCE` *(dossier candidature)* / `À CLARIFIER` *(issue candidature)* | Drive `Dossier de candidature gérance mandat.pdf` (`1eJY7N5k7...`) |
+| **10** | **EMERGENCY CASHFLOW (EC)** | Mission opérée sous supervision stricte | En `PREPARATION` (Palier P0, régime F1 0,00 €, J0 non activé, contre-audit EC-006 Phase D). | `CONFIRMÉ PAR SOURCE` | Drive `EC-SUPERVISION` (`1jqxJSs4...`), `SUPERVISION_DASHBOARD.md` (`1eVtfbWs...`) ; GitHub `ec-mission-state` |
+| **11** | **PISTES EXPLORATOIRES & ANCIENS DÉPÔTS** | `INSTACAR`, `ARBITRAGE EBAY PARFUMS`, `projet-pilote` | - `INSTACAR` : business plan Notion en pause.<br>- `EBAY PARFUMS` : étude avec ROI étiqueté `[HYPOTHÈSE NON VÉRIFIÉE]`.<br>- `projet-pilote` : dépôt Git privé non documenté sur Drive. | `CONFIRMÉ PAR SOURCE` *(Instacar / eBay)* / `À CLARIFIER` *(projet-pilote)* | Drive `IDEES-EN-PAUSE` (`15i3mvt4...`), `ARBITRAGE-EBAY-PARFUMS` (`1x2YIOZ...`) ; GitHub `projet-pilote` |
