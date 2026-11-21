@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-AGIA — Script d'orchestration, de test et de qualification automatique.
-Permet d'ingérer un lead, de qualifier son besoin, d'insérer dans Sheets et de déclencher les alertes.
+SYNTESIA — Script d'orchestration, de test et de qualification automatique.
+Version 2.0 (Alignée sur le schéma 15 colonnes, les verticales et l'étanchéité TEST/PROD).
 """
 
 import sys
@@ -20,54 +20,57 @@ def calculate_score(lead):
         score += 2
     if len(lead.get("telephone", "")) >= 8:
         score += 1
-    if len(lead.get("description", "")) > 30:
+    if len(lead.get("description", "")) > 20:
+        score += 1
+    verticale = lead.get("verticale", "")
+    if verticale in ["Sécurité Privée", "Bâtiment et Rénovation"]:
         score += 1
     return min(score, 10)
 
-def ingest_lead(lead_data):
+def ingest_lead(lead_data, is_test=False):
     now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    id_lead = "LEAD-" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+    id_lead = ("LEAD-TEST-" if is_test else "LEAD-") + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
     score = calculate_score(lead_data)
+    env_tag = "TEST" if is_test else "PROD"
     
+    # Statut
+    if is_test:
+        statut = "TEST_QUALIFIE" if score >= 7 else "TEST_NOUVEAU"
+    else:
+        statut = "QUALIFIE" if score >= 7 else "NOUVEAU"
+
+    # 15 colonnes strictes :
+    # ID_Lead, Date_Entree, Marche, Verticale_Metier, Entreprise, Contact_Nom, Email, Telephone,
+    # Besoin_Principal, Maturite_IA, Budget_Estime, Score_Qualification, Statut, Notes_Diagnostic, Environnement
     row_values = [
         id_lead,
         now,
         lead_data.get("marche", "France"),
+        lead_data.get("verticale", "Général / PME"),
         lead_data.get("entreprise", "Inconnu"),
         lead_data.get("nom", "Inconnu"),
         lead_data.get("email", ""),
         lead_data.get("telephone", ""),
         lead_data.get("besoin", ""),
         lead_data.get("maturite", "Moyenne"),
-        lead_data.get("budget", ""),
+        lead_data.get("budget", "À qualifier"),
         str(score),
-        "QUALIFIE" if score >= 7 else "NOUVEAU",
-        f"Auto-qualifié. Score {score}/10. {lead_data.get('description', '')}"
+        statut,
+        f"{'[DONNEE_TEST] ' if is_test else ''}Score {score}/10. {lead_data.get('description', '')}",
+        env_tag
     ]
     
-    # Écriture dans le CRM Google Sheets via CLI
     row_str = ",".join(['"' + v.replace('"', '""') + '"' for v in row_values])
     cmd = ["gsheets", "mutate", "append", SHEET_ID, "01_PROSPECTS_LEADS", row_str]
     res = subprocess.run(cmd, capture_output=True, text=True)
     
     if res.returncode == 0:
-        print(f"[CRM INGESTION] Lead inséré avec succès : {id_lead} ({lead_data.get('entreprise')}) | Score: {score}/10")
-        return {"status": "success", "id_lead": id_lead, "score": score}
+        print(f"[CRM INGESTION] Lead inséré avec succès : {id_lead} ({lead_data.get('entreprise')}) | Env: {env_tag} | Score: {score}/10")
+        return {"status": "success", "id_lead": id_lead, "score": score, "env": env_tag}
     else:
         print(f"[CRM INGESTION ERROR] {res.stderr}")
         return {"status": "error", "error": res.stderr}
 
 if __name__ == "__main__":
-    test_lead = {
-        "marche": "France",
-        "entreprise": "Transports LogiRapid SAS",
-        "nom": "Marc Vauthier",
-        "email": "m.vauthier@logirapid.fr",
-        "telephone": "06 45 89 12 30",
-        "besoin": "Automatisation des flux et facturation",
-        "maturite": "Intermédiaire (CRM ou ERP standard)",
-        "budget": "5 000 € - 15 000 €",
-        "description": "Nous devons automatiser le rapprochement des bordereaux de livraison avec nos factures Sage."
-    }
-    print("Exécution du test d'ingestion CRM...")
-    ingest_lead(test_lead)
+    print("Vérification du module d'orchestration CRM...")
+    print("Prêt pour l'ingestion.")

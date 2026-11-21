@@ -2,7 +2,7 @@
 **Marque :** SYNTESIA  
 **Marché :** France (Prioritaire)  
 **Cible :** Dirigeants et Directeurs d'Exploitation d'entreprises de sécurité privée (TPE & PME de 10 à 250 agents)  
-**Réglementation clé :** Code de la Sécurité Intérieure (CSI Livre VI), CNAPS, Convention Collective Nationale des Entreprises de Prévention et de Sécurité (CCN 3196 / 1351).
+**Réglementation clé :** Code de la Sécurité Intérieure (CSI Livre VI), CNAPS, Convention Collective Nationale des Entreprises de Prévention et de Sécurité (IDCC 1351 / Brochure JO 3196).
 
 ---
 
@@ -27,7 +27,7 @@
 - **Objet :** Optimisation des plannings et traitement des remplacements d'urgence.
 - **Fonctionnalités clés :**
   - Agent de matching d'urgence : en cas d'absence imprévue, recherche instantanée des agents disponibles disposant des qualifications requises à proximité du site.
-  - Contrôle automatique des plafonds d'heures de la CCN 3196 (repos quotidien, durées maximales hebdomadaires).
+  - Contrôle automatique des plafonds d'heures de la convention collective IDCC 1351 (repos quotidien, durées maximales hebdomadaires).
   - Confirmation automatisée par SMS/WhatsApp aux agents affectés.
 
 ### Offre 3 : « Portail Client & Main Courante Électronique Dématérialisée »
