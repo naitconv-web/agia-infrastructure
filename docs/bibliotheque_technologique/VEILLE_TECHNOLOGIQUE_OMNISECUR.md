@@ -1,8 +1,13 @@
 # PRÉPARATION DE LA VEILLE TECHNOLOGIQUE & ÉTUDE COMPARATIVE MONDIALE — OMNISECUR
-**Référence :** SYNTESIA-VEILLE-OMNI-001 (Mission AGIA-006 — Chantier 3)  
+**Référence :** SYNTESIA-VEILLE-OMNI-001 (Initialisé en AGIA-006 — Exécuté en AGIA-007 Chantier 2)  
 **Projet concerné :** `OMNISECUR` (Solution LAB Niveau 2 — Sécurité Privée) & Verticale 1 SYNTESIA  
-**Statut :** `CADRE DE PRÉPARATION ÉTABLI — EN ATTENTE D'AUTORISATION FONDATEUR POUR LANCEMENT D'ÉTUDE`  
-**Date :** 21 novembre 2026  
+**Statut :** `ÉTUDE MONDIALE EXÉCUTÉE EN AGIA-007 — LIVRABLES DISPONIBLES DANS docs/omnisecur/veille/`  
+**Date de mise à jour :** 21 novembre 2026  
+
+> **Livrables complets de l'étude mondiale (AGIA-007) :**
+> 1. [Cartographie Mondiale des 28 Solutions & Sélection du Top 10](../omnisecur/veille/CARTOGRAPHIE_MONDIALE_SECURITE_PRIVEE.md)
+> 2. [Benchmark Fonctionnel Approfondi des 10 Solutions](../omnisecur/veille/BENCHMARK_10_SOLUTIONS.md)
+> 3. [Matrice d'Adaptation & Proposition de Feuille de Route OMNISECUR](../omnisecur/veille/MATRICE_ADAPTATION_ET_ROADMAP_OMNISECUR.md)
 
 ---
 

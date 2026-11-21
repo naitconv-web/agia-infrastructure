@@ -122,3 +122,28 @@ L'exploration intégrale en lecture seule de `_KNOWLEDGE_BASE` (`1Kk5x1q3TW-sqKz
 | **S-06** | **`SOURCES-REGLEMENTAIRES-DATEES.md`** | Référentiel juridique daté (`1lbmNzLox...`) | `VÉRIFIÉ TECHNIQUEMENT` | Liens Légifrance/URSSAF/CNIL vérifiés (CSI Livre VI Art. L.612-9, IDCC 1351 repos >= 12h conventionnel / 11h légal dérogatoire, pointage ponctuel CNIL sans tracking GPS continu). | **`intégré`** |
 | **S-07** | **`STANDARD-DEV-SECURITE-RGPD.md`** | Standard d'ingénierie Zero-Trust (`1WSLZNIm2...`) | `VÉRIFIÉ TECHNIQUEMENT` | Règles absolues : séparation Code `C:\` / Cerveau `H:\`, RLS Supabase côté serveur, horodatage `clock_timestamp()`, audit SHA-256, `Concepteur != Auditeur`. | **`intégré`** |
 | **S-08** | **`GUIDE-WORKFLOW-BUS-IA.md`** | Protocole de gouvernance multi-IA (`1Cg3ML_Pm...`) | `VÉRIFIÉ TECHNIQUEMENT` | Cycle `01_EN_COURS` ➔ `02_ARBITREES` ➔ `03_ARCHIVES` + registre append-only `REGISTRE-DECISIONS.md`. | **`intégré`** |
+
+---
+
+### D. Briques Techniques & Standards Ouverts Identifiés lors de l'Étude Mondiale OMNISECUR (Enrichissement AGIA-007)
+
+| Réf | Brique / Standard | Type & Licence | Cas d'usage validé (Benchmark Mondial AGIA-007) | Coût | Projets concernés | Statut |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **B-01** | **Web NFC API (`NDEFReader`)** | Standard W3C (Chrome Android natif) | Lecture directe de l'UID matériel unique de tags NFC passifs (~0,30 €/tag) pour les rondes de sécurité sans bâton de ronde propriétaire, branchée sur `offline_event_id`. | **0 €** | **OMNISECUR** (Phase 2B), **Nettoyage / FM** | **`recommandé`** |
+| **B-02** | **`html5-qrcode` / `BarcodeDetector`** | Librairie Apache-2.0 & Standard Web | Lecture universelle iOS + Android de points de contrôle QR Code pour rondes et pointage ponctuel. | **0 €** | **OMNISECUR** (Phase 2B), **BTP / Logistique** | **`recommandé`** |
+| **B-03** | **WebRTC Live Camera Gate (`capture="environment"`)** | Standard HTML5 / WebRTC | Prise de vue photo en direct obligatoire lors des entrées de Main Courante (blocage de l'import de vieilles photos depuis la galerie téléphone, inspiré de *Silvertrac*). | **0 €** | **OMNISECUR** (Phase 2B), **Bâtiment / Immobilier** | **`recommandé`** |
+| **B-04** | **PWA Offline Regulatory Wallet (`Service Worker` + `IndexedDB`)** | Standard Web PWA | Portefeuille réglementaire hors-ligne (« Mode Contrôle CNAPS / Police en 1 clic », inspiré de *Connecteam*) affichant l'Ordre de Mission L.612-9 et les titres CNAPS/SSIAP en zone blanche. | **0 €** | **OMNISECUR** (Phase 2A) | **`recommandé`** |
+
+---
+
+## 4. RÉPERTOIRE DES FICHES DÉTAILLÉES DE LA BIBLIOTHÈQUE
+
+1. [`FICHE_01_REFERO_STYLES.md`](fiches/FICHE_01_REFERO_STYLES.md) — Gouvernance UI/UX permanente & *Reference Lock* (`styles.refero.design`).
+2. [`FICHE_02_REA_REVERSE_ENGINEERING.md`](fiches/FICHE_02_REA_REVERSE_ENGINEERING.md) — Inspection technique assistée par agents (`morluto/rea`).
+3. [`FICHE_03_AGENCY_AGENTS.md`](fiches/FICHE_03_AGENCY_AGENTS.md) — Rôles d'agents spécialisés (`msitarzewski/agency-agents`).
+4. [`FICHE_04_THE_LAST_ARCHIVE_ET_COGNEE.md`](fiches/FICHE_04_THE_LAST_ARCHIVE_ET_COGNEE.md) — Moteurs RAG local et mémoire graphe (`last-archive` & `cognee`).
+5. [`FICHE_05_MOTEUR_LEADS_UNIVERSEL_V2.md`](fiches/FICHE_05_MOTEUR_LEADS_UNIVERSEL_V2.md) — Moteur interne d'acquisition Open Data B2B (`api.gouv.fr`, `BOAMP`, `DECP`).
+6. [`FICHE_06_ECOSYSTEME_EXECUTION_PASEO_OPENCODE_VIBE_ANTIGRAVITY.md`](fiches/FICHE_06_ECOSYSTEME_EXECUTION_PASEO_OPENCODE_VIBE_ANTIGRAVITY.md) — Socle d'orchestration multi-modèles.
+7. [`FICHE_07_OUTILS_COMPLEMENTAIRES_ET_GARDES_FOUS.md`](fiches/FICHE_07_OUTILS_COMPLEMENTAIRES_ET_GARDES_FOUS.md) — Briques métiers complémentaires et ressources écartées.
+8. [`FICHE_08_ENRICHISSEMENT_AGIA_007_ET_BRIQUES_OMNISECUR.md`](fiches/FICHE_08_ENRICHISSEMENT_AGIA_007_ET_BRIQUES_OMNISECUR.md) — Qualification approfondie (`Chatwoot`, `OpenSEO`, `Understand-Anything`, `REA`, `Agency Agents`) & nouvelles briques techniques `OMNISECUR` (`B-01` à `B-04`).
+
