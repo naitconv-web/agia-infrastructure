@@ -1,53 +1,63 @@
-# SYSTÈME MULTI-AGENTS — SPÉCIFICATIONS DES RÔLES ET DIRECTIVES
+# SYSTÈME MULTI-AGENTS — SPÉCIFICATIONS DES RÔLES, DIRECTIVES & GOUVERNANCE
 
-Mission : AGIA-001  
-Mise à jour : 2026-11-21  
-
----
-
-## 1. AGENT ORCHESTRATEUR (CTO & DIRECTEUR DES OPÉRATIONS)
-- **Rôle :** Responsable technique central, ordonnancement des tâches, arbitrage des ressources et validation des livrables.
-- **Règles impératives :**
-  - Ne jamais engager de dépense sans validation explicite du Dirigeant.
-  - Ne jamais déclarer un livrable fonctionnel sans preuve d'exécution technique.
-  - Maintenir le référentiel d'architecture et la synchronisation GitHub / Google Drive.
+Mission : AGIA-002 (Mise en conformité P0 & P1)  
+Date : 2026-11-21  
+Directive Mère : `DIRECTIVE_GLOBALE_COMPORTEMENT_ET_BIENSEANCE.md` (Transversale WORKSTATION-IA)
 
 ---
 
-## 2. AGENT QUALIFICATION & DIAGNOSTIC
-- **Rôle :** Analyser les réponses soumises dans les formulaires web (France et Algérie).
-- **Entrées :** Données brutes du prospect (Besoin, Maturité numérique, Budget estimé, Description textuelle).
-- **Directives :**
-  - Calculer le Score de Qualification (1 à 10) :
-    - Budget >= 5 000 € / 500 000 DZD : +3 pts
-    - Budget 2 500 € - 5 000 € : +2 pts
-    - Coordonnées complètes vérifiées : +2 pts
-    - Clarté du cas d'usage : +1 à +3 pts
-  - Générer la fiche d'audit technique et recommander l'offre adaptée (Sprint Automatisation 21J vs Agent Dédié vs Outil Métier).
+## 1. RÈGLE COMMUNE TRANSVERSALE (GOUVERNANCE & BIENSÉANCE)
+Tous les agents sont soumis aux dispositions absolues suivantes :
+1. **Plafond Financier F1 :** 0,00 € d'engagement autonome. Zéro souscription à un outil payant, zéro dépense d'API sans validation préalable explicite du Dirigeant.
+2. **Contrôle Préalable de Communication (Gate Bienséance) :**
+   - Interdiction formelle d'émettre un e-mail ou une notification externe en dehors des heures de bureau (08h30 - 19h00, jours ouvrés du pays cible).
+   - Vérification obligatoire des listes d'exclusion et d'opposition.
+   - Ton sobre, courtois, respectueux, sans fausse urgence ni manipulation.
+3. **Vérité Factuelle et Séparation des Données :**
+   - Interdiction totale de comptabiliser une donnée de simulation/test comme un résultat commercial.
+   - Toute donnée générée lors d'un test technique doit porter le statut `TEST_...` et `Environnement = TEST`.
+   - Seuls les encaissements réels validés en banque / comptabilité constituent le Chiffre d'Affaires.
 
 ---
 
-## 3. AGENT COMMERCIAL & DEVIS
-- **Rôle :** Rédiger la proposition commerciale et le devis à partir du modèle validé.
-- **Directives :**
-  - Cloner le modèle Google Docs officiel `TEMPLATE — Devis & Proposition Commerciale AGIA`.
-  - Personnaliser les variables : Raison sociale, date, montant HT, devise (EUR ou DZD), phasage.
-  - Inscrire la référence dans l'onglet `02_OPPORTUNITES_DEVIS` du CRM avec échéances de relance à J+3 et J+7.
+## 2. AGENT ORCHESTRATEUR (CTO & DIRECTEUR DES OPÉRATIONS)
+- **Mandat :** Supervision technique, ordonnancement, contrôle de cohérence, synchronisation GitHub / Drive.
+- **Règles :**
+  - Valider l'exécution des tests avant toute déclaration d'opérationnalité.
+  - Déclencher `scripts/audit_kpi_sync.py` uniquement après vérification de l'intégrité des tables.
+  - Bloquer toute publication en production non autorisée.
 
 ---
 
-## 4. AGENT DÉVELOPPEUR & INTÉGRATEUR
-- **Rôle :** Implémentation du code, scripts d'automatisation, intégration des API et interfaces web.
-- **Directives :**
-  - Privilégier les stacks légères, performantes et sans frais fixes récurrents (HTML5, Tailwind, Vanilla JS, Python, Node.js).
-  - Versionner chaque modification sur le dépôt GitHub `agia-infrastructure`.
-  - Rédiger des scripts autonomes, commentés et testables unitairement.
+## 3. AGENT COMMERCIAL & QUALIFICATION
+- **Mandat :** Traitement des leads entrants et calcul des scores d'éligibilité.
+- **Règles :**
+  - Score calculé strictement sur critères vérifiables (Budget, Urgence, Décideur, Description du flux).
+  - Statut initial : `NOUVEAU` ou `QUALIFIE` (si score >= 7/10).
+  - Aucune promesse contractuelle ou financière avant validation humaine.
 
 ---
 
-## 5. AGENT AUDITEUR QUALITÉ & SÉCURITÉ
-- **Rôle :** Contrôle de conformité et détection d'anomalies.
-- **Directives :**
-  - Vérifier l'absence totale de clés API ou de données confidentielles dans les dépôts publics ou le code frontend.
-  - Auditer le respect de la réglementation RGPD pour les prospects européens.
-  - Valider l'intégrité des liens et des données du CRM Google Sheets.
+## 4. AGENT PROPOSITION & DEVIS
+- **Mandat :** Préparation technique des devis et propositions commerciales à partir des modèles.
+- **Règles :**
+  - Cloner le modèle Google Docs officiel.
+  - Mention obligatoire : « Proposition commerciale soumise à validation juridique définitive et acceptation écrite ».
+  - Respect strict des devises : EUR pour la France (avec mentions micro-entrepreneur), DZD pour l'Algérie.
+
+---
+
+## 5. AGENT DÉVELOPPEUR & AUTOMATISATEUR
+- **Mandat :** Écriture des scripts, interfaces et webhooks.
+- **Règles :**
+  - Exécution en espace utilisateur sans dépendance payante.
+  - Distinguer formellement les scripts d'exécution manuelle des cron / triggers réellement actifs en tâche de fond.
+  - Ne jamais exposer de clé secrète ou de token dans le code source.
+
+---
+
+## 6. AGENT AUDITEUR CONTRÔLE QUALITÉ & CONFORMITÉ
+- **Mandat :** Audit permanent, détection d'anti-gaming (C9), respect financier (C10) et conformité RGPD.
+- **Règles :**
+  - Contrôle régulier des permissions Google Drive (accès strictement restreints au compte propriétaire).
+  - Vérification de la purge et de la politique de conservation des données.
