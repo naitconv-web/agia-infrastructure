@@ -1,0 +1,252 @@
+/*
+ * SYNTESIA — Engineered Editorial Design System v2.0
+ * Derived from Refero Styles (styles.refero.design) Reference Lock:
+ * - Primary: Antimetal (448e303d-7d89-4c38-ab62-bfe5bac45d92)
+ * - Secondary: Cursor (4e3b4717-84c8-4599-baaf-a343c3d619b6) & ElevenLabs (031056ff-7af1-46db-8daa-115f731c5d26)
+ * Shared across SYNTESIA France and SYNTESIA Algérie.
+ */
+
+:root {
+  /* Surfaces & Canvas (Warm Engineering Paper) */
+  --syn-paper: #F4F3EE;
+  --syn-surface: #FAF9F5;
+  --syn-surface-alt: #EAE9E2;
+  --syn-frost: rgba(244, 243, 238, 0.86);
+
+  /* Ink Hierarchy */
+  --syn-ink: #161513;
+  --syn-ink-body: #464440;
+  --syn-ink-muted: #6E6B65;
+  --syn-marking: #8A8780;
+
+  /* Structural Lines & Blueprint Edges */
+  --syn-edge: #D5D4CC;
+  --syn-edge-strong: #B5B4AC;
+  --syn-edge-dashed: #C2C1B8;
+
+  /* Atmospheric Night Scene (System Theater) */
+  --syn-night: #090D13;
+  --syn-night-panel: #101720;
+  --syn-night-edge: #1E293B;
+  --syn-cream: #F4F4E7;
+  --syn-cream-muted: #94A3B8;
+
+  /* Semantic & Market Accents (Restrained Annotations) */
+  --syn-accent-fr: #1D4ED8;
+  --syn-accent-btp: #B84A27;
+  --syn-accent-dz: #047857;
+  --syn-accent-olive: #5C6B28;
+
+  /* Typography */
+  --font-serif: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Architectural Window Elevation (Cursor/Antimetal token) */
+  --syn-window-shadow: rgba(0, 0, 0, 0.22) 0px 28px 70px 0px, rgba(0, 0, 0, 0.12) 0px 14px 32px 0px, rgba(255, 255, 255, 0.08) 0px 0px 0px 1px;
+}
+
+html {
+  background-color: var(--syn-paper);
+  color: var(--syn-ink);
+  font-family: var(--font-sans);
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-color: var(--syn-paper);
+  color: var(--syn-ink);
+  font-family: var(--font-sans);
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* Typography Classes */
+.font-editorial {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1.07;
+}
+
+.font-editorial-italic {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.font-mono-mark {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem; /* 11px */
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  line-height: 1.35;
+}
+
+/* Floating Frosted Navigation (Antimetal Rule) */
+.syn-nav-frost {
+  background-color: var(--syn-frost);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--syn-edge);
+}
+
+/* Bracketed Engineering Frame & 7px Corner Marks */
+.syn-frame {
+  position: relative;
+  background-color: var(--syn-surface);
+  border: 1px solid var(--syn-edge);
+}
+
+.syn-frame-dashed {
+  position: relative;
+  border: 1px dashed var(--syn-edge-dashed);
+}
+
+.syn-corner-tl::before,
+.syn-corner-br::after {
+  content: "+";
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1;
+  color: var(--syn-marking);
+  pointer-events: none;
+}
+
+.syn-corner-tl::before {
+  top: -6px;
+  left: -4px;
+}
+
+.syn-corner-br::after {
+  bottom: -6px;
+  right: -4px;
+}
+
+/* Flat Square Content Cards (Antimetal Rule: 0px to 2px radius on cards, pill on buttons) */
+.syn-card {
+  background-color: var(--syn-surface);
+  border: 1px solid var(--syn-edge);
+  border-radius: 2px;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.syn-card:hover {
+  border-color: var(--syn-ink);
+}
+
+.syn-card-alt {
+  background-color: var(--syn-surface-alt);
+  border: 1px solid var(--syn-edge);
+  border-radius: 2px;
+}
+
+/* Atmospheric Night System Theater */
+.syn-night-scene {
+  background-color: var(--syn-night);
+  color: var(--syn-cream);
+  border-top: 1px solid var(--syn-night-edge);
+  border-bottom: 1px solid var(--syn-night-edge);
+}
+
+.syn-night-window {
+  background-color: var(--syn-night-panel);
+  border: 1px solid var(--syn-night-edge);
+  border-radius: 4px;
+  box-shadow: var(--syn-window-shadow);
+}
+
+/* Pill Primary & Bracketed Secondary Buttons */
+.syn-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: var(--syn-ink);
+  color: var(--syn-surface);
+  border: 1px solid var(--syn-ink);
+  border-radius: 9999px;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  transition: all 0.18s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.syn-btn-primary:hover {
+  background-color: #2c2a26;
+  transform: translateY(-1px);
+}
+
+.syn-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: transparent;
+  color: var(--syn-ink);
+  border: 1px solid var(--syn-edge-strong);
+  border-radius: 9999px;
+  padding: 0.75rem 1.4rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.18s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.syn-btn-secondary:hover {
+  border-color: var(--syn-ink);
+  background-color: var(--syn-surface-alt);
+}
+
+/* Form Inputs (Clean Architectural Lines) */
+.syn-input {
+  width: 100%;
+  background-color: var(--syn-paper);
+  color: var(--syn-ink);
+  border: 1px solid var(--syn-edge-strong);
+  border-radius: 2px;
+  padding: 0.75rem 0.9rem;
+  font-size: 0.875rem;
+  font-family: var(--font-sans);
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.syn-input:focus {
+  outline: none;
+  border-color: var(--syn-ink);
+  background-color: #FFFFFF;
+}
+
+/* Status & Category Markings */
+.syn-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.25rem 0.6rem;
+  border: 1px solid var(--syn-edge-strong);
+  background-color: var(--syn-surface-alt);
+  color: var(--syn-ink-body);
+  border-radius: 2px;
+}
+
+.syn-dot-blue { width: 6px; height: 6px; border-radius: 50%; background-color: var(--syn-accent-fr); display: inline-block; }
+.syn-dot-rust { width: 6px; height: 6px; border-radius: 50%; background-color: var(--syn-accent-btp); display: inline-block; }
+.syn-dot-emerald { width: 6px; height: 6px; border-radius: 50%; background-color: var(--syn-accent-dz); display: inline-block; }
+.syn-dot-olive { width: 6px; height: 6px; border-radius: 50%; background-color: var(--syn-accent-olive); display: inline-block; }
+
+/* Architectural Blueprint Grid Background Accent */
+.syn-blueprint-bg {
+  background-image: radial-gradient(var(--syn-edge-strong) 0.75px, transparent 0.75px);
+  background-size: 20px 20px;
+}

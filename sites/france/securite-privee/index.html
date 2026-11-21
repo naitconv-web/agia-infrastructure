@@ -3,182 +3,273 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SYNTESIA Sécurité — Systèmes d'Opérations & Automatisation pour la Sécurité Privée</title>
-  <meta name="description" content="Assistez votre suivi de conformité réglementaire (cartes professionnelles, recyclages) et optimisez la gestion des plannings de vacations avec SYNTESIA.">
+  <title>SYNTESIA Sécurité Privée — Conformité CSI Livre VI, Plannings IDCC 1351 &amp; Pilotage d'Exploitation</title>
+  <meta name="description" content="Pôle spécialisé SYNTESIA pour les entreprises de sécurité privée en France : suivi des cartes CNAPS, recyclages MAC, contrôle des repos IDCC 1351, Ordres de Mission et chiffrage de marge.">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    body { font-family: 'Plus Jakarta Sans', sans-serif; }
-    .gradient-hero-sec { background: radial-gradient(circle at 50% 20%, rgba(30,58,138,0.2) 0%, rgba(15,23,42,0) 75%); }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../shared/syntesia-design-system.css">
 </head>
-<body class="bg-slate-950 text-slate-100 antialiased selection:bg-blue-600 selection:text-white">
+<body class="selection:bg-stone-900 selection:text-stone-100">
 
-  <!-- Header -->
-  <header class="fixed top-0 inset-x-0 z-50 bg-slate-950/85 backdrop-blur-md border-b border-slate-800/80">
-    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+  <!-- Top Technical Bar -->
+  <div class="border-b border-[#D5D4CC] bg-[#EAE9E2] px-6 py-2">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
       <div class="flex items-center space-x-3">
-        <a href="../index.html" class="flex items-center space-x-3">
-          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-700 to-indigo-600 flex items-center justify-center shadow-lg shadow-blue-500/20 font-black text-xl text-white">S</div>
-          <div class="flex flex-col">
-            <span class="font-extrabold text-lg tracking-tight text-white leading-none">SYNTESIA</span>
-            <span class="text-xs text-blue-400 font-semibold tracking-wider mt-1">SÉCURITÉ PRIVÉE &middot; CSI LIVRE VI & IDCC 1351</span>
-          </div>
-        </a>
+        <span class="syn-dot-blue"></span>
+        <span class="font-mono-mark text-[#464440]">[SYNTESIA // VERTICALE PRIORITAIRE #1] &middot; SÉCURITÉ PRIVÉE (CSI LIVRE VI &amp; IDCC 1351)</span>
       </div>
-      <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
-        <a href="#enjeux" class="hover:text-white transition">Défis Métiers</a>
-        <a href="#solutions" class="hover:text-white transition">Modules Opérationnels</a>
-        <a href="#conformite" class="hover:text-white transition">Cadre Réglementaire</a>
+      <div class="flex items-center space-x-6">
+        <a href="../index.html" class="font-mono-mark text-[#464440] hover:text-[#161513] underline-offset-4 hover:underline">&larr; Portail Principal SYNTESIA France</a>
+        <a href="../batiment-renovation/index.html" class="font-mono-mark text-[#6E6B65] hover:text-[#161513]">Pôle Bâtiment, BTP &amp; Rénovation &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <header class="sticky top-0 z-50 syn-nav-frost">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="../index.html" class="flex items-center space-x-3.5">
+        <div class="w-9 h-9 bg-[#161513] text-[#FAF9F5] flex items-center justify-center font-mono text-sm font-medium">SY</div>
+        <div class="flex flex-col">
+          <span class="font-bold text-lg tracking-tight text-[#161513] leading-none">SYNTESIA</span>
+          <span class="font-mono-mark text-[#1D4ED8] mt-1">PÔLE SÉCURITÉ PRIVÉE &middot; FRANCE</span>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-[#464440]">
+        <a href="#sous-metiers" class="hover:text-[#161513] transition">Sous-Métiers</a>
+        <a href="#enjeux" class="hover:text-[#161513] transition">Contraintes Terrain</a>
+        <a href="#solutions" class="hover:text-[#161513] transition">Architecture &amp; Modules</a>
+        <a href="#audit-secu" class="hover:text-[#161513] transition">Diagnostic</a>
       </nav>
+
       <div>
-        <a href="#audit-secu" class="inline-flex items-center justify-center px-5 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm transition shadow-lg shadow-blue-600/30">
-          Demande d'Audit d'Exploitation
+        <a href="#audit-secu" class="syn-btn-primary">
+          <span>Étude d'Exploitation</span>
+          <span class="font-mono text-xs">&rarr;</span>
         </a>
       </div>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <main class="pt-32 pb-20">
-    <section class="relative px-6 max-w-7xl mx-auto text-center gradient-hero-sec pt-12 pb-24">
-      <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 text-xs font-semibold uppercase tracking-wider mb-8">
-        <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
-        <span>Spécialisation Entreprises de Sécurité Privée (CSI Livre VI & IDCC 1351 / Brochure 3196)</span>
-      </div>
-      <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white max-w-4xl mx-auto leading-tight">
-        Structurez vos vacations, vos heures et le <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-cyan-300">suivi de vos obligations</span>.
-      </h1>
-      <p class="mt-6 text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto font-normal leading-relaxed">
-        SYNTESIA conçoit des systèmes d'aide à l'exploitation et des assistants d'organisation pour les dirigeants d'entreprises de sécurité : suivi automatisé des échéances administratives, aide à la gestion des imprévus et fiabilisation des états de facturation.
-      </p>
-
-      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="#audit-secu" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-base transition shadow-xl shadow-blue-600/30 flex items-center justify-center space-x-2">
-          <span>Étudier les besoins de mon exploitation</span>
-          <svg class="w-5 h-5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-        </a>
-        <a href="#solutions" class="w-full sm:w-auto px-8 py-4 rounded-xl border border-slate-800 bg-slate-900/60 hover:bg-slate-800 text-slate-300 font-semibold text-base transition flex items-center justify-center">
-          Consulter les modules d'assistance
-        </a>
-      </div>
-
-      <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto border-t border-slate-800/80 pt-8 text-left">
-        <div>
-          <div class="text-xl font-bold text-white">Traçabilité</div>
-          <div class="text-xs text-slate-400 mt-1">Suivi continu des cartes & recyclages MAC</div>
-        </div>
-        <div>
-          <div class="text-xl font-bold text-blue-400">Réactivité</div>
-          <div class="text-xs text-slate-400 mt-1">Aide au replacement d'agents disponibles</div>
-        </div>
-        <div>
-          <div class="text-xl font-bold text-white">IDCC 1351</div>
-          <div class="text-xs text-slate-400 mt-1">Contrôle assisté des amplitudes & repos</div>
-        </div>
-        <div>
-          <div class="text-xl font-bold text-indigo-400">Fiabilisation</div>
-          <div class="text-xs text-slate-400 mt-1">Rapprochement planning / facturation</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Solutions / Piliers Sécurité -->
-    <section id="solutions" class="px-6 py-24 max-w-7xl mx-auto border-t border-slate-900">
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">3 axes d'aide opérationnelle pour l'exploitation</h2>
-        <p class="mt-4 text-slate-400 text-base">Des briques d'assistance modulaires, adaptées aux réalités du terrain et aux exigences réglementaires.</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="p-8 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-blue-500/50 transition">
-          <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-400 flex items-center justify-center mb-6 font-bold text-xl">01</div>
-          <h3 class="text-xl font-bold text-white mb-3">Suivi des Titres & Cartes</h3>
-          <p class="text-slate-400 text-sm leading-relaxed mb-4">Centralisation des dossiers agents, alertes préalables à l'approche des dates de fin de validité des cartes professionnelles et titres de formation.</p>
-          <ul class="text-xs text-slate-400 space-y-2">
-            <li class="flex items-center"><span class="text-blue-400 mr-2">&check;</span> Visualisation des échéances de recyclage MAC</li>
-            <li class="flex items-center"><span class="text-blue-400 mr-2">&check;</span> Préparation assistée des états du personnel</li>
-          </ul>
+  <main>
+    <!-- Hero Section -->
+    <section class="max-w-7xl mx-auto px-6 pt-16 pb-20">
+      <div class="syn-frame syn-corner-tl syn-corner-br p-8 sm:p-14">
+        <div class="flex flex-wrap items-center gap-3 mb-8">
+          <span class="syn-tag"><span class="syn-dot-blue"></span> [VERT-FR-01 // SÉCURITÉ PRIVÉE]</span>
+          <span class="syn-tag">CSI LIVRE VI (ART. L.612-9)</span>
+          <span class="syn-tag">IDCC 1351 / BROCHURE JO 3196</span>
+          <span class="syn-tag">TPE &amp; PME 10 À 150 AGENTS</span>
         </div>
 
-        <div class="p-8 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-indigo-500/50 transition">
-          <div class="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 flex items-center justify-center mb-6 font-bold text-xl">02</div>
-          <h3 class="text-xl font-bold text-white mb-3">Aide au Dispatch & Remplacements</h3>
-          <p class="text-slate-400 text-sm leading-relaxed mb-4">Facilite la recherche rapide d'agents titulaires des qualifications nécessaires en cas d'absence imprévue, pour réduire le temps de traitement.</p>
-          <ul class="text-xs text-slate-400 space-y-2">
-            <li class="flex items-center"><span class="text-indigo-400 mr-2">&check;</span> Filtrage selon qualifications et zones géographiques</li>
-            <li class="flex items-center"><span class="text-indigo-400 mr-2">&check;</span> Aide à la décision pour le chef d'exploitation</li>
-          </ul>
+        <h1 class="font-editorial text-4xl sm:text-6xl text-[#161513] max-w-4xl">
+          Structurez vos plannings de vacations, vos heures et le suivi de vos <span class="font-editorial-italic text-[#1D4ED8]">obligations CNAPS et conventionnelles</span>.
+        </h1>
+        <p class="mt-6 text-lg text-[#464440] max-w-3xl leading-relaxed">
+          SYNTESIA conçoit et déploie des systèmes d'aide à l'exploitation pour les dirigeants de sociétés de sécurité privée : contrôle pré-affectation de la validité des cartes professionnelles jusqu'à la fin de vacation, respect des temps de repos quotidien, aide au remplacement d'urgence et chiffrage rigoureux du coût de revient horaire.
+        </p>
+
+        <div class="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+          <a href="#audit-secu" class="syn-btn-primary">
+            <span>Demander une étude de mon exploitation</span>
+            <span class="font-mono text-xs">&rarr;</span>
+          </a>
+          <a href="#solutions" class="syn-btn-secondary">
+            <span>[ Consulter les 4 modules métiers ]</span>
+          </a>
         </div>
 
-        <div class="p-8 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-cyan-500/50 transition">
-          <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center mb-6 font-bold text-xl">03</div>
-          <h3 class="text-xl font-bold text-white mb-3">Centralisation Mains Courantes</h3>
-          <p class="text-slate-400 text-sm leading-relaxed mb-4">Numérisation des saisies de vacation et rapports d'incident pour fluidifier la communication avec les clients donneurs d'ordre.</p>
-          <ul class="text-xs text-slate-400 space-y-2">
-            <li class="flex items-center"><span class="text-cyan-400 mr-2">&check;</span> Justification claire des heures réalisées</li>
-            <li class="flex items-center"><span class="text-cyan-400 mr-2">&check;</span> Traçabilité renforcée des événements</li>
-          </ul>
+        <!-- 4 Repères d'Ingénierie -->
+        <div class="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 border-t border-[#D5D4CC] pt-8">
+          <div>
+            <div class="font-mono-mark text-[#1D4ED8]">01 // VALIDITÉ DES TITRES</div>
+            <div class="text-base font-bold text-[#161513] mt-1">Contrôle jusqu'à fin de poste</div>
+            <p class="text-xs text-[#6E6B65] mt-1">Vérification que la carte pro CNAPS, le MAC, le SST et le SSIAP sont valides jusqu'à la fin de la vacation planifiée.</p>
+          </div>
+          <div>
+            <div class="font-mono-mark text-[#1D4ED8]">02 // TEMPS DE REPOS</div>
+            <div class="text-base font-bold text-[#161513] mt-1">Règles légales &amp; IDCC 1351</div>
+            <p class="text-xs text-[#6E6B65] mt-1">Contrôle assisté du repos quotidien (&ge; 12h conventionnel / 11h légal dérogatoire), du plafond 48h/semaine et anti double-booking.</p>
+          </div>
+          <div>
+            <div class="font-mono-mark text-[#1D4ED8]">03 // RENTABILITÉ VACATION</div>
+            <div class="text-base font-bold text-[#161513] mt-1">Coût complet &amp; prix plancher</div>
+            <p class="text-xs text-[#6E6B65] mt-1">Simulation déterministe intégrant coefficients, majorations nuit/dimanche/férié, paniers et plancher 6h (Avenant n° 2).</p>
+          </div>
+          <div>
+            <div class="font-mono-mark text-[#1D4ED8]">04 // TRAÇABILITÉ CNIL</div>
+            <div class="text-base font-bold text-[#161513] mt-1">Pointage ponctuel horodaté</div>
+            <p class="text-xs text-[#6E6B65] mt-1">Prise et fin de service horodatées côté serveur sans géolocalisation continue intrusive, conforme aux doctrines CNIL.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Formulaire d'Audit Spécifique Sécurité -->
-    <section id="audit-secu" class="px-6 py-24 max-w-4xl mx-auto border-t border-slate-900">
-      <div class="p-8 sm:p-12 rounded-3xl bg-slate-900 border border-slate-800 shadow-2xl relative overflow-hidden">
-        <div class="text-center max-w-2xl mx-auto mb-10">
-          <span class="text-blue-400 text-xs font-bold tracking-widest uppercase">Échange Confidentiel</span>
-          <h2 class="text-3xl font-extrabold text-white mt-2">Étude Préalable d'Exploitation</h2>
-          <p class="text-slate-400 text-sm mt-3">Échangeons sur vos priorités actuelles de gestion des plannings et de suivi réglementaire.</p>
+    <!-- Sous-métiers couverts -->
+    <section id="sous-metiers" class="max-w-7xl mx-auto px-6 py-16 border-t border-[#D5D4CC]">
+      <div class="mb-10">
+        <span class="font-mono-mark text-[#8A8780]">[SEC-01 // PÉRIMÈTRE MÉTIER]</span>
+        <h2 class="font-editorial text-3xl sm:text-5xl text-[#161513] mt-2">
+          Six spécialités de sécurité privée <span class="font-editorial-italic">prises en charge</span>.
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="syn-card p-6">
+          <div class="font-mono-mark text-[#8A8780] mb-2">SPÉCIALITÉ 01</div>
+          <h3 class="text-base font-bold text-[#161513] mb-1">Surveillance Humaine &amp; Gardiennage</h3>
+          <p class="text-xs text-[#464440] leading-relaxed">Sites tertiaires, industriels, logistiques et grande distribution. Gestion des postes fixes H24 et des consignes de site.</p>
+        </div>
+        <div class="syn-card p-6">
+          <div class="font-mono-mark text-[#8A8780] mb-2">SPÉCIALITÉ 02</div>
+          <h3 class="text-base font-bold text-[#161513] mb-1">Sécurité Incendie (SSIAP 1, 2 &amp; 3)</h3>
+          <p class="text-xs text-[#464440] leading-relaxed">Contrôle strict de l'adéquation entre le niveau de diplôme SSIAP exigé par l'ERP/IGH et l'agent affecté, avec suivi du recyclage triennal.</p>
+        </div>
+        <div class="syn-card p-6">
+          <div class="font-mono-mark text-[#8A8780] mb-2">SPÉCIALITÉ 03</div>
+          <h3 class="text-base font-bold text-[#161513] mb-1">Sécurité Mobile &amp; Intervention</h3>
+          <p class="text-xs text-[#464440] leading-relaxed">Rondes à horaires variables ou aléatoires, levées de doute sur alarme et comptes-rendus d'intervention horodatés.</p>
+        </div>
+        <div class="syn-card p-6">
+          <div class="font-mono-mark text-[#8A8780] mb-2">SPÉCIALITÉ 04</div>
+          <h3 class="text-base font-bold text-[#161513] mb-1">Surveillance Cynophile</h3>
+          <p class="text-xs text-[#464440] leading-relaxed">Suivi de la mention spécifique sur la carte professionnelle, de l'identification du chien et des indemnités conventionnelles associées.</p>
+        </div>
+        <div class="syn-card p-6">
+          <div class="font-mono-mark text-[#8A8780] mb-2">SPÉCIALITÉ 05</div>
+          <h3 class="text-base font-bold text-[#161513] mb-1">Sécurité Événementielle</h3>
+          <p class="text-xs text-[#464440] leading-relaxed">Dispositifs ponctuels à fort effectif, contrôle groupé des cartes professionnelles avant événement et édition en lot des Ordres de Mission.</p>
+        </div>
+        <div class="syn-card p-6">
+          <div class="font-mono-mark text-[#8A8780] mb-2">SPÉCIALITÉ 06</div>
+          <h3 class="text-base font-bold text-[#161513] mb-1">Sous-Traitance Encadrée (Livre VI)</h3>
+          <p class="text-xs text-[#464440] leading-relaxed">Vérification documentaire des dossiers de vigilance (autorisation d'exercer CNAPS, dirigeants, URSSAF, assurances) dans le respect des limites légales de rang.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Architecture & Modules Opérationnels -->
+    <section id="solutions" class="max-w-7xl mx-auto px-6 py-16 border-t border-[#D5D4CC]">
+      <div class="mb-10">
+        <span class="font-mono-mark text-[#1D4ED8]">[SEC-02 // ARCHITECTURE OPÉRATIONNELLE]</span>
+        <h2 class="font-editorial text-3xl sm:text-5xl text-[#161513] mt-2">
+          Quatre modules d'ingénierie pour <span class="font-editorial-italic">sécuriser votre exploitation</span>.
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="syn-card p-8">
+          <div class="font-mono-mark text-[#1D4ED8] mb-2">MODULE 01 // BOUCLIER DE CONFORMITÉ</div>
+          <h3 class="text-xl font-bold text-[#161513] mb-3">Suivi des Cartes CNAPS, MAC, SST &amp; SSIAP</h3>
+          <p class="text-xs text-[#464440] leading-relaxed mb-4">
+            Centralisation des dossiers agents et alertes préventives à J-90, J-60 et J-30 avant l'expiration d'un titre. Lors de la planification, le moteur vérifie qu'aucun titre n'expire avant l'heure de fin de la vacation et empêche toute affectation en doublon sur deux sites simultanés.
+          </p>
+          <div class="font-mono-mark text-[#6E6B65] border-t border-[#D5D4CC] pt-3">
+            RÈGLE APPLIQUÉE : VALIDATION OBLIGATOIRE PAR LE SAS DIRIGEANT
+          </div>
         </div>
 
-        <form id="formSecu" class="space-y-6">
-          <input type="hidden" name="verticale" value="Sécurité Privée">
+        <div class="syn-card p-8">
+          <div class="font-mono-mark text-[#1D4ED8] mb-2">MODULE 02 // PLANIFICATION &amp; DISPATCH</div>
+          <h3 class="text-xl font-bold text-[#161513] mb-3">Aide aux Remplacements &amp; Ordres de Mission</h3>
+          <p class="text-xs text-[#464440] leading-relaxed mb-4">
+            En cas d'absence imprévue, filtrage immédiat des agents disponibles disposant des qualifications requises pour le site et respectant le repos quotidien minimum. Génération du brouillon d'Ordre de Mission incluant la mention légale obligatoire de l'article L.612-9 du CSI.
+          </p>
+          <div class="font-mono-mark text-[#6E6B65] border-t border-[#D5D4CC] pt-3">
+            RÈGLE APPLIQUÉE : MISE À JOUR AUTOMATIQUE DU COMPTEUR D'HEURES AGENT
+          </div>
+        </div>
+
+        <div class="syn-card p-8">
+          <div class="font-mono-mark text-[#1D4ED8] mb-2">MODULE 03 // CHIFFRAGE &amp; MARGE</div>
+          <h3 class="text-xl font-bold text-[#161513] mb-3">Simulateur de Coût Complet &amp; Prix Plancher</h3>
+          <p class="text-xs text-[#464440] leading-relaxed mb-4">
+            Avant toute remise de devis à un donneur d'ordre, calcul déterministe du coût horaire complet (taux de base conventionnel, charges, heures de nuit, dimanches, fériés, primes de panier/habillage) après validation explicite des paramètres de coûts par le dirigeant.
+          </p>
+          <div class="font-mono-mark text-[#6E6B65] border-t border-[#D5D4CC] pt-3">
+            RÈGLE APPLIQUÉE : ZÉRO CHIFFRE INVENTÉ &middot; PARAMÈTRES VÉRIFIÉS PAR LA DIRECTION
+          </div>
+        </div>
+
+        <div class="syn-card p-8">
+          <div class="font-mono-mark text-[#1D4ED8] mb-2">MODULE 04 // MARCHÉS PUBLICS &amp; PRIVÉS</div>
+          <h3 class="text-xl font-bold text-[#161513] mb-3">Veille BOAMP &amp; Assistance aux Mémoires Techniques</h3>
+          <p class="text-xs text-[#464440] leading-relaxed mb-4">
+            Détection des avis de marchés publics de gardiennage et sécurité incendie via les flux Open Data officiels (BOAMP / DECP) et assistance à la structuration documentaire de vos mémoires techniques (présentation de l'organisation, continuité de service, contrôle qualité).
+          </p>
+          <div class="font-mono-mark text-[#6E6B65] border-t border-[#D5D4CC] pt-3">
+            RÈGLE APPLIQUÉE : TOUTE PIÈCE MANQUANTE EST SIGNALÉE [À FOURNIR]
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Formulaire d'Étude Sécurité Privée -->
+    <section id="audit-secu" class="max-w-4xl mx-auto px-6 py-20">
+      <div class="syn-frame syn-corner-tl syn-corner-br p-8 sm:p-12">
+        <div class="border-b border-[#D5D4CC] pb-6 mb-8">
+          <span class="syn-tag"><span class="syn-dot-blue"></span> [DIAG-SEC // ÉTUDE D'EXPLOITATION SÉCURITÉ PRIVÉE]</span>
+          <h2 class="font-editorial text-3xl sm:text-5xl text-[#161513] mt-3">
+            Demander un diagnostic de votre exploitation
+          </h2>
+          <p class="text-sm text-[#464440] mt-2">
+            Échange confidentiel sur l'organisation de vos plannings, le suivi de vos titres CNAPS/SSIAP et la rentabilité de vos vacations.
+          </p>
+        </div>
+
+        <form id="formSecu" class="space-y-6" novalidate>
           <input type="hidden" name="marche" value="France">
+          <input type="hidden" name="verticale" value="Sécurité Privée">
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
-              <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Dirigeant / Responsable d'Exploitation *</label>
-              <input type="text" name="nom" required placeholder="Nom & Prénom" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 text-sm">
+              <label class="block font-mono-mark text-[#464440] mb-2">Dirigeant / Directeur d'Exploitation *</label>
+              <input type="text" name="nom" required placeholder="Nom &amp; Prénom" class="syn-input">
             </div>
             <div>
-              <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Société de Sécurité *</label>
-              <input type="text" name="entreprise" required placeholder="Raison Sociale" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 text-sm">
+              <label class="block font-mono-mark text-[#464440] mb-2">Société de Sécurité *</label>
+              <input type="text" name="entreprise" required placeholder="Raison Sociale" class="syn-input">
             </div>
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
-              <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Email Professionnel *</label>
-              <input type="email" name="email" required placeholder="direction@securite.fr" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 text-sm">
+              <label class="block font-mono-mark text-[#464440] mb-2">E-mail Professionnel *</label>
+              <input type="email" name="email" required placeholder="direction@securite.fr" class="syn-input">
             </div>
             <div>
-              <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Téléphone Direct *</label>
-              <input type="tel" name="telephone" required placeholder="06 / 07 ..." class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 text-sm">
+              <label class="block font-mono-mark text-[#464440] mb-2">Téléphone Direct *</label>
+              <input type="tel" name="telephone" required placeholder="06 / 01 ..." class="syn-input">
             </div>
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
-              <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Tranche d'effectif terrain</label>
-              <select name="effectif" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white focus:outline-none focus:border-blue-500 text-sm">
+              <label class="block font-mono-mark text-[#464440] mb-2">Effectif d'agents en exploitation</label>
+              <select name="effectif" class="syn-input">
                 <option value="1 à 15 agents">1 à 15 agents</option>
-                <option value="15 à 50 agents">15 à 50 agents</option>
+                <option value="15 à 50 agents" selected>15 à 50 agents</option>
                 <option value="50 à 150 agents">50 à 150 agents</option>
                 <option value="> 150 agents">Plus de 150 agents</option>
               </select>
             </div>
             <div>
-              <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Sujet principal à structurer</label>
-              <select name="besoin" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white focus:outline-none focus:border-blue-500 text-sm">
-                <option value="Suivi des dates d'échéance des cartes et habilitations">Suivi des dates d'échéance des cartes et habilitations</option>
-                <option value="Organisation des remplacements imprévus">Organisation des remplacements imprévus</option>
-                <option value="Suivi des heures de vacation et facturation">Suivi des heures de vacation et facturation</option>
-                <option value="Centralisation des rapports d'intervention">Centralisation des rapports d'intervention</option>
+              <label class="block font-mono-mark text-[#464440] mb-2">Priorité opérationnelle</label>
+              <select name="besoin" class="syn-input">
+                <option value="Suivi des échéances CNAPS, MAC, SST et SSIAP">Suivi des échéances CNAPS, MAC, SST et SSIAP</option>
+                <option value="Planification des vacations, repos IDCC 1351 et remplacements">Planification des vacations, repos IDCC 1351 et remplacements</option>
+                <option value="Chiffrage du coût de revient horaire et protection des marges">Chiffrage du coût de revient horaire et protection des marges</option>
+                <option value="Structuration des mémoires techniques et appels d'offres">Structuration des mémoires techniques et appels d'offres</option>
               </select>
             </div>
+          </div>
+
+          <div>
+            <label class="block font-mono-mark text-[#464440] mb-2">Outils actuels et précisions sur votre organisation</label>
+            <textarea name="description" rows="3" placeholder="Ex: Plannings gérés sur Excel ou logiciel métier, volume de remplacements hebdomadaires, types de sites (SSIAP, gardiennage, rondes)..." class="syn-input"></textarea>
           </div>
 
           <!-- Honeypot -->
@@ -187,29 +278,30 @@
           </div>
 
           <!-- RGPD -->
-          <div class="flex items-start space-x-3 pt-2">
-            <input type="checkbox" id="rgpd_secu" name="rgpd_consent" required class="mt-1 h-4 w-4 rounded border-slate-800 bg-slate-950 text-blue-600 focus:ring-blue-500">
-            <label for="rgpd_secu" class="text-xs text-slate-400 leading-normal">
-              J'accepte que les données transmises soient utilisées exclusivement par SYNTESIA pour l'étude confidentielle de ma demande professionnelle. *
+          <div class="flex items-start space-x-3 pt-2 border-t border-[#D5D4CC]">
+            <input type="checkbox" id="rgpd_secu" name="rgpd_consent" required class="mt-1 h-4 w-4 border-[#B5B4AC] text-[#161513]">
+            <label for="rgpd_secu" class="text-xs text-[#464440] leading-relaxed">
+              J'accepte que les données transmises soient traitées exclusivement par SYNTESIA pour l'étude confidentielle de ma demande professionnelle, conformément au RGPD. *
             </label>
           </div>
 
-          <button type="submit" id="btnSecu" class="w-full py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-base transition shadow-lg shadow-blue-600/30">
-            Transmettre ma demande d'étude
+          <button type="submit" class="syn-btn-primary w-full py-4 text-base">
+            <span>Transmettre ma demande d'étude Sécurité Privée</span>
+            <span class="font-mono text-sm">&rarr;</span>
           </button>
-          <div id="feedbackSecu" class="hidden text-center text-sm font-semibold p-4 rounded-xl"></div>
+
+          <div id="feedbackSecu" class="hidden p-6 border border-[#161513] bg-[#EAE9E2] text-xs text-[#161513]"></div>
         </form>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="border-t border-slate-900 bg-slate-950 py-12 px-6">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between text-xs text-slate-500 gap-4">
-      <div>&copy; 2026 SYNTESIA &middot; Espace Sécurité Privée. Projet en cours de structuration.</div>
+  <footer class="border-t border-[#D5D4CC] bg-[#EAE9E2] py-10 px-6">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between text-xs text-[#6E6B65] gap-4">
+      <div>&copy; 2026 SYNTESIA &middot; Verticale Sécurité Privée (France). Projet en cours de structuration.</div>
       <div class="flex space-x-6">
-        <a href="../index.html" class="hover:text-slate-400">Accueil SYNTESIA</a>
-        <a href="#audit-secu" class="hover:text-slate-400">Politique de Confidentialité & RGPD</a>
+        <a href="../index.html" class="hover:text-[#161513] underline-offset-4 hover:underline">Accueil SYNTESIA France</a>
+        <a href="../batiment-renovation/index.html" class="hover:text-[#161513] underline-offset-4 hover:underline">Pôle Bâtiment, BTP &amp; Rénovation</a>
       </div>
     </div>
   </footer>
@@ -218,15 +310,20 @@
     document.getElementById('formSecu').addEventListener('submit', function(e) {
       e.preventDefault();
       const feedback = document.getElementById('feedbackSecu');
+      if (this.company_website && this.company_website.value !== "") return;
 
-      // Honeypot check
-      if (this.company_website && this.company_website.value !== "") {
-        console.warn("Soumission bloquée (honeypot).");
+      if (!this.nom.value.trim() || !this.entreprise.value.trim() || !this.email.value.trim() || !this.telephone.value.trim() || !this.rgpd_consent.checked) {
+        feedback.className = "p-5 border border-[#B84A27] bg-[#FAF9F5] text-xs text-[#B84A27]";
+        feedback.innerHTML = "<strong>[CONTRÔLE DE SAISIE]</strong> Veuillez compléter tous les champs obligatoires (*) et cocher la case de consentement RGPD.";
+        feedback.classList.remove('hidden');
         return;
       }
 
-      feedback.className = "text-center text-sm font-semibold p-4 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20";
-      feedback.innerText = "Votre demande d'étude Sécurité a été enregistrée avec succès. Nous prendrons contact sous 24h à 48h ouvrées.";
+      feedback.className = "p-6 border border-[#161513] bg-[#EAE9E2] text-xs text-[#161513] space-y-2";
+      feedback.innerHTML =
+        "<div class='font-mono-mark text-[#5C6B28]'>[FICHE SÉCURITÉ PRIVÉE QUALIFIÉE &mdash; MODE PRÉ-PRODUCTION]</div>" +
+        "<p class='text-sm font-semibold'>Demande enregistrée pour " + this.entreprise.value.replace(/</g, "&lt;") + ".</p>" +
+        "<p class='text-[#464440]'>Vos paramètres d'exploitation (" + this.effectif.value + " &middot; " + this.besoin.value + ") sont prêts pour l'analyse technique. Raccordement CRM en mode validation locale tant que le webhook de production n'est pas activé.</p>";
       feedback.classList.remove('hidden');
       this.reset();
     });
