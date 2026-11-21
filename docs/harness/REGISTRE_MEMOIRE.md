@@ -1,0 +1,85 @@
+# LIVRABLE 3 — REGISTRE CENTRAL DE MÉMOIRE PERSISTANTE & GOUVERNANCE DU CONTEXTE (`COUCHE 2 — CONTEXT`)
+
+**Référence :** SYNTESIA-HARNESS-MEM-011 (Mission AGIA-011)  
+**Fichier miroir exécutable :** [docs/harness/state/harness_memory.json](file:///home/antigravity/agia-infrastructure/docs/harness/state/harness_memory.json)  
+**Dernière synchronisation vérifiée :** 21 novembre 2026 (après commit `91a1eec`)  
+**Règle absolue :** *Aucune hypothèse (`PROPOSED`) ni déclaration externe non vérifiée (`DECLARED`) ne peut être transformée silencieusement en fait confirmé (`CONFIRMED`).*
+
+---
+
+## 1. `FACTS` — FAITS VÉRIFIÉS ET ACTIFS RÉELS
+
+| ID Fait | Statut | Énoncé factuel | Preuve & Source primaire (`SOURCES`) |
+| :--- | :---: | :--- | :--- |
+| **`FACT-01`** | **`CONFIRMED`** | Le dépôt GitHub de référence de SYNTESIA est `naitconv-web/agia-infrastructure` (branche `main`). Il est le seul dépôt rattaché avec droits d'écriture au jeton de l'environnement cloud courant. | `gh repo list naitconv-web` & `git remote -v` (`commit 91a1eec`). |
+| **`FACT-02`** | **`CONFIRMED`** | Les 4 pages web commerciales (`france`, `algerie`, `securite-privee`, `batiment-renovation`), la page légale (`mentions-legales-confidentialite.html`) et le démonstrateur (`demonstrateur/index.html`) sont 100 % autonomes (0 appel CDN externe, 0 fuite d'IP, `77/77` tests de recette AGIA-009 réussis). | [RAPPORT_AGIA-009_RECETTE_FONCTIONNELLE.md](file:///home/antigravity/agia-infrastructure/docs/sites/RAPPORT_AGIA-009_RECETTE_FONCTIONNELLE.md) & commit `0d6d91b`. |
+| **`FACT-03`** | **`CONFIRMED`** | Le webhook de production des formulaires est **désactivé par sécurité** (`WEBHOOK_ENABLED: false`, `ENVIRONMENT: "PREPROD"` dans `sites/shared/syntesia-forms.js`). Aucune donnée saisie dans les pages HTML n'est envoyée sur Internet tant que le fondateur n'active pas cet interrupteur. | [sites/shared/syntesia-forms.js](file:///home/antigravity/agia-infrastructure/sites/shared/syntesia-forms.js#L10-L14). |
+| **`FACT-04`** | **`CONFIRMED`** | Le tableur Google Sheets CRM central (`1EmC6f4ljLU2GZmD9HEBt50WdTlVXoQtPQ64vFQL1I_0`, onglet `01_PROSPECTS_LEADS`) utilise un schéma strict de **15 colonnes (`A` à `O`)** testé en écriture/relecture réelle en mode `TEST` (ligne `LEAD-TEST-20261121-183904-4493`) avec neutralisation anti-injection de formules `CWE-1236`. | [MATRICE_TESTS_AGIA-009.md](file:///home/antigravity/agia-infrastructure/docs/sites/MATRICE_TESTS_AGIA-009.md) (`CRM-LIVE-01`). |
+| **`FACT-05`** | **`CONFIRMED`** | Le socle `OMNISECUR v2.3.2` (`f6b1a87`) dispose de preuves d'exécution archivées sur Google Drive (`95/95` tests Vitest dont `28` tests PostgreSQL réels, `clock_timestamp()`, protocole zone blanche `offline_event_id`). | Drive `SORTIES-BRUTES-TESTS-ET-BUILD-f6b1a87.txt` (`1BXe_-qm...`) & [PROJET_02_OMNISECUR.md](file:///home/antigravity/agia-infrastructure/docs/memoire_portefeuille/fiches_projets/PROJET_02_OMNISECUR.md). |
+| **`FACT-06`** | **`BLOCKED`** | L'immatriculation définitive (Kbis / SIREN / RCS) de la `SASU ATLAS GLOBAL TRADING` (statuts en formation du 30/10/2026) n'est pas présente sur Drive, et les 5 champs d'identité légale de `mentions-legales-confidentialite.html` sont en attente des données du fondateur. | [PROJET_06_STRUCTURE_JURIDIQUE_ATLAS_GLOBAL_TRADING.md](file:///home/antigravity/agia-infrastructure/docs/memoire_portefeuille/fiches_projets/PROJET_06_STRUCTURE_JURIDIQUE_ATLAS_GLOBAL_TRADING.md) & `CONF-01`. |
+| **`FACT-07`** | **`PROPOSED`** | Le dépôt `naitconv-web/lab-core` et la cible de consommation `< 80 Mo RAM` du noyau Architecture C (`LAB-ARCH-001`) constituent une spécification de conception théorique : le dépôt `lab-core` n'existe pas encore sur GitHub. | [PROJET_01_WORKSTATION_IA_ET_LAB.md](file:///home/antigravity/agia-infrastructure/docs/memoire_portefeuille/fiches_projets/PROJET_01_WORKSTATION_IA_ET_LAB.md) (`NV-02`). |
+| **`FACT-08`** | **`DECLARED`** | Le poste local du fondateur fonctionne sous Windows 11 avec 8 Go de RAM et utilise Paseo + Mistral Vibe (`3.1.3` WSL2 ACP). Son état en direct n'est pas inspectable depuis la VM Cloud Linux. | Drive `WORKSTATION-IA_REFERENTIEL_RESSOURCES` & `NV-08`. |
+
+---
+
+## 2. `DECISIONS` — DÉCISIONS STRATÉGIQUES ARBITRÉES
+
+| ID Décision | Date | Statut | Règle / Arbitrage permanent | Source |
+| :--- | :---: | :---: | :--- | :--- |
+| **`DEC-01`** | 14–21/11/2026 | **`CONFIRMED`** | **Régime Financier F1 (`0,00 €`) :** Interdiction absolue d'engager une dépense, un achat de domaine/hébergement ou un abonnement API payant sans validation explicite du fondateur. | `D-011 (EC-006)` & `AGIA-002` à `011`. |
+| **`DEC-02`** | 21/11/2026 | **`CONFIRMED`** | **Hiérarchie du Portefeuille :** `WORKSTATION-IA` = système d'orchestration technique ; `LAB` = structure mère active éditant la gamme logicielle `Omni-X` (`OMNISECUR`, `OMNIRENOV / RELANCE-DEVIS`, `OMNIPATRIMOINE`) ; `SYNTESIA` = marque commerciale d'ingénierie et d'intégration IA. | `AGIA-003` ([CARTOGRAPHIE_PORTEFEUILLE.md](file:///home/antigravity/agia-infrastructure/docs/memoire_portefeuille/cartographie/CARTOGRAPHIE_PORTEFEUILLE.md)). |
+| **`DEC-03`** | 21/11/2026 | **`CONFIRMED`** | **Stratégie Géographique & Verticales SYNTESIA :** **France** = marché prioritaire de lancement avec 2 verticales d'égale priorité (**1. Sécurité Privée**, **2. Bâtiment / BTP / Rénovation** distingués) + socle **HCR** & **CGP** + 5 extensions badgées *« en cours d'étude »*. **Algérie** = second marché avec positionnement propre (WhatsApp Business, BL, DZD). | `AGIA-002`, `AGIA-005`, `AGIA-006`. |
+| **`DEC-04`** | 21/11/2026 | **`CONFIRMED`** | **Bibliothèque Technologique & Refero Styles :** La bibliothèque technologique (`docs/bibliotheque_technologique/`) est une ressource permanente à consulter avant tout développement. Refero (`styles.refero.design`) est la référence méthodologique pour toute conception d'interface UI/UX. | `AGIA-006` & `AGIA-007`. |
+| **`DEC-05`** | 21/11/2026 | **`CONFIRMED`** | **Distinction des 2 Offres Commerciales (`CONF-02` résolu) :**<br>• Offre `RELANCE-DEVIS` du `LAB` (`WS-2026-005`) = **390 € setup + 69 €/mois** (micro-service produit BTP Inbound Meta Ads).<br>• Offre Agence `Pack SYNTESIA — Relance Devis & Bouclier Conformité` (`AGIA-010`) = **1 490 € HT setup + 190 € HT/mois** en France / **145 000 DZD + 19 000 DZD/mois** en Algérie (intégration sur-mesure en 7 jours avec Cockpit Devis + Conformité URSSAF/CNAPS/BL + Formation). | `WS-2026-005` & `AGIA-010` ([KIT_COMMERCIAL_COMPLET_AGIA_010.md](file:///home/antigravity/agia-infrastructure/docs/commercial/KIT_COMMERCIAL_COMPLET_AGIA_010.md)). |
+| **`DEC-06`** | 21/11/2026 | **`CONFIRMED`** | **Adoption du SYNTESIA Harness Engineering (`AGIA-011`) :** Aucun projet ne doit dépendre de la mémoire d'une conversation. Préflight au démarrage et Checkpoint à la clôture sont obligatoires pour tout agent. | `AGIA-011` (`AGENTS.md` & `docs/harness/`). |
+| **`DEC-07`** | 21/11/2026 | **`SUPERSEDED`** | *(Ancienne mention AGIA-001)* : Présupposé d'affichage direct d'un statut micro-entrepreneur avec SIRET/Kbis sur le site public France. Remplacé par l'obligation de ne rien inventer et d'attendre que le fondateur complète `mentions-legales-confidentialite.html` (`CONF-01`). | `AGIA-003` & `AGIA-009`. |
+
+---
+
+## 3. `PROJECTS` — ÉTAT ISOLÉ DE CHAQUE PROJET DU PORTEFEUILLE
+
+| ID Projet | Nom | Structure Mère | Statut Harness | État exact & Prochaine action autorisée |
+| :--- | :--- | :--- | :---: | :--- |
+| **`PROJ-SYN`** | **SYNTESIA (Agence France & Algérie)** | Marque commerciale | **`IN_PROGRESS`** *(Pré-prod 100 % validée / Go-Live `BLOCKED` sur 5 décisions fondateur)* | Sites (5 pages), Démonstrateur interactif, Kit commercial (1 490 € / 145k DZD), 10 prospects France + 5 segments Algérie et Harness Engineering livrés et testés. **En attente :** 5 décisions Go-Live du fondateur ([CHECKLIST_PRODUCTION_SYNTESIA.md](file:///home/antigravity/agia-infrastructure/docs/sites/CHECKLIST_PRODUCTION_SYNTESIA.md)). |
+| **`PROJ-OMNI`** | **OMNISECUR (Sécurité Privée)** | `LAB` (Niveau 2) | **`CONFIRMED`** *(Socle v2.3.2)* / **`PROPOSED`** *(Roadmap Phase 2)* | Socle v2.3.2 (`f6b1a87`) certifié + Benchmark mondial de 28 solutions et matrice d'adaptation Phase 2 livrés (`AGIA-007`). **Interdiction de modifier le code v2.3.2 sans arbitrage du Lot Phase 2A par le fondateur.** |
+| **`PROJ-RENOV`** | **RELANCE-DEVIS / OMNIRENOV (Bâtiment/BTP)** | `LAB` (Niveau 2) | **`CONFIRMED`** *(Kit Drive)* | Kit commercial 48h sur Drive ; méthodologie de relance J+3/J+7 et vigilance URSSAF/Décennale intégrées au démonstrateur SYNTESIA (`AGIA-010`). |
+| **`PROJ-PATRI`** | **OMNIPATRIMOINE (CGP)** | `LAB` (Niveau 3) | **`PROPOSED`** *(Séquencé)* | Analyse sectorielle CGP (`04-cgp-gestion-patrimoine.md`) réalisée en AGIA-005. Développement applicatif séquencé après génération de revenus Niveau 1/2. |
+| **`PROJ-WS`** | **WORKSTATION-IA & LAB CORE** | Système d'orchestration | **`CONFIRMED`** *(Harness Git)* / **`PROPOSED`** *(`lab-core`)* | Harness Engineering opérationnel dans `agia-infrastructure` (`AGIA-011`). Création éventuelle du dépôt `lab-core` soumise à décision ultérieure du fondateur. |
+| **`PROJ-ATLAS`** | **SASU ATLAS GLOBAL TRADING** | Structure juridique | **`IN_PROGRESS`** / **`BLOCKED`** | Statuts en formation (30/10/2026, Albi). Attente du dépôt de capital et de l'extrait Kbis définitif (`NV-03`). |
+| **`PROJ-EC`** | **EMERGENCY CASHFLOW (EC)** | Mission supervisée | **`CONFIRMED`** *(Palier P0)* | En `PREPARATION` (Régime F1 0,00 €, J0 non activé). Strictement isolé des opérations de code SYNTESIA. |
+
+---
+
+## 4. `TASKS` — ÉTAT DES MISSIONS ET BACKLOG
+
+| ID Mission / Tâche | Statut | Résultat & Preuve |
+| :--- | :---: | :--- |
+| **`AGIA-001` à `AGIA-006`** | **`CONFIRMED`** | Infrastructure CRM, audit Lot 1, mémoire portefeuille, catalogue sectoriel 11 marchés, bibliothèque technologique et refonte Refero des 4 sites (`commit a2815f9`). |
+| **`AGIA-007`** | **`CONFIRMED`** | Revue visuelle Chromium + compilation CSS autonome + étude mondiale de 28 logiciels de sécurité privée + Top 10 + Matrice `OMNISECUR` (`commit b531656` / `26ac619`). |
+| **`AGIA-009`** | **`CONFIRMED`** | Recette fonctionnelle et sécurité indépendante (`77/77` tests réussis, correction CWE-1236, anti-doublon, E.164, 4 viewports, test Google Sheets `LEAD-TEST-20261121-183904-4493`, `commit 9395ae9`). |
+| **`AGIA-010`** | **`CONFIRMED`** | Kit d'exécution commerciale immédiate (Offre 1 490 € / 145k DZD, Démonstrateur interactif 3 modes, Pitch + Proposition 1 page, 10 prospects France Open Data + 5 segments Algérie sans contact, `commit 91a1eec`). |
+| **`AGIA-011`** | **`CONFIRMED`** | Conception, implémentation et validation par 6 tests de résistance (`Test A` à `Test F`) du **SYNTESIA Harness Engineering** (`docs/harness/`, `AGENTS.md`, `scripts/harness_ctl.py`). |
+| **`BACKLOG-GO-LIVE`** | **`BLOCKED`** | Exécution par le fondateur des 5 décisions de [CHECKLIST_PRODUCTION_SYNTESIA.md](file:///home/antigravity/agia-infrastructure/docs/sites/CHECKLIST_PRODUCTION_SYNTESIA.md) (Mentions légales, Domaine/Hébergeur, Déploiement Web App Apps Script, `WEBHOOK_ENABLED=true`, publication). |
+| **`BACKLOG-OMNI-2A`** | **`PROPOSED`** | Arbitrage par le fondateur du Lot Phase 2A d'`OMNISECUR` (Portefeuille CNAPS hors-ligne 1-clic, Sas d'émargement des consignes de site, Tri des remplaçants par coût sur marge). |
+
+---
+
+## 5. `SHARDS` — INDEX DE CHARGEMENT CONTEXTUEL À LA DEMANDE
+
+Pour économiser les tokens et éviter de charger tout le dépôt en mémoire, un agent ne doit lire que le(s) Shard(s) correspondant(s) à sa mission :
+
+| ID Shard | Domaine couvert | Fichiers de référence à charger à la demande |
+| :--- | :--- | :--- |
+| **`SHARD-01-HARNESS`** | Gouvernance, Préflight, Checkpoints & Résilience | `AGENTS.md`, `docs/harness/REGISTRE_MEMOIRE.md`, dernier fichier dans `docs/harness/checkpoints/` |
+| **`SHARD-02-COMMERCIAL`** | Offre vendable, Démonstrateur, Pitch, Proposition & Prospects | `docs/commercial/KIT_COMMERCIAL_COMPLET_AGIA_010.md`, `sites/demonstrateur/index.html` |
+| **`SHARD-03-SITES-CRM`** | Sites France/Algérie, Formulaires, Sécurité & Google Sheets CRM | `sites/shared/syntesia-forms.js`, `automations/google_apps_script_crm_sync.js`, `scripts/orchestrate_crm.py`, `docs/sites/CHECKLIST_PRODUCTION_SYNTESIA.md` |
+| **`SHARD-04-OMNISECUR`** | Veille mondiale sécurité privée, Règles CSI/IDCC 1351 & Roadmap Phase 2 | `docs/memoire_portefeuille/fiches_projets/PROJET_02_OMNISECUR.md`, `docs/omnisecur/veille/MATRICE_ADAPTATION_ET_ROADMAP_OMNISECUR.md` |
+| **`SHARD-05-CATALOGUE-TECH`** | Catalogue sectoriel (11 marchés) & Bibliothèque technologique (Refero, REA, Chatwoot...) | `docs/verticales/catalogue-sectoriel.md`, `docs/bibliotheque_technologique/INDEX_ET_GOUVERNANCE.md`, `docs/bibliotheque_technologique/MATRICE_RESSOURCES_PROJETS.md` |
+
+---
+
+## 6. `SOURCES` — REGISTRE DE PROVENANCE PRIMAIRE
+
+- **`SRC-GIT-MAIN`** : Dépôt GitHub `naitconv-web/agia-infrastructure`, branche `main` (historique complet des commits `c7fd11d` ➔ `c900b8e` ➔ `a2815f9` ➔ `b531656` ➔ `26ac619` ➔ `9395ae9` ➔ `91a1eec`).
+- **`SRC-GSHEET-CRM`** : Google Sheets `SYNTESIA_CRM_CENTRAL` (`1EmC6f4ljLU2GZmD9HEBt50WdTlVXoQtPQ64vFQL1I_0`), onglet `01_PROSPECTS_LEADS` (15 colonnes `A` à `O`).
+- **`SRC-DRIVE-WS`** : Google Drive `WORKSTATION-IA` (`_KNOWLEDGE_BASE` ID `1Kk5x1q3TW-sqKzYkDvHCmGKMRd8MePpP`, `_ORCHESTRATION/REGISTRE-DECISIONS.md` ID `1aUs3wwd0slFo3yJWDfUt8i2ir_CQaE4G`, `PROJETS/OMNISECUR` ID `1BQd8Ohcc7R_sfRm04SFHegoukHeAz-EB`).

@@ -17,6 +17,10 @@ Tous les agents sont soumis aux dispositions absolues suivantes :
    - Interdiction totale de comptabiliser une donnée de simulation/test comme un résultat commercial.
    - Toute donnée générée lors d'un test technique doit porter le statut `TEST_...` et `Environnement = TEST`.
    - Seuls les encaissements réels validés en banque / comptabilité constituent le Chiffre d'Affaires.
+4. **Conformité Obligatoire au SYNTESIA Harness Engineering (`AGENTS.md` & `docs/harness/`) :**
+   - **Zéro dépendance à la mémoire d'une conversation :** Au démarrage de toute session ou reprise après compaction/changement de modèle, exécuter obligatoirement `python3 scripts/harness_ctl.py preflight` et consulter `docs/harness/REGISTRE_MEMOIRE.md`.
+   - **Boucle contrôlée :** Appliquer strictement `PLAN → EXECUTE → TEST → VERIFY → CORRECT (max 3 essais) → REPORT` et distinguer `DOCUMENTÉ ≠ IMPLÉMENTÉ ≠ TESTÉ ≠ VALIDÉ EN PRODUCTION`.
+   - **Sauvegarde de reprise :** Enregistrer systématiquement un checkpoint standardisé via `python3 scripts/harness_ctl.py checkpoint --mission <ID>` dans `docs/harness/checkpoints/`.
 
 ---
 

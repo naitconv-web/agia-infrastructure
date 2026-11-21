@@ -1,0 +1,230 @@
+{
+  "schema_version": "1.0.0",
+  "harness_id": "SYNTESIA-HARNESS-011",
+  "reference_repository": "naitconv-web/agia-infrastructure",
+  "default_branch": "main",
+  "allowed_statuses": [
+    "CONFIRMED",
+    "DECLARED",
+    "PROPOSED",
+    "IN_PROGRESS",
+    "BLOCKED",
+    "SUPERSEDED"
+  ],
+  "maturity_levels": [
+    "DOCUMENTE",
+    "IMPLEMENTE",
+    "TESTE",
+    "VALIDE_EN_PRODUCTION"
+  ],
+  "guardrails": {
+    "financial_regime": "F1_ZERO_EURO_AUTONOMOUS",
+    "webhook_enabled": false,
+    "environment": "PREPROD",
+    "outbound_prospect_contact_allowed": false,
+    "invent_legal_data_allowed": false,
+    "max_loop_attempts": 3
+  },
+  "facts": [
+    {
+      "id": "FACT-01",
+      "status": "CONFIRMED",
+      "maturity": "TESTE",
+      "statement": "Le dépôt GitHub de référence de SYNTESIA est naitconv-web/agia-infrastructure (branche main), seul dépôt rattaché en écriture au jeton de la VM courante.",
+      "source_id": "SRC-GIT-MAIN",
+      "proof": "gh repo list naitconv-web -> agia-infrastructure (commit 91a1eec)"
+    },
+    {
+      "id": "FACT-02",
+      "status": "CONFIRMED",
+      "maturity": "TESTE",
+      "statement": "Les 5 pages HTML des sites SYNTESIA et le démonstrateur interactif sont 100 % autonomes (0 appel CDN externe, 77/77 tests de recette AGIA-009 réussis).",
+      "source_id": "SRC-GIT-MAIN",
+      "proof": "docs/sites/RAPPORT_AGIA-009_RECETTE_FONCTIONNELLE.md (commit 0d6d91b)"
+    },
+    {
+      "id": "FACT-03",
+      "status": "CONFIRMED",
+      "maturity": "TESTE",
+      "statement": "Le webhook de production est verrouillé à WEBHOOK_ENABLED=false et ENVIRONMENT=PREPROD dans sites/shared/syntesia-forms.js.",
+      "source_id": "SRC-GIT-MAIN",
+      "proof": "sites/shared/syntesia-forms.js:L10-14"
+    },
+    {
+      "id": "FACT-04",
+      "status": "CONFIRMED",
+      "maturity": "TESTE",
+      "statement": "Le CRM Google Sheets (1EmC6f4ljLU2GZmD9HEBt50WdTlVXoQtPQ64vFQL1I_0, onglet 01_PROSPECTS_LEADS) respecte le schéma 15 colonnes avec protection CWE-1236, testé en réel (LEAD-TEST-20261121-183904-4493).",
+      "source_id": "SRC-GSHEET-CRM",
+      "proof": "docs/sites/MATRICE_TESTS_AGIA-009.md (CRM-LIVE-01)"
+    },
+    {
+      "id": "FACT-05",
+      "status": "CONFIRMED",
+      "maturity": "TESTE",
+      "statement": "Le socle OMNISECUR v2.3.2 (f6b1a87) dispose de 95/95 tests Vitest (dont 28 PostgreSQL réels) vérifiés dans les archives Drive.",
+      "source_id": "SRC-DRIVE-WS",
+      "proof": "Drive SORTIES-BRUTES-TESTS-ET-BUILD-f6b1a87.txt (1BXe_-qm...)"
+    },
+    {
+      "id": "FACT-06",
+      "status": "BLOCKED",
+      "maturity": "DOCUMENTE",
+      "statement": "L'immatriculation définitive (Kbis / SIREN / RCS) de la SASU ATLAS GLOBAL TRADING et les 5 champs d'identité légale de mentions-legales-confidentialite.html attendent les données du fondateur.",
+      "source_id": "SRC-GIT-MAIN",
+      "proof": "sites/shared/mentions-legales-confidentialite.html:L65-83"
+    },
+    {
+      "id": "FACT-07",
+      "status": "PROPOSED",
+      "maturity": "DOCUMENTE",
+      "statement": "Le dépôt naitconv-web/lab-core et la cible < 80 Mo RAM de l'Architecture C sont des spécifications théoriques non implémentées sur GitHub.",
+      "source_id": "SRC-DRIVE-WS",
+      "proof": "docs/memoire_portefeuille/fiches_projets/PROJET_01_WORKSTATION_IA_ET_LAB.md"
+    },
+    {
+      "id": "FACT-08",
+      "status": "DECLARED",
+      "maturity": "DOCUMENTE",
+      "statement": "Le poste local Windows 11 (8 Go RAM) du fondateur exécute Paseo + Mistral Vibe 3.1.3 (non inspectable en direct depuis la VM Cloud).",
+      "source_id": "SRC-DRIVE-WS",
+      "proof": "docs/bibliotheque_technologique/fiches/FICHE_06_ECOSYSTEME_EXECUTION_PASEO_OPENCODE_VIBE_ANTIGRAVITY.md"
+    }
+  ],
+  "decisions": [
+    {
+      "id": "DEC-01",
+      "status": "CONFIRMED",
+      "title": "Régime financier F1 (0,00 € autonome)",
+      "rule": "Zéro dépense, zéro achat de domaine/hébergement, zéro souscription payante sans validation explicite du fondateur."
+    },
+    {
+      "id": "DEC-02",
+      "status": "CONFIRMED",
+      "title": "Hiérarchie WORKSTATION-IA / LAB / SYNTESIA",
+      "rule": "WORKSTATION-IA = orchestration technique ; LAB = structure mère active des solutions Omni-X (OMNISECUR, OMNIRENOV, OMNIPATRIMOINE) ; SYNTESIA = marque commerciale d'ingénierie."
+    },
+    {
+      "id": "DEC-03",
+      "status": "CONFIRMED",
+      "title": "Stratégie Géographique France & Algérie",
+      "rule": "France prioritaire (2 verticales égales : Sécurité Privée et Bâtiment/BTP/Rénovation + socle HCR/CGP + 5 extensions à l'étude). Algérie second marché à stratégie propre (WhatsApp, BL, DZD)."
+    },
+    {
+      "id": "DEC-04",
+      "status": "CONFIRMED",
+      "title": "Bibliothèque Technologique & Refero Styles",
+      "rule": "Consulter la bibliothèque technologique avant tout développement ; utiliser Refero Styles comme référence méthodologique UI/UX."
+    },
+    {
+      "id": "DEC-05",
+      "status": "CONFIRMED",
+      "title": "Distinction des offres RELANCE-DEVIS (LAB) vs Pack SYNTESIA (Agence)",
+      "rule": "RELANCE-DEVIS (LAB) = 390 € + 69 €/mois (micro-service produit BTP Inbound). Pack SYNTESIA (AGIA-010) = 1 490 € HT + 190 €/mois en France / 145 000 DZD + 19 000 DZD/mois en Algérie (intégration sur-mesure en 7 jours avec Cockpit Devis + Conformité + Formation)."
+    },
+    {
+      "id": "DEC-06",
+      "status": "CONFIRMED",
+      "title": "Obligation du SYNTESIA Harness Engineering (AGIA-011)",
+      "rule": "Aucun projet ne dépend d'une conversation. Exécution obligatoire du préflight au démarrage et du checkpoint à la clôture."
+    },
+    {
+      "id": "DEC-07",
+      "status": "SUPERSEDED",
+      "title": "Ancienne mention AGIA-001 micro-entrepreneur SIRET/Kbis sur le site public",
+      "rule": "Remplacée par DEC-01/FACT-06 : aucune coordonnée d'immatriculation n'est affichée tant que le fondateur n'a pas renseigné mentions-legales-confidentialite.html."
+    }
+  ],
+  "projects": {
+    "SYNTESIA": {
+      "id": "PROJ-SYN",
+      "parent": "SYNTESIA",
+      "status": "IN_PROGRESS",
+      "maturity": "TESTE",
+      "repository": "naitconv-web/agia-infrastructure",
+      "commercial_offer": "1 490 EUR HT setup + 190 EUR/mois (France) | 145 000 DZD setup + 19 000 DZD/mois (Algérie)",
+      "next_actions": [
+        "Exécution par le fondateur des 5 décisions Go-Live (CHECKLIST_PRODUCTION_SYNTESIA.md)",
+        "Présentation du démonstrateur (sites/demonstrateur/index.html) aux premiers prospects sélectionnés"
+      ]
+    },
+    "OMNISECUR": {
+      "id": "PROJ-OMNI",
+      "parent": "LAB",
+      "status": "CONFIRMED",
+      "maturity": "TESTE",
+      "repository": "naitconv-web/omnisecur (privé, archive v2.3.2 f6b1a87 vérifiée sur Drive)",
+      "commercial_offer": "SaaS & Launch Kit Sécurité Privée (CSI Livre VI & IDCC 1351)",
+      "next_actions": [
+        "Arbitrage par le fondateur du Lot Phase 2A dans docs/omnisecur/veille/MATRICE_ADAPTATION_ET_ROADMAP_OMNISECUR.md",
+        "Interdiction de modifier le code source v2.3.2 sans ordre explicite"
+      ]
+    },
+    "RELANCE-DEVIS": {
+      "id": "PROJ-RENOV",
+      "parent": "LAB",
+      "status": "CONFIRMED",
+      "maturity": "DOCUMENTE",
+      "repository": "Aucun dépôt Git propre (Kit commercial sur Drive PROJETS/RELANCE-DEVIS)",
+      "commercial_offer": "390 EUR setup + 69 EUR/mois (Tunnel Inbound Meta Ads BTP, règle Zéro Code)",
+      "next_actions": [
+        "Clarifier avec le fondateur le verdict du test Meta Ads (NV-05)"
+      ]
+    },
+    "EMERGENCY_CASHFLOW": {
+      "id": "PROJ-EC",
+      "parent": "WORKSTATION-IA",
+      "status": "CONFIRMED",
+      "maturity": "DOCUMENTE",
+      "repository": "naitconv-web/ec-mission-state",
+      "commercial_offer": "N/A (Mission supervisée Palier P0, Régime F1 0,00 EUR)",
+      "next_actions": [
+        "Maintenir l'isolement strict vis-à-vis des fichiers opérationnels SYNTESIA"
+      ]
+    }
+  },
+  "conflicts": [
+    {
+      "id": "CONF-01",
+      "topic": "Identité juridique éditeur SYNTESIA France",
+      "source_a": "docs/ARCHITECTURE_GENERALE.md (AGIA-001 : mention micro-entrepreneur SIRET/Kbis)",
+      "source_b": "sites/shared/mentions-legales-confidentialite.html (AGIA-009 : champs [À RENSEIGNER] en attente Kbis ATLAS GLOBAL TRADING ou arbitrage fondateur)",
+      "resolution_status": "RESOLVED_BY_SUPERSESSION",
+      "active_rule": "DEC-07 marqué SUPERSEDED ; FACT-06 marqué BLOCKED jusqu'à saisie des coordonnées par le fondateur."
+    },
+    {
+      "id": "CONF-02",
+      "topic": "Grille tarifaire Relance Devis (390 EUR vs 1 490 EUR)",
+      "source_a": "MUTUALISATION_ET_DECISIONS.md (WS-2026-005 : 390 EUR + 69 EUR/mois)",
+      "source_b": "docs/commercial/KIT_COMMERCIAL_COMPLET_AGIA_010.md (AGIA-010 : 1 490 EUR + 190 EUR/mois)",
+      "resolution_status": "RESOLVED_BY_SCOPE_SEPARATION",
+      "active_rule": "DEC-05 : 390 EUR = micro-produit self-service LAB (RELANCE-DEVIS) ; 1 490 EUR = prestation agence clé en main 7 jours SYNTESIA (Devis + Conformité + Formation)."
+    }
+  ],
+  "shards": {
+    "SHARD-01-HARNESS": [
+      "AGENTS.md",
+      "docs/harness/REGISTRE_MEMOIRE.md",
+      "docs/harness/checkpoints/LATEST.json"
+    ],
+    "SHARD-02-COMMERCIAL": [
+      "docs/commercial/KIT_COMMERCIAL_COMPLET_AGIA_010.md",
+      "sites/demonstrateur/index.html"
+    ],
+    "SHARD-03-SITES-CRM": [
+      "sites/shared/syntesia-forms.js",
+      "automations/google_apps_script_crm_sync.js",
+      "scripts/orchestrate_crm.py",
+      "docs/sites/CHECKLIST_PRODUCTION_SYNTESIA.md"
+    ],
+    "SHARD-04-OMNISECUR": [
+      "docs/memoire_portefeuille/fiches_projets/PROJET_02_OMNISECUR.md",
+      "docs/omnisecur/veille/MATRICE_ADAPTATION_ET_ROADMAP_OMNISECUR.md"
+    ],
+    "SHARD-05-CATALOGUE-TECH": [
+      "docs/verticales/catalogue-sectoriel.md",
+      "docs/bibliotheque_technologique/INDEX_ET_GOUVERNANCE.md",
+      "docs/bibliotheque_technologique/MATRICE_RESSOURCES_PROJETS.md"
+    ]
+  }
+}
