@@ -16,6 +16,7 @@
 | **Google Sheets / CRM** | `gsheets readonly info 1EmC6f4ljLU2GZmD9HEBt50WdTlVXoQtPQ64vFQL1I_0` | `Title: AGIA — CRM & Pilotage Opérationnel`, `Sheets: 7` (`01_PROSPECTS_LEADS`, `02_OPPORTUNITES_DEVIS`, etc.) (Exit 0) | **TESTÉ & VALIDÉ** |
 | **Google Docs** | `gdocs auth status` | `Authentication Status: Logged in` (Exit 0) | **CONNECTÉ** |
 | **Google Slides** | `gslides auth status` | `Authentication Status: Logged in` (Exit 0) | **CONNECTÉ** |
+| **WordPress (`ambressence.com`)** | `GET /wp-json/wp/v2/users/me?context=edit` & `pages?status=any` | `HTTP 200` (`id=1`, `name=nait`, `roles=['administrator']`, 7 pages) | **TESTÉ & VALIDÉ** |
 
 ---
 
