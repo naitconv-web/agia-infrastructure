@@ -1,11 +1,16 @@
-# MISSION WS-AMB-002 — JOURNAL D'ÉCHANGES & AUDIT INITIAL (AMBRESSENCE)
+# MISSION WS-AMB-002 — JOURNAL D'ÉCHANGES & REGISTRE OPÉRATIONNEL (AMBRESSENCE)
 
-> **Mode de fonctionnement :** Chaque réponse (longue ou courte) est déposée et mise à jour dans ce fichier sur GitHub. Vous pouvez consulter ici et écrire vos réponses/directives directement dans la section en bas du document.  
-> **Note d'accès :** Ce fichier est temporairement hébergé dans `naitconv-web/agia-infrastructure` car `naitconv-web/AMBRESSENCE` n'est pas encore rattaché aux ressources Antigravity (`Resource not accessible by integration`). Dès rattachement, nous pourrons basculer ce journal sur `naitconv-web/AMBRESSENCE`.
+> **Mode de fonctionnement :** Fil chronologique **non destructif (`append-only`)** partagé entre `GEMINI`, `CHATGPT` et le `FONDATEUR`.  
+> **Protocole & Règles :** [PROTOCOLE_JOURNAL_PARTAGE.md](./PROTOCOLE_JOURNAL_PARTAGE.md)  
+> **Registre des décisions :** [WS-AMB-002_REGISTRE_DECISIONS.md](./WS-AMB-002_REGISTRE_DECISIONS.md)  
+> **Note d'accès :** Hébergé dans `naitconv-web/agia-infrastructure` (`docs/ambressence/`) sans déplacer le dépôt existant.
 
 ---
 
-## [2026-11-21] — RAPPORT D'AUDIT INITIAL (LECTURE SEULE)
+## MSG-0001 — [GEMINI] — 2026-11-21T22:53:00Z
+
+**Objet :** Rapport d'audit initial WS-AMB-002 (lecture seule)  
+**Référence décision(s) :** `DEC-AMB-002` à `DEC-AMB-007` (`proposée`)
 
 **Statut :** Phase d'audit exécutée sans aucune modification sur le dépôt, Drive ou la production.
 
@@ -134,6 +139,23 @@ Sur le plan stratégique et juridique, le projet est soumis à trois réalités 
 
 ---
 
-## Réponse du fondateur (à compléter ci-dessous)
+## MSG-0002 — [GEMINI] — 2026-11-21T22:56:00Z
 
-<!-- Écrivez votre réponse ou vos directives ici -->
+**Objet :** Mise en place de l'architecture de journalisation partagée (`CHATGPT` ↔ `GEMINI`) et vérification des permissions GitHub  
+**Référence décision(s) :** `DEC-AMB-001` (`exécutée`)
+
+### 1. Architecture déployée dans `docs/ambressence/` (sans déplacer le dépôt)
+- **[PROTOCOLE_JOURNAL_PARTAGE.md](./PROTOCOLE_JOURNAL_PARTAGE.md)** : Règles `append-only` strictes, numérotation `MSG-XXXX`, identification `[CHATGPT | GEMINI | FONDATEUR]`, horodatage ISO-8601 UTC, cycle de vie des décisions (`proposée`, `acceptée`, `rejetée`, `exécutée`).
+- **[WS-AMB-002_JOURNAL_ECHANGES.md](./WS-AMB-002_JOURNAL_ECHANGES.md)** : Journal chronologique unifié (ce fichier).
+- **[WS-AMB-002_REGISTRE_DECISIONS.md](./WS-AMB-002_REGISTRE_DECISIONS.md)** : Registre des décisions `DEC-AMB-001` à `DEC-AMB-007` avec historique non destructif des transitions.
+
+### 2. Vérification des permissions GitHub pour intégration externe (`CHATGPT`)
+- **Dépôt vérifié :** `naitconv-web/agia-infrastructure` (`private: true`, `default_branch: main`, pas de protection de branche bloquante sur `main` — vérifié via `gh api`).
+- **Ce que ChatGPT doit recevoir côté GitHub :** Une autorisation explicite sur `naitconv-web/agia-infrastructure` (via le connecteur GitHub de ChatGPT ou un Fine-grained PAT dédié) avec les droits minimaux **`Contents: Read and write`** (et `Metadata: Read-only`).
+- **Action requise côté Fondateur (1 seule fois) :** Autoriser l'application/token ChatGPT sur le dépôt `naitconv-web/agia-infrastructure` dans vos paramètres GitHub (je ne peux pas générer de PAT ni autoriser une app OAuth tierce depuis cette VM). Une fois fait, ChatGPT pourra lire (`GET /contents/...`) et écrire (`PUT /contents/...`) directement dans ce journal et dans le registre des décisions sans votre intervention.
+
+---
+
+<!-- PROCHAINE ENTRÉE À AJOUTER CI-DESSOUS AU FORMAT :
+## MSG-0003 — [CHATGPT] — YYYY-MM-DDTHH:MM:SSZ
+-->
