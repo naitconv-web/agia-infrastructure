@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SYNTESIA — Démonstrateur Interactif Client (Cockpit Devis, Relances &amp; Conformité)</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Crect width='36' height='36' fill='%23161513'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' fill='%23FAF9F5' font-family='monospace' font-weight='600' font-size='14'%3ESY%3C/text%3E%3C/svg%3E">
+  <style>
+    :root {
+      --paper: #F4F3EE;
+      --surface: #FAF9F5;
+      --surface-alt: #EAE9E2;
+      --ink: #161513;
+      --ink-body: #464440;
+      --ink-muted: #6E6B65;
+      --edge: #D5D4CC;
+      --edge-strong: #B5B4AC;
+      --night: #090D13;
+      --night-panel: #101720;
+      --accent-blue: #1D4ED8;
+      --accent-rust: #B84A27;
+      --accent-emerald: #047857;
+      --accent-olive: #5C6B28;
+      --font-serif: Georgia, 'Times New Roman', serif;
+      --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background-color: var(--paper);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      -webkit-font-smoothing: antialiased;
+    }
+    .topbar {
+      background-color: var(--night);
+      color: #F4F4E7;
+      padding: 0.65rem 1.5rem;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      border-bottom: 1px solid #1E293B;
+    }
+    .badge-gate {
+      background-color: rgba(16, 185, 129, 0.15);
+      color: #6EE7B7;
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      padding: 0.2rem 0.55rem;
+      border-radius: 2px;
+    }
+    header {
+      background-color: var(--surface);
+      border-bottom: 1px solid var(--edge);
+      padding: 1rem 1.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 40;
+    }
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+    .header-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .brand-box {
+      width: 36px;
+      height: 36px;
+      background: var(--ink);
+      color: var(--surface);
+      font-family: var(--font-mono);
+      font-weight: 600;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .mode-switcher {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    .mode-btn {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.5rem 0.85rem;
+      border: 1px solid var(--edge-strong);
+      background: var(--surface-alt);
+      color: var(--ink-body);
+      cursor: pointer;
+      border-radius: 9999px;
+      transition: all 0.15s ease;
+    }
+    .mode-btn.active {
+      background: var(--ink);
+      color: var(--surface);
+      border-color: var(--ink);
+      font-weight: 600;
+    }
+    main {
+      padding: 1.75rem 1.5rem 3rem;
+    }
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--edge);
+      border-radius: 2px;
+      padding: 1.25rem;
+      position: relative;
+    }
+    .mono-label {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink-muted);
+    }
+    .kpi-val {
+      font-family: var(--font-serif);
+      font-size: 2.25rem;
+      line-height: 1.1;
+      margin-top: 0.35rem;
+      color: var(--ink);
+    }
+    .kpi-sub {
+      font-size: 12px;
+      color: var(--ink-body);
+      margin-top: 0.35rem;
+    }
+    .workspace-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    @media (min-width: 980px) {
+      .workspace-grid {
+        grid-template-columns: 7fr 5fr;
+      }
+    }
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: 1.65rem;
+      font-weight: 400;
+      margin: 0.25rem 0 0;
+    }
+    .dossier-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+    .dossier-item {
+      border: 1px solid var(--edge);
+      background: var(--paper);
+      padding: 1rem;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: border-color 0.15s ease, background-color 0.15s ease;
+    }
+    .dossier-item:hover, .dossier-item.selected {
+      border-color: var(--ink);
+      background: #FFFFFF;
+    }
+    .dossier-top {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+    .status-pill {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.2rem 0.5rem;
+      border-radius: 2px;
+      font-weight: 600;
+    }
+    .st-pending { background: #FEF3C7; color: #92400E; border: 1px solid #F59E0B; }
+    .st-alert { background: #FEE2E2; color: #991B1B; border: 1px solid #EF4444; }
+    .st-valid { background: #D1FAE5; color: #065F46; border: 1px solid #10B981; }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: var(--ink);
+      color: var(--surface);
+      border: 1px solid var(--ink);
+      border-radius: 9999px;
+      padding: 0.65rem 1.25rem;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .btn-primary:hover { background: #2c2a26; }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--edge-strong);
+      border-radius: 9999px;
+      padding: 0.55rem 1rem;
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    .btn-secondary:hover { border-color: var(--ink); background: var(--surface-alt); }
+    .preview-box {
+      background: var(--night);
+      color: #F4F4E7;
+      border-radius: 3px;
+      padding: 1.25rem;
+      font-size: 13px;
+      line-height: 1.6;
+      margin-top: 0.85rem;
+      border: 1px solid #1E293B;
+    }
+    .input-field {
+      width: 100%;
+      padding: 0.55rem 0.75rem;
+      border: 1px solid var(--edge-strong);
+      background: var(--paper);
+      font-size: 13px;
+      font-family: var(--font-sans);
+      border-radius: 2px;
+    }
+    .audit-log {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      background: var(--surface-alt);
+      border: 1px solid var(--edge);
+      padding: 0.85rem;
+      max-height: 150px;
+      overflow-y: auto;
+      line-height: 1.55;
+      color: var(--ink-body);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Technical Bar -->
+  <div class="topbar">
+    <div>[SYNTESIA // COCKPIT DE DÉMONSTRATION CLIENT] &middot; MODE : SUPERVISION HUMAINE (SAS DIRIGEANT)</div>
+    <div class="badge-gate">GATE DE BIENSÉANCE ACTIF : JOURS OUVRÉS 08H30–19H00 &middot; MAX 2 RELANCES</div>
+  </div>
+
+  <!-- Header with 1-Click Prospect Vertical Switcher -->
+  <header>
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="brand-box">SY</div>
+        <div>
+          <div style="font-weight:700; font-size:16px; letter-spacing:-0.02em;">SYNTESIA — Cockpit Opérationnel</div>
+          <div class="mono-label" id="headerSub">DÉMONSTRATEUR INTERACTIF &middot; PACK RELANCE DEVIS &amp; CONFORMITÉ</div>
+        </div>
+      </div>
+
+      <div class="mode-switcher" role="tablist" aria-label="Sélection du profil prospect">
+        <button type="button" class="mode-btn active" id="btnModeBtp" onclick="switchMode('btp')">1. Bâtiment / Rénovation (France €)</button>
+        <button type="button" class="mode-btn" id="btnModeSecu" onclick="switchMode('secu')">2. Sécurité Privée (France €)</button>
+        <button type="button" class="mode-btn" id="btnModeDz" onclick="switchMode('dz')">3. PME &amp; Chantiers (Algérie DZD)</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Row 1: Live KPIs -->
+    <div class="kpi-grid">
+      <div class="card">
+        <div class="mono-label">[01 // PIPELINE EN ATTENTE DÉTECTÉ]</div>
+        <div class="kpi-val" id="kpiPipeline">64 800 €</div>
+        <div class="kpi-sub" id="kpiPipelineSub">4 dossiers actifs connectés depuis votre outil actuel</div>
+      </div>
+      <div class="card">
+        <div class="mono-label">[02 // VALIDÉS DANS LE SAS DIRIGEANT]</div>
+        <div class="kpi-val" id="kpiValidated" style="color:var(--accent-olive);">1 / 4</div>
+        <div class="kpi-sub">Zéro envoi automatique sans votre validation 1-clic</div>
+      </div>
+      <div class="card">
+        <div class="mono-label">[03 // CONTRÔLE DE CONFORMITÉ MÉTIER]</div>
+        <div class="kpi-val" id="kpiCompliance" style="color:var(--accent-rust);">1 Alerte</div>
+        <div class="kpi-sub" id="kpiComplianceSub">Vérification déterministe avant engagement</div>
+      </div>
+      <div class="card">
+        <div class="mono-label">[04 // RENTABILITÉ DE L'OFFRE SYNTESIA]</div>
+        <div class="kpi-val" id="kpiRoi" style="color:var(--accent-blue);">Amorti dès 1 devis</div>
+        <div class="kpi-sub" id="kpiRoiSub">Forfait installation : 1 490 € HT + 190 € HT/mois</div>
+      </div>
+    </div>
+
+    <!-- Row 2: Main Operational Workspace -->
+    <div class="workspace-grid">
+
+      <!-- Left Column: Actionable Queue + Live Prospect Simulator -->
+      <div style="display:flex; flex-direction:column; gap:1.25rem;">
+        <div class="card">
+          <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:0.5rem;">
+            <div>
+              <div class="mono-label">[FILE D'ATTENTE OPÉRATIONNELLE // RECONNECTÉE À VOS OUTILS]</div>
+              <h2 class="section-title" id="queueTitle">Devis dormants (J+3 / J+7) &amp; Vigilance Sous-Traitants</h2>
+            </div>
+            <button type="button" class="btn-secondary" onclick="toggleAddModal()">+ Simuler le dossier de votre prospect</button>
+          </div>
+
+          <!-- Live Add Dossier Drawer (for live sales call customization!) -->
+          <div id="addDossierPanel" style="display:none; margin-top:1rem; padding:1rem; background:var(--surface-alt); border:1px solid var(--edge-strong);">
+            <div class="mono-label" style="margin-bottom:0.6rem; color:var(--ink);">[PERSONNALISATION EN DIRECT PENDANT LE RENDEZ-VOUS CLIENT]</div>
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(160px, 1fr)); gap:0.6rem;">
+              <input type="text" id="simClient" class="input-field" placeholder="Nom du client / chantier (ex: SCI Rivoli)">
+              <input type="text" id="simMontant" class="input-field" placeholder="Montant (ex: 14 500 € ou 850 000 DZD)">
+              <select id="simType" class="input-field">
+                <option value="Relance J+3 (Courtoise & Disponibilité)">Relance Devis J+3 (1re relance)</option>
+                <option value="Relance J+7 (Maintien planning & Acompte)">Relance Devis J+7 (2e et dernière relance)</option>
+                <option value="Alerte Conformité (Pièce expirée)">Contrôle Conformité (Pièce / Titre à renouveler)</option>
+              </select>
+            </div>
+            <div style="margin-top:0.65rem; display:flex; gap:0.5rem;">
+              <button type="button" class="btn-primary" style="padding:0.45rem 1rem; font-size:12px;" onclick="injectCustomDossier()">Générer le dossier dans le cockpit &rarr;</button>
+              <button type="button" class="btn-secondary" style="padding:0.45rem 0.85rem; font-size:12px;" onclick="toggleAddModal()">Fermer</button>
+            </div>
+          </div>
+
+          <div class="dossier-list" id="dossierList"></div>
+        </div>
+
+        <!-- Interactive ROI Calculator during client call -->
+        <div class="card">
+          <div class="mono-label">[SIMULATEUR DE RENTABILITÉ CONTRADICTOIRE // PARAMÈTRES DU DIRIGEANT]</div>
+          <h3 class="section-title" style="font-size:1.35rem;">Calculez l'impact sur la trésorerie de votre entreprise</h3>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:1rem; margin-top:0.9rem;">
+            <div>
+              <label for="calcVol" class="mono-label" style="display:block; margin-bottom:0.35rem;">Devis en attente / mois</label>
+              <input type="number" id="calcVol" class="input-field" value="18" min="1" max="500" oninput="updateRoiCalc()">
+            </div>
+            <div>
+              <label for="calcTicket" class="mono-label" style="display:block; margin-bottom:0.35rem;" id="calcTicketLabel">Montant moyen d'un devis (€ HT)</label>
+              <input type="number" id="calcTicket" class="input-field" value="4500" min="100" step="100" oninput="updateRoiCalc()">
+            </div>
+            <div>
+              <label for="calcHours" class="mono-label" style="display:block; margin-bottom:0.35rem;">Heures admin perdues / sem.</label>
+              <input type="number" id="calcHours" class="input-field" value="6" min="1" max="60" oninput="updateRoiCalc()">
+            </div>
+          </div>
+          <div id="roiResultBox" style="margin-top:1rem; padding:0.9rem 1rem; background:var(--surface-alt); border-left:3px solid var(--ink); font-size:13px; line-height:1.5;"></div>
+        </div>
+      </div>
+
+      <!-- Right Column: Sas Dirigeant (Inspection, Customization & 1-Click Approval) -->
+      <div style="display:flex; flex-direction:column; gap:1.25rem;">
+        <div class="card" style="border-top:3px solid var(--ink);">
+          <div class="mono-label">[SAS DE VALIDATION DIRIGEANT // CONTRÔLE HUMAIN SOUVERAIN]</div>
+          <h2 class="section-title" id="inspectorTitle">Inspection du dossier sélectionné</h2>
+          <div id="inspectorMeta" style="font-size:12px; color:var(--ink-muted); margin-top:0.3rem;"></div>
+
+          <div class="preview-box" id="inspectorBody"></div>
+
+          <div style="margin-top:0.85rem; padding:0.65rem 0.8rem; background:var(--surface-alt); border:1px dashed var(--edge-strong); font-size:11.5px; color:var(--ink-body);" id="inspectorRule"></div>
+
+          <div style="margin-top:1rem; display:flex; flex-wrap:wrap; gap:0.6rem;">
+            <button type="button" class="btn-primary" id="btnApproveDossier" onclick="approveCurrentDossier()">
+              <span>[ Valider &amp; Programmer l'envoi (08h30–19h00) ]</span>
+              <span>&rarr;</span>
+            </button>
+            <button type="button" class="btn-secondary" onclick="editCurrentDraft()">Modifier le texte avant validation</button>
+          </div>
+        </div>
+
+        <!-- Immutable Audit Trail -->
+        <div class="card">
+          <div class="mono-label" style="margin-bottom:0.5rem;">[JOURNAL D'AUDIT OPÉRATIONNEL HORODATÉ]</div>
+          <div class="audit-log" id="auditLog"></div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script>
+    var MODES = {
+      btp: {
+        sub: "VERTICALE BÂTIMENT, BTP & RÉNOVATION (FRANCE) · CONNECTÉ À OBAT / BATIGEST / EXCEL",
+        queueTitle: "Devis dormants (J+3 / J+7) & Vigilance Sous-Traitants (Art. L.8222-1)",
+        currency: "€",
+        packSetup: 1490,
+        packMonthly: 190,
+        defaultVol: 18,
+        defaultTicket: 4800,
+        roiSub: "Forfait installation : 1 490 € HT + 190 € HT/mois",
+        complianceSub: "Vigilance URSSAF & Décennale sous-traitants",
+        dossiers: [
+          {
+            id: "DEV-BTP-104",
+            client: "Copropriété Les Cèdres (Syndic Foncia)",
+            objet: "Rénovation chaufferie & isolation thermique RGE",
+            montant: 24500,
+            etape: "Relance J+3 (1re relance courtoise)",
+            status: "EN ATTENTE SAS DIRIGEANT",
+            statusType: "pending",
+            canal: "E-mail professionnel (au nom du dirigeant)",
+            rule: "Règle appliquée : J+3 après émission dans Batigest · Créneau autorisé : Lun-Ven 08h30–19h00 · Relance 1/2.",
+            draft: "Bonjour Monsieur Garnier,\n\nJe me permets de revenir vers vous au sujet de notre devis n° DEV-104 (24 500 € HT) transmis mardi dernier concernant la rénovation de la chaufferie de la résidence Les Cèdres.\n\nAvez-vous pu en prendre connaissance et souhaitez-vous que nous ajustions un poste technique avant votre conseil syndical ?\n\nNotre planning d'intervention du mois prochain nous permet encore de bloquer vos dates si nous validons la commande cette semaine.\n\nBien cordialement,\nLa Direction"
+          },
+          {
+            id: "DEV-BTP-108",
+            client: "M. & Mme Lefèvre (Maison individuelle)",
+            objet: "Menuiseries extérieures aluminium & volets roulants",
+            montant: 12800,
+            etape: "Relance J+7 (2e et dernière relance + Acompte 30 %)",
+            status: "EN ATTENTE SAS DIRIGEANT",
+            statusType: "pending",
+            canal: "E-mail + SMS courtois (09h15)",
+            rule: "Règle appliquée : J+7 (Plafond strict : 2e et dernière relance automatique) · Lien de validation et acompte 30 %.",
+            draft: "Bonjour Monsieur et Madame Lefèvre,\n\nSauf erreur de notre part, nous n'avons pas encore eu votre retour sur le chiffrage n° DEV-108 (12 800 € HT) pour vos menuiseries aluminium.\n\nLes délais fournisseurs étant actuellement de 5 semaines, je tenais à vérifier avec vous si vous souhaitez maintenir l'option sur notre planning de pose.\n\nJe reste à votre entière disposition par téléphone pour toute question.\n\nBien cordialement,\nLa Direction"
+          },
+          {
+            id: "VIG-ST-019",
+            client: "Sous-traitant : SARL ÉlecPro Bâtiment (Lot CFO/CFA)",
+            objet: "BLOCAGE CONFORMITÉ : Attestation de vigilance URSSAF > 6 mois",
+            montant: 18500,
+            etape: "Alerte Vigilance Art. L.8222-1 (Échéance dépassée)",
+            status: "ALERTE CONFORMITÉ",
+            statusType: "alert",
+            canal: "Demande documentaire automatisée au sous-traitant",
+            rule: "Règle déterministe : Art. L.8222-1 Code du travail — Interdiction d'émettre le bon de commande sous-traitant sans attestation URSSAF < 6 mois et décennale valide.",
+            draft: "Bonjour,\n\nDans le cadre de la préparation du chantier Lot Électricité (18 500 € HT) et conformément à nos obligations légales de vigilance (Art. L.8222-1), notre système relève que votre dernière attestation de vigilance URSSAF a dépassé sa validité semestrielle.\n\nMerci de bien vouloir déposer votre attestation à jour en réponse à ce message afin que nous puissions débloquer votre ordre de service.\n\nBien cordialement,\nService Administratif & Travaux"
+          },
+          {
+            id: "DEV-BTP-099",
+            client: "Cabinet Médical Saint-Lazare",
+            objet: "Réfection cloisons acoustiques, peinture & sols",
+            montant: 9000,
+            etape: "Relance J+3 validée — Devis signé & Acompte reçu",
+            status: "VALIDÉ & SIGNÉ",
+            statusType: "valid",
+            canal: "Historique validé",
+            rule: "Dossier clôturé avec succès : devis relancé à J+3, signé à J+4 avec acompte de 30 % encaissé.",
+            draft: "[ARCHIVE DOSSIER VALIDÉ]\nRelance J+3 approuvée par le dirigeant le 19/11 à 09h05.\nRetour client reçu le 20/11 : Devis accepté (9 000 € HT)."
+          }
+        ]
+      },
+      secu: {
+        sub: "VERTICALE SÉCURITÉ PRIVÉE (CSI LIVRE VI & IDCC 1351) · BOUCLIER CONFORMITÉ & DEVIS",
+        queueTitle: "Contrôle Cartes CNAPS / SSIAP, Ordres de Mission L.612-9 & Chiffrage Vacations",
+        currency: "€",
+        packSetup: 1490,
+        packMonthly: 190,
+        defaultVol: 12,
+        defaultTicket: 6500,
+        roiSub: "Forfait installation : 1 490 € HT + 190 € HT/mois",
+        complianceSub: "Contrôle déterministe CNAPS jusqu'à fin de vacation",
+        dossiers: [
+          {
+            id: "CNAPS-AL-01",
+            client: "Site Logistique Garonor — Vacation Nuit (20h00–06h00)",
+            objet: "BLOCAGE PRÉ-AFFECTATION : Carte Pro CNAPS & MAC Agent à renouveler (J-28)",
+            montant: 14200,
+            etape: "Alerte Conformité Livre VI CSI & Remplacement qualifié",
+            status: "ALERTE CONFORMITÉ",
+            statusType: "alert",
+            canal: "Alerte Exploitation + Ordre de Mission Art. L.612-9",
+            rule: "Règle déterministe OMNISECUR / SYNTESIA : Validité CNAPS vérifiée jusqu'à shiftEnd (>= 06h00) · Repos quotidien >= 12h (IDCC 1351) · Remplaçant proposé en heures normales (Marge préservée).",
+            draft: "[ORDRE DE MISSION PRÉPARÉ — CONFORME ART. L.612-9 DU CSI]\n\nRemplacement préventif qualifié sur le site Logistique Garonor :\n• Agent remplaçant sélectionné : M. Karim B. (Carte Pro CNAPS valide jusqu'au 14/09/2028, SSIAP 1 & SST à jour).\n• Contrôle temps de repos IDCC 1351 : 16h30 de repos depuis sa dernière vacation (>= 12h requis).\n• Impact financier Bouclier Marge : Heures normales (0 heure supplémentaire déclenchée — Marge brute site préservée à 21,4 %).\n\nEn attente de votre clic de validation dans le Sas Dirigeant pour émettre l'Ordre de Mission."
+          },
+          {
+            id: "DEV-SEC-204",
+            client: "Plateforme Pharmaceutique Val-d'Oise",
+            objet: "Devis Gardiennage H24 & Rondes SSIAP 1 (Contrat annuel)",
+            montant: 48000,
+            etape: "Relance Devis J+3 (Chiffrage vérifié Bouclier Marge +22 %)",
+            status: "EN ATTENTE SAS DIRIGEANT",
+            statusType: "pending",
+            canal: "E-mail Direction Sûreté (09h00)",
+            rule: "Règle appliquée : Coût complet IDCC 1351 vérifié (majorations nuit 10 %, dimanche 10 %, férié 100 %, paniers, plancher 6h Avenant n° 2).",
+            draft: "Bonjour Monsieur le Directeur de la Sûreté,\n\nÀ la suite de notre visite technique sur votre site du Val-d'Oise, je vous confirme la disponibilité de notre équipe dédiée (agents ADS et certifiés SSIAP 1 à jour de leurs titres CNAPS et recyclages) pour un démarrage au 1er du mois prochain.\n\nNotre proposition n° DEV-SEC-204 intègre l'ensemble des garanties de continuité de service et la main courante électronique horodatée.\n\nSouhaitez-vous que nous fassions un point téléphonique de 10 minutes demain matin ?\n\nBien cordialement,\nLa Direction d'Exploitation"
+          },
+          {
+            id: "AO-BOAMP-88",
+            client: "Marché Public Gardiennage & Sécurité Incendie — Collectivité IDF",
+            objet: "Détection BOAMP & Pré-structuration du Mémoire Technique",
+            montant: 85000,
+            etape: "Dossier Appel d'Offres préparé (Pièces vérifiées)",
+            status: "EN ATTENTE SAS DIRIGEANT",
+            statusType: "pending",
+            canal: "Dossier Mémoire Technique interne",
+            rule: "Règle appliquée : Zéro référence client inventée · 1 pièce signalée [À FOURNIR PAR LE DIRIGEANT : Attestation assurance RC Pro année en cours].",
+            draft: "[SYNTHÈSE APPEL D'OFFRES DÉTECTÉ VIA OPEN DATA BOAMP]\n\n• Objet du marché : Surveillance humaine et sécurité incendie SSIAP de bâtiments administratifs.\n• Trame du mémoire technique générée : Organisation des relèves, contrôle pré-affectation des cartes CNAPS, protocole de continuité H24 et contrôle qualité.\n• Point d'attention avant dépôt : Joindre l'attestation RC Professionnelle en cours de validité."
+          },
+          {
+            id: "DEV-SEC-198",
+            client: "Salon Professionnel Paris Nord Villepinte (Dispositif Événementiel)",
+            objet: "Dispositif 15 agents ADS + 2 maîtres-chiens (3 jours)",
+            montant: 16400,
+            etape: "Devis signé & 17 Ordres de Mission L.612-9 édités",
+            status: "VALIDÉ & SIGNÉ",
+            statusType: "valid",
+            canal: "Historique validé",
+            rule: "Dossier validé : 17/17 cartes professionnelles CNAPS vérifiées jusqu'à la fin de l'événement.",
+            draft: "[ARCHIVE DOSSIER VALIDÉ]\nContrat événementiel signé (16 400 € HT). Lot de 17 Ordres de Mission conformes à l'Art. L.612-9 du CSI généré et validé par le dirigeant."
+          }
+        ]
+      },
+      dz: {
+        sub: "SYNTESIA ALGÉRIE (ALGER · ORAN · CONSTANTINE · SÉTIF) · FLUX WHATSAPP BUSINESS, DEVIS & BL (DZD)",
+        queueTitle: "Centralisation Demandes WhatsApp / Web, Relance Offres & Rapprochement Bons de Livraison",
+        currency: "DZD",
+        packSetup: 145000,
+        packMonthly: 19000,
+        defaultVol: 25,
+        defaultTicket: 380000,
+        roiSub: "Forfait installation : 145 000 DZD HT + 19 000 DZD HT/mois",
+        complianceSub: "Rapprochement Bons de Commande / Bons de Livraison émargés",
+        dossiers: [
+          {
+            id: "DZ-WA-402",
+            client: "Promotion Immobilière El-Djazair (Hydra, Alger)",
+            objet: "Lot menuiseries aluminium & façades — 24 logements",
+            montant: 3450000,
+            etape: "Demande WhatsApp qualifiée & Relance Offre J+3",
+            status: "EN ATTENTE SAS DIRIGEANT",
+            statusType: "pending",
+            canal: "WhatsApp Business Officiel + E-mail Pro",
+            rule: "Règle appliquée : Demande entrante WhatsApp structurée en fiche CRM · Relance courtoise aux horaires ouvrés (08h30–18h00).",
+            draft: "Bonjour Monsieur Benali,\n\nJe fais suite à notre offre technique et commerciale n° DZ-402 (3 450 000 DZD HT) transmise mardi concernant le lot menuiseries de votre programme de 24 logements à Hydra.\n\nNos stocks de profilés nous permettent de garantir vos délais de livraison sur le chantier dès validation du bon de commande.\n\nSouhaitez-vous que notre ingénieur d'affaires passe sur votre chantier demain matin pour finaliser ensemble ?\n\nBien cordialement,\nLa Direction Commerciale"
+          },
+          {
+            id: "DZ-BL-119",
+            client: "Groupe Industriel Agro-Distribution (Zone Industrielle Rouïba)",
+            objet: "ALERTE ÉCART BL / FACTURE : 3 Bons de Livraison émargés non encore facturés",
+            montant: 1280000,
+            etape: "Contrôle Rapprochement BL Terrain <-> Facturation",
+            status: "ALERTE CONFORMITÉ",
+            statusType: "alert",
+            canal: "Alerte Direction & Pré-facture préparée",
+            rule: "Règle déterministe : Détection automatique de tout Bon de Livraison (BL) signé sur le terrain depuis > 48h sans facture émise.",
+            draft: "[RAPPORT DE RAPPROCHEMENT BONS DE LIVRAISON / FACTURATION]\n\n• Client : Groupe Industriel Rouïba\n• Anomalie détectée : Les Bons de Livraison émargés n° BL-881, BL-884 et BL-889 (total : 1 280 000 DZD HT) ont été livrés et signés par le chef de magasin client il y a 72h, mais n'avaient pas encore été transmis à la facturation.\n• Action préparée : Brouillon de facture consolidée généré. Cliquez sur [Valider] pour transmettre à la comptabilité et déclencher l'encaissement."
+          },
+          {
+            id: "DZ-DEV-395",
+            client: "Hôtel & Centre de Congrès Oran Front de Mer",
+            objet: "Équipements climatisation centralisée & contrat de maintenance",
+            montant: 2150000,
+            etape: "Relance J+7 (Maintien tarif équipements)",
+            status: "EN ATTENTE SAS DIRIGEANT",
+            statusType: "pending",
+            canal: "E-mail + WhatsApp Direction",
+            rule: "Règle appliquée : 2e relance courtoise avant expiration de la validité tarifaire.",
+            draft: "Bonjour Monsieur le Directeur,\n\nNous revenons vers vous concernant notre proposition n° DZ-395 (2 150 000 DZD HT) pour vos équipements de climatisation et leur maintenance préventive.\n\nNotre tarif préférentiel sur ce lot d'équipements arrivant à échéance en fin de semaine, nous restons à votre disposition pour confirmer votre réservation matériel.\n\nRespectueusement,\nLa Direction"
+          },
+          {
+            id: "DZ-DEV-388",
+            client: "Clinique Médicale Constantine",
+            objet: "Aménagement technique & réseau secours",
+            montant: 1620000,
+            etape: "Offre validée & Bon de Commande signé",
+            status: "VALIDÉ & SIGNÉ",
+            statusType: "valid",
+            canal: "Historique validé",
+            rule: "Dossier clôturé : Demande WhatsApp convertie en Bon de Commande signé en 4 jours.",
+            draft: "[ARCHIVE DOSSIER VALIDÉ]\nBon de commande n° BC-2026-114 reçu (1 620 000 DZD HT) suite à la relance supervisée J+3."
+          }
+        ]
+      }
+    };
+
+    var currentModeKey = "btp";
+    var currentIndex = 0;
+
+    function formatAmount(num, curr) {
+      return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " " + curr;
+    }
+
+    function addLog(msg) {
+      var box = document.getElementById("auditLog");
+      var now = new Date();
+      var ts = now.toTimeString().split(" ")[0];
+      var div = document.createElement("div");
+      div.textContent = "[" + ts + " // SHA-256-OK] " + msg;
+      box.insertBefore(div, box.firstChild);
+    }
+
+    function switchMode(modeKey) {
+      currentModeKey = modeKey;
+      currentIndex = 0;
+      document.getElementById("btnModeBtp").className = "mode-btn" + (modeKey === "btp" ? " active" : "");
+      document.getElementById("btnModeSecu").className = "mode-btn" + (modeKey === "secu" ? " active" : "");
+      document.getElementById("btnModeDz").className = "mode-btn" + (modeKey === "dz" ? " active" : "");
+
+      var m = MODES[modeKey];
+      document.getElementById("headerSub").textContent = m.sub;
+      document.getElementById("queueTitle").textContent = m.queueTitle;
+      document.getElementById("kpiRoiSub").textContent = m.roiSub;
+      document.getElementById("kpiComplianceSub").textContent = m.complianceSub;
+      document.getElementById("calcTicketLabel").textContent = "Montant moyen d'un devis (" + m.currency + " HT)";
+      document.getElementById("calcVol").value = m.defaultVol;
+      document.getElementById("calcTicket").value = m.defaultTicket;
+
+      renderAll();
+      updateRoiCalc();
+      addLog("Bascule du cockpit sur le profil : " + modeKey.toUpperCase() + " (" + m.currency + ")");
+    }
+
+    function renderAll() {
+      var m = MODES[currentModeKey];
+      var listEl = document.getElementById("dossierList");
+      listEl.innerHTML = "";
+
+      var totalAmount = 0;
+      var validCount = 0;
+      var alertCount = 0;
+
+      for (var i = 0; i < m.dossiers.length; i++) {
+        var d = m.dossiers[i];
+        totalAmount += d.montant;
+        if (d.statusType === "valid") validCount++;
+        if (d.statusType === "alert") alertCount++;
+
+        var item = document.createElement("div");
+        item.className = "dossier-item" + (i === currentIndex ? " selected" : "");
+        item.setAttribute("onclick", "selectDossier(" + i + ")");
+
+        var pillClass = d.statusType === "valid" ? "st-valid" : (d.statusType === "alert" ? "st-alert" : "st-pending");
+
+        item.innerHTML =
+          "<div class='dossier-top'>" +
+            "<span class='mono-label' style='color:var(--ink); font-weight:600;'>" + d.id + " &middot; " + d.client + "</span>" +
+            "<span class='status-pill " + pillClass + "'>" + d.status + "</span>" +
+          "</div>" +
+          "<div style='font-size:13.5px; font-weight:600; margin-top:0.35rem;'>" + d.objet + "</div>" +
+          "<div style='display:flex; justify-content:space-between; font-size:12px; color:var(--ink-muted); margin-top:0.4rem;'>" +
+            "<span>" + d.etape + "</span>" +
+            "<strong style='color:var(--ink); font-family:var(--font-mono);'>" + formatAmount(d.montant, m.currency) + "</strong>" +
+          "</div>";
+        listEl.appendChild(item);
+      }
+
+      document.getElementById("kpiPipeline").textContent = formatAmount(totalAmount, m.currency);
+      document.getElementById("kpiPipelineSub").textContent = m.dossiers.length + " dossiers actifs connectés depuis votre outil actuel";
+      document.getElementById("kpiValidated").textContent = validCount + " / " + m.dossiers.length;
+      document.getElementById("kpiCompliance").textContent = alertCount + (alertCount > 1 ? " Alertes" : " Alerte");
+
+      var cur = m.dossiers[currentIndex];
+      if (cur) {
+        document.getElementById("inspectorTitle").textContent = cur.client;
+        document.getElementById("inspectorMeta").textContent =
+          "Réf : " + cur.id + " · Enjeu : " + formatAmount(cur.montant, m.currency) + " · Canal : " + cur.canal;
+        document.getElementById("inspectorBody").innerText = cur.draft;
+        document.getElementById("inspectorRule").textContent = cur.rule;
+
+        var btn = document.getElementById("btnApproveDossier");
+        if (cur.statusType === "valid") {
+          btn.innerHTML = "<span>&#10003; Dossier déjà validé par la Direction</span>";
+          btn.style.backgroundColor = "#5C6B28";
+          btn.style.borderColor = "#5C6B28";
+        } else {
+          btn.innerHTML = "<span>[ Valider &amp; Programmer l'envoi (08h30–19h00) ]</span><span>&rarr;</span>";
+          btn.style.backgroundColor = "var(--ink)";
+          btn.style.borderColor = "var(--ink)";
+        }
+      }
+    }
+
+    function selectDossier(idx) {
+      currentIndex = idx;
+      renderAll();
+    }
+
+    function approveCurrentDossier() {
+      var m = MODES[currentModeKey];
+      var cur = m.dossiers[currentIndex];
+      if (!cur || cur.statusType === "valid") return;
+
+      cur.statusType = "valid";
+      cur.status = "VALIDÉ PAR DIRECTION (09H00)";
+      addLog("Validation humaine Sas Dirigeant accordée pour " + cur.id + " (" + cur.client + " — " + formatAmount(cur.montant, m.currency) + ")");
+      renderAll();
+    }
+
+    function editCurrentDraft() {
+      var m = MODES[currentModeKey];
+      var cur = m.dossiers[currentIndex];
+      if (!cur) return;
+      var updated = prompt("Modifier le brouillon avant validation par le dirigeant :", cur.draft);
+      if (updated !== null && updated.trim() !== "") {
+        cur.draft = updated;
+        addLog("Brouillon personnalisé par le dirigeant sur le dossier " + cur.id);
+        renderAll();
+      }
+    }
+
+    function toggleAddModal() {
+      var p = document.getElementById("addDossierPanel");
+      p.style.display = (p.style.display === "none") ? "block" : "none";
+    }
+
+    function injectCustomDossier() {
+      var client = document.getElementById("simClient").value.trim() || "Prospect Dirigeant En Direct";
+      var rawMontant = document.getElementById("simMontant").value.replace(/\D/g, "");
+      var m = MODES[currentModeKey];
+      var montant = rawMontant ? parseInt(rawMontant, 10) : m.defaultTicket;
+      var type = document.getElementById("simType").value;
+
+      var newId = "SIM-" + Math.floor(100 + Math.random() * 900);
+      var isAlert = type.indexOf("Conformité") !== -1;
+
+      var newDossier = {
+        id: newId,
+        client: client,
+        objet: "Simulation en direct — " + type,
+        montant: montant,
+        etape: type,
+        status: isAlert ? "ALERTE CONFORMITÉ" : "EN ATTENTE SAS DIRIGEANT",
+        statusType: isAlert ? "alert" : "pending",
+        canal: "E-mail professionnel supervisé (08h30–19h00)",
+        rule: "Dossier créé en direct lors de la démonstration · Vérification déterministe active.",
+        draft: "Bonjour,\n\nNous revenons vers vous concernant le dossier « " + client + " » d'un montant de " + formatAmount(montant, m.currency) + " HT.\n\nNous restons à votre disposition cette semaine pour valider ensemble la planification et les pièces requises.\n\nBien cordialement,\nLa Direction"
+      };
+
+      m.dossiers.unshift(newDossier);
+      currentIndex = 0;
+      document.getElementById("addDossierPanel").style.display = "none";
+      document.getElementById("simClient").value = "";
+      document.getElementById("simMontant").value = "";
+      addLog("Création en direct du dossier prospect : " + newId + " (" + client + " — " + formatAmount(montant, m.currency) + ")");
+      renderAll();
+    }
+
+    function updateRoiCalc() {
+      var m = MODES[currentModeKey];
+      var vol = parseInt(document.getElementById("calcVol").value, 10) || 10;
+      var ticket = parseInt(document.getElementById("calcTicket").value, 10) || m.defaultTicket;
+      var hours = parseInt(document.getElementById("calcHours").value, 10) || 5;
+
+      // Hypothèse prudente et transparente : récupération d'au moins 1 à 2 devis dormants sur le volume mensuel
+      var recoveredDeals = Math.max(1, Math.round(vol * 0.10));
+      var recoveredCa = recoveredDeals * ticket;
+      var monthlyHoursSaved = hours * 4;
+
+      var box = document.getElementById("roiResultBox");
+      box.innerHTML =
+        "<strong>Hypothèse prudente (10 % seulement des devis en attente relancés et signés, soit " + recoveredDeals + " dossier(s)/mois) :</strong><br>" +
+        "&bull; Chiffre d'affaires additionnel sécurisé : <strong>+" + formatAmount(recoveredCa, m.currency) + " HT / mois</strong><br>" +
+        "&bull; Temps dirigeant / administratif libéré : <strong>~" + monthlyHoursSaved + " heures / mois</strong><br>" +
+        "&bull; Investissement Pack SYNTESIA : <strong>" + formatAmount(m.packSetup, m.currency) + " HT</strong> (mise en place une seule fois) + <strong>" + formatAmount(m.packMonthly, m.currency) + " HT / mois</strong> &rarr; <em>Amorti dès le 1er dossier récupéré.</em>";
+    }
+
+    switchMode("btp");
+  </script>
+</body>
+</html>
