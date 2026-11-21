@@ -14,3 +14,7 @@
 {"timestamp_utc": "2026-11-21T20:24:29Z", "mission_id": "AGIA-013", "agent_runtime": "Antigravity-HarnessCtl", "event_type": "CHECKPOINT_CREATED", "details": {"checkpoint": "CP-AGIA-013.json", "files_count": 13}}
 {"timestamp_utc": "2026-11-21T20:24:29Z", "mission_id": "AGIA-011", "agent_runtime": "Antigravity-HarnessCtl", "event_type": "PREFLIGHT_OK", "details": {"branch": "main", "head": "608f750", "facts_count": 8}}
 {"timestamp_utc": "2026-11-21T20:24:29Z", "mission_id": "AGIA-011", "agent_runtime": "Antigravity-HarnessCtl", "event_type": "RESILIENCE_SUITE_EXECUTED", "details": {"all_passed": true, "tests_count": 6}}
+{"timestamp_utc": "2026-11-21T20:40:12Z", "mission_id": "AGIA-011", "agent_runtime": "Antigravity-HarnessCtl", "event_type": "PREFLIGHT_OK", "details": {"branch": "main", "head": "0980244", "facts_count": 8}}
+{"timestamp_utc": "2026-11-21T20:41:43Z", "mission_id": "AGIA-014", "agent_runtime": "Antigravity-HarnessCtl", "event_type": "CHECKPOINT_CREATED", "details": {"checkpoint": "CP-AGIA-014.json", "files_count": 13}}
+{"timestamp_utc": "2026-11-21T20:41:43Z", "mission_id": "AGIA-011", "agent_runtime": "Antigravity-HarnessCtl", "event_type": "PREFLIGHT_OK", "details": {"branch": "main", "head": "0980244", "facts_count": 8}}
+{"timestamp_utc": "2026-11-21T20:41:43Z", "mission_id": "AGIA-011", "agent_runtime": "Antigravity-HarnessCtl", "event_type": "RESILIENCE_SUITE_EXECUTED", "details": {"all_passed": true, "tests_count": 6}}
