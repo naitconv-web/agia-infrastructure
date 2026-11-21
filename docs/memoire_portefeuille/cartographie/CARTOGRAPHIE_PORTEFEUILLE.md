@@ -1,12 +1,12 @@
-# CARTOGRAPHIE COMPLÈTE DU PORTEFEUILLE WORKSTATION-IA & ACTIFS FONDATEUR
-**Référence :** SYNTESIA-MEMOIRE-001  
-**Statut :** AUDIT & INVENTAIRE DE RÉFÉRENCE (LECTURE SEULE)  
+# CARTOGRAPHIE STRATÉGIQUE DU PORTEFEUILLE WORKSTATION-IA & ACTIFS DU FONDATEUR
+**Référence :** SYNTESIA-MEMOIRE-001 (Version Révisée — Mission AGIA-003)  
+**Statut :** VALIDATION STRATÉGIQUE RÉALISÉE — RÉFÉRENTIEL SOURCÉ ET AUDITÉ  
 **Date d'établissement :** 21 novembre 2026  
 **Auteur :** Antigravity Systems Architect / CTO SYNTESIA  
 
 ---
 
-## 1. VISION D'ENSEMBLE DU PORTEFEUILLE
+## 1. VISION D'ENSEMBLE DE L'ÉCOSYSTÈME
 
 L'écosystème entrepreneurial du fondateur repose sur 4 piliers majeurs, interconnectés par une doctrine commune de gouvernance lean, d'automatisation et de souveraineté des données :
 
@@ -20,42 +20,40 @@ L'écosystème entrepreneurial du fondateur repose sur 4 piliers majeurs, interc
          ▼                         ▼                                       ▼                         ▼
 ┌───────────────────┐    ┌───────────────────┐                   ┌───────────────────┐     ┌───────────────────┐
 │     PILIER 1      │    │     PILIER 2      │                   │     PILIER 3      │     │     PILIER 4      │
-│     SYNTESIA      │    │  WORKSTATION-IA   │                   │  SOLUTIONS SaaS   │     │  EXPÉRIENCE CHR   │
-│   (Agence IA &    │    │      & LAB        │                   │     & E-COMMERCE  │     │   (Hôtellerie &   │
-│ Transformation)   │    │(Noyau Orchestr.)  │                   │     du Portefeuille│     │   Restauration)   │
+│     SYNTESIA      │    │  STRUCTURE MÈRE   │                   │    STRUCTURES     │     │  EXPÉRIENCE CHR   │
+│   (Agence IA &    │    │   LAB / WORKST.   │                   │   COMMERCIALES    │     │   (Hôtellerie &   │
+│ Transformation)   │    │(Noyau Orchestr.)  │                   │    & E-COMMERCE   │     │   Restauration)   │
 └────────┬──────────┘    └─────────┬─────────┘                   └─────────┬─────────┘     └─────────┬─────────┘
          │                         │                                       │                         │
   ┌──────┴──────┐           ┌──────┴──────┐                 ┌──────────────┼──────────────┐          │
   ▼             ▼           ▼             ▼                 ▼              ▼              ▼          ▼
-France       Algérie   Architecture C  Bus Lean v3     OMNISECUR      RELANCE-DEVIS   AMBRESSENCE B&B Douai
-(2 Vert.:   (Second     (Souverain      (Shards &       (Sécurité      (Porte BTP /    (E-commerce (Reprise
-Sécurité     Marché)    < 80 Mo RAM)    Preflight)      Privée B2B)    OMNIRENOV)      Parfumerie) Gérance Mandat)
-& BTP)
+France       Algérie   Architecture C  Bus Lean v3     OMNISECUR      RELANCE-DEVIS   AMBRESSENCE Savoir-faire
+(2 Vert.:   (Second     (Souverain      (Shards &       (Sécurité      (Porte BTP /   (E-commerce  opérat. réel
+Sécurité     Marché)    < 80 Mo RAM)    Preflight)      Privée B2B)    OMNIRENOV)     Parfumerie)  & dossier B&B
+& BTP)                                                                                             (candidature)
 ```
 
 ---
 
-## 2. MATRICE SYNTHÉTIQUE DES ACTIFS DU PORTEFEUILLE
+## 2. MATRICE DÉTAILLÉE DU PORTEFEUILLE ET CLASSIFICATION ÉPISTÉMIQUE
 
-| Code Projet | Pilier / Nature | Statut Confirmé | Modèle Économique & Cible | Emplacement de Référence | Dépôt Git associé |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **SYNTESIA** | Agence IA & Automatisation B2B | **Fondation & Cadrage validé** | Prestations sur mesure, Sprint 21J, TPE/PME France & Algérie | Drive `_AGIA_PILOTAGE` (`17gFy4iaLy...`) | `naitconv-web/agia-infrastructure` |
-| **WORKSTATION-IA & LAB** | Noyau d'orchestration & Architecture | **Spécifié (Architecture C) / Prêt 75%** | Infrastructure interne souveraine multi-modèles | Drive `WORKSTATION-IA` (`1YLmAB3t...`) | Dépôt cible prévu : `naitconv-web/lab-core` |
-| **OMNISECUR** | SaaS Métier B2B (Sécurité Privée) | **Prêt Démo Phase 1 / Code v2.3.2 certifié** | Logiciel d'exploitation dirigeants sécurité (CSI / IDCC 1351) | Drive `PROJETS/OMNISECUR` (`1BQd8Ohcc...`) | `naitconv-web/omnisecur` & `omnisecur-launch-kit` |
-| **RELANCE-DEVIS (OMNIRENOV)** | Solution B2B Artisans / BTP | **Test Meta Ads validé / Zéro Code initial** | 390 € setup + 69 €/mois (Porte d'entrée BTP) | Drive `PROJETS/RELANCE-DEVIS` (`13OOCqJY...`) | Sous `omnisecur-launch-kit` / script dédié |
-| **OMNIPATRIMOINE** | Incubateur LAB Niveau 3 | **Piste / Gelé dev (`FUTURS_PROJETS`)** | Plateforme de gestion de patrimoine et investissement | Drive `FUTURS_PROJETS` (`1dyOS9MR...`) | Aucun (Phase d'arbitrage) |
-| **AMBRESSENCE** | E-commerce B2C (Parfumerie) | **Staging prêt / Verrou Kbis administratif** | Vente en ligne parfums de niche (NAIT STORE) | Drive `PROJETS/AMBRESSENCE` (`1Kwtctpd...`) | `naitconv-web/AMBRESSENCE` & `ambressence.com` |
-| **PROJETS HÔTELIERS** | Exploitation & Reprise (CHR) | **Dossier de candidature ficelé (Mai 2026)** | Gérance Mandat B&B Hôtel Douai (828 K€ CA, TO 57%) | Drive racine (`1eJY7N5k7VE...`) | Dossier technique & Business Plan PDF |
-| **PASEO & ANTIGRAVITY** | Environnements de développement | **Outils d'exécution & Agents** | Runtime d'ingénierie agentique et proxy local | Configuration hôte sandbox | CLI préinstallées & `PROMPT_PASEO.md` |
+Chaque élément est classé selon son niveau de certitude vérifié :
+- `[DÉCISION CONFIRMÉE]` : Arbitrage formel validé par le fondateur dans `REGISTRE-DECISIONS.md`.
+- `[DOCUMENT SOURCE]` : Information extraite d'un document ou d'un rapport technique de référence vérifié.
+- `[DOSSIER D'ÉTUDE / CANDIDATURE]` : Projet ou opportunité analysée sans engager les performances personnelles du fondateur.
+- `[DÉVELOPPEMENT SÉQUENCÉ]` : Projet actif dans la stratégie du LAB dont l'exécution technique est planifiée dans un second temps.
+- `[PISTE EN PAUSE]` : Idée exploratoire classée formellement en attente.
 
----
-
-## 3. RÈGLES DE SOUVERAINETÉ ET D'ÉTANCHÉITÉ DU PORTEFEUILLE
-
-1. **Étanchéité Commerciale & Juridique :**
-   - **B2B & Prestations (SYNTESIA / OMNISECUR / RELANCE-DEVIS) :** Porté sous le nom et le Kbis du dirigeant `Mounir NAIT MOHAND`.
-   - **E-commerce (AMBRESSENCE) :** Entité dédiée `NAIT STORE`, gestion des stocks et catalogue étanche.
-   - **Hôtellerie / Reprise (B&B Douai) :** Société dédiée en gérance mandat (SAS en création), exploitation physique indépendante.
-2. **Priorisation Opérationnelle Arbitrée :**
-   - Aucune dispersion de développement : le LAB et OMNIPATRIMOINE restent gelés tant que les flux de trésorerie N1/N2 ne sont pas stabilisés.
-   - SYNTESIA capitalise sur le savoir-faire acquis sur OMNISECUR (sécurité privée) et RELANCE-DEVIS (bâtiment) pour commercialiser ses services d'intégration sans réinventer la roue.
+| Nom du Projet | Rôle dans l'Écosystème | Statut Organisationnel Réel | Niveau de Certitude | Emplacement Drive / Git de Référence |
+| :--- | :--- | :--- | :--- | :--- |
+| **STRUCTURE MÈRE LAB** | Structure faîtière et laboratoire d'incubation des solutions Omni-X | **Structure mère active** | `[DÉCISION CONFIRMÉE]` | `WORKSTATION-IA` (`1YLmAB3t...`) & `LAB-ARCH-001` (`1SKhv8HQ...`) |
+| **WORKSTATION-IA** | Cerveau d'orchestration hybride souverain (< 80 Mo RAM, Architecture C) | **Spécifié & Audité à 75%** | `[DOCUMENT SOURCE]` | `LAB-ARCH-001` (`1CcEAPM9...`) & `LAB-ARCH-002` (`1y2LXAYc...`) |
+| **OMNISECUR** | Logiciel d'exploitation pour dirigeants de sécurité privée (CSI / IDCC 1351) | **Code v2.3.2 certifié (95 tests verts) & Démo validée** | `[DÉCISION CONFIRMÉE]` | `PROJETS/OMNISECUR` (`1BQd8Ohcc...`) & `naitconv-web/omnisecur` |
+| **RELANCE-DEVIS (OMNIRENOV)** | Solution B2B d'acompte rapide et relance de devis pour artisans du bâtiment | **Test Meta Ads validé / Règle Zéro Code initial** | `[DÉCISION CONFIRMÉE]` | `PROJETS/RELANCE-DEVIS` (`13OOCqJY...`) / `omnisecur-launch-kit` |
+| **OMNIPATRIMOINE** | Outils et plateforme d'ingénierie patrimoniale pour indépendants | **Développement séquentiel planifié (Niveau 3)** | `[DÉVELOPPEMENT SÉQUENCÉ]` | `PROJETS/FUTURS_PROJETS` (`1dyOS9MR...`) |
+| **SYNTESIA** | Agence de conseil, transformation numérique et intégration IA | **Fondation assainie, 2 verticales prioritaires (Sécurité & BTP)** | `[DÉCISION CONFIRMÉE]` | `_AGIA_PILOTAGE` (`17gFy4ia...`) & `naitconv-web/agia-infrastructure` |
+| **AMBRESSENCE** | E-commerce de parfums de niche (NAIT STORE) | **Staging prêt / En attente pièces Kbis** | `[DOCUMENT SOURCE]` | `PROJETS/AMBRESSENCE` (`1Kwtctpd...`) & `naitconv-web/AMBRESSENCE` |
+| **SASU ATLAS GLOBAL TRADING** | Structure juridique envisagée pour porter les solutions logicielles et e-commerce | **Statuts en formation (révisés au 30/10/2026)** | `[DOCUMENT SOURCE]` | `_ADMINISTRATION_JURIDIQUE/ATLAS-GLOBAL-TRADING` (`1FPLPQLr...`) |
+| **EXPÉRIENCE CHR (HÔTELS & RESTOS)** | Compétence d'exploitation et gestion d'actifs hôteliers / restauration | **Savoir-faire réel acquis & Dossier candidature B&B Douai** | `[DOSSIER D'ÉTUDE / CANDIDATURE]` | Racine Drive : dossier PDF (`1eJY7N5k7VE...`) |
+| **INSTACAR (Algérie)** | Plateforme automobile pour l'Algérie | **Idée exploratoire en pause** | `[PISTE EN PAUSE]` | `BRAINSTORMING/IDEES-EN-PAUSE` (`15i3mvt4...`) |
+| **ARBITRAGE EBAY PARFUMS** | Test d'arbitrage places de marché | **Idée exploratoire non engagée** | `[PISTE EN PAUSE]` | `BRAINSTORMING/ARBITRAGE-EBAY-PARFUMS` (`1x2YIOZ...`) |

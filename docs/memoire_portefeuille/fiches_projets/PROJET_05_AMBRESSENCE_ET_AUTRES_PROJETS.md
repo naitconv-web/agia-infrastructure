@@ -1,32 +1,29 @@
-# FICHE PROJET 05 — AMBRESSENCE & AUTRES PROJETS INCUBÉS
-**Date d'audit :** 21 novembre 2026  
-**Statut :** PROJET E-COMMERCE ISOLÉ — STAGING PRÊT — EN ATTENTE VERROU ADMINISTRATIF KBIS  
-**Emplacements Drive :** `PROJETS/AMBRESSENCE` (ID : `1Kwtctpd4tzm6tIYlJfBakvAHBfxJAoiY`)  
-**Dépôts GitHub :** `naitconv-web/AMBRESSENCE` (privé) & `naitconv-web/ambressence.com` (privé)  
+# FICHE PROJET 05 — AMBRESSENCE & AUTRES SOLUTIONS DU LAB (OMNIPATRIMOINE, INSTACAR)
+
+- **Statut de l'information :** `[DISTINCTION STRICTE : ACTIF ISOLÉ VS SOLUTION SÉQUENCÉE VS PISTE EN PAUSE]`
+- **Structure Mère :** **LAB** pour OMNIPATRIMOINE / **NAIT STORE** pour AMBRESSENCE
+- **Documents Sources Originaux :**
+  - Dossier `PROJETS/AMBRESSENCE` (ID : `1Kwtctpd4tzm6tIYlJfBakvAHBfxJAoiY`)
+  - Dossier `PROJETS/FUTURS_PROJETS` (ID : `1dyOS9MRm7HHL917Tor3P-B2gEVOokdrf`)
+  - Dossier `BRAINSTORMING/IDEES-EN-PAUSE` (ID : `15i3mvt4Pgl1iuD9rzxjGwxQ6BDvQT_xm`)
+  - `_ORCHESTRATION/README-PORTEFEUILLE.md` (ID : `13_Qt4DUVWaFifZGYEyhfZ1uFlWbWGqUA`)
 
 ---
 
 ## 1. AMBRESSENCE (E-COMMERCE PARFUMERIE DE NICHE)
-- **Nature :** Marque et boutique en ligne e-commerce dédiée aux parfums d'exception et à la haute parfumerie.
-- **Entité juridique porteuse :** `NAIT STORE` (étanche aux activités B2B).
-- **Hébergement & Stack :** Serveur o2switch, WordPress / WooCommerce, staging configuré.
-- **Blocages & Prochaines étapes :** Finalisation des pièces Kbis e-commerce (`TODO-FOUNDER.md`), arbitrage sur le catalogue de lancement et fixation de la politique tarifaire.
+- **Nature :** Marque et boutique de parfums de niche et d'exception.
+- **Entité juridique porteuse :** `NAIT STORE` (gestion étanche aux activités B2B).
+- **Statut réel vérifié :** Staging web et technique prêt sur o2switch / WooCommerce. Projet en attente de formalisation administrative (pièces Kbis) et d'arbitrage sur le catalogue.
 
 ---
 
-## 2. AUTRES PROJETS INCUBÉS DANS WORKSTATION-IA
+## 2. OMNIPATRIMOINE (SOLUTION DE LA GAMME OMNI-X / LAB)
+- **Nature :** Plateforme et outils d'ingénierie patrimoniale pour indépendants et dirigeants.
+- **Statut organisationnel réel :** **Développement séquentiel planifié (Niveau 3)**.
+- **Clarification fondamentale de gouvernance :** Le projet OMNIPATRIMOINE **n'est pas gelé par désintérêt ou abandon**, mais son développement technique est **séquencé de manière rationnelle** par le fondateur. Conformément à la doctrine de gestion des flux de trésorerie du LAB, le chantier technique d'OMNIPATRIMOINE sera ouvert dès que les solutions prioritaires de Niveau 1 et 2 (`OMNISECUR`, `RELANCE-DEVIS / OMNIRENOV`, `SYNTESIA`) auront consolidé leurs revenus récurrents.
 
-### A. OMNIPATRIMOINE (LAB Niveau 3)
-- **Nature :** Plateforme d'optimisation et d'ingénierie patrimoniale pour dirigeants et indépendants.
-- **Emplacement :** `FUTURS_PROJETS` (ID : `1dyOS9MRm7HHL917Tor3P-B2gEVOokdrf`).
-- **Statut confirmé :** **GELÉ EN DÉVELOPPEMENT**. Règle de gouvernance stricte du fondateur : aucun développement lourd sur les projets Niveau 3 tant que les projets Niveau 1 et 2 (`OMNISECUR`, `RELANCE-DEVIS`, `SYNTESIA`) n'ont pas généré de flux de trésorerie récurrents.
+---
 
-### B. PROJET INSTACAR (Brainstorming Algérie)
-- **Nature :** Plateforme / service automobile pour le marché algérien.
-- **Emplacement :** `BRAINSTORMING/IDEES-EN-PAUSE/instacar/` (ID : `15i3mvt4Pgl1iuD9rzxjGwxQ6BDvQT_xm`).
-- **Statut :** Idée exploratoire classée formellement en pause.
-
-### C. PROJET ARBITRAGE EBAY PARFUMS
-- **Nature :** Test de flux d'arbitrage sur places de marché.
-- **Emplacement :** `BRAINSTORMING/ARBITRAGE-EBAY-PARFUMS/` (ID : `1x2YIOZHP9f2emVGp5z9xPUl95Wt0IfOr`).
-- **Statut :** Piste exploratoire non engagée.
+## 3. PISTES EXPLORATOIRES EN PAUSE (BRAINSTORMING)
+- **INSTACAR (Algérie) :** Projet de plateforme automobile étudié pour le marché algérien, formellement classé dans `IDEES-EN-PAUSE`.
+- **ARBITRAGE EBAY PARFUMS :** Idée exploratoire non engagée.
