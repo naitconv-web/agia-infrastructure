@@ -68,11 +68,11 @@
     },
     {
       "id": "FACT-06",
-      "status": "BLOCKED",
-      "maturity": "DOCUMENTE",
-      "statement": "L'immatriculation définitive (Kbis / SIREN / RCS) de la SASU ATLAS GLOBAL TRADING et les 5 champs d'identité légale de mentions-legales-confidentialite.html attendent les données du fondateur.",
+      "status": "CONFIRMED",
+      "maturity": "TESTE",
+      "statement": "Entité facturante immédiate vérifiée active sur api.gouv.fr : Mounir Nait Mohand EI (SIRET 849 261 870 00018, Etat A, non-diffusible). La SASU ATLAS GLOBAL TRADING reste en formation et la mise en ligne du site reste BLOCKED en attente d'adresse professionnelle, e-mail/tél, hébergeur et accord explicite du fondateur.",
       "source_id": "SRC-GIT-MAIN",
-      "proof": "sites/shared/mentions-legales-confidentialite.html:L65-83"
+      "proof": "api.gouv.fr SIREN 849261870 + docs/commercial/PLAN_ACQUISITION_REVENUE_FIRST.md"
     },
     {
       "id": "FACT-07",

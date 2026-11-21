@@ -28,8 +28,8 @@
 
 | # | Blocage réel identifié | Nature | Impact exact sur la vente / l'encaissement | Solution immédiate pour débloquer sous 24h |
 | :---: | :--- | :---: | :--- | :--- |
-| **1** | **Choix de l'entité juridique facturante (Micro-entreprise vs SASU en formation)** | **P0 — Bloquant Encaissement** | La `SASU ATLAS GLOBAL TRADING` étant en cours de constitution (statuts du 30/10/2026, Kbis `NON DÉMONTRÉ`), elle **ne peut pas émettre de facture légale**. En France, une facture d'acompte exige un **numéro SIRET actif** (Art. L.441-9 C. com.). | **Action Fondateur :** Utiliser la **micro-entreprise existante du fondateur** (si active avec SIRET + mention *« TVA non applicable, art. 293 B du CGI »*) pour facturer les premiers acomptes de **596 €** dès cette semaine, sans attendre le Kbis de la SASU. |
-| **2** | **Absence d'IBAN / lien de paiement prêt sur la proposition** | **P0 — Bloquant Encaissement** | Un client prêt à signer doit pouvoir virer les **596 €** d'acompte dans l'heure qui suit le rendez-vous. | Joindre immédiatement le **RIB / IBAN** de l'entité facturante retenue à la Proposition Commerciale (§6) et à la facture d'acompte. |
+| **1** | **Entité juridique facturante validée (`Mounir Nait Mohand` — Micro-entreprise)** | **DÉBLOQUÉ (`CONFIRMED`)** | Vérifié actif sur `api.gouv.fr` (`État : A`, Nature `1000` Entrepreneur individuel, `SIRET : 849 261 870 00018`). Peut facturer immédiatement en franchise en base (*« TVA non applicable, art. 293 B du CGI »*) sans attendre le Kbis de la SASU `ATLAS GLOBAL TRADING`. | **Prêt :** Facturer les premiers acomptes de **596,00 €** sous le nom `Mounir Nait Mohand — EI` (`SIRET 849 261 870 00018`). |
+| **2** | **IBAN d'encaissement prêt (`FR76 2823 3000 0155 7085 2276 820`)** | **DÉBLOQUÉ (`CONFIRMED`)** | Le RIB/IBAN est intégré dans la proposition commerciale et le modèle de facture d'acompte (§6.2 & §6.3) pour encaissement par virement dès signature. | Joindre la facture d'acompte (§6.3) avec l'adresse postale de facturation complétée lors de l'envoi au client. |
 | **3** | **Coordonnées directes (téléphone / e-mail) des 10 dirigeants** | **P1 — Préparation Contact** | L'API Open Data `api.gouv.fr` fournit légalement la raison sociale, le SIREN, l'adresse et le nom du dirigeant RCS, mais pas les numéros de téléphone ni les e-mails. | Relever le numéro de standard / site web / LinkedIn des **6 prospects prioritaires** (15 min au total) avant de lancer les premiers appels. |
 | **4** | **Site vitrine non encore publié (`WEBHOOK_ENABLED = false`)** | **Non bloquant pour la vente directe** | Empêche uniquement l'acquisition passive entrante via le site web, mais **n'empêche absolument pas de démarcher, démontrer (`sites/demonstrateur/index.html`) et encaisser en direct**. | Maintenir le site en pré-production jusqu'à validation juridique, et vendre en direct via le démonstrateur local en partage d'écran ou en présentiel. |
 
@@ -110,19 +110,20 @@ Ouvrir **[sites/demonstrateur/index.html](file:///home/antigravity/agia-infrastr
 
 ---
 
-## 6. MODÈLE DE PROPOSITION COMMERCIALE & CONDITIONS D'ACOMPTE
+## 6. MODÈLE DE PROPOSITION COMMERCIALE, CONDITIONS D'ACOMPTE & FACTURE D'ACOMPTE
 
 ### 6.1. Conditions strictes d'acompte et d'encaissement
-- **Montant total installation clé en main (France) :** **1 490,00 € HT** *(TVA non applicable, art. 293 B du CGI si facturation via micro-entreprise en franchise en base ; sinon TVA 20 % selon régime de l'entité facturante)*.
-- **Acompte exigible à la signature (40 %) :** **596,00 € HT** — **Condition absolue de démarrage** (aucun travail d'intégration client ne commence avant réception du bon pour accord signé + virement de l'acompte).
-- **Solde à la livraison (60 % à J+7) :** **894,00 € HT** à la validation de la session de prise en main de 45 min.
-- **Abonnement mensuel optionnel (à partir du mois 2) :** **190,00 € HT / mois** (sans engagement, résiliable par simple e-mail).
+- **Entité facturante active :** **Mounir Nait Mohand** — Entrepreneur Individuel (Micro-entreprise) · **SIRET : `849 261 870 00018`** · *(TVA non applicable, art. 293 B du CGI)*.
+- **Montant total installation clé en main (France) :** **1 490,00 €** *(net de TVA, art. 293 B du CGI)*.
+- **Acompte exigible à la signature (40 %) :** **596,00 €** — **Condition absolue de démarrage** (aucun travail d'intégration client ne commence avant réception du bon pour accord signé + virement de l'acompte).
+- **Solde à la livraison (60 % à J+7) :** **894,00 €** à la validation de la session de prise en main de 45 min.
+- **Abonnement mensuel optionnel (à partir du mois 2) :** **190,00 € / mois** *(net de TVA, art. 293 B du CGI, sans engagement, résiliable par simple e-mail)*.
 
 ### 6.2. Modèle de Proposition Commerciale Prête à Émettre (1 Page)
 
 > **PROPOSITION D'INTERVENTION — SYNTESIA**  
 > **Réf. :** `PROP-SYN-2026-[XXX]` · **Date :** `[JJ/MM/2026]` · **Validité :** 15 jours  
-> **Éditeur / Prestataire :** `[Raison sociale / Nom Entrepreneur + SIRET + Adresse — À compléter selon entité facturante]`  
+> **Prestataire :** **Mounir Nait Mohand** (Nom commercial : **SYNTESIA**) — Entrepreneur Individuel · **SIRET : `849 261 870 00018`** · `[Adresse postale professionnelle à compléter]`  
 > **Client :** `[Raison Sociale Prospect]` (`SIREN : [XXX]`) — À l'attention de `[M./Mme Prénom Nom, Fonction]`
 >
 > **1. Objet :** Déploiement en 7 jours ouvrés du Cockpit SYNTESIA (Suivi & Relance des Devis `J+3`/`J+7` + Alerte Conformité), raccordé à votre outil existant (`[Obat / Batigest / Excel / Planning]`) sans migration de logiciel.  
@@ -131,12 +132,28 @@ Ouvrir **[sites/demonstrateur/index.html](file:///home/antigravity/agia-infrastr
 > - Activation du Sas de validation Dirigeant en 1 clic (horaires ouvrés `08h30–19h00`, max 2 relances).  
 > - Rédaction de 6 séquences de relances sur mesure + Formation de 45 min + Guide 1 page.  
 > **3. Conditions Financières & Paiement :**  
-> - **Forfait d'installation clé en main :** `1 490,00 € HT`  
->   - **Acompte 40 % à la commande (virement à réception) :** `596,00 € HT` *(IBAN : `[À insérer]`)*  
->   - **Solde 60 % à la recette fonctionnelle (J+7) :** `894,00 € HT`  
-> - **Suivi & maintenance mensuelle (optionnel, sans engagement) :** `190,00 € HT / mois`  
-> - *Mention fiscale :* `[« TVA non applicable, art. 293 B du CGI » OU « TVA 20 % en sus » selon entité facturante]`.  
+> - **Forfait d'installation clé en main :** `1 490,00 €`  
+>   - **Acompte 40 % à la commande (virement à réception) :** `596,00 €`  
+>   - **IBAN de règlement :** `FR76 2823 3000 0155 7085 2276 820` *(Titulaire : Mounir Nait Mohand)*  
+>   - **Solde 60 % à la recette fonctionnelle (J+7) :** `894,00 €`  
+> - **Suivi & maintenance mensuelle (optionnel, sans engagement) :** `190,00 € / mois`  
+> - *Mention légale fiscale :* **TVA non applicable, art. 293 B du CGI.**  
 > **4. Bon pour accord (Date, Signature & Cachet du Client) :** `______________________`
+
+### 6.3. Modèle de Facture d'Acompte (40 % — `596,00 €`) Prête à Émettre
+
+> **FACTURE D'ACOMPTE N° `FA-2026-001`**  
+> **Date d'émission :** `[JJ/MM/2026]` · **Date d'échéance :** À réception  
+> **Émetteur :** **Mounir Nait Mohand** (EI — Enseigne : **SYNTESIA**) · **SIRET :** `849 261 870 00018` · `[Adresse postale à compléter]`  
+> **Client :** `[Raison Sociale Client]` · **SIREN/SIRET :** `[XXX]` · `[Adresse Client]`  
+>
+> | Désignation de la prestation | Base Forfait | Taux Acompte | Montant Net (€) |
+> | :--- | :---: | :---: | :---: |
+> | **Acompte 40 % à la commande — Déploiement Cockpit SYNTESIA (Devis & Conformité)** *(Réf. `PROP-SYN-2026-001`)* | `1 490,00 €` | `40 %` | **`596,00 €`** |
+>
+> - **Total Net à Payer :** **`596,00 €`** *(TVA non applicable, art. 293 B du CGI)*  
+> - **Mode de règlement :** Virement bancaire sur l'IBAN **`FR76 2823 3000 0155 7085 2276 820`** (Titulaire : `Mounir Nait Mohand` · Référence virement : `FA-2026-001`).  
+> - *Mentions obligatoires B2B (Art. L.441-9 C. com.) :* En cas de retard de paiement, pénalités exigibles au taux d'intérêt légal appliqué par la BCE majoré de 10 points de pourcentage et indemnité forfaitaire pour frais de recouvrement de `40,00 €` (Art. D.441-5 C. com.). Pas d'escompte pour paiement anticipé.
 
 ---
 
