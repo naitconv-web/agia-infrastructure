@@ -1,0 +1,29 @@
+name: WS-AMB-002 Governance Check
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'docs/ambressence/**'
+
+jobs:
+  check-message-immutability:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository with full history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify existing MSG-*.md files are immutable
+        run: |
+          BASE_SHA="${{ github.event.pull_request.base.sha }}"
+          HEAD_SHA="${{ github.event.pull_request.head.sha }}"
+          CHANGED=$(git diff --name-status "$BASE_SHA" "$HEAD_SHA" -- 'docs/ambressence/messages/MSG-*.md' || true)
+          echo "$CHANGED"
+          if echo "$CHANGED" | grep -E '^(M|D|R)' ; then
+            echo "ERROR: Existing MSG-*.md files are immutable and cannot be modified, renamed, or deleted."
+            exit 1
+          fi
+          echo "PASS: Only new message files (or none) were added."
