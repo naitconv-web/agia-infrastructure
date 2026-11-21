@@ -172,6 +172,9 @@ def plan_changes(products: list[dict]) -> tuple[list[dict], dict]:
 
 
 def apply_wc_batch(base_url: str, user: str, app_pass: str, actions: list[dict]) -> None:
+    import time
+    import urllib.error
+
     token = base64.b64encode(f"{user}:{app_pass}".encode("utf-8")).decode("ascii")
     headers = {
         "Authorization": f"Basic {token}",
@@ -179,8 +182,9 @@ def apply_wc_batch(base_url: str, user: str, app_pass: str, actions: list[dict])
         "User-Agent": "WS-AMB-002-Cleaner/1.0",
     }
     endpoint = f"{base_url.rstrip('/')}/wp-json/wc/v3/products/batch"
-    for i in range(0, len(actions), 50):
-        chunk = actions[i : i + 50]
+    batch_size = 25
+    for i in range(0, len(actions), batch_size):
+        chunk = actions[i : i + batch_size]
         payload = {"update": []}
         for a in chunk:
             item = {"id": a["id"], "status": a["status"], "name": a["new_name"]}
@@ -190,16 +194,23 @@ def apply_wc_batch(base_url: str, user: str, app_pass: str, actions: list[dict])
                 item["short_description"] = a["new_short_description"]
             payload["update"].append(item)
 
-        req = urllib.request.Request(
-            endpoint,
-            data=json.dumps(payload).encode("utf-8"),
-            headers=headers,
-            method="POST",
-        )
-        with urllib.request.urlopen(req, timeout=30) as resp:
-            if resp.status not in (200, 201):
-                raise RuntimeError(f"Batch HTTP {resp.status}")
-        print(f"Batch {i // 50 + 1}: {len(chunk)} produits mis à jour.")
+        data_bytes = json.dumps(payload).encode("utf-8")
+        for attempt in range(1, 5):
+            req = urllib.request.Request(endpoint, data=data_bytes, headers=headers, method="POST")
+            try:
+                with urllib.request.urlopen(req, timeout=45) as resp:
+                    if resp.status not in (200, 201):
+                        raise RuntimeError(f"Batch HTTP {resp.status}")
+                break
+            except urllib.error.HTTPError as e:
+                if e.code in (429, 500, 502, 503, 504) and attempt < 4:
+                    wait_s = attempt * 4
+                    print(f"Batch {i // batch_size + 1}: HTTP {e.code}, nouvelle tentative dans {wait_s}s...")
+                    time.sleep(wait_s)
+                else:
+                    raise
+        print(f"Batch {i // batch_size + 1}/{(len(actions) + batch_size - 1) // batch_size}: {len(chunk)} produits mis à jour.")
+        time.sleep(1.2)
 
 
 def main() -> int:
