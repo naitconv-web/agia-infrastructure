@@ -5,10 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SYNTESIA Sécurité Privée — Conformité CSI Livre VI, Plannings IDCC 1351 &amp; Pilotage d'Exploitation</title>
   <meta name="description" content="Pôle spécialisé SYNTESIA pour les entreprises de sécurité privée en France : suivi des cartes CNAPS, recyclages MAC, contrôle des repos IDCC 1351, Ordres de Mission et chiffrage de marge.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta property="og:title" content="SYNTESIA Sécurité Privée — Conformité CSI Livre VI & Exploitation IDCC 1351">
+  <meta property="og:description" content="Systèmes d'aide à l'exploitation pour dirigeants de sociétés de sécurité privée : suivi CNAPS/MAC/SST/SSIAP, contrôle des repos IDCC 1351, Ordres de Mission L.612-9 et simulateur de marge.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="SYNTESIA France — Pôle Sécurité Privée">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Crect width='36' height='36' fill='%23161513'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' fill='%23FAF9F5' font-family='monospace' font-weight='600' font-size='14'%3ESY%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="../../shared/syntesia-design-system.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "SYNTESIA — Pôle Sécurité Privée (France)",
+    "serviceType": "Ingénierie de systèmes d'exploitation et de conformité pour sociétés de sécurité privée (CSI Livre VI & IDCC 1351)",
+    "areaServed": "FR"
+  }
+  </script>
 </head>
 <body class="selection:bg-stone-900 selection:text-stone-100">
 
@@ -37,20 +49,34 @@
         </div>
       </a>
 
-      <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-[#464440]">
+      <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-[#464440]" aria-label="Navigation verticale sécurité">
         <a href="#sous-metiers" class="hover:text-[#161513] transition">Sous-Métiers</a>
         <a href="#enjeux" class="hover:text-[#161513] transition">Contraintes Terrain</a>
         <a href="#solutions" class="hover:text-[#161513] transition">Architecture &amp; Modules</a>
         <a href="#audit-secu" class="hover:text-[#161513] transition">Diagnostic</a>
       </nav>
 
-      <div>
+      <div class="flex items-center space-x-2">
+        <button type="button" id="synMobileMenuBtn" aria-expanded="false" aria-controls="synMobileMenuPanel" class="md:hidden syn-btn-secondary px-3 py-2 font-mono text-xs">
+          [MENU]
+        </button>
         <a href="#audit-secu" class="syn-btn-primary">
           <span>Étude d'Exploitation</span>
           <span class="font-mono text-xs">&rarr;</span>
         </a>
       </div>
     </div>
+
+    <!-- Mobile Navigation Panel (< 768px) -->
+    <nav id="synMobileMenuPanel" class="hidden md:hidden border-t border-[#D5D4CC] bg-[#FAF9F5] px-6 py-4 space-y-3 text-sm font-medium text-[#161513]" aria-label="Menu mobile sécurité">
+      <div class="grid grid-cols-1 gap-2">
+        <a href="#enjeux" class="py-1.5 border-b border-[#EAE9E2]">01. Quatre Repères de Conformité</a>
+        <a href="#sous-metiers" class="py-1.5 border-b border-[#EAE9E2]">02. Six Spécialités Prises en Charge</a>
+        <a href="#solutions" class="py-1.5 border-b border-[#EAE9E2] font-semibold">03. Quatre Modules d'Ingénierie</a>
+        <a href="#audit-secu" class="py-1.5 border-b border-[#EAE9E2]">04. Demander un Diagnostic</a>
+        <a href="../../shared/mentions-legales-confidentialite.html" class="py-1.5 border-b border-[#EAE9E2] text-[#6E6B65]">05. Mentions Légales &amp; RGPD</a>
+      </div>
+    </nav>
   </header>
 
   <main>
@@ -225,30 +251,30 @@
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
-              <label class="block font-mono-mark text-[#464440] mb-2">Dirigeant / Directeur d'Exploitation *</label>
-              <input type="text" name="nom" required placeholder="Nom &amp; Prénom" class="syn-input">
+              <label for="sec_nom" class="block font-mono-mark text-[#464440] mb-2">Dirigeant / Directeur d'Exploitation *</label>
+              <input type="text" id="sec_nom" name="nom" required placeholder="Nom &amp; Prénom" class="syn-input">
             </div>
             <div>
-              <label class="block font-mono-mark text-[#464440] mb-2">Société de Sécurité *</label>
-              <input type="text" name="entreprise" required placeholder="Raison Sociale" class="syn-input">
-            </div>
-          </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div>
-              <label class="block font-mono-mark text-[#464440] mb-2">E-mail Professionnel *</label>
-              <input type="email" name="email" required placeholder="direction@securite.fr" class="syn-input">
-            </div>
-            <div>
-              <label class="block font-mono-mark text-[#464440] mb-2">Téléphone Direct *</label>
-              <input type="tel" name="telephone" required placeholder="06 / 01 ..." class="syn-input">
+              <label for="sec_entreprise" class="block font-mono-mark text-[#464440] mb-2">Société de Sécurité *</label>
+              <input type="text" id="sec_entreprise" name="entreprise" required placeholder="Raison Sociale" class="syn-input">
             </div>
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
-              <label class="block font-mono-mark text-[#464440] mb-2">Effectif d'agents en exploitation</label>
-              <select name="effectif" class="syn-input">
+              <label for="sec_email" class="block font-mono-mark text-[#464440] mb-2">E-mail Professionnel *</label>
+              <input type="email" id="sec_email" name="email" required placeholder="direction@securite.fr" class="syn-input">
+            </div>
+            <div>
+              <label for="sec_tel" class="block font-mono-mark text-[#464440] mb-2">Téléphone Direct *</label>
+              <input type="tel" id="sec_tel" name="telephone" required placeholder="06 / 01 ..." class="syn-input">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div>
+              <label for="sec_effectif" class="block font-mono-mark text-[#464440] mb-2">Effectif d'agents en exploitation</label>
+              <select id="sec_effectif" name="effectif" class="syn-input">
                 <option value="1 à 15 agents">1 à 15 agents</option>
                 <option value="15 à 50 agents" selected>15 à 50 agents</option>
                 <option value="50 à 150 agents">50 à 150 agents</option>
@@ -256,8 +282,8 @@
               </select>
             </div>
             <div>
-              <label class="block font-mono-mark text-[#464440] mb-2">Priorité opérationnelle</label>
-              <select name="besoin" class="syn-input">
+              <label for="sec_besoin" class="block font-mono-mark text-[#464440] mb-2">Priorité opérationnelle</label>
+              <select id="sec_besoin" name="besoin" class="syn-input">
                 <option value="Suivi des échéances CNAPS, MAC, SST et SSIAP">Suivi des échéances CNAPS, MAC, SST et SSIAP</option>
                 <option value="Planification des vacations, repos IDCC 1351 et remplacements">Planification des vacations, repos IDCC 1351 et remplacements</option>
                 <option value="Chiffrage du coût de revient horaire et protection des marges">Chiffrage du coût de revient horaire et protection des marges</option>
@@ -267,8 +293,8 @@
           </div>
 
           <div>
-            <label class="block font-mono-mark text-[#464440] mb-2">Outils actuels et précisions sur votre organisation</label>
-            <textarea name="description" rows="3" placeholder="Ex: Plannings gérés sur Excel ou logiciel métier, volume de remplacements hebdomadaires, types de sites (SSIAP, gardiennage, rondes)..." class="syn-input"></textarea>
+            <label for="sec_description" class="block font-mono-mark text-[#464440] mb-2">Outils actuels et précisions sur votre organisation</label>
+            <textarea id="sec_description" name="description" rows="3" placeholder="Ex: Plannings gérés sur Excel ou logiciel métier, volume de remplacements hebdomadaires, types de sites (SSIAP, gardiennage, rondes)..." class="syn-input"></textarea>
           </div>
 
           <!-- Honeypot -->
@@ -280,7 +306,7 @@
           <div class="flex items-start space-x-3 pt-2 border-t border-[#D5D4CC]">
             <input type="checkbox" id="rgpd_secu" name="rgpd_consent" required class="mt-1 h-4 w-4 border-[#B5B4AC] text-[#161513]">
             <label for="rgpd_secu" class="text-xs text-[#464440] leading-relaxed">
-              J'accepte que les données transmises soient traitées exclusivement par SYNTESIA pour l'étude confidentielle de ma demande professionnelle, conformément au RGPD. *
+              J'accepte que les données transmises soient traitées exclusivement par SYNTESIA pour l'étude confidentielle de ma demande professionnelle, conformément au RGPD et à nos <a href="../../shared/mentions-legales-confidentialite.html" class="underline underline-offset-4 hover:text-[#161513]">Mentions légales &amp; Politique de confidentialité</a>. *
             </label>
           </div>
 
@@ -298,34 +324,17 @@
   <footer class="border-t border-[#D5D4CC] bg-[#EAE9E2] py-10 px-6">
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between text-xs text-[#6E6B65] gap-4">
       <div>&copy; 2026 SYNTESIA &middot; Verticale Sécurité Privée (France). Projet en cours de structuration.</div>
-      <div class="flex space-x-6">
+      <div class="flex flex-wrap gap-6">
         <a href="../index.html" class="hover:text-[#161513] underline-offset-4 hover:underline">Accueil SYNTESIA France</a>
         <a href="../batiment-renovation/index.html" class="hover:text-[#161513] underline-offset-4 hover:underline">Pôle Bâtiment, BTP &amp; Rénovation</a>
+        <a href="../../shared/mentions-legales-confidentialite.html" class="hover:text-[#161513] underline-offset-4 hover:underline">Mentions légales &amp; RGPD</a>
       </div>
     </div>
   </footer>
 
+  <script src="../../shared/syntesia-forms.js"></script>
   <script>
-    document.getElementById('formSecu').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const feedback = document.getElementById('feedbackSecu');
-      if (this.company_website && this.company_website.value !== "") return;
-
-      if (!this.nom.value.trim() || !this.entreprise.value.trim() || !this.email.value.trim() || !this.telephone.value.trim() || !this.rgpd_consent.checked) {
-        feedback.className = "p-5 border border-[#B84A27] bg-[#FAF9F5] text-xs text-[#B84A27]";
-        feedback.innerHTML = "<strong>[CONTRÔLE DE SAISIE]</strong> Veuillez compléter tous les champs obligatoires (*) et cocher la case de consentement RGPD.";
-        feedback.classList.remove('hidden');
-        return;
-      }
-
-      feedback.className = "p-6 border border-[#161513] bg-[#EAE9E2] text-xs text-[#161513] space-y-2";
-      feedback.innerHTML =
-        "<div class='font-mono-mark text-[#5C6B28]'>[FICHE SÉCURITÉ PRIVÉE QUALIFIÉE &mdash; MODE PRÉ-PRODUCTION]</div>" +
-        "<p class='text-sm font-semibold'>Demande enregistrée pour " + this.entreprise.value.replace(/</g, "&lt;") + ".</p>" +
-        "<p class='text-[#464440]'>Vos paramètres d'exploitation (" + this.effectif.value + " &middot; " + this.besoin.value + ") sont prêts pour l'analyse technique. Raccordement CRM en mode validation locale tant que le webhook de production n'est pas activé.</p>";
-      feedback.classList.remove('hidden');
-      this.reset();
-    });
+    window.initSyntesiaForm('formSecu', 'feedbackSecu', 'France', '#1D4ED8');
   </script>
 </body>
 </html>

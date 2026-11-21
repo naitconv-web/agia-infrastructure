@@ -3,12 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SYNTESIA France — Ingénierie de Systèmes Opérationnels, Automatisation & Agents IA</title>
+  <title>SYNTESIA France — Ingénierie de Systèmes Opérationnels, Automatisation &amp; Agents IA</title>
   <meta name="description" content="SYNTESIA accompagne les TPE et PME françaises dans la compréhension de leurs opérations, l'intégration de leurs outils existants, l'automatisation de leurs processus et le déploiement d'agents IA métiers.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta property="og:title" content="SYNTESIA France — Ingénierie de Systèmes Opérationnels, Automatisation & Agents IA">
+  <meta property="og:description" content="Audit opérationnel, intégration d'outils existants, automatisation de processus et agents IA encadrés pour les TPE et PME en France (Sécurité Privée, Bâtiment/BTP/Rénovation, HCR, CGP).">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="SYNTESIA France">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Crect width='36' height='36' fill='%23161513'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' fill='%23FAF9F5' font-family='monospace' font-weight='600' font-size='14'%3ESY%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="../shared/syntesia-design-system.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "SYNTESIA France",
+    "description": "Ingénierie de systèmes opérationnels, intégration logicielle, automatisation de processus et déploiement d'agents IA métiers sous supervision humaine pour TPE et PME.",
+    "areaServed": "FR",
+    "knowsAbout": [
+      "Sécurité Privée (CSI Livre VI & IDCC 1351)",
+      "Bâtiment, BTP et Rénovation",
+      "Hôtellerie, Cafés et Restauration (IDCC 1979)",
+      "Conseil en Gestion de Patrimoine (CGP)",
+      "Automatisation de processus B2B"
+    ]
+  }
+  </script>
 </head>
 <body class="selection:bg-stone-900 selection:text-stone-100">
 
@@ -40,7 +59,7 @@
         </div>
       </a>
 
-      <nav class="hidden lg:flex items-center space-x-8 text-sm font-medium text-[#464440]">
+      <nav class="hidden lg:flex items-center space-x-8 text-sm font-medium text-[#464440]" aria-label="Navigation principale">
         <a href="#approche" class="hover:text-[#161513] transition">Approche</a>
         <a href="#architecture-systeme" class="hover:text-[#161513] transition">Système</a>
         <a href="#verticales-prioritaires" class="hover:text-[#161513] transition font-semibold text-[#161513]">Verticales Prioritaires</a>
@@ -48,13 +67,28 @@
         <a href="#methode" class="hover:text-[#161513] transition">Démarche</a>
       </nav>
 
-      <div class="flex items-center space-x-3">
+      <div class="flex items-center space-x-2">
+        <button type="button" id="synMobileMenuBtn" aria-expanded="false" aria-controls="synMobileMenuPanel" class="lg:hidden syn-btn-secondary px-3 py-2 font-mono text-xs">
+          [MENU]
+        </button>
         <a href="#diagnostic" class="syn-btn-primary">
           <span>Demander un diagnostic</span>
           <span class="font-mono text-xs">&rarr;</span>
         </a>
       </div>
     </div>
+
+    <!-- Mobile Navigation Panel (< 1024px) -->
+    <nav id="synMobileMenuPanel" class="hidden lg:hidden border-t border-[#D5D4CC] bg-[#FAF9F5] px-6 py-4 space-y-3 text-sm font-medium text-[#161513]" aria-label="Menu mobile">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <a href="#approche" class="py-1.5 border-b border-[#EAE9E2]">01. Approche &amp; Périmètre</a>
+        <a href="#architecture-systeme" class="py-1.5 border-b border-[#EAE9E2]">02. Architecture Système</a>
+        <a href="#verticales-prioritaires" class="py-1.5 border-b border-[#EAE9E2] font-semibold">03. Verticales Prioritaires</a>
+        <a href="#catalogue-sectoriel" class="py-1.5 border-b border-[#EAE9E2]">04. Catalogue Sectoriel</a>
+        <a href="#methode" class="py-1.5 border-b border-[#EAE9E2]">05. Démarche en 4 Étapes</a>
+        <a href="../shared/mentions-legales-confidentialite.html" class="py-1.5 border-b border-[#EAE9E2] text-[#6E6B65]">06. Mentions Légales &amp; RGPD</a>
+      </div>
+    </nav>
   </header>
 
   <main>
@@ -623,7 +657,7 @@
               <select id="fr_effectif" name="budget" class="syn-input">
                 <option value="TPE (1 à 9 collaborateurs)">TPE (1 à 9 collaborateurs / intervenants)</option>
                 <option value="PME (10 à 49 collaborateurs)" selected>PME (10 à 49 collaborateurs / intervenants)</option>
-                <option value="PME (50 à 150 collaborateurs)">PMEstructurée (50 à 150 collaborateurs / intervenants)</option>
+                <option value="PME (50 à 150 collaborateurs)">PME structurée (50 à 150 collaborateurs / intervenants)</option>
                 <option value="ETI / Groupe (> 150 collaborateurs)">Plus de 150 collaborateurs</option>
               </select>
             </div>
@@ -643,7 +677,7 @@
           <div class="flex items-start space-x-3 pt-2 border-t border-[#D5D4CC]">
             <input type="checkbox" id="fr_rgpd" name="rgpd_consent" required class="mt-1 h-4 w-4 border-[#B5B4AC] text-[#161513] focus:ring-[#161513]">
             <label for="fr_rgpd" class="text-xs text-[#464440] leading-relaxed">
-              J'accepte que les informations saisies soient traitées par SYNTESIA dans l'unique but d'étudier ma demande professionnelle et de préparer un échange de diagnostic. Conformément au RGPD et à notre charte de confidentialité, aucune donnée n'est cédée à des tiers ni utilisée pour entraîner des modèles publics. *
+              J'accepte que les informations saisies soient traitées par SYNTESIA dans l'unique but d'étudier ma demande professionnelle et de préparer un échange de diagnostic. Conformément au RGPD et à nos <a href="../shared/mentions-legales-confidentialite.html" class="underline underline-offset-4 hover:text-[#161513]">Mentions légales &amp; Politique de confidentialité</a>, aucune donnée n'est cédée à des tiers ni utilisée pour entraîner des modèles publics. *
             </label>
           </div>
 
@@ -692,7 +726,7 @@
         <ul class="text-xs text-[#464440] space-y-2">
           <li><a href="index.html" class="font-semibold text-[#161513]">SYNTESIA France (Marché prioritaire)</a></li>
           <li><a href="../algerie/index.html" class="hover:text-[#161513] underline-offset-4 hover:underline">SYNTESIA Algérie (Second marché)</a></li>
-          <li><a href="#diagnostic" class="hover:text-[#161513] underline-offset-4 hover:underline">Protection des données &amp; Conformité RGPD</a></li>
+          <li><a href="../shared/mentions-legales-confidentialite.html" class="hover:text-[#161513] underline-offset-4 hover:underline">Mentions légales &amp; Politique de confidentialité (RGPD)</a></li>
           <li><span class="text-[#6E6B65]">Horaires d'échanges : Jours ouvrés 08h30–19h00</span></li>
         </ul>
       </div>
@@ -700,60 +734,13 @@
 
     <div class="max-w-7xl mx-auto pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-[#6E6B65] gap-4">
       <div>&copy; 2026 SYNTESIA. Tous droits réservés. Système de conception dérivé avec Refero Styles.</div>
-      <div class="font-mono-mark">REF: AGIA-006 // DESIGN-LOCK: ANTIMETAL-CURSOR-V2</div>
+      <div class="font-mono-mark">REF: AGIA-007 // DESIGN-LOCK: ANTIMETAL-CURSOR-V2</div>
     </div>
   </footer>
 
+  <script src="../shared/syntesia-forms.js"></script>
   <script>
-    document.getElementById('leadFormSyntesiaFr').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const feedback = document.getElementById('feedbackFr');
-
-      // 1. Contrôle anti-spam Honeypot
-      if (this.website_url && this.website_url.value !== "") {
-        return;
-      }
-
-      // 2. Contrôle de validité des champs obligatoires
-      const nom = this.nom.value.trim();
-      const entreprise = this.entreprise.value.trim();
-      const email = this.email.value.trim();
-      const tel = this.telephone.value.trim();
-      const verticale = this.verticale.value;
-      const besoin = this.besoin.value;
-      const desc = this.description.value.trim();
-      const rgpd = this.rgpd_consent.checked;
-
-      if (!nom || !entreprise || !email || !tel || !desc || !rgpd) {
-        feedback.className = "p-5 border border-[#B84A27] bg-[#FAF9F5] text-xs text-[#B84A27]";
-        feedback.innerHTML = "<strong>[CONTRÔLE DE SAISIE]</strong> Veuillez renseigner tous les champs obligatoires (*) et valider la case de consentement RGPD.";
-        feedback.classList.remove('hidden');
-        return;
-      }
-
-      // 3. Préparation de la charge utile conforme au schéma 15 colonnes du CRM SYNTESIA
-      const payload = {
-        marche: "France",
-        verticale: verticale,
-        entreprise: entreprise,
-        nom: nom,
-        email: email,
-        telephone: tel,
-        besoin: besoin,
-        maturite: this.maturite.value.trim() || "Non précisée",
-        budget: this.budget.value,
-        description: desc
-      };
-
-      feedback.className = "p-6 border border-[#161513] bg-[#EAE9E2] text-xs text-[#161513] space-y-2";
-      feedback.innerHTML =
-        "<div class='font-mono-mark text-[#5C6B28]'>[PRÉ-DIAGNOSTIC QUALIFIÉ &mdash; ENREGISTREMENT LOCAL VALIDÉ]</div>" +
-        "<p class='text-sm font-semibold'>Merci " + nom.replace(/</g, "&lt;") + " (" + entreprise.replace(/</g, "&lt;") + ").</p>" +
-        "<p class='text-[#464440] leading-relaxed'>Votre demande pour le secteur <strong>" + verticale.replace(/</g, "&lt;") + "</strong> portant sur <em>« " + besoin.replace(/</g, "&lt;") + " »</em> a été structurée au format du CRM central SYNTESIA (15 colonnes).</p>" +
-        "<p class='font-mono text-[11px] text-[#6E6B65] pt-1 border-t border-[#D5D4CC]'>Note de transparence technique : ce formulaire fonctionne en mode de validation locale pré-production tant que l'endpoint Webhook Google Apps Script n'a pas été activé en production par le fondateur.</p>";
-      feedback.classList.remove('hidden');
-      this.reset();
-    });
+    window.initSyntesiaForm('leadFormSyntesiaFr', 'feedbackFr', 'France', '#5C6B28');
   </script>
 </body>
 </html>

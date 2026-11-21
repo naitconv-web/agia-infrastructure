@@ -5,10 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SYNTESIA Construction — Systèmes Opérationnels pour le Bâtiment, le BTP &amp; la Rénovation</title>
   <meta name="description" content="Pôle spécialisé SYNTESIA pour la filière construction en France : approches distinctes pour le Bâtiment neuf (DPGF, DC4), le BTP (DT-DICT, AIPR) et la Rénovation (relance devis dormants, acomptes).">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta property="og:title" content="SYNTESIA Construction — Bâtiment Neuf, BTP / Travaux Publics & Rénovation">
+  <meta property="og:description" content="Systèmes d'automatisation et de suivi de chantier greffés sur vos logiciels existants (Obat, Batigest, EBP, Onaya) : relance des devis dormants, conformité sous-traitants et suivi des heures.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="SYNTESIA France — Pôle Construction & Rénovation">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Crect width='36' height='36' fill='%23161513'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' fill='%23FAF9F5' font-family='monospace' font-weight='600' font-size='14'%3ESY%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="../../shared/syntesia-design-system.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "SYNTESIA — Pôle Bâtiment, BTP & Rénovation (France)",
+    "serviceType": "Ingénierie de systèmes opérationnels, relance de devis, vigilance sous-traitance et suivi de chantier pour le Bâtiment, le BTP et la Rénovation",
+    "areaServed": "FR"
+  }
+  </script>
 </head>
 <body class="selection:bg-stone-900 selection:text-stone-100">
 
@@ -37,19 +49,32 @@
         </div>
       </a>
 
-      <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-[#464440]">
+      <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-[#464440]" aria-label="Navigation verticale construction">
         <a href="#trois-metiers" class="hover:text-[#161513] transition">3 Métiers Distingués</a>
         <a href="#modules-operationnels" class="hover:text-[#161513] transition">Modules d'Automatisation</a>
         <a href="#audit-btp" class="hover:text-[#161513] transition">Diagnostic</a>
       </nav>
 
-      <div>
+      <div class="flex items-center space-x-2">
+        <button type="button" id="synMobileMenuBtn" aria-expanded="false" aria-controls="synMobileMenuPanel" class="md:hidden syn-btn-secondary px-3 py-2 font-mono text-xs">
+          [MENU]
+        </button>
         <a href="#audit-btp" class="syn-btn-primary">
           <span>Demander une Étude</span>
           <span class="font-mono text-xs">&rarr;</span>
         </a>
       </div>
     </div>
+
+    <!-- Mobile Navigation Panel (< 768px) -->
+    <nav id="synMobileMenuPanel" class="hidden md:hidden border-t border-[#D5D4CC] bg-[#FAF9F5] px-6 py-4 space-y-3 text-sm font-medium text-[#161513]" aria-label="Menu mobile construction">
+      <div class="grid grid-cols-1 gap-2">
+        <a href="#trois-metiers" class="py-1.5 border-b border-[#EAE9E2] font-semibold">01. Distinction Rénovation / Bâtiment / BTP</a>
+        <a href="#modules-operationnels" class="py-1.5 border-b border-[#EAE9E2]">02. Compatibilité Logicielle &amp; Bienséance</a>
+        <a href="#audit-btp" class="py-1.5 border-b border-[#EAE9E2]">03. Demander un Diagnostic</a>
+        <a href="../../shared/mentions-legales-confidentialite.html" class="py-1.5 border-b border-[#EAE9E2] text-[#6E6B65]">04. Mentions Légales &amp; RGPD</a>
+      </div>
+    </nav>
   </header>
 
   <main>
@@ -173,38 +198,38 @@
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
-              <label class="block font-mono-mark text-[#464440] mb-2">Dirigeant / Chargé d'Affaires *</label>
-              <input type="text" name="nom" required placeholder="Nom &amp; Prénom" class="syn-input">
+              <label for="btp_nom" class="block font-mono-mark text-[#464440] mb-2">Dirigeant / Chargé d'Affaires *</label>
+              <input type="text" id="btp_nom" name="nom" required placeholder="Nom &amp; Prénom" class="syn-input">
             </div>
             <div>
-              <label class="block font-mono-mark text-[#464440] mb-2">Nom de l'Entreprise *</label>
-              <input type="text" name="entreprise" required placeholder="Raison Sociale" class="syn-input">
-            </div>
-          </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div>
-              <label class="block font-mono-mark text-[#464440] mb-2">E-mail Professionnel *</label>
-              <input type="email" name="email" required placeholder="contact@entreprise-btp.fr" class="syn-input">
-            </div>
-            <div>
-              <label class="block font-mono-mark text-[#464440] mb-2">Téléphone Portable *</label>
-              <input type="tel" name="telephone" required placeholder="06 / 07 ..." class="syn-input">
+              <label for="btp_entreprise" class="block font-mono-mark text-[#464440] mb-2">Nom de l'Entreprise *</label>
+              <input type="text" id="btp_entreprise" name="entreprise" required placeholder="Raison Sociale" class="syn-input">
             </div>
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
-              <label class="block font-mono-mark text-[#464440] mb-2">Votre Métier Principal *</label>
-              <select name="verticale" required class="syn-input">
+              <label for="btp_email" class="block font-mono-mark text-[#464440] mb-2">E-mail Professionnel *</label>
+              <input type="email" id="btp_email" name="email" required placeholder="contact@entreprise-btp.fr" class="syn-input">
+            </div>
+            <div>
+              <label for="btp_tel" class="block font-mono-mark text-[#464440] mb-2">Téléphone Portable *</label>
+              <input type="tel" id="btp_tel" name="telephone" required placeholder="06 / 07 ..." class="syn-input">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div>
+              <label for="btp_verticale" class="block font-mono-mark text-[#464440] mb-2">Votre Métier Principal *</label>
+              <select id="btp_verticale" name="verticale" required class="syn-input">
                 <option value="Rénovation (Second œuvre / Artisans)">2C. Rénovation &amp; Second Œuvre (Plomberie, Menuiserie, Carrelage, RGE...)</option>
                 <option value="Bâtiment (Construction neuve / Gros œuvre)">2A. Bâtiment Neuf, Gros Œuvre &amp; Entreprise Générale</option>
                 <option value="BTP (Travaux Publics / VRD / Génie Civil)">2B. BTP, Travaux Publics, VRD &amp; Terrassement</option>
               </select>
             </div>
             <div>
-              <label class="block font-mono-mark text-[#464440] mb-2">Priorité Opérationnelle *</label>
-              <select name="besoin" required class="syn-input">
+              <label for="btp_besoin" class="block font-mono-mark text-[#464440] mb-2">Priorité Opérationnelle *</label>
+              <select id="btp_besoin" name="besoin" required class="syn-input">
                 <option value="Structurer la relance des devis en attente et les acomptes">Structurer la relance des devis en attente et les acomptes</option>
                 <option value="Collecte et contrôle de conformité des sous-traitants (URSSAF/Décennale)">Collecte et contrôle de conformité des sous-traitants (URSSAF/Décennale)</option>
                 <option value="Suivi des heures chantiers, engins et rapports journaliers">Suivi des heures chantiers, engins et rapports journaliers</option>
@@ -214,8 +239,8 @@
           </div>
 
           <div>
-            <label class="block font-mono-mark text-[#464440] mb-2">Logiciel de devis actuel et volume approximatif de dossiers</label>
-            <textarea name="description" rows="3" placeholder="Ex: Logiciel Obat / Batigest, environ 15 devis par mois ou 10 sous-traitants à suivre..." class="syn-input"></textarea>
+            <label for="btp_description" class="block font-mono-mark text-[#464440] mb-2">Logiciel de devis actuel et volume approximatif de dossiers</label>
+            <textarea id="btp_description" name="description" rows="3" placeholder="Ex: Logiciel Obat / Batigest, environ 15 devis par mois ou 10 sous-traitants à suivre..." class="syn-input"></textarea>
           </div>
 
           <!-- Honeypot -->
@@ -227,7 +252,7 @@
           <div class="flex items-start space-x-3 pt-2 border-t border-[#D5D4CC]">
             <input type="checkbox" id="rgpd_btp" name="rgpd_consent" required class="mt-1 h-4 w-4 border-[#B5B4AC] text-[#161513]">
             <label for="rgpd_btp" class="text-xs text-[#464440] leading-relaxed">
-              J'accepte que les données transmises soient utilisées par SYNTESIA pour l'étude confidentielle de ma demande professionnelle, conformément au RGPD. *
+              J'accepte que les données transmises soient utilisées par SYNTESIA pour l'étude confidentielle de ma demande professionnelle, conformément au RGPD et à nos <a href="../../shared/mentions-legales-confidentialite.html" class="underline underline-offset-4 hover:text-[#161513]">Mentions légales &amp; Politique de confidentialité</a>. *
             </label>
           </div>
 
@@ -245,34 +270,17 @@
   <footer class="border-t border-[#D5D4CC] bg-[#EAE9E2] py-10 px-6">
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between text-xs text-[#6E6B65] gap-4">
       <div>&copy; 2026 SYNTESIA &middot; Pôle Bâtiment, BTP &amp; Rénovation (France). Projet en cours de structuration.</div>
-      <div class="flex space-x-6">
+      <div class="flex flex-wrap gap-6">
         <a href="../index.html" class="hover:text-[#161513] underline-offset-4 hover:underline">Accueil SYNTESIA France</a>
         <a href="../securite-privee/index.html" class="hover:text-[#161513] underline-offset-4 hover:underline">Pôle Sécurité Privée</a>
+        <a href="../../shared/mentions-legales-confidentialite.html" class="hover:text-[#161513] underline-offset-4 hover:underline">Mentions légales &amp; RGPD</a>
       </div>
     </div>
   </footer>
 
+  <script src="../../shared/syntesia-forms.js"></script>
   <script>
-    document.getElementById('formBtp').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const feedback = document.getElementById('feedbackBtp');
-      if (this.business_site && this.business_site.value !== "") return;
-
-      if (!this.nom.value.trim() || !this.entreprise.value.trim() || !this.email.value.trim() || !this.telephone.value.trim() || !this.rgpd_consent.checked) {
-        feedback.className = "p-5 border border-[#B84A27] bg-[#FAF9F5] text-xs text-[#B84A27]";
-        feedback.innerHTML = "<strong>[CONTRÔLE DE SAISIE]</strong> Veuillez compléter tous les champs obligatoires (*) et cocher la case de consentement RGPD.";
-        feedback.classList.remove('hidden');
-        return;
-      }
-
-      feedback.className = "p-6 border border-[#161513] bg-[#EAE9E2] text-xs text-[#161513] space-y-2";
-      feedback.innerHTML =
-        "<div class='font-mono-mark text-[#5C6B28]'>[FICHE FILIÈRE CONSTRUCTION QUALIFIÉE &mdash; MODE PRÉ-PRODUCTION]</div>" +
-        "<p class='text-sm font-semibold'>Demande enregistrée pour " + this.entreprise.value.replace(/</g, "&lt;") + " (" + this.verticale.value.replace(/</g, "&lt;") + ").</p>" +
-        "<p class='text-[#464440]'>Priorité identifiée : <em>« " + this.besoin.value.replace(/</g, "&lt;") + " »</em>. Raccordement CRM en mode validation locale tant que le webhook de production n'est pas activé.</p>";
-      feedback.classList.remove('hidden');
-      this.reset();
-    });
+    window.initSyntesiaForm('formBtp', 'feedbackBtp', 'France', '#B84A27');
   </script>
 </body>
 </html>

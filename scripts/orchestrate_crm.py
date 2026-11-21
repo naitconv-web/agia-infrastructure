@@ -18,12 +18,13 @@ def calculate_score(lead):
         score += 3
     elif "2 500" in budget:
         score += 2
-    if len(lead.get("telephone", "")) >= 8:
+    tel_digits = "".join(ch for ch in lead.get("telephone", "") if ch.isdigit())
+    if len(tel_digits) >= 8:
         score += 1
     if len(lead.get("description", "")) > 20:
         score += 1
-    verticale = lead.get("verticale", "")
-    if verticale in ["Sécurité Privée", "Bâtiment et Rénovation"]:
+    v_upper = lead.get("verticale", "").upper()
+    if any(k in v_upper for k in ["SÉCURITÉ", "SECURITE", "BÂTIMENT", "BATIMENT", "BTP", "RÉNOVATION", "RENOVATION", "HCR", "CGP"]):
         score += 1
     return min(score, 10)
 

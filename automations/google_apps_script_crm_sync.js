@@ -37,9 +37,9 @@ function doPost(e) {
       data = e.parameter || {};
     }
 
-    // 1. Contrôle Anti-Spam Honeypot
+    // 1. Contrôle Anti-Spam Honeypot (couvre les 4 formulaires France, Algérie, Sécurité, BTP)
     // Si l'un des champs invisibles est rempli, la requête est silencieusement ignorée
-    if (data.website_url || data.company_website || data.business_site) {
+    if (data.website_url || data.website_url_dz || data.company_website || data.business_site) {
       return ContentService.createTextOutput(JSON.stringify({
         result: "success",
         note: "Filtered by honeypot"
@@ -72,13 +72,26 @@ function doPost(e) {
     var description = data.description || "";
     var environnement = (data.test_mode === true || data.is_test === "true") ? "TEST" : "PROD";
 
-    // 3. Calcul du Score de Qualification (1 à 10)
+    // 3. Calcul du Score de Qualification (1 à 10) aligné sur le Catalogue Sectoriel AGIA-005
     var score = 5; // Base
     if (budget.indexOf("5 000") !== -1 || budget.indexOf("15 000") !== -1) score += 3;
     else if (budget.indexOf("2 500") !== -1) score += 2;
-    if (telephone.length >= 8) score += 1;
+    if (telephone.replace(/\D/g, "").length >= 8) score += 1;
     if (description.length > 20) score += 1;
-    if (verticale === "Sécurité Privée" || verticale === "Bâtiment et Rénovation") score += 1; // Alignement sur nos verticales maîtresses
+    var vUpper = verticale.toUpperCase();
+    if (
+      vUpper.indexOf("SÉCURITÉ") !== -1 ||
+      vUpper.indexOf("SECURITE") !== -1 ||
+      vUpper.indexOf("BÂTIMENT") !== -1 ||
+      vUpper.indexOf("BATIMENT") !== -1 ||
+      vUpper.indexOf("BTP") !== -1 ||
+      vUpper.indexOf("RÉNOVATION") !== -1 ||
+      vUpper.indexOf("RENOVATION") !== -1 ||
+      vUpper.indexOf("HCR") !== -1 ||
+      vUpper.indexOf("CGP") !== -1
+    ) {
+      score += 1; // Alignement sur les verticales prioritaires et le socle du fondateur
+    }
     if (score > 10) score = 10;
 
     var statut = (environnement === "TEST") ? "TEST_QUALIFIE" : ((score >= 7) ? "QUALIFIE" : "NOUVEAU");

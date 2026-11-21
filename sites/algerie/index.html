@@ -5,10 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SYNTESIA Algérie — Ingénierie de Systèmes Opérationnels, Digitalisation &amp; Agents IA pour Entreprises</title>
   <meta name="description" content="SYNTESIA accompagne les PME et entreprises algériennes dans la structuration de leurs opérations, l'automatisation de leurs processus métiers, la centralisation des flux clients et le déploiement d'agents IA.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta property="og:title" content="SYNTESIA Algérie — Ingénierie de Systèmes Opérationnels & Digitalisation B2B">
+  <meta property="og:description" content="Modernisation des opérations, centralisation WhatsApp Business / Web, suivi des bons de livraison et facturation DZD pour les PME et industries en Algérie.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_DZ">
+  <meta property="og:site_name" content="SYNTESIA Algérie">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Crect width='36' height='36' fill='%23161513'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' fill='%23FAF9F5' font-family='monospace' font-weight='600' font-size='14'%3ESY%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="../shared/syntesia-design-system.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "SYNTESIA Algérie",
+    "description": "Ingénierie de systèmes opérationnels, centralisation omnicanale WhatsApp/Web, automatisation des flux commerciaux et tableaux de bord dirigeants pour les entreprises en Algérie.",
+    "areaServed": "DZ"
+  }
+  </script>
 </head>
 <body class="selection:bg-stone-900 selection:text-stone-100">
 
@@ -37,20 +49,34 @@
         </div>
       </a>
 
-      <nav class="hidden lg:flex items-center space-x-8 text-sm font-medium text-[#464440]">
+      <nav class="hidden lg:flex items-center space-x-8 text-sm font-medium text-[#464440]" aria-label="Navigation principale">
         <a href="#approche-dz" class="hover:text-[#161513] transition">Approche</a>
         <a href="#architecture-dz" class="hover:text-[#161513] transition">Système</a>
         <a href="#secteurs-dz" class="hover:text-[#161513] transition font-semibold text-[#161513]">Secteurs en Algérie</a>
         <a href="#methode-dz" class="hover:text-[#161513] transition">Déploiement</a>
       </nav>
 
-      <div>
+      <div class="flex items-center space-x-2">
+        <button type="button" id="synMobileMenuBtn" aria-expanded="false" aria-controls="synMobileMenuPanel" class="lg:hidden syn-btn-secondary px-3 py-2 font-mono text-xs">
+          [MENU]
+        </button>
         <a href="#diagnostic-dz" class="syn-btn-primary">
           <span>Demander une étude</span>
           <span class="font-mono text-xs">&rarr;</span>
         </a>
       </div>
     </div>
+
+    <!-- Mobile Navigation Panel (< 1024px) -->
+    <nav id="synMobileMenuPanel" class="hidden lg:hidden border-t border-[#D5D4CC] bg-[#FAF9F5] px-6 py-4 space-y-3 text-sm font-medium text-[#161513]" aria-label="Menu mobile">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <a href="#approche-dz" class="py-1.5 border-b border-[#EAE9E2]">01. Quatre Chantiers Prioritaires</a>
+        <a href="#architecture-dz" class="py-1.5 border-b border-[#EAE9E2]">02. Architecture d'Intégration</a>
+        <a href="#secteurs-dz" class="py-1.5 border-b border-[#EAE9E2] font-semibold">03. Secteurs en Algérie</a>
+        <a href="#methode-dz" class="py-1.5 border-b border-[#EAE9E2]">04. Demande d'Étude</a>
+        <a href="../shared/mentions-legales-confidentialite.html" class="py-1.5 border-b border-[#EAE9E2] text-[#6E6B65]">05. Mentions Légales &amp; Confidentialité</a>
+      </div>
+    </nav>
   </header>
 
   <main>
@@ -349,7 +375,7 @@
           <div class="flex items-start space-x-3 pt-2 border-t border-[#D5D4CC]">
             <input type="checkbox" id="dz_consent" name="rgpd_consent" required class="mt-1 h-4 w-4 border-[#B5B4AC] text-[#161513]">
             <label for="dz_consent" class="text-xs text-[#464440] leading-relaxed">
-              J'accepte que les informations transmises soient traitées en toute confidentialité par SYNTESIA dans l'unique but d'étudier ma demande professionnelle et de préparer un échange de diagnostic. *
+              J'accepte que les informations transmises soient traitées en toute confidentialité par SYNTESIA dans l'unique but d'étudier ma demande professionnelle et de préparer un échange de diagnostic, conformément à nos <a href="../shared/mentions-legales-confidentialite.html" class="underline underline-offset-4 hover:text-[#161513]">Mentions légales &amp; Politique de confidentialité</a>. *
             </label>
           </div>
 
@@ -390,10 +416,11 @@
       </div>
 
       <div class="md:col-span-3 space-y-2">
-        <div class="font-mono-mark text-[#8A8780] mb-3">IMPLANTATIONS</div>
+        <div class="font-mono-mark text-[#8A8780] mb-3">IMPLANTATIONS &amp; GOUVERNANCE</div>
         <ul class="text-xs text-[#464440] space-y-2">
           <li><a href="index.html" class="font-semibold text-[#161513]">SYNTESIA Algérie</a></li>
           <li><a href="../france/index.html" class="hover:text-[#161513] underline-offset-4 hover:underline">SYNTESIA France</a></li>
+          <li><a href="../shared/mentions-legales-confidentialite.html" class="hover:text-[#161513] underline-offset-4 hover:underline">Mentions légales &amp; Confidentialité</a></li>
           <li><span class="text-[#6E6B65]">Horaires d'échanges : Jours ouvrés 08h30–19h00</span></li>
         </ul>
       </div>
@@ -401,39 +428,13 @@
 
     <div class="max-w-7xl mx-auto pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-[#6E6B65] gap-4">
       <div>&copy; 2026 SYNTESIA. Tous droits réservés. Système de conception dérivé avec Refero Styles.</div>
-      <div class="font-mono-mark">REF: AGIA-006 // MARCHÉ: ALGÉRIE (DZD)</div>
+      <div class="font-mono-mark">REF: AGIA-007 // MARCHÉ: ALGÉRIE (DZD)</div>
     </div>
   </footer>
 
+  <script src="../shared/syntesia-forms.js"></script>
   <script>
-    document.getElementById('leadFormSyntesiaDz').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const feedback = document.getElementById('feedbackDz');
-      if (this.website_url_dz && this.website_url_dz.value !== "") return;
-
-      const nom = this.nom.value.trim();
-      const entreprise = this.entreprise.value.trim();
-      const email = this.email.value.trim();
-      const tel = this.telephone.value.trim();
-      const desc = this.description.value.trim();
-      const consent = this.rgpd_consent.checked;
-
-      if (!nom || !entreprise || !email || !tel || !desc || !consent) {
-        feedback.className = "p-5 border border-[#B84A27] bg-[#FAF9F5] text-xs text-[#B84A27]";
-        feedback.innerHTML = "<strong>[CONTRÔLE DE SAISIE]</strong> Veuillez renseigner tous les champs obligatoires (*) et cocher la case de confidentialité.";
-        feedback.classList.remove('hidden');
-        return;
-      }
-
-      feedback.className = "p-6 border border-[#161513] bg-[#EAE9E2] text-xs text-[#161513] space-y-2";
-      feedback.innerHTML =
-        "<div class='font-mono-mark text-[#047857]'>[PRÉ-DIAGNOSTIC ALGÉRIE QUALIFIÉ &mdash; ENREGISTREMENT LOCAL VALIDÉ]</div>" +
-        "<p class='text-sm font-semibold'>Merci " + nom.replace(/</g, "&lt;") + " (" + entreprise.replace(/</g, "&lt;") + ").</p>" +
-        "<p class='text-[#464440] leading-relaxed'>Votre demande pour le secteur <strong>" + this.verticale.value.replace(/</g, "&lt;") + "</strong> (<em>" + this.besoin.value.replace(/</g, "&lt;") + "</em>) est structurée au format du CRM central SYNTESIA (Marché : Algérie).</p>" +
-        "<p class='font-mono text-[11px] text-[#6E6B65] pt-1 border-t border-[#D5D4CC]'>Note de transparence technique : ce formulaire fonctionne en mode de validation locale pré-production tant que le Webhook Google Apps Script n'est pas activé en production par le fondateur.</p>";
-      feedback.classList.remove('hidden');
-      this.reset();
-    });
+    window.initSyntesiaForm('leadFormSyntesiaDz', 'feedbackDz', 'Algerie', '#047857');
   </script>
 </body>
 </html>
