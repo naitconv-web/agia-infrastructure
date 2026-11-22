@@ -1,0 +1,171 @@
+name: O2Switch Hardened Deploy (WS-AMB-003)
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'Palier exécution (diag-readonly | dry-run | deploy)'
+        required: true
+        default: 'diag-readonly'
+        type: choice
+        options:
+          - diag-readonly
+          - dry-run
+          - deploy
+      project_id:
+        description: 'Identifiant projet cible'
+        required: true
+        default: 'ambressence'
+        type: choice
+        options:
+          - ambressence
+          - syntesia
+      source_dir:
+        description: 'Répertoire source dans le dépôt'
+        required: true
+        default: 'docs/ambressence/patches'
+        type: string
+      target_path:
+        description: 'Chemin absolu cible sur o2switch'
+        required: true
+        default: '/home/ruqa5736/public_html/wp-content/mu-plugins'
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: o2switch-${{ inputs.project_id }}
+  cancel-in-progress: false
+
+jobs:
+  o2switch-ci:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment: ${{ inputs.project_id }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate target path & PHP syntax
+        run: |
+          TARGET="${{ inputs.target_path }}"
+          if [[ ! "$TARGET" =~ ^/home/[a-z0-9]+/(public_html|ambressence\.com|sites/)[a-zA-Z0-9_./-]*$ ]] || [[ "$TARGET" == *".."* ]]; then
+            echo "ERROR: target_path invalide ou hors périmètre autorisé: $TARGET"
+            exit 1
+          fi
+          if [ -d "${{ inputs.source_dir }}" ]; then
+            find "${{ inputs.source_dir }}" -name '*.php' -exec php -l {} +
+          fi
+
+      - name: Detect runner public IPv4 (no third-party action)
+        id: ip
+        run: |
+          RUNNER_IP=$(curl -sf --max-time 10 https://api.ipify.org)
+          if [[ ! "$RUNNER_IP" =~ ^([0-9]{1,3}\.){3}[0-9]{1,3}$ ]]; then
+            echo "ERROR: IPv4 invalide détectée: $RUNNER_IP"
+            exit 1
+          fi
+          echo "ipv4=$RUNNER_IP" >> "$GITHUB_OUTPUT"
+
+      - name: Pre-clean & Whitelist runner IP via o2switch SshWhitelist UAPI
+        env:
+          CPANEL_SERVER: ${{ secrets.CPANEL_SERVER }}
+          CPANEL_USERNAME: ${{ secrets.CPANEL_USERNAME }}
+          CPANEL_API_TOKEN: ${{ secrets.CPANEL_API_TOKEN }}
+          TRUSTED_FIXED_IPS: ${{ vars.TRUSTED_FIXED_IPS }}
+          RUNNER_IP: ${{ steps.ip.outputs.ipv4 }}
+        run: |
+          set -euo pipefail
+          BASE="https://${CPANEL_SERVER}:2083/execute/SshWhitelist"
+          AUTH="Authorization: cpanel ${CPANEL_USERNAME}:${CPANEL_API_TOKEN}"
+
+          LIST_JSON=$(curl -sfm 30 -H "$AUTH" "${BASE}/list")
+          echo "$LIST_JSON" | jq -e '.status == 1' >/dev/null
+          COUNT=$(echo "$LIST_JSON" | jq -r '.data.count // 0')
+
+          if [ "$COUNT" -ge 4 ]; then
+            ORPHANS=$(echo "$LIST_JSON" | jq -r '.data.list[]?.address' | sort -u)
+            for OLD_IP in $ORPHANS; do
+              if [[ ",${TRUSTED_FIXED_IPS}," != *",${OLD_IP},"* ]]; then
+                curl -sfm 30 -H "$AUTH" "${BASE}/remove?address=${OLD_IP}&port=22&direction=in" >/dev/null || true
+                curl -sfm 30 -H "$AUTH" "${BASE}/remove?address=${OLD_IP}&port=22&direction=out" >/dev/null || true
+              fi
+            done
+          fi
+
+          ADD_JSON=$(curl -sfm 45 -H "$AUTH" "${BASE}/add?address=${RUNNER_IP}&port=22")
+          echo "$ADD_JSON" | jq -e '.status == 1' >/dev/null
+
+          CHECK_JSON=$(curl -sfm 30 -H "$AUTH" "${BASE}/list")
+          echo "$CHECK_JSON" | jq -e --arg ip "$RUNNER_IP" '.data.list[]? | select(.address == $ip)' >/dev/null
+          echo "PASS: Runner IP whitelisted."
+
+      - name: Load SSH key in memory (ssh-agent) & verify host key
+        env:
+          SSH_KEY: ${{ secrets.SSH_KEY }}
+          SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+          CPANEL_SERVER: ${{ secrets.CPANEL_SERVER }}
+        run: |
+          set -euo pipefail
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          printf '%s\n' "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          chmod 644 ~/.ssh/known_hosts
+
+          eval "$(ssh-agent -s)"
+          echo "SSH_AUTH_SOCK=$SSH_AUTH_SOCK" >> "$GITHUB_ENV"
+          echo "SSH_AGENT_PID=$SSH_AGENT_PID" >> "$GITHUB_ENV"
+          printf '%s\n' "$SSH_KEY" | tr -d '\r' | ssh-add -
+
+      - name: Execute Palier (diag-readonly | dry-run | deploy)
+        env:
+          CPANEL_SERVER: ${{ secrets.CPANEL_SERVER }}
+          CPANEL_USERNAME: ${{ secrets.CPANEL_USERNAME }}
+          SSH_PORT: ${{ secrets.CPANEL_PORT || '22' }}
+          TARGET: ${{ inputs.target_path }}
+          SOURCE: ${{ inputs.source_dir }}
+          MODE: ${{ inputs.mode }}
+        run: |
+          set -euo pipefail
+          SSH_OPTS="-o StrictHostKeyChecking=yes -o UserKnownHostsFile=$HOME/.ssh/known_hosts -p ${SSH_PORT}"
+
+          if [ "$MODE" = "diag-readonly" ]; then
+            ssh $SSH_OPTS "${CPANEL_USERNAME}@${CPANEL_SERVER}" "hostname && pwd && test -d '${TARGET}' && echo SENTINEL_DIR_OK"
+            exit 0
+          fi
+
+          # Vérification sentinelle WordPress avant tout rsync
+          ssh $SSH_OPTS "${CPANEL_USERNAME}@${CPANEL_SERVER}" "test -d '${TARGET}'"
+
+          RSYNC_ARGS="-avz --delay-updates --exclude=wp-config.php --exclude=.htaccess --exclude=wp-content/uploads/ --exclude=.env"
+          if [ "$MODE" = "dry-run" ]; then
+            rsync --dry-run $RSYNC_ARGS -e "ssh $SSH_OPTS" "${SOURCE}/" "${CPANEL_USERNAME}@${CPANEL_SERVER}:${TARGET}/"
+            exit 0
+          fi
+
+          # Sauvegarde serveur horodatée avant écriture
+          SHA_SHORT="${GITHUB_SHA::7}"
+          ssh $SSH_OPTS "${CPANEL_USERNAME}@${CPANEL_SERVER}" "mkdir -p ~/backups && tar -czf ~/backups/deploy-${SHA_SHORT}.tar.gz -C '${TARGET}' ."
+
+          rsync $RSYNC_ARGS -e "ssh $SSH_OPTS" "${SOURCE}/" "${CPANEL_USERNAME}@${CPANEL_SERVER}:${TARGET}/"
+
+      - name: Cleanup runner IP (IN & OUT) and SSH agent
+        if: always()
+        env:
+          CPANEL_SERVER: ${{ secrets.CPANEL_SERVER }}
+          CPANEL_USERNAME: ${{ secrets.CPANEL_USERNAME }}
+          CPANEL_API_TOKEN: ${{ secrets.CPANEL_API_TOKEN }}
+          RUNNER_IP: ${{ steps.ip.outputs.ipv4 }}
+        run: |
+          if [ -n "${SSH_AGENT_PID:-}" ]; then
+            ssh-agent -k >/dev/null 2>&1 || true
+          fi
+          rm -rf ~/.ssh
+          if [ -n "${RUNNER_IP:-}" ] && [ -n "${CPANEL_API_TOKEN:-}" ]; then
+            BASE="https://${CPANEL_SERVER}:2083/execute/SshWhitelist"
+            AUTH="Authorization: cpanel ${CPANEL_USERNAME}:${CPANEL_API_TOKEN}"
+            curl -sfm 30 -H "$AUTH" "${BASE}/remove?address=${RUNNER_IP}&port=22&direction=in" >/dev/null || true
+            curl -sfm 30 -H "$AUTH" "${BASE}/remove?address=${RUNNER_IP}&port=22&direction=out" >/dev/null || true
+          fi

@@ -3,7 +3,7 @@
 **Date :** `2026-11-22`  
 **Portée :** Architecture standard réutilisable pour **AMBRESSENCE**, **SYNTESIA** et l'ensemble des projets hébergés chez **o2switch**.  
 **Source officielle :** Documentation o2switch — *Autorisation SSH - Liste blanche parefeu* (`https://faq.o2switch.fr/cpanel/outils/exception-parefeu/`, mise à jour 12/11/2026).  
-**Statut :** **SPECIFICATION ARCHITECTURALE VALIDÉE POUR REVUE** *(aucun fichier `.github/workflows/deploy-*.yml` créé avant feu vert)*.
+**Statut :** **VALIDÉ ET IMPLÉMENTÉ (V2 DURCIE `WS-AMB-003`)** — Workflow `.github/workflows/o2switch-deploy.yml` prêt en déclenchement manuel progressif (`diag-readonly` → `dry-run` → `deploy`).
 
 ---
 
