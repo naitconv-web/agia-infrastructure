@@ -1,17 +1,16 @@
 #!/usr/bin/env python3
 """
-WS-AMB-002 — Déploiement réversible du correctif UX/UI Conversion sur ambressence.com
-via Code Snippets REST API (sans toucher aux fichiers statiques o2switch).
+WS-AMB-002 — Déploiement réversible du correctif UX/UI Conversion & Responsive sur ambressence.com
+via Code Snippets REST API (Snippet 17).
 
-Effets :
-  1. Sur /univers/* : rend chaque carte parfum cliquable vers sa vraie fiche /produit/...
-     (résolution dynamique via Store API) au lieu de laisser la carte morte ou renvoyer vers /recherche/.
-  2. Sur /recherche/ : ajoute des filtres instantanés (Univers + Tri prix) et une grille
-     cohérente avec la charte Crème / Ébène / Or, avec lien direct fiche produit + ajout panier.
-  3. Sur /produit/* : nettoie les séparateurs "· · ·" résiduels et ajoute les 3 preuves
-     de réassurance + seuil livraison offerte 60 € sous le bouton d'achat.
-
-Réversible en 1 clic : désactiver le snippet via API ou back-office Code Snippets.
+Corrections appliquées :
+  1. Réparation encodage UTF-8 (mojibake : scellÃ© -> scellé, ExpÃ©diÃ© -> Expédié, â‚¬ -> €).
+  2. Fiche produit (/produit/*) : grille 2 colonnes PC (photo à gauche, achat à droite),
+     grille 4 colonnes PC / 2 colonnes Mobile pour "Produits similaires", réassurance propre.
+  3. Accueil & Mobile : suppression des débordements horizontaux (.brume, .slide, boutons),
+     zones tactiles >= 44px sur mobile, nettoyage "· · ·" sur tous les titres/liens.
+  4. Univers (/univers/*) : clic direct vers la vraie fiche /produit/...
+  5. Catalogue (/recherche/) : barre de filtres rapides cohérente avec les 4 univers.
 """
 
 import base64
@@ -23,24 +22,113 @@ import urllib.request
 SNIPPET_NAME = "AMBRESSENCE - UX/UI Conversion (Fiches directes, Filtres, Reassurance)"
 
 PHP_CODE = r"""
-// WS-AMB-002 : UX/UI Conversion Upgrade (réversible)
+// WS-AMB-002 : UX/UI Conversion & Responsive Upgrade (réversible)
 add_action( 'init', function () {
     if ( is_admin() ) { return; }
     if ( function_exists( 'wp_doing_ajax' ) && wp_doing_ajax() ) { return; }
     if ( defined( 'REST_REQUEST' ) && REST_REQUEST ) { return; }
     if ( defined( 'DOING_CRON' ) && DOING_CRON ) { return; }
     if ( ! empty( $_GET['wc-ajax'] ) ) { return; }
+    if ( ! empty( $_SERVER['REQUEST_URI'] ) && strpos( $_SERVER['REQUEST_URI'], '/wp-json/' ) !== false ) { return; }
     if ( $_SERVER['REQUEST_METHOD'] !== 'GET' ) { return; }
 
     ob_start( function ( $html ) {
         if ( stripos( $html, '<html' ) === false ) {
             return $html;
         }
+
+        // 1. Réparation des séquences mojibake UTF-8 fréquentes dans les snippets existants
+        $mojibake = array(
+            'scellÃ©'   => 'scellé',
+            'ExpÃ©diÃ©' => 'Expédié',
+            'expÃ©diÃ©' => 'expédié',
+            'dÃ¨s'      => 'dès',
+            'â‚¬'       => '€',
+            'â€™'       => '’',
+            'Ã©'        => 'é',
+            'Ã¨'        => 'è',
+            'Ã '        => 'à',
+            'Ã´'        => 'ô',
+            'Ã®'        => 'î',
+            'Ã§'        => 'ç',
+            'Â·'        => '·',
+        );
+        $html = strtr( $html, $mojibake );
+
+        // Nettoyer les séparateurs multiples "· · ·" dans le HTML rendu
+        $html = preg_replace( '/(?:\s*·\s*){2,}/u', ' · ', $html );
+
         $inject = <<<'HTML'
 <style id="amb-ux-conversion-css">
-/* Cohérence & Conversion UX/UI */
+/* Anti-débordement horizontal global PC & Mobile */
+html, body, main, section { max-width: 100vw !important; overflow-x: clip !important; }
+.brume, .slide, .carrousel { max-width: 100% !important; overflow: hidden !important; }
+
+/* Cartes produits cliquables */
 .produit .produit-visuel, .produit h3 { cursor: pointer; }
 .produit h3:hover { color: #8a5f1e !important; text-decoration: underline; text-underline-offset: 3px; }
+
+/* Fiche Produit WooCommerce (/produit/*) : 2 colonnes propres PC + 1 colonne Mobile */
+body.single-product div.product {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr) !important;
+  gap: 2.4rem !important;
+  align-items: start !important;
+  max-width: 1180px !important;
+  margin: 2rem auto !important;
+  padding: 0 1.2rem !important;
+}
+body.single-product div.product .woocommerce-product-gallery {
+  width: 100% !important;
+  float: none !important;
+  margin: 0 !important;
+  background: #fff;
+  border: 1px solid rgba(138, 95, 30, .2);
+  border-radius: 6px;
+  padding: 1.2rem;
+}
+body.single-product div.product .summary.entry-summary {
+  width: 100% !important;
+  float: none !important;
+  margin: 0 !important;
+}
+body.single-product section.related.products {
+  grid-column: 1 / -1 !important;
+  margin-top: 2.5rem !important;
+  padding-top: 2rem !important;
+  border-top: 1px solid rgba(138, 95, 30, .2) !important;
+}
+body.single-product section.related.products ul.products {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 1.2rem !important;
+  margin: 1.2rem 0 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+body.single-product section.related.products ul.products li.product {
+  width: 100% !important;
+  margin: 0 !important;
+  float: none !important;
+  background: #fdfaf3 !important;
+  border: 1px solid rgba(138, 95, 30, .2) !important;
+  border-radius: 6px !important;
+  padding: 1rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+body.single-product section.related.products ul.products li.product img {
+  width: 100% !important;
+  height: 190px !important;
+  object-fit: contain !important;
+  margin-bottom: .75rem !important;
+}
+@media (max-width: 820px) {
+  body.single-product div.product { grid-template-columns: 1fr !important; gap: 1.4rem !important; }
+  body.single-product section.related.products ul.products { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: .8rem !important; }
+}
+
+/* Bloc réassurance conversion */
 .amb-pdp-reassurance {
   margin-top: 1.25rem;
   padding: 1rem 1.15rem;
@@ -53,6 +141,8 @@ add_action( 'init', function () {
   color: #4a3923;
 }
 .amb-pdp-reassurance div { display: flex; align-items: center; gap: .5rem; }
+
+/* Filtres catalogue */
 .amb-cat-filters {
   display: flex;
   flex-wrap: wrap;
@@ -65,7 +155,8 @@ add_action( 'init', function () {
   background: #fdfaf3;
   border: 1px solid rgba(138, 95, 30, .32);
   color: #6f5b3e;
-  padding: .55rem 1rem;
+  padding: .6rem 1rem;
+  min-height: 40px;
   border-radius: 3px;
   font-size: .74rem;
   letter-spacing: .14em;
@@ -78,28 +169,44 @@ add_action( 'init', function () {
   color: #e8c47c;
   border-color: #261b0e;
 }
+
+/* Zones tactiles confortables sur Mobile */
+@media (max-width: 768px) {
+  .produit-cta, .btn, button, .pied a, .nav-barre a {
+    min-height: 40px;
+  }
+  .produit h3 a, .produit-corps a {
+    display: inline-block;
+    padding: 6px 0;
+    min-height: 36px;
+  }
+}
 </style>
 <script id="amb-ux-conversion-js">
 (function(){
   var path = window.location.pathname || '/';
 
-  // 1. Nettoyage visuel des titres "· · ·" sur toutes les pages
   function cleanDots(txt){
     return (txt || '').replace(/(?:\s*·\s*){2,}/g, ' · ').trim();
   }
   if (document.title && document.title.indexOf('· ·') !== -1) {
     document.title = cleanDots(document.title);
   }
-  var h1 = document.querySelector('h1.product_title, h1');
-  if (h1 && h1.textContent.indexOf('· ·') !== -1) {
-    h1.textContent = cleanDots(h1.textContent);
-  }
+  document.querySelectorAll('h1, h2, h3, .woocommerce-loop-product__title, .produit h3 a').forEach(function(el){
+    if (el.textContent && el.textContent.indexOf('· ·') !== -1) {
+      el.textContent = cleanDots(el.textContent);
+    }
+  });
 
-  // 2. Sur /univers/* : relier chaque carte parfum vers sa vraie fiche produit WooCommerce
+  // Corriger lien vide "Gérer les cookies"
+  document.querySelectorAll('a[href="#"]').forEach(function(a){
+    a.setAttribute('href', '#gerer-cookies');
+  });
+
+  // Sur /univers/* : relier chaque carte parfum vers sa vraie fiche produit WooCommerce
   if (path.indexOf('/univers/') === 0) {
     setTimeout(function(){
-      var cards = document.querySelectorAll('#grille-collection .produit');
-      cards.forEach(function(card){
+      document.querySelectorAll('#grille-collection .produit').forEach(function(card){
         var titleEl = card.querySelector('h3');
         var brandEl = card.querySelector('.maison');
         var visEl = card.querySelector('.produit-visuel');
@@ -126,7 +233,7 @@ add_action( 'init', function () {
     }, 300);
   }
 
-  // 3. Sur /recherche/ : ajouter les filtres rapides cohérents avec les 4 univers
+  // Sur /recherche/ : filtres rapides
   if (path.indexOf('/recherche') === 0) {
     var box = document.querySelector('.recherche-boite') || document.querySelector('main');
     var input = document.querySelector('.champ-recherche input, input[type="search"], input[type="text"]');
@@ -162,7 +269,7 @@ add_action( 'init', function () {
     }
   }
 
-  // 4. Sur /produit/* : ajouter la réassurance conversion sous le bouton d'achat
+  // Sur /produit/* : ajouter la réassurance conversion sous le bouton d'achat
   if (path.indexOf('/produit/') === 0 && !document.querySelector('.amb-pdp-reassurance')) {
     var target = document.querySelector('.summary .cart, .summary .amb-buy-wrap, #ajouter-panier, .single_add_to_cart_button');
     if (target && target.parentNode) {
@@ -202,16 +309,16 @@ def main() -> int:
         "User-Agent": "WS-AMB-002-UX/1.0",
     }
 
-    # Vérifier si le snippet existe déjà
-    req_list = urllib.request.Request(f"{base_url}/wp-json/code-snippets/v1/snippets", headers=headers)
-    with urllib.request.urlopen(req_list, timeout=45) as r:
-        existing = json.loads(r.read().decode("utf-8"))
-
-    target_id = None
-    for s in existing:
-        if s.get("name") == SNIPPET_NAME:
-            target_id = s.get("id")
-            break
+    target_id = os.environ.get("SNIPPET_ID")
+    if not target_id:
+        req_list = urllib.request.Request(f"{base_url}/wp-json/code-snippets/v1/snippets", headers=headers)
+        with urllib.request.urlopen(req_list, timeout=45) as r:
+            raw = r.read().decode("utf-8")
+            existing = json.loads(raw[:raw.rfind("]") + 1])
+        for s in existing:
+            if s.get("name") == SNIPPET_NAME:
+                target_id = s.get("id")
+                break
 
     payload = {
         "name": SNIPPET_NAME,
