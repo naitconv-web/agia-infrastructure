@@ -23,7 +23,33 @@ import urllib.request
 SNIPPET_NAME = "AMBRESSENCE - UX/UI Conversion (Fiches directes, Filtres, Reassurance)"
 
 PHP_CODE = r"""
-// WS-AMB-002 : Module Web Premium, Conseiller IA & Panier Tiroir (réversible)
+// WS-AMB-002 : Module Web Premium, Conseiller IA, Panier Tiroir & OpenGraph SEO (réversible)
+add_action( 'wp_head', function () {
+    if ( ! function_exists( 'is_product' ) || ! is_product() ) { return; }
+    global $product;
+    if ( ! ( $product instanceof WC_Product ) ) {
+        $product = wc_get_product( get_the_ID() );
+    }
+    if ( ! ( $product instanceof WC_Product ) ) { return; }
+    $title = preg_replace( '/(?:\s*·\s*){2,}/u', ' · ', wp_strip_all_tags( $product->get_name() ) );
+    $desc  = wp_strip_all_tags( $product->get_short_description() ?: $product->get_description() );
+    $desc  = $desc ? mb_substr( preg_replace( '/\s+/', ' ', $desc ), 0, 160 ) : ( $title . ' — Flacon neuf et scellé d’origine, expédié d’Europe.' );
+    $img_id = $product->get_image_id();
+    $img    = $img_id ? wp_get_attachment_image_url( $img_id, 'large' ) : '';
+    $price  = $product->get_price();
+    echo '<meta property="og:type" content="product" />' . "\n";
+    echo '<meta property="og:title" content="' . esc_attr( $title . ' | Ambressence' ) . '" />' . "\n";
+    echo '<meta property="og:description" content="' . esc_attr( $desc ) . '" />' . "\n";
+    echo '<meta property="og:url" content="' . esc_url( get_permalink( $product->get_id() ) ) . '" />' . "\n";
+    if ( $img ) {
+        echo '<meta property="og:image" content="' . esc_url( $img ) . '" />' . "\n";
+    }
+    if ( $price !== '' ) {
+        echo '<meta property="product:price:amount" content="' . esc_attr( $price ) . '" />' . "\n";
+        echo '<meta property="product:price:currency" content="EUR" />' . "\n";
+    }
+}, 5 );
+
 add_action( 'init', function () {
     if ( is_admin() ) { return; }
     if ( function_exists( 'wp_doing_ajax' ) && wp_doing_ajax() ) { return; }
