@@ -1,4 +1,4 @@
-name: O2Switch Hardened Deploy (WS-AMB-003)
+name: O2Switch Hardened Deploy (SYNTESIA & Infra)
 
 on:
   workflow_dispatch:
@@ -15,20 +15,20 @@ on:
       project_id:
         description: 'Identifiant projet cible'
         required: true
-        default: 'ambressence'
+        default: 'syntesia'
         type: choice
         options:
-          - ambressence
           - syntesia
+          - infra
       source_dir:
         description: 'Répertoire source dans le dépôt'
         required: true
-        default: 'docs/ambressence/patches'
+        default: 'sites'
         type: string
       target_path:
         description: 'Chemin absolu cible sur o2switch'
         required: true
-        default: '/home/ruqa5736/public_html/wp-content/mu-plugins'
+        default: '/home/ruqa5736/sites/syntesia'
         type: string
 
 permissions:
