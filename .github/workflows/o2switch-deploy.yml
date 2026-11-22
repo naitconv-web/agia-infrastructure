@@ -48,6 +48,27 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Validate required secrets (presence only, no values printed)
+        env:
+          CPANEL_SERVER: ${{ secrets.CPANEL_SERVER }}
+          CPANEL_USERNAME: ${{ secrets.CPANEL_USERNAME }}
+          CPANEL_API_TOKEN: ${{ secrets.CPANEL_API_TOKEN }}
+          SSH_KEY: ${{ secrets.SSH_KEY }}
+          SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+        run: |
+          missing=""
+          for var in CPANEL_SERVER CPANEL_USERNAME CPANEL_API_TOKEN SSH_KEY SSH_KNOWN_HOSTS; do
+            eval "val=\${$var:-}"
+            if [ -z "$val" ]; then
+              missing="$missing $var"
+            fi
+          done
+          if [ -n "$missing" ]; then
+            echo "ERROR: Secret(s) GitHub manquant(s) ou vide(s) dans l'environnement '${{ inputs.project_id }}' ou au niveau Repository:$missing"
+            exit 1
+          fi
+          echo "PASS: Tous les secrets obligatoires sont présents."
+
       - name: Validate target path & PHP syntax
         run: |
           TARGET="${{ inputs.target_path }}"
