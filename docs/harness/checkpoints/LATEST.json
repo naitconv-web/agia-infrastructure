@@ -1,21 +1,21 @@
 {
-  "mission_id": "WS-TECH-INTELLIGENCE-005",
-  "generated_at_utc": "2026-11-23T02:40:41Z",
+  "mission_id": "AGIA-SECU-INTEGRATION-001",
+  "generated_at_utc": "2026-11-23T16:16:28Z",
   "objective": "Concevoir, implémenter et valider par 6 tests de résistance le Harness Engineering commun aux projets SYNTESIA (0 dépendance à la mémoire conversationnelle).",
   "current_state": {
-    "status": "CONFIRMED",
+    "status": "IN_PROGRESS",
     "requested_status": "CONFIRMED",
-    "self_certification_blocked": false,
-    "auditor": "subagent-research-787d8ef8",
-    "audit_verdict": "VALIDÉ",
-    "audit_proof": "docs/tech-intelligence/experiments/RAPPORT_AUDIT_INDEPENDANT_WS-TECH-INTELLIGENCE-005.md",
-    "audit_proof_sha256": "bb311e70f17e",
+    "self_certification_blocked": true,
+    "auditor": "NONE",
+    "audit_verdict": "PENDING",
+    "audit_proof": "NONE",
+    "audit_proof_sha256": "NONE",
     "loop_phase": "REPORT",
     "attempt": 1,
     "max_attempts": 3,
     "branch": "main",
-    "head_commit": "d9944b1",
-    "summary": "WS-TECH-INTELLIGENCE-005 validée par auditeur indépendant (787d8ef8) : suspension contrôlée de DEC-18 Craft Anything (statut BLOCKED, 4 conditions de réouverture, expérimentation A2 non exécutée), maintien DEC-19 DeepSeek Harness (LATER), acquis et bacs à sable préservés, coût 0,00 EUR."
+    "head_commit": "f9a8183",
+    "summary": "Integration de COS Operations, Sentinelle IA et lien direct simulateur IDCC 1351 dans sites/france/securite-privee/index.html sous design Refero Styles"
   },
   "confirmed_decisions": [
     "DEC-01: Régime financier F1 (0,00 € autonome)",
@@ -130,11 +130,11 @@
     }
   ],
   "commits_made": [
+    "f9a8183 feat(securite-privee): integrate COS Operations preview, Sentinelle IA, and live simulator CTA",
+    "d9be8c7 chore(tech-intel): collecte hebdomadaire automatique [skip ci]",
+    "ea13c46 docs(WS-TECH-INTELLIGENCE-005): formal controlled suspension of DEC-18 (BLOCKED)",
     "d9944b1 docs(DEC-18): add factual Option B blocking report before build",
-    "1be113f docs(WS-TECH-INTELLIGENCE-004): formalize DEC-18 Craft Anything & DEC-19 DeepSeek Harness",
-    "eaa5416 chore(WS-TECH-INTELLIGENCE-003): archive independent audit and certify checkpoint",
-    "02ff9f4 feat(tech-intel): résultats Expériences A & B (WS-TECH-INTELLIGENCE-003, en attente audit)",
-    "b8cc991 chore(harness): checkpoint WS-TECH-INTELLIGENCE-002 certifié (research-e524cae3)"
+    "1be113f docs(WS-TECH-INTELLIGENCE-004): formalize DEC-18 Craft Anything & DEC-19 DeepSeek Harness"
   ],
   "tests_executed": {
     "resilience_tests": "6/6 PASSED (Test A: Perte conversation, Test B: Changement modèle, Test C: Interruption brutale, Test D: Contradiction, Test E: Multi-projets, Test F: Preuve d'exécution)",
