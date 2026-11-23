@@ -211,12 +211,28 @@ def cmd_preflight():
     return 0
 
 
-def cmd_checkpoint(mission_id="AGIA-011", status="CONFIRMED", summary="SYNTESIA Harness Engineering déployé et validé sur les 6 tests de résilience"):
+def cmd_checkpoint(mission_id="AGIA-011", status="CONFIRMED", summary="SYNTESIA Harness Engineering déployé et validé sur les 6 tests de résilience", auditor="", audit_verdict=""):
     os.makedirs(CHECKPOINTS_DIR, exist_ok=True)
     memory = load_memory()
     _, branch, _ = run_git(["branch", "--show-current"])
     _, head_sha, _ = run_git(["rev-parse", "--short", "HEAD"])
     _, log_lines, _ = run_git(["log", "-n", "5", "--oneline"])
+
+    # Verrou anti-auto-certification (WS-GOV-002 Règle 5)
+    valid_verdicts = {"VALIDÉ", "VALIDE", "VALIDÉ SOUS RÉSERVES", "VALIDE SOUS RESERVES"}
+    auditor_clean = (auditor or "").strip()
+    verdict_clean = (audit_verdict or "").strip().upper()
+    self_cert_blocked = False
+    effective_status = status
+    if status == "CONFIRMED":
+        if verdict_clean == "REJETÉ" or verdict_clean == "REJETE":
+            effective_status = "BLOCKED"
+            self_cert_blocked = True
+            print("[ANTI-SELF-CERTIFICATION] Statut rétrogradé à BLOCKED (verdict auditeur = REJETÉ).")
+        elif not auditor_clean or auditor_clean.lower() in {"self", "concepteur", "antigravity-main"} or verdict_clean not in valid_verdicts:
+            effective_status = "IN_PROGRESS"
+            self_cert_blocked = True
+            print("[ANTI-SELF-CERTIFICATION] Statut CONFIRMED refusé sans verdict d'un auditeur indépendant -> rétrogradé à IN_PROGRESS.")
 
     tracked_files = [
         "AGENTS.md",
@@ -244,7 +260,11 @@ def cmd_checkpoint(mission_id="AGIA-011", status="CONFIRMED", summary="SYNTESIA 
         "generated_at_utc": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "objective": "Concevoir, implémenter et valider par 6 tests de résistance le Harness Engineering commun aux projets SYNTESIA (0 dépendance à la mémoire conversationnelle).",
         "current_state": {
-            "status": status,
+            "status": effective_status,
+            "requested_status": status,
+            "self_certification_blocked": self_cert_blocked,
+            "auditor": auditor_clean or "NONE",
+            "audit_verdict": verdict_clean or "PENDING",
             "loop_phase": "REPORT",
             "attempt": 1,
             "max_attempts": 3,
@@ -646,6 +666,8 @@ def main():
     cp_p.add_argument("--mission", default="AGIA-011")
     cp_p.add_argument("--status", default="CONFIRMED")
     cp_p.add_argument("--summary", default="SYNTESIA Harness Engineering déployé et validé sur les 6 tests de résilience")
+    cp_p.add_argument("--auditor", default="")
+    cp_p.add_argument("--audit-verdict", default="")
     sub.add_parser("resume")
     sub.add_parser("test-resilience")
     sd_p = sub.add_parser("sync-drive")
@@ -657,7 +679,7 @@ def main():
     if args.cmd == "preflight":
         cmd_preflight()
     elif args.cmd == "checkpoint":
-        cmd_checkpoint(args.mission, args.status, args.summary)
+        cmd_checkpoint(args.mission, args.status, args.summary, args.auditor, args.audit_verdict)
     elif args.cmd == "resume":
         cmd_resume()
     elif args.cmd == "test-resilience":

@@ -1,15 +1,19 @@
 {
   "mission_id": "WS-GOV-002",
-  "generated_at_utc": "2026-11-23T01:46:36Z",
+  "generated_at_utc": "2026-11-23T01:47:35Z",
   "objective": "Concevoir, implémenter et valider par 6 tests de résistance le Harness Engineering commun aux projets SYNTESIA (0 dépendance à la mémoire conversationnelle).",
   "current_state": {
-    "status": "CONFIRMED",
+    "status": "IN_PROGRESS",
+    "requested_status": "CONFIRMED",
+    "self_certification_blocked": true,
+    "auditor": "NONE",
+    "audit_verdict": "PENDING",
     "loop_phase": "REPORT",
     "attempt": 1,
     "max_attempts": 3,
     "branch": "main",
-    "head_commit": "074179b",
-    "summary": "Charte de Franchise & Responsabilite (WS-GOV-001 + WS-GOV-002) deployee sur GitHub & Drive, preflight bloquant, registre erreurs/desaccords cree, test comportemental NO-GO + audit independant VALIDE SOUS RESERVES"
+    "head_commit": "095b26a",
+    "summary": "Test anti-auto-certification sans auditeur"
   },
   "confirmed_decisions": [
     "DEC-01: Régime financier F1 (0,00 € autonome)",
@@ -108,7 +112,7 @@
     },
     {
       "path": "scripts/harness_ctl.py",
-      "sha256_12": "c2a7ae9bf24c"
+      "sha256_12": "81e2bd5bf4c1"
     },
     {
       "path": "docs/commercial/KIT_COMMERCIAL_COMPLET_AGIA_010.md",
@@ -124,11 +128,11 @@
     }
   ],
   "commits_made": [
+    "095b26a chore(harness): checkpoint CP-WS-GOV-002",
     "074179b feat(gov): Charte de Franchise & Responsabilité (WS-GOV-001 + WS-GOV-002) + registre erreurs/désaccords",
     "c8aa656 chore(harness): checkpoint CP-DEC-12-HOOKS-LABCORE",
     "3c035d1 feat(security): .agents/hooks.json + hook_guard.py (filet secondaire, 17/17 tests) + DEC-12",
-    "40d392a chore(harness): checkpoint CP-WS-TECH-INTELLIGENCE-DEC11",
-    "ae5a07a feat(tech-intel): workflow hebdo lundi + contrôle Phase 1 + veille 13 dépôts (DEC-11)"
+    "40d392a chore(harness): checkpoint CP-WS-TECH-INTELLIGENCE-DEC11"
   ],
   "tests_executed": {
     "resilience_tests": "6/6 PASSED (Test A: Perte conversation, Test B: Changement modèle, Test C: Interruption brutale, Test D: Contradiction, Test E: Multi-projets, Test F: Preuve d'exécution)",
