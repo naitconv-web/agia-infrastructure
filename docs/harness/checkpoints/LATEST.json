@@ -1,6 +1,6 @@
 {
-  "mission_id": "AGIA-014",
-  "generated_at_utc": "2026-11-21T20:41:43Z",
+  "mission_id": "STEP-3-WS-AMB-002",
+  "generated_at_utc": "2026-11-23T00:43:31Z",
   "objective": "Concevoir, implémenter et valider par 6 tests de résistance le Harness Engineering commun aux projets SYNTESIA (0 dépendance à la mémoire conversationnelle).",
   "current_state": {
     "status": "CONFIRMED",
@@ -8,8 +8,8 @@
     "attempt": 1,
     "max_attempts": 3,
     "branch": "main",
-    "head_commit": "0980244",
-    "summary": "Audit connectivité 10 services, tests réels GitHub/Google Workspace/CRM Sheets (VALIDÉ), procédures d'autorisation progressive pour o2switch/WP/Meta/IG/GA4/GSC/Canva/LinkedIn"
+    "head_commit": "11a2de0",
+    "summary": "Liaison GitHub <-> Google Drive testee sur WS-AMB-002 et validee par audit independant (7/7 points OK)"
   },
   "confirmed_decisions": [
     "DEC-01: Régime financier F1 (0,00 € autonome)",
@@ -72,7 +72,7 @@
   "files_created_or_modified": [
     {
       "path": "AGENTS.md",
-      "sha256_12": "f614ee194b9f"
+      "sha256_12": "a1e64dbb1f1a"
     },
     {
       "path": "docs/harness/AUDIT_HARNESS_EXISTANT.md",
@@ -108,7 +108,7 @@
     },
     {
       "path": "scripts/harness_ctl.py",
-      "sha256_12": "c7499d6e201c"
+      "sha256_12": "f405b1dd61ab"
     },
     {
       "path": "docs/commercial/KIT_COMMERCIAL_COMPLET_AGIA_010.md",
@@ -124,11 +124,11 @@
     }
   ],
   "commits_made": [
-    "0980244 AGIA-013: Audit ECC/JCODE (NO-GO installation), audit o2switch et mise en pause sites FR/DZ",
-    "608f750 feat(AGIA-012): integrate verified EI SIRET 849 261 870 00018 & IBAN into private billing kit and preprod legal page (no publication)",
-    "8b231ca feat(AGIA-012): Revenue First acquisition plan (1490 EUR / 40% deposit, 6 prioritized FR PME prospects, outreach scripts, 48h plan) & checkpoint",
-    "7925982 feat(AGIA-011): deploy SYNTESIA Harness Engineering (6 layers, AGENTS.md, memory registry, preflight/checkpoint CLI & 6/6 resilience tests)",
-    "91a1eec feat(AGIA-010): actionable commercial kit (1490 EUR / 145k DZD offer, pitch, proposal, 15 FR/DZ prospects) & interactive client demonstrator"
+    "11a2de0 STEP-3: Audit indépendant VALIDÉ sur fiche mission WS-AMB-002",
+    "92b0c6d STEP-3: Pont GitHub -> Google Drive (harness_ctl.py sync-drive) + Fiche WS-AMB-002 synchronisée",
+    "0d2cfd2 INFRA: Retrait d'AMBRESSENCE de o2switch-deploy.yml (conservé pour SYNTESIA & Infra)",
+    "d6fd89a GOVERNANCE: Charte de collaboration des IA (Directives du DG) + référence obligatoire AGENTS.md",
+    "cb30dc1 WS-AMB-002: Étude et préparation déploiement Git natif cPanel (.cpanel.yml + DRY_RUN=1)"
   ],
   "tests_executed": {
     "resilience_tests": "6/6 PASSED (Test A: Perte conversation, Test B: Changement modèle, Test C: Interruption brutale, Test D: Contradiction, Test E: Multi-projets, Test F: Preuve d'exécution)",
