@@ -1,6 +1,6 @@
 {
-  "mission_id": "AGIA-BOUTIQUE-B2B-001",
-  "generated_at_utc": "2026-11-23T18:51:34Z",
+  "mission_id": "AGIA-SECU-FOCUS-001",
+  "generated_at_utc": "2026-11-23T19:02:54Z",
   "objective": "Concevoir, implémenter et valider par 6 tests de résistance le Harness Engineering commun aux projets SYNTESIA (0 dépendance à la mémoire conversationnelle).",
   "current_state": {
     "status": "IN_PROGRESS",
@@ -14,8 +14,8 @@
     "attempt": 1,
     "max_attempts": 3,
     "branch": "main",
-    "head_commit": "9beb046",
-    "summary": "Boutique B2B 5 formules + Virement SEPA/CB Pro/PayPal 4x/GoCardless + Proforma A4 déployée et vérifiée Playwright + ZIP o2switch 349 Ko mis à jour"
+    "head_commit": "df9db6d",
+    "summary": "Séparation exclusive actifs Sécurité Privée (3 Packs 690/980/1450) + Vérification SECURIA (NO-GO: domaines et sociétés 80.10Z existantes) + alternatives libres"
   },
   "confirmed_decisions": [
     "DEC-01: Régime financier F1 (0,00 € autonome)",
@@ -130,11 +130,11 @@
     }
   ],
   "commits_made": [
+    "df9db6d feat(boutique): isolation actifs Sécurité Privée et séparation page BTP",
+    "e277dc0 chore(harness): checkpoint AGIA-BOUTIQUE-B2B-001",
     "9beb046 feat(boutique): boutique B2B multi-actifs et multi-paiements hors Stripe synchronisée sur sites/",
     "9998c7c feat(cal): connect Cal.com agenda link in agia-infrastructure",
-    "04731fb chore(harness): checkpoint AGIA-SECU-INTEGRATION-001",
-    "f9a8183 feat(securite-privee): integrate COS Operations preview, Sentinelle IA, and live simulator CTA",
-    "d9be8c7 chore(tech-intel): collecte hebdomadaire automatique [skip ci]"
+    "04731fb chore(harness): checkpoint AGIA-SECU-INTEGRATION-001"
   ],
   "tests_executed": {
     "resilience_tests": "6/6 PASSED (Test A: Perte conversation, Test B: Changement modèle, Test C: Interruption brutale, Test D: Contradiction, Test E: Multi-projets, Test F: Preuve d'exécution)",
