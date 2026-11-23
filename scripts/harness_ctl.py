@@ -181,9 +181,15 @@ def cmd_preflight():
     forms_txt = open(forms_path, "r", encoding="utf-8").read() if os.path.exists(forms_path) else ""
     webhook_safe = "WEBHOOK_ENABLED: false" in forms_txt and 'ENVIRONMENT: "PREPROD"' in forms_txt
 
+    # Check CHARTE-FRANCHISE-NON-COMPLAISANCE.md at repo root (WS-GOV-001 + WS-GOV-002)
+    franchise_path = os.path.join(REPO_ROOT, "CHARTE-FRANCHISE-NON-COMPLAISANCE.md")
+    franchise_txt = open(franchise_path, "r", encoding="utf-8").read() if os.path.exists(franchise_path) else ""
+    franchise_ok = len(franchise_txt) > 500 and "ALERTE STOP" in franchise_txt and "A. OBJECTIF" in franchise_txt
+    errors_log_ok = os.path.exists(os.path.join(REPO_ROOT, "docs", "harness", "REGISTRE_ERREURS_ET_DESACCORDS.md"))
+
     print(f"1. [GIT_STATE]        Repo: {memory['reference_repository']} | Branch: {branch} | HEAD: {head_sha} | Modified files: {len(status_out.splitlines())}")
     print(f"2. [MEMORY_STATE]     Facts: {len(memory['facts'])} | Decisions: {len(memory['decisions'])} | Projects: {len(memory['projects'])} | Shards: {len(memory['shards'])}")
-    print(f"3. [GUARDRAILS]       Regime: {memory['guardrails']['financial_regime']} | WEBHOOK_ENABLED=false: {webhook_safe}")
+    print(f"3. [GUARDRAILS]       Regime: {memory['guardrails']['financial_regime']} | WEBHOOK_ENABLED=false: {webhook_safe} | CHARTE_FRANCHISE_V2: {franchise_ok} | ERRORS_LOG: {errors_log_ok}")
     print(f"4. [CONFLICT_CHECK]   Unresolved conflicts: {len(conflicts)}")
 
     if os.path.exists(LATEST_CP_PATH):
@@ -193,11 +199,14 @@ def cmd_preflight():
     else:
         print("5. [LAST_CHECKPOINT]  Aucun checkpoint antérieur (Initialisation AGIA-011).")
 
-    if not webhook_safe or len(conflicts) > 0:
-        print("[PREFLIGHT FAILED] Garde-fou violé ou conflit bloquant non résolu.")
+    if franchise_ok:
+        print("6. [DIRECTIVE_WS-GOV-002] CHARTE FRANCHISE & RESPONSABILITE ACTIVE : Conseil > execution aveugle | Zero certitude fabriquee | Alerte STOP | Protocole A-G | Anti-complaisance collective.")
+
+    if not webhook_safe or len(conflicts) > 0 or not franchise_ok:
+        print("[PREFLIGHT FAILED] Garde-fou violé, Charte de Franchise WS-GOV-002 absente ou conflit bloquant non résolu.")
         sys.exit(1)
 
-    append_trace("PREFLIGHT_OK", "AGIA-011", {"branch": branch, "head": head_sha, "facts_count": len(memory["facts"])})
+    append_trace("PREFLIGHT_OK", "AGIA-011", {"branch": branch, "head": head_sha, "facts_count": len(memory["facts"]), "franchise_charter_v2": franchise_ok})
     print("[PREFLIGHT STATUS]    PASS (Exit 0)")
     return 0
 

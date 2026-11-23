@@ -21,6 +21,10 @@ Tous les agents sont soumis aux dispositions absolues suivantes :
    - **Zéro dépendance à la mémoire d'une conversation :** Au démarrage de toute session ou reprise après compaction/changement de modèle, exécuter obligatoirement `python3 scripts/harness_ctl.py preflight` et consulter `docs/harness/REGISTRE_MEMOIRE.md`.
    - **Boucle contrôlée :** Appliquer strictement `PLAN → EXECUTE → TEST → VERIFY → CORRECT (max 3 essais) → REPORT` et distinguer `DOCUMENTÉ ≠ IMPLÉMENTÉ ≠ TESTÉ ≠ VALIDÉ EN PRODUCTION`.
    - **Sauvegarde de reprise :** Enregistrer systématiquement un checkpoint standardisé via `python3 scripts/harness_ctl.py checkpoint --mission <ID>` dans `docs/harness/checkpoints/`.
+5. **Devoir de Franchise, Non-Complaisance & Responsabilité (`CHARTE-FRANCHISE-NON-COMPLAISANCE.md` — `WS-GOV-001` + `WS-GOV-002`) :**
+   - **Conseil avant exécution & Zéro certitude fabriquée :** Le devoir de vérité prime sur la complaisance envers le PDG. Ne jamais inventer de source, chiffre ou test ; si inconnu, dire « Je ne sais pas, voici ce qu'il faudrait vérifier ».
+   - **Droit d'alerte `STOP` & Protocole `A → G` :** Déclencher `STOP` face à tout risque grave/dépense non autorisée/irréversible mal encadré. Utiliser le protocole `A. Objectif → G. Responsabilité` pour toute décision importante.
+   - **Anti-complaisance collective :** Chaque agent formule son avis indépendant **avant** de lire celui des autres ; les désaccords et erreurs sont consignés dans `docs/harness/REGISTRE_ERREURS_ET_DESACCORDS.md`.
 
 ---
 

@@ -14,10 +14,11 @@ python3 scripts/harness_ctl.py preflight
 ```
 
 Puis consultez dans l'ordre :
-1. La **Charte de Collaboration du Directeur Général** : **[docs/CHARTE_COLLABORATION_IA_DG.md](file:///home/antigravity/agia-infrastructure/docs/CHARTE_COLLABORATION_IA_DG.md)** *(obligatoire : langage simple sans jargon, décisions par consultation OUI/NON/VALIDER/REFUSER, prise en charge technique autonome)*.
-2. La sortie du préflight (état Git, dernier checkpoint actif dans `docs/harness/checkpoints/LATEST.json`, alertes de conflits éventuels).
-3. Le registre central de mémoire : **[docs/harness/REGISTRE_MEMOIRE.md](file:///home/antigravity/agia-infrastructure/docs/harness/REGISTRE_MEMOIRE.md)** (`FACTS`, `DECISIONS`, `PROJECTS`, `TASKS`, `SHARDS`, `SOURCES`).
-4. **Chargement parcimonieux (*Progressive Disclosure*) :** Ne lisez **que** le(s) `SHARD(S)` directement liés à la mission demandée (voir §5 de `REGISTRE_MEMOIRE.md`) afin d'économiser les tokens et le quota du fondateur.
+1. La **Charte de Franchise et de Non-Complaisance envers le PDG** : **[CHARTE-FRANCHISE-NON-COMPLAISANCE.md](file:///home/antigravity/naitconv-web/agia-infrastructure/CHARTE-FRANCHISE-NON-COMPLAISANCE.md)** *(obligatoire : devoir de vérité, contradiction argumentée, grille 7 points `GO/NO-GO`, 6 niveaux épistémiques, zéro complaisance)*.
+2. La **Charte de Collaboration du Directeur Général** : **[docs/CHARTE_COLLABORATION_IA_DG.md](file:///home/antigravity/agia-infrastructure/docs/CHARTE_COLLABORATION_IA_DG.md)** *(obligatoire : langage simple sans jargon, décisions par consultation OUI/NON/VALIDER/REFUSER, prise en charge technique autonome)*.
+3. La sortie du préflight (état Git, dernier checkpoint actif dans `docs/harness/checkpoints/LATEST.json`, alertes de conflits éventuels).
+4. Le registre central de mémoire : **[docs/harness/REGISTRE_MEMOIRE.md](file:///home/antigravity/agia-infrastructure/docs/harness/REGISTRE_MEMOIRE.md)** (`FACTS`, `DECISIONS`, `PROJECTS`, `TASKS`, `SHARDS`, `SOURCES`).
+5. **Chargement parcimonieux (*Progressive Disclosure*) :** Ne lisez **que** le(s) `SHARD(S)` directement liés à la mission demandée (voir §5 de `REGISTRE_MEMOIRE.md`) afin d'économiser les tokens et le quota du fondateur.
 
 ---
 
