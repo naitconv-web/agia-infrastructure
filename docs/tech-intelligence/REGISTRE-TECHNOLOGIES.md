@@ -1,6 +1,6 @@
 # REGISTRE DES TECHNOLOGIES — `TECH INTELLIGENCE`
 
-**Source primaire :** Collecte réelle `python3 scripts/tech_intel_collect.py` du `2026-11-23` (`13` dépôts, `0,00 €`).  
+**Source primaire :** Collecte réelle `python3 scripts/tech_intel_collect.py` du `2026-11-23` (`15` dépôts, `0,00 €`).  
 **Règle obligatoire (PDG) :** Chaque technologie ou fonctionnalité distingue strictement : **`Annoncée`** · **`Disponible`** · **`Testée`** · **`Réellement adoptée`** · **`Risque / Limitation`**.
 
 | Outil / Dépôt officiel | Étoiles / Version (`latest_collect.json`) | Licence | Annoncée / Disponible | Testée / Réellement adoptée | Risque ou limitation identifiés |
