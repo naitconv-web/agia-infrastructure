@@ -211,28 +211,40 @@ def cmd_preflight():
     return 0
 
 
-def cmd_checkpoint(mission_id="AGIA-011", status="CONFIRMED", summary="SYNTESIA Harness Engineering déployé et validé sur les 6 tests de résilience", auditor="", audit_verdict=""):
+def cmd_checkpoint(mission_id="AGIA-011", status="CONFIRMED", summary="SYNTESIA Harness Engineering déployé et validé sur les 6 tests de résilience", auditor="", audit_verdict="", audit_proof=""):
     os.makedirs(CHECKPOINTS_DIR, exist_ok=True)
     memory = load_memory()
     _, branch, _ = run_git(["branch", "--show-current"])
     _, head_sha, _ = run_git(["rev-parse", "--short", "HEAD"])
     _, log_lines, _ = run_git(["log", "-n", "5", "--oneline"])
 
-    # Verrou anti-auto-certification (WS-GOV-002 Règle 5)
+    # Verrou anti-auto-certification renforcé (WS-GOV-002 Règle 5)
     valid_verdicts = {"VALIDÉ", "VALIDE", "VALIDÉ SOUS RÉSERVES", "VALIDE SOUS RESERVES"}
     auditor_clean = (auditor or "").strip()
     verdict_clean = (audit_verdict or "").strip().upper()
+    proof_clean = (audit_proof or "").strip()
+    proof_abs = (os.path.join(REPO_ROOT, proof_clean) if not os.path.isabs(proof_clean) else proof_clean) if proof_clean else ""
+    proof_exists = bool(proof_abs and os.path.exists(proof_abs) and os.path.getsize(proof_abs) > 50)
+    proof_txt = open(proof_abs, "r", encoding="utf-8").read().upper() if proof_exists else ""
+    proof_sha = short_sha256(proof_abs) if proof_exists else "NONE"
+
     self_cert_blocked = False
     effective_status = status
     if status == "CONFIRMED":
-        if verdict_clean == "REJETÉ" or verdict_clean == "REJETE":
+        if verdict_clean in {"REJETÉ", "REJETE"} or ("VERDICT" in proof_txt and "REJETÉ" in proof_txt):
             effective_status = "BLOCKED"
             self_cert_blocked = True
             print("[ANTI-SELF-CERTIFICATION] Statut rétrogradé à BLOCKED (verdict auditeur = REJETÉ).")
-        elif not auditor_clean or auditor_clean.lower() in {"self", "concepteur", "antigravity-main"} or verdict_clean not in valid_verdicts:
+        elif (
+            not auditor_clean
+            or auditor_clean.lower() in {"self", "concepteur", "antigravity-main"}
+            or verdict_clean not in valid_verdicts
+            or not proof_exists
+            or verdict_clean not in proof_txt
+        ):
             effective_status = "IN_PROGRESS"
             self_cert_blocked = True
-            print("[ANTI-SELF-CERTIFICATION] Statut CONFIRMED refusé sans verdict d'un auditeur indépendant -> rétrogradé à IN_PROGRESS.")
+            print("[ANTI-SELF-CERTIFICATION] Statut CONFIRMED refusé sans fichier --audit-proof vérifiable contenant le verdict -> rétrogradé à IN_PROGRESS.")
 
     tracked_files = [
         "AGENTS.md",
@@ -265,6 +277,8 @@ def cmd_checkpoint(mission_id="AGIA-011", status="CONFIRMED", summary="SYNTESIA 
             "self_certification_blocked": self_cert_blocked,
             "auditor": auditor_clean or "NONE",
             "audit_verdict": verdict_clean or "PENDING",
+            "audit_proof": proof_clean or "NONE",
+            "audit_proof_sha256": proof_sha,
             "loop_phase": "REPORT",
             "attempt": 1,
             "max_attempts": 3,
@@ -668,6 +682,7 @@ def main():
     cp_p.add_argument("--summary", default="SYNTESIA Harness Engineering déployé et validé sur les 6 tests de résilience")
     cp_p.add_argument("--auditor", default="")
     cp_p.add_argument("--audit-verdict", default="")
+    cp_p.add_argument("--audit-proof", default="")
     sub.add_parser("resume")
     sub.add_parser("test-resilience")
     sd_p = sub.add_parser("sync-drive")
@@ -679,7 +694,7 @@ def main():
     if args.cmd == "preflight":
         cmd_preflight()
     elif args.cmd == "checkpoint":
-        cmd_checkpoint(args.mission, args.status, args.summary, args.auditor, args.audit_verdict)
+        cmd_checkpoint(args.mission, args.status, args.summary, args.auditor, args.audit_verdict, args.audit_proof)
     elif args.cmd == "resume":
         cmd_resume()
     elif args.cmd == "test-resilience":

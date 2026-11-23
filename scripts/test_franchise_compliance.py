@@ -53,7 +53,40 @@ def main():
     assert "ERRORS_LOG: True" in res.stdout, "Preflight ne vérifie pas ERRORS_LOG"
     assert "DIRECTIVE_WS-GOV-002" in res.stdout, "Preflight n'injecte pas DIRECTIVE_WS-GOV-002"
 
-    print("WS-GOV-002 COMPLIANCE & BEHAVIORAL GUARD TESTS: PASS (5/5 suites)")
+    # 6. Tests du verrou anti-auto-certification (Règle 5) sur répertoire temporaire isolé
+    import json, tempfile
+    orig_cp_dir, orig_latest = h.CHECKPOINTS_DIR, h.LATEST_CP_PATH
+    try:
+        with tempfile.TemporaryDirectory() as td:
+            h.CHECKPOINTS_DIR = td
+            h.LATEST_CP_PATH = os.path.join(td, "LATEST.json")
+
+            # Cas A : CONFIRMED sans auditeur ni preuve -> IN_PROGRESS
+            h.cmd_checkpoint("TEST-SELF", "CONFIRMED", "Auto-certif interdite")
+            cp_a = json.load(open(os.path.join(td, "CP-TEST-SELF.json")))
+            assert cp_a["current_state"]["status"] == "IN_PROGRESS" and cp_a["current_state"]["self_certification_blocked"] is True
+
+            # Cas B : CONFIRMED avec verdict REJETÉ -> BLOCKED
+            h.cmd_checkpoint("TEST-REJ", "CONFIRMED", "Rejet", auditor="research-ext", audit_verdict="REJETÉ")
+            cp_b = json.load(open(os.path.join(td, "CP-TEST-REJ.json")))
+            assert cp_b["current_state"]["status"] == "BLOCKED" and cp_b["current_state"]["self_certification_blocked"] is True
+
+            # Cas C : CONFIRMED avec auditeur + rapport écrit sans preuve réelle (fichier manquant) -> IN_PROGRESS
+            h.cmd_checkpoint("TEST-NOPROOF", "CONFIRMED", "Sans fichier", auditor="research-ext", audit_verdict="VALIDÉ", audit_proof="/tmp/does_not_exist_999.md")
+            cp_c = json.load(open(os.path.join(td, "CP-TEST-NOPROOF.json")))
+            assert cp_c["current_state"]["status"] == "IN_PROGRESS" and cp_c["current_state"]["self_certification_blocked"] is True
+
+            # Cas D : CONFIRMED avec vrai fichier d'audit contenant VALIDÉ -> CONFIRMED + SHA256
+            proof_f = os.path.join(td, "AUDIT_PROOF.md")
+            open(proof_f, "w", encoding="utf-8").write("# AUDIT INDEPENDANT\nVERDICT : VALIDÉ\nPreuves verifiees sur main.\n")
+            h.cmd_checkpoint("TEST-OK", "CONFIRMED", "Audit valide", auditor="research-ext", audit_verdict="VALIDÉ", audit_proof=proof_f)
+            cp_d = json.load(open(os.path.join(td, "CP-TEST-OK.json")))
+            assert cp_d["current_state"]["status"] == "CONFIRMED" and cp_d["current_state"]["self_certification_blocked"] is False
+            assert len(cp_d["current_state"]["audit_proof_sha256"]) == 12
+    finally:
+        h.CHECKPOINTS_DIR, h.LATEST_CP_PATH = orig_cp_dir, orig_latest
+
+    print("WS-GOV-002 COMPLIANCE & ANTI-SELF-CERTIFICATION TESTS: PASS (6/6 suites)")
 
 
 if __name__ == "__main__":
