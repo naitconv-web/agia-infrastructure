@@ -1,11 +1,11 @@
 # CHECKPOINT DE REPRISE — `WS-GOV-002`
-- **Généré le (UTC) :** `2026-11-23T01:49:23Z`
-- **Branche & Commit de base :** `main` @ `2847656`
-- **Statut & Phase Boucle :** `IN_PROGRESS` (`REPORT` — Tentative `1/3`)
+- **Généré le (UTC) :** `2026-11-23T01:50:16Z`
+- **Branche & Commit de base :** `main` @ `756e127`
+- **Statut & Phase Boucle :** `BLOCKED` (`REPORT` — Tentative `1/3`)
 
 ## 1. Objectif & État Actuel
 - **Objectif :** Concevoir, implémenter et valider par 6 tests de résistance le Harness Engineering commun aux projets SYNTESIA (0 dépendance à la mémoire conversationnelle).
-- **Résumé d'état :** Correctifs suite rejet research-8f8c2e52 (ERR-003): --audit-proof SHA256 obligatoire + 6/6 tests; en attente nouvel audit independant
+- **Résumé d'état :** WS-GOV-002 certifie par audit independant research-092f8255 (commit 756e127, 6/6 conformite, 6/6 resilience)
 
 ## 2. Décisions Confirmées Actives
 - `DEC-01: Régime financier F1 (0,00 € autonome)`

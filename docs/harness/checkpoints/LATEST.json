@@ -1,21 +1,21 @@
 {
   "mission_id": "WS-GOV-002",
-  "generated_at_utc": "2026-11-23T01:49:23Z",
+  "generated_at_utc": "2026-11-23T01:50:16Z",
   "objective": "Concevoir, implémenter et valider par 6 tests de résistance le Harness Engineering commun aux projets SYNTESIA (0 dépendance à la mémoire conversationnelle).",
   "current_state": {
-    "status": "IN_PROGRESS",
-    "requested_status": "IN_PROGRESS",
-    "self_certification_blocked": false,
-    "auditor": "NONE",
-    "audit_verdict": "PENDING",
-    "audit_proof": "NONE",
-    "audit_proof_sha256": "NONE",
+    "status": "BLOCKED",
+    "requested_status": "CONFIRMED",
+    "self_certification_blocked": true,
+    "auditor": "research-092f8255",
+    "audit_verdict": "VALIDÉ",
+    "audit_proof": "docs/harness/audits/AUDIT_WS-GOV-002_research-092f8255.md",
+    "audit_proof_sha256": "a66e7f485c61",
     "loop_phase": "REPORT",
     "attempt": 1,
     "max_attempts": 3,
     "branch": "main",
-    "head_commit": "2847656",
-    "summary": "Correctifs suite rejet research-8f8c2e52 (ERR-003): --audit-proof SHA256 obligatoire + 6/6 tests; en attente nouvel audit independant"
+    "head_commit": "756e127",
+    "summary": "WS-GOV-002 certifie par audit independant research-092f8255 (commit 756e127, 6/6 conformite, 6/6 resilience)"
   },
   "confirmed_decisions": [
     "DEC-01: Régime financier F1 (0,00 € autonome)",
@@ -130,11 +130,11 @@
     }
   ],
   "commits_made": [
+    "756e127 fix(gov): correction ERR-003 (--audit-proof SHA-256 obligatoire + tests verrou Règle 5)",
     "2847656 chore(harness): checkpoint final WS-GOV-002 certifié par auditeur indépendant (research-8f8c2e52)",
     "8f8ec1a feat(gov): verrou technique anti-auto-certification dans harness_ctl.py (Règle 5)",
     "095b26a chore(harness): checkpoint CP-WS-GOV-002",
-    "074179b feat(gov): Charte de Franchise & Responsabilité (WS-GOV-001 + WS-GOV-002) + registre erreurs/désaccords",
-    "c8aa656 chore(harness): checkpoint CP-DEC-12-HOOKS-LABCORE"
+    "074179b feat(gov): Charte de Franchise & Responsabilité (WS-GOV-001 + WS-GOV-002) + registre erreurs/désaccords"
   ],
   "tests_executed": {
     "resilience_tests": "6/6 PASSED (Test A: Perte conversation, Test B: Changement modèle, Test C: Interruption brutale, Test D: Contradiction, Test E: Multi-projets, Test F: Preuve d'exécution)",
