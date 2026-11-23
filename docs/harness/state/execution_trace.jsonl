@@ -105,3 +105,4 @@
 {"timestamp_utc": "2026-11-23T18:51:34Z", "mission_id": "AGIA-BOUTIQUE-B2B-001", "agent_runtime": "Antigravity-HarnessCtl", "event_type": "CHECKPOINT_CREATED", "details": {"checkpoint": "CP-AGIA-BOUTIQUE-B2B-001.json", "files_count": 13}}
 {"timestamp_utc": "2026-11-23T19:02:54Z", "mission_id": "AGIA-SECU-FOCUS-001", "agent_runtime": "Antigravity-HarnessCtl", "event_type": "CHECKPOINT_CREATED", "details": {"checkpoint": "CP-AGIA-SECU-FOCUS-001.json", "files_count": 13}}
 {"timestamp_utc": "2026-11-23T19:15:49Z", "mission_id": "AGIA-SECURIAXE-001", "agent_runtime": "Antigravity-HarnessCtl", "event_type": "CHECKPOINT_CREATED", "details": {"checkpoint": "CP-AGIA-SECURIAXE-001.json", "files_count": 13}}
+{"timestamp_utc": "2026-11-23T20:25:55Z", "mission_id": "AGIA-011", "agent_runtime": "Antigravity-HarnessCtl", "event_type": "PREFLIGHT_OK", "details": {"branch": "main", "head": "4b085f8", "facts_count": 8, "franchise_charter_v2": true}}
