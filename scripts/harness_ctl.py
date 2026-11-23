@@ -47,9 +47,24 @@ def short_sha256(filepath):
 
 
 def redact_secrets_and_pii(text):
-    """Couche 6 — OBSERVABILITY : Interdit tout secret ou PII dans les journaux."""
+    """Couche 6 — OBSERVABILITY : Interdit tout secret ou PII dans les journaux et exports."""
     s = str(text or "")
-    s = re.sub(r"(ghp_[A-Za-z0-9]{20,}|AIza[A-Za-z0-9_\-]{20,}|Bearer\s+[A-Za-z0-9._\-]+)", "[REDACTED_SECRET]", s)
+    # Blocs de clés privées PEM (RSA, EC, OPENSSH, PRIVATE KEY)
+    s = re.sub(
+        r"-----BEGIN [A-Z0-9 ]*PRIVATE KEY-----[\s\S]*?-----END [A-Z0-9 ]*PRIVATE KEY-----",
+        "[REDACTED_PRIVATE_KEY]",
+        s,
+    )
+    # Clés Stripe secrètes / restreintes / webhooks (sk_live_, sk_test_, rk_live_, rk_test_, whsec_)
+    s = re.sub(r"\b(?:sk|rk)_(?:live|test)_[A-Za-z0-9]{10,}\b", "[REDACTED_STRIPE_KEY]", s)
+    s = re.sub(r"\bwhsec_[A-Za-z0-9]{10,}\b", "[REDACTED_STRIPE_WEBHOOK]", s)
+    # Jetons GitHub, Google API, Bearer et clés API préfixées courantes
+    s = re.sub(
+        r"(gh[pousr]_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,}|AIza[A-Za-z0-9_\-]{20,}|Bearer\s+[A-Za-z0-9._\-]+)",
+        "[REDACTED_SECRET]",
+        s,
+    )
+    # Adresses e-mail personnelles / PII
     s = re.sub(r"[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}", "[REDACTED_EMAIL]", s)
     return s
 
