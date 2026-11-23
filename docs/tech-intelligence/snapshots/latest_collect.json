@@ -1,0 +1,131 @@
+{
+  "collected_at_utc": "2026-11-23T01:25:54Z",
+  "cost_eur": 0.0,
+  "items": [
+    {
+      "repo": "agentskills/agentskills",
+      "pole": "Pôle 1/3 — Standards Skills",
+      "projects": [
+        "ALL"
+      ],
+      "stars": 27532,
+      "open_issues": 129,
+      "pushed_at": "2026-11-04T19:47:27Z",
+      "license_spdx": "Apache-2.0",
+      "latest_release": null,
+      "release_date": null,
+      "archived": false,
+      "status": "OK"
+    },
+    {
+      "repo": "modelcontextprotocol/servers",
+      "pole": "Pôle 1 — Protocole MCP",
+      "projects": [
+        "AMBRESSENCE",
+        "OMNISECUR",
+        "SYNTESIA"
+      ],
+      "stars": 92168,
+      "open_issues": 18,
+      "pushed_at": "2026-11-19T16:41:29Z",
+      "license_spdx": "NOASSERTION",
+      "latest_release": "v2.5.0",
+      "release_date": "2026-11-18T09:13:14Z",
+      "archived": false,
+      "status": "OK"
+    },
+    {
+      "repo": "promptfoo/promptfoo",
+      "pole": "Pôle 2/3 — Eval & Red-teaming",
+      "projects": [
+        "AMBRESSENCE",
+        "SYNTESIA",
+        "OMNISECUR"
+      ],
+      "stars": 27551,
+      "open_issues": 1025,
+      "pushed_at": "2026-11-23T01:11:38Z",
+      "license_spdx": "MIT",
+      "latest_release": "code-scan-action-0.2.3",
+      "release_date": "2026-11-18T19:00:08Z",
+      "archived": false,
+      "status": "OK"
+    },
+    {
+      "repo": "BerriAI/litellm",
+      "pole": "Pôle 2 — Passerelle LLM",
+      "projects": [
+        "OMNISECUR",
+        "SYNTESIA"
+      ],
+      "stars": 63717,
+      "open_issues": 5460,
+      "pushed_at": "2026-11-23T01:25:33Z",
+      "license_spdx": "NOASSERTION",
+      "latest_release": "v1.110.2",
+      "release_date": "2026-11-20T04:06:19Z",
+      "archived": false,
+      "status": "OK"
+    },
+    {
+      "repo": "langchain-ai/langgraph",
+      "pole": "Pôle 2 — Workflows Agents",
+      "projects": [
+        "OMNISECUR"
+      ],
+      "stars": 45278,
+      "open_issues": 481,
+      "pushed_at": "2026-11-22T00:32:52Z",
+      "license_spdx": "MIT",
+      "latest_release": "1.2.24",
+      "release_date": "2026-11-20T01:10:26Z",
+      "archived": false,
+      "status": "OK"
+    },
+    {
+      "repo": "mem0ai/mem0",
+      "pole": "Pôle 2 — Mémoire Agents",
+      "projects": [
+        "AMBRESSENCE"
+      ],
+      "stars": 69352,
+      "open_issues": 980,
+      "pushed_at": "2026-11-18T07:24:33Z",
+      "license_spdx": "Apache-2.0",
+      "latest_release": "ts-v3.3.1",
+      "release_date": "2026-09-25T17:36:35Z",
+      "archived": false,
+      "status": "OK"
+    },
+    {
+      "repo": "anomalyco/opencode",
+      "pole": "Pôle 1 — Runtime Local Paseo",
+      "projects": [
+        "WORKSTATION-IA"
+      ],
+      "stars": 228616,
+      "open_issues": 4060,
+      "pushed_at": "2026-11-23T01:16:01Z",
+      "license_spdx": "MIT",
+      "latest_release": "v1.19.6",
+      "release_date": "2026-11-17T07:21:32Z",
+      "archived": false,
+      "status": "OK"
+    },
+    {
+      "repo": "NousResearch/hermes-agent",
+      "pole": "Pôle 2 — Veille concurrente (non retenu)",
+      "projects": [
+        "VEILLE"
+      ],
+      "stars": 265436,
+      "open_issues": 54337,
+      "pushed_at": "2026-11-23T01:07:16Z",
+      "license_spdx": "MIT",
+      "latest_release": "v0.23.3",
+      "release_date": "2026-11-20T00:34:38Z",
+      "archived": false,
+      "status": "OK"
+    }
+  ]
+}
