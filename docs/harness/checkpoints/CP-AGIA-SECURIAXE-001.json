@@ -1,11 +1,11 @@
 {
   "mission_id": "AGIA-SECURIAXE-001",
-  "generated_at_utc": "2026-11-23T19:15:49Z",
+  "generated_at_utc": "2026-11-23T20:34:34Z",
   "objective": "Concevoir, implémenter et valider par 6 tests de résistance le Harness Engineering commun aux projets SYNTESIA (0 dépendance à la mémoire conversationnelle).",
   "current_state": {
     "status": "IN_PROGRESS",
-    "requested_status": "IN_PROGRESS",
-    "self_certification_blocked": false,
+    "requested_status": "CONFIRMED",
+    "self_certification_blocked": true,
     "auditor": "NONE",
     "audit_verdict": "PENDING",
     "audit_proof": "NONE",
@@ -14,8 +14,8 @@
     "attempt": 1,
     "max_attempts": 3,
     "branch": "main",
-    "head_commit": "39181ae",
-    "summary": "Adoption officielle marque Securiaxe (securiaxe.fr libre + INSEE 0), boutique 100% Sécurité Privée 3 packs déployée, stratégie double porte socle1351.fr documentée, pack o2switch Securiaxe 349 Ko prêt"
+    "head_commit": "8906552",
+    "summary": "Arbitrage DG valide : convention1351.fr retenu comme porte d'entree d'autorite pour capter les dirigeants de securite privee (domaine libre, 0 conflit INSEE). Alignement textuel Socle 1351 -> Convention 1351 realise sur le simulateur Securiaxe, l'agence et la boutique. Pack o2switch recompile et mis a jour."
   },
   "confirmed_decisions": [
     "DEC-01: Régime financier F1 (0,00 € autonome)",
@@ -130,11 +130,11 @@
     }
   ],
   "commits_made": [
+    "8906552 feat(brand): alignement Convention 1351 sur portail securite privee et boutique",
+    "4b085f8 chore(harness): checkpoint AGIA-SECURIAXE-001",
     "39181ae feat(brand): déploiement identité officielle Securiaxe (pôle Sécurité Privée SYNTESIA)",
     "88d5814 chore(harness): checkpoint AGIA-SECU-FOCUS-001",
-    "df9db6d feat(boutique): isolation actifs Sécurité Privée et séparation page BTP",
-    "e277dc0 chore(harness): checkpoint AGIA-BOUTIQUE-B2B-001",
-    "9beb046 feat(boutique): boutique B2B multi-actifs et multi-paiements hors Stripe synchronisée sur sites/"
+    "df9db6d feat(boutique): isolation actifs Sécurité Privée et séparation page BTP"
   ],
   "tests_executed": {
     "resilience_tests": "6/6 PASSED (Test A: Perte conversation, Test B: Changement modèle, Test C: Interruption brutale, Test D: Contradiction, Test E: Multi-projets, Test F: Preuve d'exécution)",
