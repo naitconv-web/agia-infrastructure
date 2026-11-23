@@ -1,6 +1,6 @@
 {
-  "mission_id": "STEP-3-WS-AMB-002",
-  "generated_at_utc": "2026-11-23T00:43:31Z",
+  "mission_id": "DEC-08-WORKSTATION-FINAL",
+  "generated_at_utc": "2026-11-23T00:55:44Z",
   "objective": "Concevoir, implémenter et valider par 6 tests de résistance le Harness Engineering commun aux projets SYNTESIA (0 dépendance à la mémoire conversationnelle).",
   "current_state": {
     "status": "CONFIRMED",
@@ -8,8 +8,8 @@
     "attempt": 1,
     "max_attempts": 3,
     "branch": "main",
-    "head_commit": "11a2de0",
-    "summary": "Liaison GitHub <-> Google Drive testee sur WS-AMB-002 et validee par audit independant (7/7 points OK)"
+    "head_commit": "c3c245e",
+    "summary": "Filtre confidentialite Stripe/PEM etendu (10/10 + 18/18 auditeur), controle independant VALIDE, registres GitHub/Drive et Tableau de bord DG mis a jour"
   },
   "confirmed_decisions": [
     "DEC-01: Régime financier F1 (0,00 € autonome)",
@@ -84,7 +84,7 @@
     },
     {
       "path": "docs/harness/REGISTRE_MEMOIRE.md",
-      "sha256_12": "e48f93bbabf3"
+      "sha256_12": "efddbf96de41"
     },
     {
       "path": "docs/harness/PROTOCOLE_PREFLIGHT.md",
@@ -108,7 +108,7 @@
     },
     {
       "path": "scripts/harness_ctl.py",
-      "sha256_12": "f405b1dd61ab"
+      "sha256_12": "4afca9226f1c"
     },
     {
       "path": "docs/commercial/KIT_COMMERCIAL_COMPLET_AGIA_010.md",
@@ -124,11 +124,11 @@
     }
   ],
   "commits_made": [
+    "c3c245e feat(harness): filtre confidentialité Stripe/PEM + décision PDG DEC-08",
+    "75be810 chore(harness): checkpoint CP-STEP-3-WS-AMB-002",
     "11a2de0 STEP-3: Audit indépendant VALIDÉ sur fiche mission WS-AMB-002",
     "92b0c6d STEP-3: Pont GitHub -> Google Drive (harness_ctl.py sync-drive) + Fiche WS-AMB-002 synchronisée",
-    "0d2cfd2 INFRA: Retrait d'AMBRESSENCE de o2switch-deploy.yml (conservé pour SYNTESIA & Infra)",
-    "d6fd89a GOVERNANCE: Charte de collaboration des IA (Directives du DG) + référence obligatoire AGENTS.md",
-    "cb30dc1 WS-AMB-002: Étude et préparation déploiement Git natif cPanel (.cpanel.yml + DRY_RUN=1)"
+    "0d2cfd2 INFRA: Retrait d'AMBRESSENCE de o2switch-deploy.yml (conservé pour SYNTESIA & Infra)"
   ],
   "tests_executed": {
     "resilience_tests": "6/6 PASSED (Test A: Perte conversation, Test B: Changement modèle, Test C: Interruption brutale, Test D: Contradiction, Test E: Multi-projets, Test F: Preuve d'exécution)",
