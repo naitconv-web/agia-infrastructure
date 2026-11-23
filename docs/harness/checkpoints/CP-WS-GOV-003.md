@@ -1,11 +1,11 @@
 # CHECKPOINT DE REPRISE — `WS-GOV-003`
-- **Généré le (UTC) :** `2026-11-23T01:52:24Z`
-- **Branche & Commit de base :** `main` @ `dc9b501`
-- **Statut & Phase Boucle :** `IN_PROGRESS` (`REPORT` — Tentative `1/3`)
+- **Généré le (UTC) :** `2026-11-23T01:53:26Z`
+- **Branche & Commit de base :** `main` @ `d0e7d1d`
+- **Statut & Phase Boucle :** `CONFIRMED` (`REPORT` — Tentative `1/3`)
 
 ## 1. Objectif & État Actuel
 - **Objectif :** Concevoir, implémenter et valider par 6 tests de résistance le Harness Engineering commun aux projets SYNTESIA (0 dépendance à la mémoire conversationnelle).
-- **Résumé d'état :** Livrables WS-GOV-003 prets (matrice couverture, 10 Skills injectes, Promptfoo 8 scenarios, DES-003/DES-004); en attente audit independant
+- **Résumé d'état :** WS-GOV-003 audite (research-3d27dde2: VALIDE SOUS RESERVES): matrice couverture honnete, 10/10 Skills, 4 tests comportementaux live (DES-001..004), Promptfoo 8 scenarios pret
 
 ## 2. Décisions Confirmées Actives
 - `DEC-01: Régime financier F1 (0,00 € autonome)`
