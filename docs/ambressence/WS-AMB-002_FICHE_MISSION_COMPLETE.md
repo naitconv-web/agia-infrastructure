@@ -42,6 +42,6 @@
 - **Blocages restants pour ouvrir la vente :** Stripe `restricted` (`acct_1UbnwCHR0qKCRDne`), `23` champs légaux `⟦ ... ⟧` (Kbis), `TigerProtect` o2switch (`HTTP 429` sur rafales), Deploy Key cPanel manquante sur GitHub.
 
 ## 7. AVIS DE L'AUDITEUR INDÉPENDANT (`Concepteur ≠ Auditeur`)
-- **Agent auditeur :** `EN ATTENTE DE CONTRÔLE INDÉPENDANT`
-- **Verdict :** `À AUDITER`
-- **Preuves examinées & commentaires :** *Sera complété après vérification par le second agent indépendant.*
+- **Agent auditeur :** `research` — Auditeur Indépendant en lecture seule (`conv: 643cd478`, contrôle du `2026-11-23T00:42:54Z`)
+- **Verdict :** `VALIDÉ`
+- **Preuves examinées & commentaires :** `7/7` points contrôlés `OK` sans écart entre GitHub et Google Drive (`FICHE_MISSION.md`, `TABLEAU_DE_BORD_DG.md`, `REGISTRE-BUDGETS-DEPENSES.md`) : demandes DG, décisions/validations DG, actions exécutées, dépenses (`22,76 € TTC` o2switch + `0,00 €` opérations), résultats (`2 552` parfums, test panier `23,90 €`), `10` commits vérifiés et protection anti-écrasement/confidentialité confirmée. Limite mineure relevée : étendre à terme le masquage automatique à d'autres formats de clés secrètes (`sk_live_`, clés privées PEM).
