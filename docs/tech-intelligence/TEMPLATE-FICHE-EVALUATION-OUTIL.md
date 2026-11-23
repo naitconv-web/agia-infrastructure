@@ -17,6 +17,11 @@
 - **Projets bénéficiaires :** `<AMBRESSENCE / SYNTESIA / OMNISECUR / RELANCE-DEVIS>`
 - **Risque de doublon :** `<FAIBLE / MOYEN / ÉLEVÉ>`
 
-## 3. Verdict `Make or Buy`
+## 3. Maturité réelle & Verdict `Make or Buy`
+- **Fonctionnalité annoncée :** `<Ce que promet l'éditeur>`
+- **Fonctionnalité disponible :** `<Ce qui existe réellement dans notre version/abonnement>`
+- **Fonctionnalité testée :** `<Preuve d'exécution réelle ou NON TESTÉE>`
+- **Fonctionnalité réellement adoptée :** `<OUI / NON — périmètre exact>`
+- **Risque ou limitation identifiés :** `<Bugs connus, restrictions licence, quotas>`
 - **Décision proposée :** `CONSERVER | CONFIGURER | INTÉGRER | AMÉLIORER | DÉVELOPPER | ABANDONNER`
 - **Prochaine étape (test isolé `0 €`) :** `<Description du test sans risque pour la prod>`

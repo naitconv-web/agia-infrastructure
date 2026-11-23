@@ -1,0 +1,64 @@
+name: Tech Intelligence Weekly Collect
+
+on:
+  schedule:
+    # Chaque lundi a 07h00 UTC (08h00 heure de Paris)
+    - cron: "0 7 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  collect-tech-intel:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      GH_TOKEN: ${{ github.token }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run Tech Intelligence collector (0 EUR, read-only GitHub API)
+        run: |
+          python3 scripts/tech_intel_collect.py
+
+      - name: Verify snapshot output
+        run: |
+          python3 -c '
+          import json
+          data = json.load(open("docs/tech-intelligence/snapshots/latest_collect.json", "r", encoding="utf-8"))
+          assert data.get("cost_eur") == 0.0
+          items = data.get("items", [])
+          assert len(items) >= 8, "Trop peu de depots collectes"
+          errors = [i["repo"] for i in items if i.get("status") != "OK"]
+          if errors:
+              raise SystemExit(f"Echec collecte sur: {errors}")
+          print(f"VERIFIED: {len(items)}/{len(items)} depots OK")
+          '
+
+      - name: Upload execution proof artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tech-intel-snapshot-${{ github.run_number }}
+          path: docs/tech-intelligence/snapshots/latest_collect.json
+          retention-days: 30
+
+      - name: Commit updated snapshot only (never touches Skills or production)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if ! git diff --quiet docs/tech-intelligence/snapshots/latest_collect.json; then
+            git add docs/tech-intelligence/snapshots/latest_collect.json
+            git commit -m "chore(tech-intel): collecte hebdomadaire automatique [skip ci]"
+            git push
+          else
+            echo "Aucun changement dans le snapshot."
+          fi

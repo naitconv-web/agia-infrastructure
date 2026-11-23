@@ -1,17 +1,20 @@
 # REGISTRE DES TECHNOLOGIES — `TECH INTELLIGENCE`
 
-**Source primaire :** Collecte réelle `python3 scripts/tech_intel_collect.py` du `2026-11-23T01:25:58Z` (`0,00 €`).  
-**Complémentarité :** Complète [INDEX_ET_GOUVERNANCE.md](file:///home/antigravity/naitconv-web/agia-infrastructure/docs/bibliotheque_technologique/INDEX_ET_GOUVERNANCE.md) avec les métriques en direct et les décisions `Make or Buy`.
+**Source primaire :** Collecte réelle `python3 scripts/tech_intel_collect.py` du `2026-11-23` (`13` dépôts, `0,00 €`).  
+**Règle obligatoire (PDG) :** Chaque technologie ou fonctionnalité distingue strictement : **`Annoncée`** · **`Disponible`** · **`Testée`** · **`Réellement adoptée`** · **`Risque / Limitation`**.
 
-| Outil / Standard | Dépôt officiel | Étoiles (`23/11`) | Dernière version / Push | Licence vérifiée | Coût / Contrainte cachée | Statut `WORKSTATION-IA` |
-| :--- | :--- | :---: | :--- | :--- | :--- | :--- |
-| **Agent Skills** | `agentskills/agentskills` | `27 532` | Push `2026-11-04` | `Apache-2.0` | **0 €**, zéro serveur | **`INTÉGRER` (Phase 1 lancée)** |
-| **Promptfoo** | `promptfoo/promptfoo` | `27 551` | `code-scan-action-0.2.3` (`2026-11-23`) | `MIT` | **0 €** (coût API seulement si tests live LLM) | **`INTÉGRER` (Suite YAML prête)** |
-| **MCP Servers** | `modelcontextprotocol/servers` | `92 168` | `v2.5.0` (`2026-11-19`) | Open Standard *(vérifier licence par serveur)* | **0 €**, privilégier mode lecture seule | **`À EXPÉRIMENTER` (Phase 2)** |
-| **OpenCode** | `anomalyco/opencode` | `228 616` | `v1.19.6` (`2026-11-23`) | `MIT` | **0 €**, déjà provider dans Paseo | **`CONSERVER` (Actif local)** |
-| **LiteLLM** | `BerriAI/litellm` | `63 717` | `v1.110.2` (`2026-11-23`) | `MIT` *(hors `enterprise/`)* | **0 €** licence, utile dès appels API prod | **`DIFFÉRER` (Phase 3 prod)** |
-| **LangGraph** | `langchain-ai/langgraph` | `45 278` | `1.2.24` (`2026-11-22`) | `MIT` | **0 €**, Python/JS | **`DIFFÉRER` (si apps complexes)** |
-| **Mem0** | `mem0ai/mem0` | `69 352` | `ts-v3.3.1` (`2026-11-18`) | `Apache-2.0` | Base vectorielle + tokens d'extraction | **`DIFFÉRER` (Phase 2/3 SAV)** |
-| **Hermes Agent** | `NousResearch/hermes-agent` | `265 436` | `v0.23.3` (`2026-11-23`) | `MIT` | Doublon direct avec Paseo + Antigravity | **`NE PAS RETENIR` (Veille seule)** |
-| **Flowise** | `FlowiseAI/Flowise` | — | Archivé `08/2026` | `Apache-2.0` | **Projet mort / non maintenu** | **`ABANDONNER`** |
-| **Dify** | `langgenius/dify` | — | Actif | `Apache-2.0` modifiée | Multi-tenant & retrait logo interdits sans licence | **`ABANDONNER`** |
+| Outil / Dépôt officiel | Étoiles / Version (`latest_collect.json`) | Licence | Annoncée / Disponible | Testée / Réellement adoptée | Risque ou limitation identifiés |
+| :--- | :--- | :---: | :--- | :--- | :--- |
+| **Google Antigravity** (`google-antigravity/antigravity-sdk-python`) | `4 160` · push `2026-11-19` | `Apache-2.0` | **Annoncée :** Hooks, Projects, `/schedule`, `/browser`.<br>**Disponible (VM) :** Dynamic subagents, Async tasks, Skills, `/goal`, `/grill-me`. | **Testée :** `research` lecture seule, `task-*` async.<br>**Adoptée :** Atelier dev principal & audits indépendants. | `PreToolUse` hooks limités selon surface (IDE vs CLI) ; `/schedule` local dépend PC allumé. |
+| **Gemini & AI Studio** (`googleapis/python-genai`) | `4 087` · `v3.6.1` (`2026-11-22`) | `Apache-2.0` | **Disponible :** Gems UI + System Instructions + Safety thresholds. | **Testée :** `10` Gems AMBRESSENCE.<br>**Adoptée :** Socle métier AMBRESSENCE (app Gemini/AI Studio). | Pas d'appel API direct des Gems UI ; `0` clé API LLM configurée dans la VM cloud. |
+| **GitHub CLI & Actions** (`cli/cli`) | `47 152` · `v2.105.0` (`2026-11-20`) | `MIT` | **Disponible :** `gh api`, GitHub Actions (`2 000` min/mois gratuites en privé). | **Testée :** `gh api` (`13/13` OK), workflow gouvernance.<br>**Adoptée :** Source de vérité code + cron lundi `tech-intelligence-weekly.yml`. | Sur dépôt privé, surveiller le plafond gratuit `2 000` min/mois (cron actuel ~`0,7` min/mois). |
+| **Paseo** (`getpaseo/paseo`) | `24 710` · `v0.17.3` (`2026-11-23`) | Vérifier `LICENSE` | **Disponible :** Orchestration multi-agents desktop/mobile. | **Testée (local) :** Historiquement avec Mistral Vibe.<br>**Adoptée :** Orchestrateur global officiel. | État réel sur PC Windows 11 non inspectable à distance depuis la VM cloud. |
+| **Mistral Vibe** (`mistralai/mistral-vibe`) | `5 457` · `v3.1.4` (`2026-11-20`) | `Apache-2.0` | **Disponible :** Runtime CLI/ACP sous WSL2. | **Testée (local) :** `3.1.3` (`zai-glm-5-3-flash-vibe-free`).<br>**Adoptée :** Provider local Paseo. | Nouvelle version `v3.1.4` détectée (à vérifier localement). |
+| **OpenCode** (`anomalyco/opencode`) | `228 618` · `v1.19.6` (`2026-11-23`) | `MIT` | **Disponible :** Provider CLI multi-modèles dans Paseo. | **Testée :** Présent dans Paseo.<br>**Adoptée :** Runtime secondaire local. | Modèles gratuits à re-tester avant chaque session. |
+| **Agent Skills** (`agentskills/agentskills`) | `27 532` · push `2026-11-04` | `Apache-2.0` | **Disponible :** Standard ouvert `SKILL.md`. | **Testée :** `10/10` Skills AMBRESSENCE validés.<br>**Adoptée :** Format portable Phase 1 (`skills/ambressence/`). | Nécessite mise à jour du cadrage si les chiffres live évoluent. |
+| **Promptfoo** (`promptfoo/promptfoo`) | `27 551` · `code-scan-action-0.2.3` (`2026-11-23`) | `MIT` | **Disponible :** CLI Node.js + GitHub Action. | **Testée :** YAML `ambressence-gems.yaml` validé (`10/10` structurel).<br>**Non encore exécutée en live LLM.** | Bloqué en VM (`0` clé API LLM gratuite, `promptfoo` non installé). |
+| **MCP Servers** (`modelcontextprotocol/servers`) | `92 168` · `v2.5.0` (`2026-11-19`) | Standard ouvert | **Disponible :** Connecteurs outils/données. | **Non testée / Non adoptée** (`Phase 2` en attente). | Ne déployer qu'en lecture seule après validation Phase 1. |
+| **LiteLLM** (`BerriAI/litellm`) | `63 717` · `v1.110.2` (`2026-11-23`) | `MIT` *(hors `enterprise/`)* | **Disponible :** Routeur multi-LLM + budgets. | **Non testée / Non adoptée** (`Phase 3` prod). | Modules `enterprise/` propriétaires. |
+| **LangGraph** (`langchain-ai/langgraph`) | `45 278` · `1.2.24` (`2026-11-22`) | `MIT` | **Disponible :** Graphes d'états agents. | **Non testée / Non adoptée.** | Inutile pour coordonner nos équipes (couvert par Antigravity/Paseo). |
+| **Mem0** (`mem0ai/mem0`) | `69 352` · `ts-v3.3.1` (`2026-11-18`) | `Apache-2.0` | **Disponible :** Couche mémoire vectorielle. | **Non testée / Non adoptée.** | Coût caché : base vectorielle + tokens d'extraction. |
+| **Hermes Agent** (`NousResearch/hermes-agent`) | `265 439` · `v0.23.3` (`2026-11-23`) | `MIT` | **Disponible :** Agent autonome CLI/Desktop. | **Non adoptée (Veille seule).** | Doublon direct avec Paseo + Antigravity. |

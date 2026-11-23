@@ -12,13 +12,18 @@ REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 SNAPSHOT_PATH = os.path.join(REPO_ROOT, "docs", "tech-intelligence", "snapshots", "latest_collect.json")
 
 WATCHED_REPOS = [
+    {"repo": "google-antigravity/antigravity-sdk-python", "pole": "Pôle 1 — Antigravity SDK", "projects": ["WORKSTATION-IA"]},
+    {"repo": "googleapis/python-genai", "pole": "Pôle 1 — Gemini / AI Studio SDK", "projects": ["AMBRESSENCE", "SYNTESIA"]},
+    {"repo": "cli/cli", "pole": "Pôle 1 — GitHub CLI", "projects": ["ALL"]},
+    {"repo": "getpaseo/paseo", "pole": "Pôle 1 — Orchestrateur Paseo", "projects": ["WORKSTATION-IA"]},
+    {"repo": "mistralai/mistral-vibe", "pole": "Pôle 1 — Mistral Vibe (Paseo)", "projects": ["WORKSTATION-IA"]},
+    {"repo": "anomalyco/opencode", "pole": "Pôle 1 — OpenCode (Paseo)", "projects": ["WORKSTATION-IA"]},
     {"repo": "agentskills/agentskills", "pole": "Pôle 1/3 — Standards Skills", "projects": ["ALL"]},
     {"repo": "modelcontextprotocol/servers", "pole": "Pôle 1 — Protocole MCP", "projects": ["AMBRESSENCE", "OMNISECUR", "SYNTESIA"]},
     {"repo": "promptfoo/promptfoo", "pole": "Pôle 2/3 — Eval & Red-teaming", "projects": ["AMBRESSENCE", "SYNTESIA", "OMNISECUR"]},
     {"repo": "BerriAI/litellm", "pole": "Pôle 2 — Passerelle LLM", "projects": ["OMNISECUR", "SYNTESIA"]},
     {"repo": "langchain-ai/langgraph", "pole": "Pôle 2 — Workflows Agents", "projects": ["OMNISECUR"]},
     {"repo": "mem0ai/mem0", "pole": "Pôle 2 — Mémoire Agents", "projects": ["AMBRESSENCE"]},
-    {"repo": "anomalyco/opencode", "pole": "Pôle 1 — Runtime Local Paseo", "projects": ["WORKSTATION-IA"]},
     {"repo": "NousResearch/hermes-agent", "pole": "Pôle 2 — Veille concurrente (non retenu)", "projects": ["VEILLE"]},
 ]
 
