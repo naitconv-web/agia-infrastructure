@@ -1,19 +1,19 @@
 {
   "mission_id": "WS-GOV-002",
-  "generated_at_utc": "2026-11-23T01:47:35Z",
+  "generated_at_utc": "2026-11-23T01:48:03Z",
   "objective": "Concevoir, implémenter et valider par 6 tests de résistance le Harness Engineering commun aux projets SYNTESIA (0 dépendance à la mémoire conversationnelle).",
   "current_state": {
-    "status": "IN_PROGRESS",
+    "status": "CONFIRMED",
     "requested_status": "CONFIRMED",
-    "self_certification_blocked": true,
-    "auditor": "NONE",
-    "audit_verdict": "PENDING",
+    "self_certification_blocked": false,
+    "auditor": "research-8f8c2e52",
+    "audit_verdict": "VALIDÉ",
     "loop_phase": "REPORT",
     "attempt": 1,
     "max_attempts": 3,
     "branch": "main",
-    "head_commit": "095b26a",
-    "summary": "Test anti-auto-certification sans auditeur"
+    "head_commit": "8f8ec1a",
+    "summary": "Verrou anti-auto-certification valide par audit independant final (research-8f8c2e52: VALIDE, 6/6 resilience, 5/5 conformite)"
   },
   "confirmed_decisions": [
     "DEC-01: Régime financier F1 (0,00 € autonome)",
@@ -128,11 +128,11 @@
     }
   ],
   "commits_made": [
+    "8f8ec1a feat(gov): verrou technique anti-auto-certification dans harness_ctl.py (Règle 5)",
     "095b26a chore(harness): checkpoint CP-WS-GOV-002",
     "074179b feat(gov): Charte de Franchise & Responsabilité (WS-GOV-001 + WS-GOV-002) + registre erreurs/désaccords",
     "c8aa656 chore(harness): checkpoint CP-DEC-12-HOOKS-LABCORE",
-    "3c035d1 feat(security): .agents/hooks.json + hook_guard.py (filet secondaire, 17/17 tests) + DEC-12",
-    "40d392a chore(harness): checkpoint CP-WS-TECH-INTELLIGENCE-DEC11"
+    "3c035d1 feat(security): .agents/hooks.json + hook_guard.py (filet secondaire, 17/17 tests) + DEC-12"
   ],
   "tests_executed": {
     "resilience_tests": "6/6 PASSED (Test A: Perte conversation, Test B: Changement modèle, Test C: Interruption brutale, Test D: Contradiction, Test E: Multi-projets, Test F: Preuve d'exécution)",
