@@ -1,6 +1,6 @@
 {
-  "mission_id": "AGIA-SECU-FOCUS-001",
-  "generated_at_utc": "2026-11-23T19:02:54Z",
+  "mission_id": "AGIA-SECURIAXE-001",
+  "generated_at_utc": "2026-11-23T19:15:49Z",
   "objective": "Concevoir, implémenter et valider par 6 tests de résistance le Harness Engineering commun aux projets SYNTESIA (0 dépendance à la mémoire conversationnelle).",
   "current_state": {
     "status": "IN_PROGRESS",
@@ -14,8 +14,8 @@
     "attempt": 1,
     "max_attempts": 3,
     "branch": "main",
-    "head_commit": "df9db6d",
-    "summary": "Séparation exclusive actifs Sécurité Privée (3 Packs 690/980/1450) + Vérification SECURIA (NO-GO: domaines et sociétés 80.10Z existantes) + alternatives libres"
+    "head_commit": "39181ae",
+    "summary": "Adoption officielle marque Securiaxe (securiaxe.fr libre + INSEE 0), boutique 100% Sécurité Privée 3 packs déployée, stratégie double porte socle1351.fr documentée, pack o2switch Securiaxe 349 Ko prêt"
   },
   "confirmed_decisions": [
     "DEC-01: Régime financier F1 (0,00 € autonome)",
@@ -130,11 +130,11 @@
     }
   ],
   "commits_made": [
+    "39181ae feat(brand): déploiement identité officielle Securiaxe (pôle Sécurité Privée SYNTESIA)",
+    "88d5814 chore(harness): checkpoint AGIA-SECU-FOCUS-001",
     "df9db6d feat(boutique): isolation actifs Sécurité Privée et séparation page BTP",
     "e277dc0 chore(harness): checkpoint AGIA-BOUTIQUE-B2B-001",
-    "9beb046 feat(boutique): boutique B2B multi-actifs et multi-paiements hors Stripe synchronisée sur sites/",
-    "9998c7c feat(cal): connect Cal.com agenda link in agia-infrastructure",
-    "04731fb chore(harness): checkpoint AGIA-SECU-INTEGRATION-001"
+    "9beb046 feat(boutique): boutique B2B multi-actifs et multi-paiements hors Stripe synchronisée sur sites/"
   ],
   "tests_executed": {
     "resilience_tests": "6/6 PASSED (Test A: Perte conversation, Test B: Changement modèle, Test C: Interruption brutale, Test D: Contradiction, Test E: Multi-projets, Test F: Preuve d'exécution)",
