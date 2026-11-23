@@ -1,6 +1,6 @@
 {
-  "mission_id": "WS-ARCH-AGENTS-001",
-  "generated_at_utc": "2026-11-23T01:15:31Z",
+  "mission_id": "WS-TECH-INTELLIGENCE-001",
+  "generated_at_utc": "2026-11-23T01:28:36Z",
   "objective": "Concevoir, implémenter et valider par 6 tests de résistance le Harness Engineering commun aux projets SYNTESIA (0 dépendance à la mémoire conversationnelle).",
   "current_state": {
     "status": "CONFIRMED",
@@ -8,8 +8,8 @@
     "attempt": 1,
     "max_attempts": 3,
     "branch": "main",
-    "head_commit": "206e3fc",
-    "summary": "Architecture equipes agents (4 poles / 10 Gems) et AMBRESSENCE BRAIN documentees et validees par audit independant"
+    "head_commit": "fbf1142",
+    "summary": "Departement TECH INTELLIGENCE cree et lance (8 docs, collecteur gh api 8 depots, 1er rapport hebdo) + Phase 1 AMBRESSENCE BRAIN (cadrage 2552 produits, 10 Agent Skills, Promptfoo YAML) valides par audit independant"
   },
   "confirmed_decisions": [
     "DEC-01: Régime financier F1 (0,00 € autonome)",
@@ -84,7 +84,7 @@
     },
     {
       "path": "docs/harness/REGISTRE_MEMOIRE.md",
-      "sha256_12": "aced655b09d1"
+      "sha256_12": "8e4f3039e667"
     },
     {
       "path": "docs/harness/PROTOCOLE_PREFLIGHT.md",
@@ -124,11 +124,11 @@
     }
   ],
   "commits_made": [
+    "fbf1142 feat(tech-intel): mise en service TECH INTELLIGENCE (WS-TECH-INTELLIGENCE-001) + Phase 1 AMBRESSENCE BRAIN",
+    "2acbdcb chore(harness): checkpoint CP-WS-ARCH-AGENTS-001",
     "206e3fc docs(arch): architecture équipes agents (WS-ARCH-AGENTS-001) et AMBRESSENCE BRAIN (WS-AMB-BRAIN-001)",
     "61e0e82 chore(harness): checkpoint CP-DEC-08-WORKSTATION-FINAL",
-    "c3c245e feat(harness): filtre confidentialité Stripe/PEM + décision PDG DEC-08",
-    "75be810 chore(harness): checkpoint CP-STEP-3-WS-AMB-002",
-    "11a2de0 STEP-3: Audit indépendant VALIDÉ sur fiche mission WS-AMB-002"
+    "c3c245e feat(harness): filtre confidentialité Stripe/PEM + décision PDG DEC-08"
   ],
   "tests_executed": {
     "resilience_tests": "6/6 PASSED (Test A: Perte conversation, Test B: Changement modèle, Test C: Interruption brutale, Test D: Contradiction, Test E: Multi-projets, Test F: Preuve d'exécution)",
