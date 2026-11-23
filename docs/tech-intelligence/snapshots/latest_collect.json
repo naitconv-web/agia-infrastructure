@@ -1,5 +1,5 @@
 {
-  "collected_at_utc": "2026-11-23T02:16:20Z",
+  "collected_at_utc": "2026-11-23T08:33:52Z",
   "cost_eur": 0.0,
   "items": [
     {
@@ -8,7 +8,7 @@
       "projects": [
         "WORKSTATION-IA"
       ],
-      "stars": 4161,
+      "stars": 4167,
       "open_issues": 37,
       "pushed_at": "2026-11-19T15:43:05Z",
       "license_spdx": "Apache-2.0",
@@ -25,7 +25,7 @@
         "SYNTESIA"
       ],
       "stars": 4087,
-      "open_issues": 360,
+      "open_issues": 359,
       "pushed_at": "2026-11-22T20:51:06Z",
       "license_spdx": "Apache-2.0",
       "latest_release": "v3.6.1",
@@ -39,7 +39,7 @@
       "projects": [
         "ALL"
       ],
-      "stars": 47153,
+      "stars": 47158,
       "open_issues": 1142,
       "pushed_at": "2026-11-20T18:16:28Z",
       "license_spdx": "MIT",
@@ -54,9 +54,9 @@
       "projects": [
         "WORKSTATION-IA"
       ],
-      "stars": 24715,
-      "open_issues": 2076,
-      "pushed_at": "2026-11-23T01:59:13Z",
+      "stars": 24743,
+      "open_issues": 2140,
+      "pushed_at": "2026-11-23T08:30:18Z",
       "license_spdx": "NOASSERTION",
       "latest_release": "v0.17.3",
       "release_date": "2026-11-22T17:46:11Z",
@@ -69,7 +69,7 @@
       "projects": [
         "WORKSTATION-IA"
       ],
-      "stars": 5457,
+      "stars": 5459,
       "open_issues": 536,
       "pushed_at": "2026-11-20T17:39:55Z",
       "license_spdx": "Apache-2.0",
@@ -84,9 +84,9 @@
       "projects": [
         "WORKSTATION-IA"
       ],
-      "stars": 228631,
-      "open_issues": 4075,
-      "pushed_at": "2026-11-23T02:15:06Z",
+      "stars": 228691,
+      "open_issues": 4103,
+      "pushed_at": "2026-11-23T08:33:20Z",
       "license_spdx": "MIT",
       "latest_release": "v1.19.6",
       "release_date": "2026-11-17T07:21:32Z",
@@ -99,7 +99,7 @@
       "projects": [
         "ALL"
       ],
-      "stars": 27532,
+      "stars": 27538,
       "open_issues": 129,
       "pushed_at": "2026-11-04T19:47:27Z",
       "license_spdx": "Apache-2.0",
@@ -116,7 +116,7 @@
         "OMNISECUR",
         "SYNTESIA"
       ],
-      "stars": 92168,
+      "stars": 92177,
       "open_issues": 18,
       "pushed_at": "2026-11-19T16:41:29Z",
       "license_spdx": "NOASSERTION",
@@ -133,9 +133,9 @@
         "SYNTESIA",
         "OMNISECUR"
       ],
-      "stars": 27551,
-      "open_issues": 1024,
-      "pushed_at": "2026-11-23T02:08:43Z",
+      "stars": 27566,
+      "open_issues": 1025,
+      "pushed_at": "2026-11-23T07:58:47Z",
       "license_spdx": "MIT",
       "latest_release": "code-scan-action-0.2.3",
       "release_date": "2026-11-18T19:00:08Z",
@@ -149,9 +149,9 @@
         "OMNISECUR",
         "SYNTESIA"
       ],
-      "stars": 63720,
-      "open_issues": 5456,
-      "pushed_at": "2026-11-23T02:05:24Z",
+      "stars": 63742,
+      "open_issues": 5494,
+      "pushed_at": "2026-11-23T08:31:31Z",
       "license_spdx": "NOASSERTION",
       "latest_release": "v1.110.2",
       "release_date": "2026-11-20T04:06:19Z",
@@ -164,7 +164,7 @@
       "projects": [
         "OMNISECUR"
       ],
-      "stars": 45279,
+      "stars": 45294,
       "open_issues": 481,
       "pushed_at": "2026-11-22T00:32:52Z",
       "license_spdx": "MIT",
@@ -179,8 +179,8 @@
       "projects": [
         "AMBRESSENCE"
       ],
-      "stars": 69352,
-      "open_issues": 980,
+      "stars": 69363,
+      "open_issues": 981,
       "pushed_at": "2026-11-18T07:24:33Z",
       "license_spdx": "Apache-2.0",
       "latest_release": "ts-v3.3.1",
@@ -194,9 +194,9 @@
       "projects": [
         "VEILLE"
       ],
-      "stars": 265450,
-      "open_issues": 54346,
-      "pushed_at": "2026-11-23T02:01:30Z",
+      "stars": 265524,
+      "open_issues": 54388,
+      "pushed_at": "2026-11-23T08:31:52Z",
       "license_spdx": "MIT",
       "latest_release": "v0.23.3",
       "release_date": "2026-11-20T00:34:38Z",
@@ -210,9 +210,9 @@
         "AMBRESSENCE",
         "SYNTESIA"
       ],
-      "stars": 41285,
-      "open_issues": 519,
-      "pushed_at": "2026-11-23T01:45:08Z",
+      "stars": 41591,
+      "open_issues": 522,
+      "pushed_at": "2026-11-23T04:53:59Z",
       "license_spdx": "Apache-2.0",
       "latest_release": "v0.6.1",
       "release_date": "2026-11-12T01:41:22Z",
@@ -225,7 +225,7 @@
       "projects": [
         "VEILLE"
       ],
-      "stars": 285600,
+      "stars": 285785,
       "open_issues": 0,
       "pushed_at": "2026-11-22T11:00:05Z",
       "license_spdx": "MIT",
