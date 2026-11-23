@@ -1,11 +1,11 @@
 {
-  "mission_id": "AGIA-SECURIAXE-001",
-  "generated_at_utc": "2026-11-23T22:52:37Z",
+  "mission_id": "AGIA-SECURIAXE-V3-AUDIT",
+  "generated_at_utc": "2026-11-23T23:26:06Z",
   "objective": "Concevoir, implémenter et valider par 6 tests de résistance le Harness Engineering commun aux projets SYNTESIA (0 dépendance à la mémoire conversationnelle).",
   "current_state": {
     "status": "IN_PROGRESS",
-    "requested_status": "IN_PROGRESS",
-    "self_certification_blocked": false,
+    "requested_status": "CONFIRMED",
+    "self_certification_blocked": true,
     "auditor": "NONE",
     "audit_verdict": "PENDING",
     "audit_proof": "NONE",
@@ -14,8 +14,8 @@
     "attempt": 1,
     "max_attempts": 3,
     "branch": "main",
-    "head_commit": "c726212",
-    "summary": "Unslop integral de idcc1351.fr, de la boutique et du portail securite privee (suppression des emojis, crochets pseudo-techniques, fausses barres de fenetre, italiques forces, fond a points). Retrait complet du nom personnel sur tout le front, les rapports PDF et les proformas ; maintien strictement limite aux seules Mentions legales LCEN."
+    "head_commit": "2f1e42c",
+    "summary": "Apurement intégral des 18 réserves du Tour 2 des 7 agents indépendants sur idcc1351.fr & Securiaxe + génération du Dossier de Consultation Finale V3 auto-porteur"
   },
   "confirmed_decisions": [
     "DEC-01: Régime financier F1 (0,00 € autonome)",
@@ -130,11 +130,11 @@
     }
   ],
   "commits_made": [
+    "2f1e42c feat(securiaxe-v3): sync round-2 auditor fixes (EI R.123-237, dual VAT 293B/L.223-3, anti-IBAN-fraud, BYOK RGPD, LCEN host)",
+    "8899068 refactor(ui): unslop boutique et portail securite + confinement nom personnel aux mentions legales",
     "c726212 feat(idcc1351): alignement boutique + checkpoint V1 idcc1351.fr Option Alpha Hybride",
     "944452b chore(checkpoint): CP-AGIA-SECURIAXE-001 maj convention1351",
-    "8906552 feat(brand): alignement Convention 1351 sur portail securite privee et boutique",
-    "4b085f8 chore(harness): checkpoint AGIA-SECURIAXE-001",
-    "39181ae feat(brand): déploiement identité officielle Securiaxe (pôle Sécurité Privée SYNTESIA)"
+    "8906552 feat(brand): alignement Convention 1351 sur portail securite privee et boutique"
   ],
   "tests_executed": {
     "resilience_tests": "6/6 PASSED (Test A: Perte conversation, Test B: Changement modèle, Test C: Interruption brutale, Test D: Contradiction, Test E: Multi-projets, Test F: Preuve d'exécution)",
