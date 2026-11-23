@@ -1,6 +1,6 @@
 {
-  "mission_id": "WS-TECH-INTELLIGENCE-DEC11",
-  "generated_at_utc": "2026-11-23T01:34:58Z",
+  "mission_id": "DEC-12-HOOKS-LABCORE",
+  "generated_at_utc": "2026-11-23T01:39:14Z",
   "objective": "Concevoir, implémenter et valider par 6 tests de résistance le Harness Engineering commun aux projets SYNTESIA (0 dépendance à la mémoire conversationnelle).",
   "current_state": {
     "status": "CONFIRMED",
@@ -8,8 +8,8 @@
     "attempt": 1,
     "max_attempts": 3,
     "branch": "main",
-    "head_commit": "ae5a07a",
-    "summary": "Workflow hebdo GitHub Actions active (lundi 07h00 UTC), controle Phase 1 AMBRESSENCE BRAIN livre (Phase 2 en attente), veille etendue aux 13 depots officiels avec 5 niveaux de maturite"
+    "head_commit": "3c035d1",
+    "summary": "Filet secondaire .agents/hooks.json + hook_guard.py testes (17/17: 10 TP bloques, 7 FP autorises), lab-core preserve pour inventaire, protocole rattachement progressif pret"
   },
   "confirmed_decisions": [
     "DEC-01: Régime financier F1 (0,00 € autonome)",
@@ -84,7 +84,7 @@
     },
     {
       "path": "docs/harness/REGISTRE_MEMOIRE.md",
-      "sha256_12": "668dacfa22b8"
+      "sha256_12": "7bcfb6e1b712"
     },
     {
       "path": "docs/harness/PROTOCOLE_PREFLIGHT.md",
@@ -124,11 +124,11 @@
     }
   ],
   "commits_made": [
+    "3c035d1 feat(security): .agents/hooks.json + hook_guard.py (filet secondaire, 17/17 tests) + DEC-12",
+    "40d392a chore(harness): checkpoint CP-WS-TECH-INTELLIGENCE-DEC11",
     "ae5a07a feat(tech-intel): workflow hebdo lundi + contrôle Phase 1 + veille 13 dépôts (DEC-11)",
     "e628fdc chore(harness): checkpoint CP-WS-TECH-INTELLIGENCE-001",
-    "fbf1142 feat(tech-intel): mise en service TECH INTELLIGENCE (WS-TECH-INTELLIGENCE-001) + Phase 1 AMBRESSENCE BRAIN",
-    "2acbdcb chore(harness): checkpoint CP-WS-ARCH-AGENTS-001",
-    "206e3fc docs(arch): architecture équipes agents (WS-ARCH-AGENTS-001) et AMBRESSENCE BRAIN (WS-AMB-BRAIN-001)"
+    "fbf1142 feat(tech-intel): mise en service TECH INTELLIGENCE (WS-TECH-INTELLIGENCE-001) + Phase 1 AMBRESSENCE BRAIN"
   ],
   "tests_executed": {
     "resilience_tests": "6/6 PASSED (Test A: Perte conversation, Test B: Changement modèle, Test C: Interruption brutale, Test D: Contradiction, Test E: Multi-projets, Test F: Preuve d'exécution)",
