@@ -21,9 +21,12 @@
 ---
 
 ## 2. Maturité réelle & Verdict `Make or Buy`
-- **Fonctionnalité annoncée :** Étude + reconstruction + comparaison visuelle automatique (`3` largeurs d'écran web).
-- **Fonctionnalité disponible :** Binaire alpha / compilation Rust + CLI + MCP stdio.
-- **Fonctionnalité testée :** **`NON TESTÉE`** (interdiction d'installation/dépense sans accord PDG).
-- **Fonctionnalité réellement adoptée :** **`NON`** (évaluation documentaire uniquement à ce stade).
-- **Risque ou limitation identifiés :** Statut **`early alpha`**, fuite possible de clés en clair (`ai-keys.toml`), et **un score de similarité visuelle ne prouve jamais l'équivalence fonctionnelle, l'accessibilité ni la sécurité**.
-- **Recommandation :** **`GO SOUS CONDITIONS`** uniquement pour un **test isolé en mode Clean Room** (ex. maquette non critique AMBRESSENCE ou atelier client SYNTESIA) · **`NO-GO`** pour toute mise en production ou remplacement de nos règles métier.
+- **Fonctionnalité annoncée :** Étude + reconstruction (`rebuild` : `Study → Build → Check → Ready`) + comparaison visuelle automatique.
+- **Fonctionnalité disponible :** Binaire `v0.6.1` (`craft-anything-cli`) + serveur MCP (`30` outils) + `web-pixels-compare` + `rebuild`.
+- **Fonctionnalité testée (`WS-TECH-INTELLIGENCE-003`, `0,00 €`) :**
+  - `doctor` OK (`healthy: true`, Chromium `/usr/bin/chromium`, MCP `30` outils OK).
+  - `web-pixels-compare` OK sur captures Chromium (`1440×900` : `79,4 %` layout / `81 %` perceptuel ; `390×844` : `48 %` layout / `49 %` perceptuel). *Note : ces chiffres restent une référence historique de comparaison et ne valident pas la chaîne `Study → Build`.*
+  - `web-site-open` échoué dans la VM Linux sans `--no-sandbox` ; `rebuild` non testé (`0` backend AI configuré).
+- **Fonctionnalité réellement adoptée :** **`NON`** (usage isolé uniquement ; zéro production).
+- **Risque ou limitation identifiés :** Statut **`early alpha`**, échec `web-site-open` en conteneur sans `--no-sandbox`, dépendance à un backend AI (`rebuild`), fuite possible de clés en clair (`ai-keys.toml`), et **un score de similarité visuelle ne prouve jamais l'équivalence fonctionnelle, l'accessibilité ni la sécurité**.
+- **Décision PDG (`DEC-18`, `WS-TECH-INTELLIGENCE-004`) :** **`GO` — Seconde expérimentation complète `Study → Build → Check → Ready` autorisée en préparation** sur le projet pilote **AMBRESSENCE** (fiche produit responsive isolée, mode Clean Room exclusif, `0,00 €`, zéro connexion WooCommerce/prod). Protocole : [PROTOCOLE_EXP_A2_CRAFT_ANYTHING_STUDY_BUILD_CHECK.md](file:///home/antigravity/naitconv-web/agia-infrastructure/docs/tech-intelligence/experiments/PROTOCOLE_EXP_A2_CRAFT_ANYTHING_STUDY_BUILD_CHECK.md).

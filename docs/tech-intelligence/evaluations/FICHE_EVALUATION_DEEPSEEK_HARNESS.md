@@ -29,8 +29,11 @@
 
 ---
 
-## 3. Verdict `Make or Buy`
-- **Fonctionnalité annoncée / disponible :** Agent modulaire par plugins (`Cordis`), sous-agents, presets, Web UI.
-- **Fonctionnalité testée / adoptée :** **`NON TESTÉE` / `NON ADOPTÉE`**.
-- **Risque identifié :** Doublon architectural avec **Antigravity** + **Paseo/OpenCode**, instabilité (`developer preview` avec breaking changes), absence de vision native sans plugin tiers.
-- **Recommandation :** **`NO-GO`** pour l'adoption permanente dans `WORKSTATION-IA` · **`GO SOUS CONDITIONS` uniquement** pour un **benchmark isolé ponctuel** face à Antigravity si le PDG souhaite mesurer le coût API réel.
+## 3. Verdict `Make or Buy` & Décision PDG (`DEC-19`)
+- **Fonctionnalité annoncée / disponible :** Agent modulaire par plugins (`Cordis`), sous-agents, presets, Web UI (`0.2.2-rc.5`).
+- **Fonctionnalité testée (`WS-TECH-INTELLIGENCE-003`, `0,00 €`) :** Installation isolée réussie (`671` paquets npm, `5` avertissements `install-scripts`, `dsh --version` → `0.2.2-rc.5`) ; **exécution LLM suspendue** (`0` clé API disponible à `0,00 €`).
+- **Fonctionnalité réellement adoptée :** **`NON ADOPTÉE`**.
+- **Risque identifié :** Doublon architectural avec **Antigravity** + **Paseo/OpenCode**, instabilité (`developer preview` avec breaking changes), `5` scripts natifs, absence de vision native sans plugin tiers.
+- **Décision PDG (`DEC-19`, `WS-TECH-INTELLIGENCE-004`) :** **`LATER` — Veille technologique uniquement.**
+  - **Maintenu :** Fiche d'évaluation, présence dans le registre `TECH INTELLIGENCE`, surveillance passive des évolutions officielles (stabilité, sécurité, compatibilité). Réexamen possible uniquement lors d'une évolution majeure.
+  - **Interdictions strictes :** Aucune nouvelle installation, aucun achat de crédits API, aucun abonnement, aucun benchmark supplémentaire, aucune intégration dans `WORKSTATION-IA`, et aucune suppression du bac à sable existant (`/tmp/ws_exp_b/dsh_sandbox/`) sans décision spécifique.
