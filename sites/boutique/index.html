@@ -7,7 +7,7 @@
   <title>Securiaxe — Boutique B2B Dirigeants Sécurité Privée &amp; Commande Directe</title>
   <meta name="description" content="Securiaxe (futur pôle intégré SYNTESIA) équipe les dirigeants de sécurité privée (IDCC 1351 / CSI) : Arsenal Chiffrage &amp; 6 Mémoires AO, suite COS Opérations (Sentinelle IA) et Commando 48h." />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Crect width='36' height='36' fill='%23161513'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' fill='%23FAF9F5' font-family='monospace' font-weight='600' font-size='14'%3ESX%3C/text%3E%3C/svg%3E" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="../styles.css" />
   <link rel="stylesheet" href="boutique.css" />
 </head>
 <body>
@@ -15,7 +15,7 @@
   <!-- En-tête principal -->
   <header class="site-header no-print">
     <div class="container header-inner">
-      <a class="brand" href="../france/index.html">
+      <a class="brand" href="../index.html">
         <div class="brand-mark">SX</div>
         <div class="brand-text">
           <strong>Securiaxe</strong>
@@ -24,8 +24,8 @@
       </a>
 
       <nav class="nav-links" aria-label="Navigation boutique">
-        <a href="https://naitconv-web.github.io/cos-operations-simulateur/#simulateur">Calculateur IDCC 1351</a>
-        <a href="../france/securite-privee/index.html">L'Agence Securiaxe</a>
+        <a href="../index.html#simulateur">Calculateur IDCC 1351</a>
+        <a href="../agence/securite-privee/index.html">L'Agence Securiaxe</a>
         <a href="#catalogue" style="color:var(--ink);font-weight:700">Nos 3 Packs B2B</a>
         <a href="#checkout-section">Règlement &amp; Proforma</a>
       </nav>
@@ -58,7 +58,7 @@
         <div class="field">
           <label>Régime TVA unique</label>
           <select id="admTvaRegime">
-            <option value="293B">Franchise en base — art. L. 223-3 du CIBS (ex-293 B CGI)</option>
+            <option value="293B">Franchise en base — art. 293 B du CGI / art. L. 223-3 du CIBS</option>
             <option value="20">TVA normale 20 %</option>
           </select>
         </div>
@@ -217,7 +217,7 @@
                 <span id="sumHt" class="num">980,00 €</span>
               </div>
               <div class="summary-line">
-                <span id="sumTvaLabel">TVA non applicable — art. L. 223-3 du CIBS</span>
+                <span id="sumTvaLabel">TVA non applicable — art. 293 B du CGI / art. L. 223-3 du CIBS</span>
                 <span id="sumTvaAmt" class="num">0,00 €</span>
               </div>
               <div id="sumMonthlyRow" class="summary-line hidden">
@@ -295,11 +295,11 @@
               </div>
 
               <div id="bankPendingBox" class="status-box warn" style="margin-bottom:12px">
-                <strong>RIB / IBAN professionnel :</strong><br />
-                Téléchargez votre Proforma A4 ci-dessous puis cliquez sur un des boutons ci-dessous pour recevoir immédiatement notre IBAN vérifié et lancer votre commande (réponse &lt; 2h ouvrées).
+                <strong>RIB / IBAN professionnel &amp; Sécurité anti-fraude B2B :</strong><br />
+                Téléchargez votre Proforma A4 ci-dessous puis demandez notre RIB officiel rattaché au SIREN 849 261 870. Vérifiez systématiquement la concordance du RIB écrit avec votre Bon de Commande avant exécution du virement (réponse &lt; 2h ouvrées).
                 <div class="action-cluster" style="margin-top:10px">
-                  <button id="btnAskRibWa" class="btn btn-emerald btn-sm" type="button">Recevoir l'IBAN par WhatsApp</button>
-                  <button id="btnAskRibMail" class="btn btn-primary btn-sm" type="button">Recevoir l'IBAN par Email</button>
+                  <button id="btnAskRibWa" class="btn btn-emerald btn-sm" type="button">Recevoir le RIB officiel (WhatsApp)</button>
+                  <button id="btnAskRibMail" class="btn btn-primary btn-sm" type="button">Recevoir le RIB officiel (Email)</button>
                 </div>
               </div>
 
@@ -386,10 +386,10 @@
         <span>Accompagnement dirigeants &amp; suite COS Opérations &middot; Hors activités réglementées CNAPS (art. L.611-1 CSI) &middot; SIREN 849 261 870 &middot; Albi (81)</span>
       </div>
       <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
-        <a href="https://naitconv-web.github.io/cos-operations-simulateur/#simulateur">Calculateur IDCC 1351</a>
-        <a href="../france/securite-privee/index.html">L'Agence Securiaxe</a>
-        <a href="../shared/mentions-legales-confidentialite.html">Mentions légales</a>
-        <a href="../shared/mentions-legales-confidentialite.html">CGV &amp; RGPD</a>
+        <a href="../index.html#simulateur">Calculateur IDCC 1351</a>
+        <a href="../agence/securite-privee/index.html">L'Agence Securiaxe</a>
+        <a href="../mentions-legales.html">Mentions légales</a>
+        <a href="../cgv-rgpd.html">CGV &amp; RGPD</a>
         <button id="btnOpenStoreAdmin" class="btn btn-sm" type="button" style="background:rgba(255,255,255,0.08);color:#e2e8f0;border-color:rgba(255,255,255,0.22)">Config Paiements &amp; IBAN</button>
       </div>
     </div>
@@ -397,7 +397,7 @@
 
   <div id="storeToast" class="toast hidden no-print" role="status"></div>
 
-  <script src="site-config.js"></script>
+  <script src="../site-config.js"></script>
   <script src="boutique.js"></script>
 </body>
 </html>
