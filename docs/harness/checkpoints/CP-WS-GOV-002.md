@@ -1,7 +1,7 @@
 # CHECKPOINT DE REPRISE — `WS-GOV-002`
-- **Généré le (UTC) :** `2026-11-23T01:50:16Z`
-- **Branche & Commit de base :** `main` @ `756e127`
-- **Statut & Phase Boucle :** `BLOCKED` (`REPORT` — Tentative `1/3`)
+- **Généré le (UTC) :** `2026-11-23T01:50:31Z`
+- **Branche & Commit de base :** `main` @ `790c386`
+- **Statut & Phase Boucle :** `CONFIRMED` (`REPORT` — Tentative `1/3`)
 
 ## 1. Objectif & État Actuel
 - **Objectif :** Concevoir, implémenter et valider par 6 tests de résistance le Harness Engineering commun aux projets SYNTESIA (0 dépendance à la mémoire conversationnelle).
@@ -25,7 +25,7 @@
 - `docs/harness/PROTOCOLE_VALIDATION.md` (`8669fd92a008`)
 - `docs/harness/RAPPORT_TESTS_RESILIENCE.md` (`80349a5e9ad5`)
 - `docs/harness/state/harness_memory.json` (`88acfc0d8d49`)
-- `scripts/harness_ctl.py` (`f6e0e307ea97`)
+- `scripts/harness_ctl.py` (`cef94e1ae34c`)
 - `docs/commercial/KIT_COMMERCIAL_COMPLET_AGIA_010.md` (`99ad523a2dfb`)
 - `sites/demonstrateur/index.html` (`5cd58a3ddf98`)
 - `sites/shared/syntesia-forms.js` (`258b9fee3bee`)

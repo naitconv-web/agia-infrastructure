@@ -231,7 +231,7 @@ def cmd_checkpoint(mission_id="AGIA-011", status="CONFIRMED", summary="SYNTESIA 
     self_cert_blocked = False
     effective_status = status
     if status == "CONFIRMED":
-        if verdict_clean in {"REJETÉ", "REJETE"} or ("VERDICT" in proof_txt and "REJETÉ" in proof_txt):
+        if verdict_clean in {"REJETÉ", "REJETE"} or re.search(r"VERDICT\s*:\s*\*{0,2}REJET[EÉ]\*{0,2}", proof_txt):
             effective_status = "BLOCKED"
             self_cert_blocked = True
             print("[ANTI-SELF-CERTIFICATION] Statut rétrogradé à BLOCKED (verdict auditeur = REJETÉ).")
