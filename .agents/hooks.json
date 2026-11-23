@@ -1,0 +1,26 @@
+{
+  "_comment": "Filet de securite secondaire Antigravity CLI/2.0. La protection principale reste scripts/harness_ctl.py.",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "run_command|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 scripts/hook_guard.py"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 scripts/harness_ctl.py preflight >/dev/null || true"
+          }
+        ]
+      }
+    ]
+  }
+}
