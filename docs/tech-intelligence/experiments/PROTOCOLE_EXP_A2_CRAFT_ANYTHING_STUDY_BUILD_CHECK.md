@@ -1,9 +1,9 @@
 # PROTOCOLE & PLAN D'EXÉCUTION ISOLÉ — EXPÉRIENCE A2 `CRAFT ANYTHING` (`Study → Build → Check → Ready`)
 
-**Mission de préparation :** `WS-TECH-INTELLIGENCE-004` (Décision PDG **`DEC-18`**)  
+**Mission de préparation :** `WS-TECH-INTELLIGENCE-004` (Décision PDG **`DEC-18`**) — **Actualisation :** `WS-TECH-INTELLIGENCE-005`  
 **Outil évalué :** `storytold/craft-anything` (`v0.6.1` déjà présent en bac à sable `/tmp/ws_exp_a/`)  
 **Projet pilote :** **AMBRESSENCE** — Composant expérimental : **fiche produit responsive isolée**  
-**Statut actuel :** **`EN PRÉPARATION — NON EXÉCUTÉ`** *(ce document formalise le protocole et les blocages ; il ne certifie aucun nouveau résultat).*
+**Statut actuel :** **`BLOCKED — SUSPENSION CONTRÔLÉE (`DEC-18`, `WS-TECH-INTELLIGENCE-005`)`** *(expérimentation A2 non exécutée ; ni Option A Windows, ni `Check-only`, ni `--no-sandbox` ; voir [RAPPORT_BLOCAGE_EXP_A2_OPTION_B.md](file:///home/antigravity/naitconv-web/agia-infrastructure/docs/tech-intelligence/experiments/RAPPORT_BLOCAGE_EXP_A2_OPTION_B.md)). Réouverture uniquement si les 4 conditions PDG sont réunies : cycle `Study → Build → Check → Ready` réellement exécutable, backend déjà autorisé à `0 €`, sécurité/isolation respectées, zéro impact prod AMBRESSENCE.*
 
 ---
 
