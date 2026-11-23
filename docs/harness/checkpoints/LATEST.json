@@ -1,6 +1,6 @@
 {
-  "mission_id": "DEC-12-HOOKS-LABCORE",
-  "generated_at_utc": "2026-11-23T01:39:14Z",
+  "mission_id": "WS-GOV-002",
+  "generated_at_utc": "2026-11-23T01:46:36Z",
   "objective": "Concevoir, implémenter et valider par 6 tests de résistance le Harness Engineering commun aux projets SYNTESIA (0 dépendance à la mémoire conversationnelle).",
   "current_state": {
     "status": "CONFIRMED",
@@ -8,8 +8,8 @@
     "attempt": 1,
     "max_attempts": 3,
     "branch": "main",
-    "head_commit": "3c035d1",
-    "summary": "Filet secondaire .agents/hooks.json + hook_guard.py testes (17/17: 10 TP bloques, 7 FP autorises), lab-core preserve pour inventaire, protocole rattachement progressif pret"
+    "head_commit": "074179b",
+    "summary": "Charte de Franchise & Responsabilite (WS-GOV-001 + WS-GOV-002) deployee sur GitHub & Drive, preflight bloquant, registre erreurs/desaccords cree, test comportemental NO-GO + audit independant VALIDE SOUS RESERVES"
   },
   "confirmed_decisions": [
     "DEC-01: Régime financier F1 (0,00 € autonome)",
@@ -72,7 +72,7 @@
   "files_created_or_modified": [
     {
       "path": "AGENTS.md",
-      "sha256_12": "a1e64dbb1f1a"
+      "sha256_12": "afc7be69cb51"
     },
     {
       "path": "docs/harness/AUDIT_HARNESS_EXISTANT.md",
@@ -84,7 +84,7 @@
     },
     {
       "path": "docs/harness/REGISTRE_MEMOIRE.md",
-      "sha256_12": "7bcfb6e1b712"
+      "sha256_12": "998db83b023e"
     },
     {
       "path": "docs/harness/PROTOCOLE_PREFLIGHT.md",
@@ -108,7 +108,7 @@
     },
     {
       "path": "scripts/harness_ctl.py",
-      "sha256_12": "4afca9226f1c"
+      "sha256_12": "c2a7ae9bf24c"
     },
     {
       "path": "docs/commercial/KIT_COMMERCIAL_COMPLET_AGIA_010.md",
@@ -124,11 +124,11 @@
     }
   ],
   "commits_made": [
+    "074179b feat(gov): Charte de Franchise & Responsabilité (WS-GOV-001 + WS-GOV-002) + registre erreurs/désaccords",
+    "c8aa656 chore(harness): checkpoint CP-DEC-12-HOOKS-LABCORE",
     "3c035d1 feat(security): .agents/hooks.json + hook_guard.py (filet secondaire, 17/17 tests) + DEC-12",
     "40d392a chore(harness): checkpoint CP-WS-TECH-INTELLIGENCE-DEC11",
-    "ae5a07a feat(tech-intel): workflow hebdo lundi + contrôle Phase 1 + veille 13 dépôts (DEC-11)",
-    "e628fdc chore(harness): checkpoint CP-WS-TECH-INTELLIGENCE-001",
-    "fbf1142 feat(tech-intel): mise en service TECH INTELLIGENCE (WS-TECH-INTELLIGENCE-001) + Phase 1 AMBRESSENCE BRAIN"
+    "ae5a07a feat(tech-intel): workflow hebdo lundi + contrôle Phase 1 + veille 13 dépôts (DEC-11)"
   ],
   "tests_executed": {
     "resilience_tests": "6/6 PASSED (Test A: Perte conversation, Test B: Changement modèle, Test C: Interruption brutale, Test D: Contradiction, Test E: Multi-projets, Test F: Preuve d'exécution)",
