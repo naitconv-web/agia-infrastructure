@@ -1,21 +1,21 @@
 {
-  "mission_id": "WS-GOV-002",
-  "generated_at_utc": "2026-11-23T01:50:31Z",
+  "mission_id": "WS-GOV-003",
+  "generated_at_utc": "2026-11-23T01:52:24Z",
   "objective": "Concevoir, implémenter et valider par 6 tests de résistance le Harness Engineering commun aux projets SYNTESIA (0 dépendance à la mémoire conversationnelle).",
   "current_state": {
-    "status": "CONFIRMED",
-    "requested_status": "CONFIRMED",
+    "status": "IN_PROGRESS",
+    "requested_status": "IN_PROGRESS",
     "self_certification_blocked": false,
-    "auditor": "research-092f8255",
-    "audit_verdict": "VALIDÉ",
-    "audit_proof": "docs/harness/audits/AUDIT_WS-GOV-002_research-092f8255.md",
-    "audit_proof_sha256": "a66e7f485c61",
+    "auditor": "NONE",
+    "audit_verdict": "PENDING",
+    "audit_proof": "NONE",
+    "audit_proof_sha256": "NONE",
     "loop_phase": "REPORT",
     "attempt": 1,
     "max_attempts": 3,
     "branch": "main",
-    "head_commit": "790c386",
-    "summary": "WS-GOV-002 certifie par audit independant research-092f8255 (commit 756e127, 6/6 conformite, 6/6 resilience)"
+    "head_commit": "dc9b501",
+    "summary": "Livrables WS-GOV-003 prets (matrice couverture, 10 Skills injectes, Promptfoo 8 scenarios, DES-003/DES-004); en attente audit independant"
   },
   "confirmed_decisions": [
     "DEC-01: Régime financier F1 (0,00 € autonome)",
@@ -90,7 +90,7 @@
     },
     {
       "path": "docs/harness/REGISTRE_MEMOIRE.md",
-      "sha256_12": "998db83b023e"
+      "sha256_12": "e31e1c1c82f4"
     },
     {
       "path": "docs/harness/PROTOCOLE_PREFLIGHT.md",
@@ -130,11 +130,11 @@
     }
   ],
   "commits_made": [
+    "dc9b501 fix(harness): détection exacte VERDICT : REJETÉ + certification finale WS-GOV-002 (research-092f8255)",
     "790c386 chore(harness): checkpoint WS-GOV-002 certifié par preuve d'audit (research-092f8255)",
     "756e127 fix(gov): correction ERR-003 (--audit-proof SHA-256 obligatoire + tests verrou Règle 5)",
     "2847656 chore(harness): checkpoint final WS-GOV-002 certifié par auditeur indépendant (research-8f8c2e52)",
-    "8f8ec1a feat(gov): verrou technique anti-auto-certification dans harness_ctl.py (Règle 5)",
-    "095b26a chore(harness): checkpoint CP-WS-GOV-002"
+    "8f8ec1a feat(gov): verrou technique anti-auto-certification dans harness_ctl.py (Règle 5)"
   ],
   "tests_executed": {
     "resilience_tests": "6/6 PASSED (Test A: Perte conversation, Test B: Changement modèle, Test C: Interruption brutale, Test D: Contradiction, Test E: Multi-projets, Test F: Preuve d'exécution)",

@@ -14,6 +14,9 @@ metadata:
 
 > **Règle de source unique :** Pour les chiffres live (`2 552` parfums publiés, `153` en réserve, blocages actuels), toujours lire [CADRAGE_UNIQUE_AMBRESSENCE.md](file:///home/antigravity/naitconv-web/agia-infrastructure/docs/ambressence/CADRAGE_UNIQUE_AMBRESSENCE.md).
 
+
+> **Gouvernance obligatoire (`WS-GOV-001` + `WS-GOV-002`) :** Appliquer [CHARTE-FRANCHISE-NON-COMPLAISANCE.md](file:///home/antigravity/naitconv-web/agia-infrastructure/CHARTE-FRANCHISE-NON-COMPLAISANCE.md) (devoir de vérité > complaisance, zéro certitude fabriquée, alerte `STOP`).
+
 ## 1. Consignes communes de la Maison
 # Bloc de consignes communes · À coller en tête des instructions de chaque Gem
 Source : Vibe, 7 nov. 2026, révision 2 (pivot promo) · Référence complète : 00-cadrage-ambressence.md dans ce dossier.
