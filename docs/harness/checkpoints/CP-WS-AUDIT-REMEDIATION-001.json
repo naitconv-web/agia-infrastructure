@@ -1,21 +1,21 @@
 {
   "mission_id": "WS-AUDIT-REMEDIATION-001",
-  "generated_at_utc": "2026-11-23T02:05:13Z",
+  "generated_at_utc": "2026-11-23T02:06:47Z",
   "objective": "Concevoir, implémenter et valider par 6 tests de résistance le Harness Engineering commun aux projets SYNTESIA (0 dépendance à la mémoire conversationnelle).",
   "current_state": {
-    "status": "IN_PROGRESS",
-    "requested_status": "IN_PROGRESS",
+    "status": "CONFIRMED",
+    "requested_status": "CONFIRMED",
     "self_certification_blocked": false,
-    "auditor": "NONE",
-    "audit_verdict": "PENDING",
-    "audit_proof": "NONE",
-    "audit_proof_sha256": "NONE",
+    "auditor": "research-eb7f9744",
+    "audit_verdict": "VALIDÉ",
+    "audit_proof": "docs/harness/audits/AUDIT_WS-AUDIT-REMEDIATION-001_eb7f9744.md",
+    "audit_proof_sha256": "3de7eb82c1b1",
     "loop_phase": "REPORT",
     "attempt": 1,
     "max_attempts": 3,
     "branch": "main",
-    "head_commit": "a3d8855",
-    "summary": "Livrables remediation WS-001 crees (rapport, registre PDG, matrice risques, README-PORTEFEUILLE Drive aligne); en attente audit independant"
+    "head_commit": "9e43941",
+    "summary": "WS-AUDIT-REMEDIATION-001 valide par audit independant research-eb7f9744 (commit 9e43941): 3 livrables, README-PORTEFEUILLE Drive aligne, 7 actions PDG isolees, 0 depense"
   },
   "confirmed_decisions": [
     "DEC-01: Régime financier F1 (0,00 € autonome)",
@@ -130,11 +130,11 @@
     }
   ],
   "commits_made": [
+    "9e43941 docs(audit): remédiation autonome WS-AUDIT-REMEDIATION-001 (en attente audit indépendant)",
     "a3d8855 chore(harness): checkpoint WS-GOV-003 certifié sous réserves (research-3d27dde2)",
     "d0e7d1d feat(gov): universalisation Charte & validation comportementale (WS-GOV-003, en attente audit)",
     "dc9b501 fix(harness): détection exacte VERDICT : REJETÉ + certification finale WS-GOV-002 (research-092f8255)",
-    "790c386 chore(harness): checkpoint WS-GOV-002 certifié par preuve d'audit (research-092f8255)",
-    "756e127 fix(gov): correction ERR-003 (--audit-proof SHA-256 obligatoire + tests verrou Règle 5)"
+    "790c386 chore(harness): checkpoint WS-GOV-002 certifié par preuve d'audit (research-092f8255)"
   ],
   "tests_executed": {
     "resilience_tests": "6/6 PASSED (Test A: Perte conversation, Test B: Changement modèle, Test C: Interruption brutale, Test D: Contradiction, Test E: Multi-projets, Test F: Preuve d'exécution)",
