@@ -1,11 +1,11 @@
 # CHECKPOINT DE REPRISE — `AGIA-SECURIAXE-001`
-- **Généré le (UTC) :** `2026-11-23T20:34:34Z`
-- **Branche & Commit de base :** `main` @ `8906552`
+- **Généré le (UTC) :** `2026-11-23T22:10:51Z`
+- **Branche & Commit de base :** `main` @ `944452b`
 - **Statut & Phase Boucle :** `IN_PROGRESS` (`REPORT` — Tentative `1/3`)
 
 ## 1. Objectif & État Actuel
 - **Objectif :** Concevoir, implémenter et valider par 6 tests de résistance le Harness Engineering commun aux projets SYNTESIA (0 dépendance à la mémoire conversationnelle).
-- **Résumé d'état :** Arbitrage DG valide : convention1351.fr retenu comme porte d'entree d'autorite pour capter les dirigeants de securite privee (domaine libre, 0 conflit INSEE). Alignement textuel Socle 1351 -> Convention 1351 realise sur le simulateur Securiaxe, l'agence et la boutique. Pack o2switch recompile et mis a jour.
+- **Résumé d'état :** Deploiement V1 de idcc1351.fr (Option Alpha Hybride validee par le panel de 7 agents independants) : bandeau d'independance L.121-1 C. com + liens Legifrance verifies, Calculateur Avenant 2 sans barriere email, Rapport PDF A4 Expert-Comptable, Trame de demande de revision BPU, Referentiel reglementaire versionne et pack o2switch mis a jour.
 
 ## 2. Décisions Confirmées Actives
 - `DEC-01: Régime financier F1 (0,00 € autonome)`
