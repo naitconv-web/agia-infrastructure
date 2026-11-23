@@ -1,11 +1,11 @@
 # CHECKPOINT DE REPRISE — `AGIA-SECURIAXE-001`
-- **Généré le (UTC) :** `2026-11-23T22:10:51Z`
-- **Branche & Commit de base :** `main` @ `944452b`
+- **Généré le (UTC) :** `2026-11-23T22:52:37Z`
+- **Branche & Commit de base :** `main` @ `c726212`
 - **Statut & Phase Boucle :** `IN_PROGRESS` (`REPORT` — Tentative `1/3`)
 
 ## 1. Objectif & État Actuel
 - **Objectif :** Concevoir, implémenter et valider par 6 tests de résistance le Harness Engineering commun aux projets SYNTESIA (0 dépendance à la mémoire conversationnelle).
-- **Résumé d'état :** Deploiement V1 de idcc1351.fr (Option Alpha Hybride validee par le panel de 7 agents independants) : bandeau d'independance L.121-1 C. com + liens Legifrance verifies, Calculateur Avenant 2 sans barriere email, Rapport PDF A4 Expert-Comptable, Trame de demande de revision BPU, Referentiel reglementaire versionne et pack o2switch mis a jour.
+- **Résumé d'état :** Unslop integral de idcc1351.fr, de la boutique et du portail securite privee (suppression des emojis, crochets pseudo-techniques, fausses barres de fenetre, italiques forces, fond a points). Retrait complet du nom personnel sur tout le front, les rapports PDF et les proformas ; maintien strictement limite aux seules Mentions legales LCEN.
 
 ## 2. Décisions Confirmées Actives
 - `DEC-01: Régime financier F1 (0,00 € autonome)`

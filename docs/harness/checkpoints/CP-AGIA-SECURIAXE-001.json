@@ -1,6 +1,6 @@
 {
   "mission_id": "AGIA-SECURIAXE-001",
-  "generated_at_utc": "2026-11-23T22:10:51Z",
+  "generated_at_utc": "2026-11-23T22:52:37Z",
   "objective": "Concevoir, implémenter et valider par 6 tests de résistance le Harness Engineering commun aux projets SYNTESIA (0 dépendance à la mémoire conversationnelle).",
   "current_state": {
     "status": "IN_PROGRESS",
@@ -14,8 +14,8 @@
     "attempt": 1,
     "max_attempts": 3,
     "branch": "main",
-    "head_commit": "944452b",
-    "summary": "Deploiement V1 de idcc1351.fr (Option Alpha Hybride validee par le panel de 7 agents independants) : bandeau d'independance L.121-1 C. com + liens Legifrance verifies, Calculateur Avenant 2 sans barriere email, Rapport PDF A4 Expert-Comptable, Trame de demande de revision BPU, Referentiel reglementaire versionne et pack o2switch mis a jour."
+    "head_commit": "c726212",
+    "summary": "Unslop integral de idcc1351.fr, de la boutique et du portail securite privee (suppression des emojis, crochets pseudo-techniques, fausses barres de fenetre, italiques forces, fond a points). Retrait complet du nom personnel sur tout le front, les rapports PDF et les proformas ; maintien strictement limite aux seules Mentions legales LCEN."
   },
   "confirmed_decisions": [
     "DEC-01: Régime financier F1 (0,00 € autonome)",
@@ -130,11 +130,11 @@
     }
   ],
   "commits_made": [
+    "c726212 feat(idcc1351): alignement boutique + checkpoint V1 idcc1351.fr Option Alpha Hybride",
     "944452b chore(checkpoint): CP-AGIA-SECURIAXE-001 maj convention1351",
     "8906552 feat(brand): alignement Convention 1351 sur portail securite privee et boutique",
     "4b085f8 chore(harness): checkpoint AGIA-SECURIAXE-001",
-    "39181ae feat(brand): déploiement identité officielle Securiaxe (pôle Sécurité Privée SYNTESIA)",
-    "88d5814 chore(harness): checkpoint AGIA-SECU-FOCUS-001"
+    "39181ae feat(brand): déploiement identité officielle Securiaxe (pôle Sécurité Privée SYNTESIA)"
   ],
   "tests_executed": {
     "resilience_tests": "6/6 PASSED (Test A: Perte conversation, Test B: Changement modèle, Test C: Interruption brutale, Test D: Contradiction, Test E: Multi-projets, Test F: Preuve d'exécution)",

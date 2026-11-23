@@ -115,3 +115,4 @@
 {"timestamp_utc": "2026-11-23T21:52:27Z", "mission_id": "AGIA-011", "agent_runtime": "Antigravity-HarnessCtl", "event_type": "PREFLIGHT_OK", "details": {"branch": "main", "head": "944452b", "facts_count": 8, "franchise_charter_v2": true}}
 {"timestamp_utc": "2026-11-23T21:53:35Z", "mission_id": "AGIA-011", "agent_runtime": "Antigravity-HarnessCtl", "event_type": "PREFLIGHT_OK", "details": {"branch": "main", "head": "944452b", "facts_count": 8, "franchise_charter_v2": true}}
 {"timestamp_utc": "2026-11-23T22:10:51Z", "mission_id": "AGIA-SECURIAXE-001", "agent_runtime": "Antigravity-HarnessCtl", "event_type": "CHECKPOINT_CREATED", "details": {"checkpoint": "CP-AGIA-SECURIAXE-001.json", "files_count": 13}}
+{"timestamp_utc": "2026-11-23T22:52:37Z", "mission_id": "AGIA-SECURIAXE-001", "agent_runtime": "Antigravity-HarnessCtl", "event_type": "CHECKPOINT_CREATED", "details": {"checkpoint": "CP-AGIA-SECURIAXE-001.json", "files_count": 13}}
