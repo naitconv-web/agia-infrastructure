@@ -1,5 +1,5 @@
 {
-  "collected_at_utc": "2026-11-23T01:34:20Z",
+  "collected_at_utc": "2026-11-23T02:16:20Z",
   "cost_eur": 0.0,
   "items": [
     {
@@ -8,7 +8,7 @@
       "projects": [
         "WORKSTATION-IA"
       ],
-      "stars": 4160,
+      "stars": 4161,
       "open_issues": 37,
       "pushed_at": "2026-11-19T15:43:05Z",
       "license_spdx": "Apache-2.0",
@@ -25,7 +25,7 @@
         "SYNTESIA"
       ],
       "stars": 4087,
-      "open_issues": 363,
+      "open_issues": 360,
       "pushed_at": "2026-11-22T20:51:06Z",
       "license_spdx": "Apache-2.0",
       "latest_release": "v3.6.1",
@@ -39,7 +39,7 @@
       "projects": [
         "ALL"
       ],
-      "stars": 47152,
+      "stars": 47153,
       "open_issues": 1142,
       "pushed_at": "2026-11-20T18:16:28Z",
       "license_spdx": "MIT",
@@ -54,9 +54,9 @@
       "projects": [
         "WORKSTATION-IA"
       ],
-      "stars": 24710,
+      "stars": 24715,
       "open_issues": 2076,
-      "pushed_at": "2026-11-23T00:22:47Z",
+      "pushed_at": "2026-11-23T01:59:13Z",
       "license_spdx": "NOASSERTION",
       "latest_release": "v0.17.3",
       "release_date": "2026-11-22T17:46:11Z",
@@ -84,9 +84,9 @@
       "projects": [
         "WORKSTATION-IA"
       ],
-      "stars": 228618,
-      "open_issues": 4059,
-      "pushed_at": "2026-11-23T01:16:01Z",
+      "stars": 228631,
+      "open_issues": 4075,
+      "pushed_at": "2026-11-23T02:15:06Z",
       "license_spdx": "MIT",
       "latest_release": "v1.19.6",
       "release_date": "2026-11-17T07:21:32Z",
@@ -135,7 +135,7 @@
       ],
       "stars": 27551,
       "open_issues": 1024,
-      "pushed_at": "2026-11-23T01:30:11Z",
+      "pushed_at": "2026-11-23T02:08:43Z",
       "license_spdx": "MIT",
       "latest_release": "code-scan-action-0.2.3",
       "release_date": "2026-11-18T19:00:08Z",
@@ -149,9 +149,9 @@
         "OMNISECUR",
         "SYNTESIA"
       ],
-      "stars": 63717,
-      "open_issues": 5460,
-      "pushed_at": "2026-11-23T01:27:56Z",
+      "stars": 63720,
+      "open_issues": 5456,
+      "pushed_at": "2026-11-23T02:05:24Z",
       "license_spdx": "NOASSERTION",
       "latest_release": "v1.110.2",
       "release_date": "2026-11-20T04:06:19Z",
@@ -164,7 +164,7 @@
       "projects": [
         "OMNISECUR"
       ],
-      "stars": 45278,
+      "stars": 45279,
       "open_issues": 481,
       "pushed_at": "2026-11-22T00:32:52Z",
       "license_spdx": "MIT",
@@ -194,12 +194,43 @@
       "projects": [
         "VEILLE"
       ],
-      "stars": 265439,
-      "open_issues": 54337,
-      "pushed_at": "2026-11-23T01:28:23Z",
+      "stars": 265450,
+      "open_issues": 54346,
+      "pushed_at": "2026-11-23T02:01:30Z",
       "license_spdx": "MIT",
       "latest_release": "v0.23.3",
       "release_date": "2026-11-20T00:34:38Z",
+      "archived": false,
+      "status": "OK"
+    },
+    {
+      "repo": "storytold/craft-anything",
+      "pole": "Pôle 2/4 — Clean Room UI/Apps (early alpha)",
+      "projects": [
+        "AMBRESSENCE",
+        "SYNTESIA"
+      ],
+      "stars": 41285,
+      "open_issues": 519,
+      "pushed_at": "2026-11-23T01:45:08Z",
+      "license_spdx": "Apache-2.0",
+      "latest_release": "v0.6.1",
+      "release_date": "2026-11-12T01:41:22Z",
+      "archived": false,
+      "status": "OK"
+    },
+    {
+      "repo": "deepseek-ai/deepseek-harness",
+      "pole": "Pôle 2 — Agent dev alternatif (developer preview)",
+      "projects": [
+        "VEILLE"
+      ],
+      "stars": 285600,
+      "open_issues": 0,
+      "pushed_at": "2026-11-22T11:00:05Z",
+      "license_spdx": "MIT",
+      "latest_release": null,
+      "release_date": null,
       "archived": false,
       "status": "OK"
     }

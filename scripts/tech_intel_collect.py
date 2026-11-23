@@ -25,6 +25,8 @@ WATCHED_REPOS = [
     {"repo": "langchain-ai/langgraph", "pole": "Pôle 2 — Workflows Agents", "projects": ["OMNISECUR"]},
     {"repo": "mem0ai/mem0", "pole": "Pôle 2 — Mémoire Agents", "projects": ["AMBRESSENCE"]},
     {"repo": "NousResearch/hermes-agent", "pole": "Pôle 2 — Veille concurrente (non retenu)", "projects": ["VEILLE"]},
+    {"repo": "storytold/craft-anything", "pole": "Pôle 2/4 — Clean Room UI/Apps (early alpha)", "projects": ["AMBRESSENCE", "SYNTESIA"]},
+    {"repo": "deepseek-ai/deepseek-harness", "pole": "Pôle 2 — Agent dev alternatif (developer preview)", "projects": ["VEILLE"]},
 ]
 
 
