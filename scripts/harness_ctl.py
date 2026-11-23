@@ -500,6 +500,119 @@ def cmd_test_resilience():
     return results
 
 
+# IDs Drive dédiés aux fichiers de pilotage (protection anti-écrasement des autres documents)
+DRIVE_SYNC_TARGETS = {
+    "TABLEAU_DE_BORD_DG": "1NsXoFC8FDEAHNDo6TIUPyYCYdhkqghwk",
+    "BUS_EN_COURS_FOLDER": "1AsV3uvALf7fLcZ-ZLLAZZPmIkI09Y2mb",
+}
+
+
+def run_gdrive(args):
+    res = subprocess.run(["gdrive"] + args, cwd=REPO_ROOT, capture_output=True, text=True)
+    return res.returncode, res.stdout.strip(), res.stderr.strip()
+
+
+def cmd_sync_drive(mission_id="WS-AMB-002", fiche_path=None, dry_run=False):
+    """
+    Pont GitHub -> Google Drive (non destructif) :
+    - GitHub reste la référence pour le code, les preuves, les commits et les audits techniques.
+    - Google Drive (WORKSTATION-IA) reste la référence pour le pilotage DG et les budgets/dépenses.
+    Ne modifie JAMAIS les documents historiques existants (utilise uniquement des IDs dédiés
+    ou crée un dossier de mission dédié dans _BUS_COMMUNICATION/01_EN_COURS/).
+    """
+    print(f"=== SYNTESIA HARNESS — SYNC GITHUB -> GOOGLE DRIVE ({mission_id}) ===")
+    rc, auth_out, auth_err = run_gdrive(["auth", "status"])
+    if rc != 0 or "Logged in" not in (auth_out + auth_err):
+        print(f"[SYNC FAILED] gdrive non authentifié : {auth_err or auth_out}")
+        sys.exit(1)
+
+    _, head_sha, _ = run_git(["rev-parse", "--short", "HEAD"])
+    now_utc = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+    # 1. Synchroniser la Fiche Mission si fournie
+    synced_items = []
+    if fiche_path:
+        abs_fiche = os.path.join(REPO_ROOT, fiche_path) if not os.path.isabs(fiche_path) else fiche_path
+        if not os.path.exists(abs_fiche) or os.path.getsize(abs_fiche) < 50:
+            print(f"[SYNC FAILED] Fiche mission absente ou vide : {abs_fiche}")
+            sys.exit(1)
+        raw_txt = open(abs_fiche, "r", encoding="utf-8").read()
+        safe_txt = redact_secrets_and_pii(raw_txt)
+        safe_tmp = f"/tmp/sync_fiche_{mission_id}.md"
+        with open(safe_tmp, "w", encoding="utf-8") as f:
+            f.write(safe_txt)
+
+        folder_name = f"{datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%d')}_{mission_id}"
+        if dry_run:
+            print(f"[DRY-RUN] Uploaderait {fiche_path} -> Drive _BUS_COMMUNICATION/01_EN_COURS/{folder_name}/")
+        else:
+            rc_ls, ls_out, _ = run_gdrive(["readonly", "ls", DRIVE_SYNC_TARGETS["BUS_EN_COURS_FOLDER"]])
+            folder_id = None
+            for line in ls_out.splitlines():
+                if folder_name in line:
+                    folder_id = line.split()[0]
+                    break
+            if not folder_id:
+                rc_mk, mk_out, mk_err = run_gdrive(["mutate", "mkdir", folder_name, "--parent", DRIVE_SYNC_TARGETS["BUS_EN_COURS_FOLDER"]])
+                if rc_mk != 0:
+                    print(f"[SYNC FAILED] Création dossier Drive impossible : {mk_err}")
+                    sys.exit(1)
+                rc_ls2, ls_out2, _ = run_gdrive(["readonly", "ls", DRIVE_SYNC_TARGETS["BUS_EN_COURS_FOLDER"]])
+                for line in ls_out2.splitlines():
+                    if folder_name in line:
+                        folder_id = line.split()[0]
+                        break
+            # Vérifier si FICHE_MISSION.md existe déjà dans ce dossier
+            rc_fls, fls_out, _ = run_gdrive(["readonly", "ls", folder_id])
+            existing_fiche_id = None
+            for line in fls_out.splitlines():
+                if "FICHE_MISSION.md" in line:
+                    existing_fiche_id = line.split()[0]
+                    break
+            if existing_fiche_id:
+                rc_up, up_out, up_err = run_gdrive(["mutate", "update", existing_fiche_id, safe_tmp])
+            else:
+                # Renommer localement en FICHE_MISSION.md dans /tmp pour un nom propre
+                named_tmp = f"/tmp/FICHE_MISSION.md"
+                with open(named_tmp, "w", encoding="utf-8") as nf:
+                    nf.write(safe_txt)
+                rc_up, up_out, up_err = run_gdrive(["mutate", "upload", named_tmp, "--parent", folder_id])
+            if rc_up != 0:
+                print(f"[SYNC FAILED] Upload fiche mission échoué : {up_err}")
+                sys.exit(1)
+            synced_items.append({"type": "FICHE_MISSION", "drive_folder_id": folder_id, "output": up_out})
+            print(f"1. [FICHE_MISSION] Synchronisée dans Drive _BUS_COMMUNICATION/01_EN_COURS/{folder_name}/ ({folder_id})")
+
+    # 2. Mettre à jour uniquement le bandeau de synchronisation du TABLEAU_DE_BORD_DG.md (sans écraser le contenu)
+    dash_id = DRIVE_SYNC_TARGETS["TABLEAU_DE_BORD_DG"]
+    dash_tmp = "/tmp/TABLEAU_DE_BORD_DG_sync.md"
+    rc_dl, _, dl_err = run_gdrive(["readonly", "download", dash_id, "--out", dash_tmp])
+    if rc_dl != 0 or not os.path.exists(dash_tmp) or os.path.getsize(dash_tmp) < 100:
+        print(f"[SYNC FAILED] Impossible de télécharger TABLEAU_DE_BORD_DG.md : {dl_err}")
+        sys.exit(1)
+    dash_txt = open(dash_tmp, "r", encoding="utf-8").read()
+    sync_line = f"**Dernière synchronisation vérifiée :** `{now_utc}` *(GitHub HEAD `{head_sha}` · Mission `{mission_id}`)*"
+    if "**Dernière synchronisation vérifiée :**" in dash_txt:
+        dash_txt = re.sub(r"\*\*Dernière synchronisation vérifiée :\*\*.*", sync_line, dash_txt)
+    elif "**Dernière mise à jour vérifiée :**" in dash_txt:
+        dash_txt = re.sub(r"\*\*Dernière mise à jour vérifiée :\*\*.*", sync_line, dash_txt)
+    if dry_run:
+        print(f"[DRY-RUN] Mettrait à jour le horodatage de synchronisation sur TABLEAU_DE_BORD_DG.md ({dash_id})")
+    else:
+        with open(dash_tmp, "w", encoding="utf-8") as df:
+            df.write(dash_txt)
+        rc_upd, upd_out, upd_err = run_gdrive(["mutate", "update", dash_id, dash_tmp])
+        if rc_upd != 0:
+            print(f"[SYNC FAILED] Mise à jour TABLEAU_DE_BORD_DG.md échouée : {upd_err}")
+            sys.exit(1)
+        synced_items.append({"type": "TABLEAU_DE_BORD_DG", "file_id": dash_id, "head": head_sha})
+        print(f"2. [TABLEAU_DE_BORD_DG] Horodatage synchronisé (ID {dash_id}, GitHub HEAD {head_sha})")
+
+    append_trace("DRIVE_SYNC_OK", mission_id, {"head": head_sha, "dry_run": dry_run, "items": synced_items})
+    print("[SYNC STATUS] PASS (Exit 0)")
+    return 0
+
+
 def main():
     parser = argparse.ArgumentParser(description="SYNTESIA Harness Engineering Controller")
     sub = parser.add_subparsers(dest="cmd")
@@ -511,6 +624,10 @@ def main():
     cp_p.add_argument("--summary", default="SYNTESIA Harness Engineering déployé et validé sur les 6 tests de résilience")
     sub.add_parser("resume")
     sub.add_parser("test-resilience")
+    sd_p = sub.add_parser("sync-drive")
+    sd_p.add_argument("--mission", default="WS-AMB-002")
+    sd_p.add_argument("--fiche", default="docs/ambressence/WS-AMB-002_FICHE_MISSION_COMPLETE.md")
+    sd_p.add_argument("--dry-run", action="store_true")
 
     args = parser.parse_args()
     if args.cmd == "preflight":
@@ -521,6 +638,8 @@ def main():
         cmd_resume()
     elif args.cmd == "test-resilience":
         cmd_test_resilience()
+    elif args.cmd == "sync-drive":
+        cmd_sync_drive(args.mission, args.fiche, args.dry_run)
     else:
         parser.print_help()
 
