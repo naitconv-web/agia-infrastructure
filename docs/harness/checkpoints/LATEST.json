@@ -1,6 +1,6 @@
 {
-  "mission_id": "AGIA-SECURIAXE-V3-AUDIT",
-  "generated_at_utc": "2026-11-23T23:26:06Z",
+  "mission_id": "AGIA-SECURIAXE-V4-AUDIT",
+  "generated_at_utc": "2026-11-24T01:43:12Z",
   "objective": "Concevoir, implémenter et valider par 6 tests de résistance le Harness Engineering commun aux projets SYNTESIA (0 dépendance à la mémoire conversationnelle).",
   "current_state": {
     "status": "IN_PROGRESS",
@@ -14,8 +14,8 @@
     "attempt": 1,
     "max_attempts": 3,
     "branch": "main",
-    "head_commit": "2f1e42c",
-    "summary": "Apurement intégral des 18 réserves du Tour 2 des 7 agents indépendants sur idcc1351.fr & Securiaxe + génération du Dossier de Consultation Finale V3 auto-porteur"
+    "head_commit": "111b401",
+    "summary": "Apurement des 10 écarts du Tour 3 (Scénario 1 à -1 821,55 EUR, suppression L.121-1 C. com., CSP dans .htaccess, code intégral 284 lignes, source P01 12,42 EUR brut vs 19,50 EUR chargé) et génération du Dossier V4"
   },
   "confirmed_decisions": [
     "DEC-01: Régime financier F1 (0,00 € autonome)",
@@ -130,11 +130,11 @@
     }
   ],
   "commits_made": [
+    "111b401 feat(securiaxe-v4): sync V4 audit fixes (purge L.121-1 C. com., cite R.526-27 C. com., BYOK RGPD)",
+    "065f66a chore(harness): checkpoint AGIA-SECURIAXE-V3-AUDIT",
     "2f1e42c feat(securiaxe-v3): sync round-2 auditor fixes (EI R.123-237, dual VAT 293B/L.223-3, anti-IBAN-fraud, BYOK RGPD, LCEN host)",
     "8899068 refactor(ui): unslop boutique et portail securite + confinement nom personnel aux mentions legales",
-    "c726212 feat(idcc1351): alignement boutique + checkpoint V1 idcc1351.fr Option Alpha Hybride",
-    "944452b chore(checkpoint): CP-AGIA-SECURIAXE-001 maj convention1351",
-    "8906552 feat(brand): alignement Convention 1351 sur portail securite privee et boutique"
+    "c726212 feat(idcc1351): alignement boutique + checkpoint V1 idcc1351.fr Option Alpha Hybride"
   ],
   "tests_executed": {
     "resilience_tests": "6/6 PASSED (Test A: Perte conversation, Test B: Changement modèle, Test C: Interruption brutale, Test D: Contradiction, Test E: Multi-projets, Test F: Preuve d'exécution)",
