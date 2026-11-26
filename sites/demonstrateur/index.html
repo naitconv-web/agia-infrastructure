@@ -611,9 +611,17 @@
     function switchMode(modeKey) {
       currentModeKey = modeKey;
       currentIndex = 0;
-      document.getElementById("btnModeBtp").className = "mode-btn" + (modeKey === "btp" ? " active" : "");
-      document.getElementById("btnModeSecu").className = "mode-btn" + (modeKey === "secu" ? " active" : "");
-      document.getElementById("btnModeDz").className = "mode-btn" + (modeKey === "dz" ? " active" : "");
+      var btnBtp = document.getElementById("btnModeBtp");
+      var btnSecu = document.getElementById("btnModeSecu");
+      var btnDz = document.getElementById("btnModeDz");
+
+      btnBtp.className = "mode-btn" + (modeKey === "btp" ? " active" : "");
+      btnSecu.className = "mode-btn" + (modeKey === "secu" ? " active" : "");
+      btnDz.className = "mode-btn" + (modeKey === "dz" ? " active" : "");
+
+      btnBtp.setAttribute("aria-selected", modeKey === "btp" ? "true" : "false");
+      btnSecu.setAttribute("aria-selected", modeKey === "secu" ? "true" : "false");
+      btnDz.setAttribute("aria-selected", modeKey === "dz" ? "true" : "false");
 
       var m = MODES[modeKey];
       document.getElementById("headerSub").textContent = m.sub;

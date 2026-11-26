@@ -79,7 +79,7 @@
     <section class="hero" aria-labelledby="offersTitle">
       <div class="wrap">
         <div class="hero-eyebrow mono">
-          <span>[Offres cadrées]</span><span>[Déploiement 7 jours]</span><span>[Sans engagement]</span>
+          <span>Offres cadrées</span><span>Déploiement 7 jours</span><span>Sans engagement</span>
         </div>
         <h1 class="display" id="offersTitle">Des engagements <em>clairs et chiffrés.</em></h1>
         <p class="lede" style="margin:1.5rem 0 0">Pas de forfait opaque ni d'abonnement captif. Vous choisissez entre un déploiement clé en main à prix fixe ou une architecture sur mesure après audit opérationnel.</p>
@@ -197,11 +197,25 @@
     (function () {
       var header = document.getElementById('siteHeader');
       var menuBtn = document.getElementById('menuBtn');
+      function closeMenu() {
+        header.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+        menuBtn.textContent = 'Menu';
+      }
       menuBtn.addEventListener('click', function () {
         var open = !header.classList.contains('open');
         header.classList.toggle('open', open);
         menuBtn.setAttribute('aria-expanded', String(open));
         menuBtn.textContent = open ? 'Fermer' : 'Menu';
+      });
+      document.querySelectorAll('.nav a').forEach(function (a) {
+        a.addEventListener('click', closeMenu);
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && header.classList.contains('open')) {
+          closeMenu();
+          menuBtn.focus();
+        }
       });
       var btnFr = document.getElementById('btnFr');
       var btnDz = document.getElementById('btnDz');
