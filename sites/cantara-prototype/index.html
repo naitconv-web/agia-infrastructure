@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<!--
+  CANTARA — PROTOTYPE PAGE D'ACCUEIL v1
+  Mention interne : le nom « CANTARA » est PROVISOIRE (disponibilité juridique
+  INPI/EUIPO/OMPI/INAPI non confirmée). Prototype non publié, non indexé, non déployé.
+  Aucun envoi réseau : ENVIRONMENT = PREPROD, WEBHOOK_ENABLED = false.
+-->
+<html lang="fr" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CANTARA — Ingénierie et intégration de l'IA pour les opérations d'entreprise</title>
+  <meta name="description" content="CANTARA conçoit, intègre et déploie des systèmes opérationnels augmentés par l'intelligence artificielle, adaptés à votre métier et placés sous contrôle humain. France · Algérie.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#F4F3EE">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23161513'/%3E%3Cpath d='M16 6v20M6 16h20' stroke='%23F4F3EE' stroke-width='1.5'/%3E%3Crect x='10' y='10' width='12' height='12' fill='none' stroke='%23F4F3EE' stroke-width='1.5'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="cantara.css">
+  <script>document.documentElement.classList.remove('no-js');</script>
+</head>
+<body>
+  <a class="skip" href="#main">Aller au contenu</a>
+
+  <div class="proto-bar" role="note">
+    <strong>Prototype interne</strong> · Nom « CANTARA » provisoire — disponibilité juridique non confirmée · Non publié · Démonstrations simulées
+  </div>
+
+  <header class="site-header" id="siteHeader">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top">
+        <svg class="brand-mark" viewBox="0 0 26 26" fill="none" aria-hidden="true">
+          <rect x="6.5" y="6.5" width="13" height="13" stroke-width="1.4"/>
+          <path d="M13 1v24M1 13h24" stroke-width="1.1"/>
+        </svg>
+        <span class="brand-name">Cantara</span>
+        <span class="brand-tag">Nom provisoire</span>
+        <span class="sr-only"> — retour en haut de page</span>
+      </a>
+      <nav class="nav" id="mainNav" aria-label="Navigation principale">
+        <a href="#capacites">Capacités</a>
+        <a href="#demonstration">Démonstration</a>
+        <a href="#secteurs">Secteurs</a>
+        <a href="#diagnostic">Diagnostic</a>
+        <a href="#methode">Méthode</a>
+        <a href="#diagnostic" class="btn btn-primary nav-cta">Lancer le diagnostic</a>
+      </nav>
+      <a href="#diagnostic" class="btn btn-primary header-cta" id="headerCta">Diagnostic · 3 min</a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mainNav">Menu</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ================= HERO ================= -->
+    <section class="hero" id="top" aria-labelledby="heroTitle">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="hero-eyebrow mono fade-in">
+            <span>Cabinet d'ingénierie IA</span><span>Intégration</span><span>France · Algérie</span>
+          </div>
+          <h1 class="display" id="heroTitle">
+            <span class="reveal-line"><span>Vos opérations,</span></span>
+            <span class="reveal-line"><span>conçues comme</span></span>
+            <span class="reveal-line"><span>un <em>système.</em></span></span>
+          </h1>
+          <p class="lede fade-in">CANTARA conçoit, intègre et déploie des systèmes opérationnels augmentés par l'intelligence artificielle. Ils sont taillés pour votre métier, branchés sur vos outils existants et pilotés sous votre contrôle.</p>
+          <div class="hero-actions fade-in">
+            <a href="#diagnostic" class="btn btn-primary" id="heroDiagBtn">Réaliser le diagnostic <span class="arrow" aria-hidden="true">→</span></a>
+            <a href="#demonstration" class="btn btn-ghost" id="heroDemoBtn">Voir le système en action</a>
+          </div>
+          <div class="hero-markets fade-in">
+            <span class="market"><i style="background:var(--accent-fr)"></i>France — PME &amp; ETI</span>
+            <span class="market"><i style="background:var(--accent-dz)"></i>Algérie — entreprises &amp; groupes</span>
+          </div>
+        </div>
+
+        <figure class="frame blueprint" id="blueprint" aria-labelledby="bpCaption">
+          <span class="x1" aria-hidden="true">+</span><span class="x2" aria-hidden="true">+</span>
+          <div class="blueprint-head">
+            <span class="mono">[SYS-00] Plan d'architecture type</span>
+            <span class="mono">Échelle : votre entreprise</span>
+          </div>
+          <svg viewBox="0 0 520 424" role="img" aria-labelledby="bpTitle bpDesc">
+            <title id="bpTitle">Schéma d'un système opérationnel CANTARA</title>
+            <desc id="bpDesc">Un système central relie vos devis et relances, votre planning, votre conformité, votre facturation et vos logiciels existants. Chaque action sensible passe par une validation humaine.</desc>
+            <rect class="bp-dash" x="4" y="16" width="512" height="402" style="--d:1.2s"/>
+            <text class="bp-anno" x="10" y="10" style="--d:1.3s">PÉRIMÈTRE : VOS PROCESSUS · VOS DONNÉES · VOS OUTILS</text>
+
+            <path class="bp-line" d="M140 62 H230 V182" style="--len:210;--d:.35s"/>
+            <path class="bp-line" d="M380 62 H290 V182" style="--len:210;--d:.45s"/>
+            <path class="bp-line" d="M140 378 H230 V238" style="--len:230;--d:.55s"/>
+            <path class="bp-line" d="M380 378 H290 V238" style="--len:230;--d:.65s"/>
+            <path class="bp-line" d="M380 210 H330" style="--len:50;--d:.75s"/>
+            <path class="bp-line" d="M140 210 H190" style="--len:50;--d:.75s;stroke:var(--accent-rust)"/>
+
+            <g class="bp-node core" style="--d:.15s">
+              <rect x="178" y="180" width="164" height="60"/>
+              <text x="260" y="204" text-anchor="middle">Système</text>
+              <text x="260" y="218" text-anchor="middle">opérationnel</text>
+              <text class="sub" x="260" y="232" text-anchor="middle">Agents IA · règles</text>
+            </g>
+            <g class="bp-node" style="--d:.9s"><rect x="16" y="40" width="128" height="44"/><text x="28" y="59">Devis</text><text class="sub" x="28" y="73">relances · suivi</text></g>
+            <g class="bp-node" style="--d:1s"><rect x="376" y="40" width="128" height="44"/><text x="388" y="59">Planning</text><text class="sub" x="388" y="73">équipes · absences</text></g>
+            <g class="bp-node" style="--d:1.1s"><rect x="16" y="356" width="128" height="44"/><text x="28" y="375">Conformité</text><text class="sub" x="28" y="389">échéances · pièces</text></g>
+            <g class="bp-node" style="--d:1.2s"><rect x="376" y="356" width="128" height="44"/><text x="388" y="375">Facturation</text><text class="sub" x="388" y="389">situations · suivi</text></g>
+            <g class="bp-node" style="--d:1.3s"><rect x="376" y="188" width="128" height="44"/><text x="388" y="207">Vos logiciels</text><text class="sub" x="388" y="221">ERP · CRM · Excel</text></g>
+            <g class="bp-node hot" style="--d:1.4s"><rect x="16" y="188" width="128" height="44"/><text x="28" y="207">Validation</text><text class="sub" x="28" y="221">humaine · dirigeant</text></g>
+
+            <text class="bp-anno" x="150" y="54" style="--d:1.7s">[01] ÉVÉNEMENT CAPTÉ</text>
+            <text class="bp-anno" x="300" y="296" style="--d:1.85s">[02] TRAITÉ PAR RÈGLES</text>
+            <text class="bp-anno" x="36" y="250" style="--d:2s">[03] VOUS DÉCIDEZ</text>
+
+            <circle class="bp-packet" r="3.2"><animateMotion dur="3.4s" repeatCount="indefinite" path="M140 62 H230 V182"/></circle>
+            <circle class="bp-packet" r="3.2"><animateMotion dur="3.8s" begin="1.1s" repeatCount="indefinite" path="M380 378 H290 V238"/></circle>
+            <circle class="bp-packet" r="3.2"><animateMotion dur="2.6s" begin=".6s" repeatCount="indefinite" path="M190 210 H140"/></circle>
+          </svg>
+          <figcaption class="blueprint-foot" id="bpCaption">
+            <span class="mono"><i class="live-dot" aria-hidden="true"></i>Schéma illustratif</span>
+            <span class="mono">Adapté à chaque métier</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ================= MANIFESTE ================= -->
+    <section class="manifesto" aria-label="Notre conviction">
+      <div class="wrap">
+        <span class="mono">[Conviction]</span>
+        <p class="big" id="manifesto">Nous n'ajoutons pas un outil de plus à votre entreprise. Nous concevons le système qui relie ceux que vous avez déjà : il absorbe les tâches répétitives et laisse chaque décision importante entre vos mains.</p>
+      </div>
+    </section>
+
+    <!-- ================= CAPACITÉS ================= -->
+    <section class="section" id="capacites" aria-labelledby="capTitle">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="reveal">
+            <span class="mono">[SYS-01 → 04] Capacités</span>
+            <h2 class="h2" id="capTitle">De l'audit au système <em>en service.</em></h2>
+          </div>
+          <p class="lede reveal" style="--rd:.1s">Un seul interlocuteur, d'un bout à l'autre. Nous commençons par comprendre votre façon de travailler, et nous n'automatisons qu'ensuite. Chaque étape produit un livrable que vous pouvez juger.</p>
+        </div>
+        <div class="caps">
+          <article class="cap reveal">
+            <div class="cap-num"><b>01</b><span class="mono">Audit</span></div>
+            <h3>Audit opérationnel</h3>
+            <p>Nous cartographions vos flux réels : où le temps se perd, où l'information se casse, où le risque s'accumule.</p>
+            <ul><li>Cartographie des processus</li><li>Points de friction chiffrés</li><li>Feuille de route priorisée</li></ul>
+          </article>
+          <article class="cap reveal" style="--rd:.08s">
+            <div class="cap-num"><b>02</b><span class="mono">Conception</span></div>
+            <h3>Conception du système</h3>
+            <p>Nous dessinons l'architecture cible : les données, les règles métier, les rôles, les points de validation humaine.</p>
+            <ul><li>Plan d'architecture</li><li>Règles et circuits de décision</li><li>Maquettes des écrans clés</li></ul>
+          </article>
+          <article class="cap reveal" style="--rd:.16s">
+            <div class="cap-num"><b>03</b><span class="mono">Intégration</span></div>
+            <h3>Intégration à l'existant</h3>
+            <p>Nous branchons le système sur vos logiciels, vos fichiers et vos messageries, sans tout remplacer.</p>
+            <ul><li>Connecteurs ERP · CRM · tableurs</li><li>Reprise des données</li><li>Tests sur cas réels</li></ul>
+          </article>
+          <article class="cap reveal" style="--rd:.24s">
+            <div class="cap-num"><b>04</b><span class="mono">Agents IA</span></div>
+            <h3>Automatisation sous contrôle</h3>
+            <p>Des agents IA préparent, relancent et vérifient. Vous validez. Chaque action est tracée.</p>
+            <ul><li>Agents spécialisés par tâche</li><li>Sas de validation humaine</li><li>Journal d'audit horodaté</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= THÉÂTRE SYSTÈME ================= -->
+    <section class="night theater" id="demonstration" aria-labelledby="demoTitle">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="reveal">
+            <span class="mono">[SYS-05] Démonstration</span>
+            <h2 class="h2" id="demoTitle">Voyez le système <em>travailler.</em></h2>
+            <span class="demo-disclaimer">◆ Simulation pédagogique · données fictives · aucune action réelle</span>
+          </div>
+          <p class="lede reveal" style="--rd:.1s">Choisissez un métier puis un événement. Le système le capte, le croise avec vos règles et prépare une proposition. Il s'arrête ensuite : rien ne part sans votre validation.</p>
+        </div>
+
+        <div class="sector-tabs" role="tablist" aria-label="Choisir un métier pour la démonstration" id="sectorTabs"></div>
+
+        <div class="frame console reveal" id="console">
+          <span class="x1" aria-hidden="true">+</span><span class="x2" aria-hidden="true">+</span>
+          <div class="console-bar">
+            <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="mono" id="consoleTitle">Console d'exploitation — simulation</span>
+            <span class="mono" id="consoleClock" aria-hidden="true">--:--:--</span>
+          </div>
+          <div class="console-body" role="tabpanel" id="demoPanel" aria-labelledby="">
+            <div class="col">
+              <div class="col-title"><span class="mono">Événements entrants</span><span class="mono" id="evCount">0/3</span></div>
+              <div class="event-list" id="eventList"></div>
+            </div>
+            <div class="col">
+              <div class="col-title"><span class="mono">Traitement</span><span class="mono" id="pipeState">En attente</span></div>
+              <div class="pipeline">
+                <span class="bar" id="pipeBar" aria-hidden="true"></span>
+                <ol class="steps" id="pipeline" aria-live="polite"></ol>
+              </div>
+            </div>
+            <div class="col">
+              <div class="col-title"><span class="mono">Sas de validation</span><span class="mono">Vous</span></div>
+              <div class="draft empty" id="draft">Sélectionnez un événement pour lancer le traitement.</div>
+              <ul class="checks" id="checks" hidden></ul>
+              <div class="decision">
+                <button type="button" class="btn btn-primary" id="approveBtn" disabled>Valider</button>
+                <button type="button" class="btn btn-ghost" id="rejectBtn" disabled>Écarter</button>
+              </div>
+              <div class="audit" id="audit" role="log" aria-live="polite" aria-label="Journal d'audit"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="theater-foot">
+          <div class="reveal"><b>Le système prépare</b>Il capte l'événement, vérifie vos règles et rédige un brouillon prêt à l'emploi.</div>
+          <div class="reveal" style="--rd:.08s"><b>Vous décidez</b>Valider, modifier ou écarter. Le dernier mot reste humain.</div>
+          <div class="reveal" style="--rd:.16s"><b>Tout est tracé</b>Chaque action est horodatée et peut être auditée.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECTEURS ================= -->
+    <section class="section" id="secteurs" aria-labelledby="secTitle">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="reveal">
+            <span class="mono">[SYS-06] Secteurs</span>
+            <h2 class="h2" id="secTitle">Des systèmes qui parlent <em>votre métier.</em></h2>
+          </div>
+          <p class="lede reveal" style="--rd:.1s">Une agence IA vous vend un outil. Un cabinet d'ingénierie part de vos contraintes réglementaires, de vos conventions collectives et de vos usages terrain.</p>
+        </div>
+        <div class="sectors">
+          <article class="frame sector reveal">
+            <span class="x1" aria-hidden="true">+</span><span class="x2" aria-hidden="true">+</span>
+            <div class="sector-top"><span class="mono">Secteur 01</span><i class="sector-swatch" style="background:var(--accent-fr)"></i></div>
+            <h3>Sécurité privée</h3>
+            <p>Plannings, conformité des agents et exploitation multi-sites, avec une traçabilité exigée par les contrôles.</p>
+            <dl>
+              <div><dt>Contraintes</dt><dd>CSI Livre VI, cartes pro CNAPS, IDCC 1351</dd></div>
+              <div><dt>Système</dt><dd>Plannings conformes, alertes d'échéances, remplacements</dd></div>
+            </dl>
+          </article>
+          <article class="frame sector reveal" style="--rd:.08s">
+            <span class="x1" aria-hidden="true">+</span><span class="x2" aria-hidden="true">+</span>
+            <div class="sector-top"><span class="mono">Secteur 02</span><i class="sector-swatch" style="background:var(--accent-rust)"></i></div>
+            <h3>Bâtiment, BTP &amp; rénovation</h3>
+            <p>Devis qui dorment, situations de travaux à facturer, pièces fournisseurs à jour : la trésorerie se joue dans l'administratif.</p>
+            <dl>
+              <div><dt>Contraintes</dt><dd>Assurances, sous-traitance, situations</dd></div>
+              <div><dt>Système</dt><dd>Relances de devis, facturation de situations, contrôle des pièces</dd></div>
+            </dl>
+          </article>
+          <article class="frame sector reveal" style="--rd:.16s">
+            <span class="x1" aria-hidden="true">+</span><span class="x2" aria-hidden="true">+</span>
+            <div class="sector-top"><span class="mono">Secteur 03</span><i class="sector-swatch" style="background:var(--accent-olive)"></i></div>
+            <h3>Hôtellerie &amp; restauration</h3>
+            <p>Plannings tendus, extras, traçabilité hygiène et réputation en ligne, à gérer en plein service.</p>
+            <dl>
+              <div><dt>Contraintes</dt><dd>HACCP, temps de travail HCR, avis clients</dd></div>
+              <div><dt>Système</dt><dd>Planning des extras, relevés hygiène, réponses aux avis</dd></div>
+            </dl>
+          </article>
+        </div>
+        <p class="sectors-note reveal">Autres secteurs étudiés : cabinets de conseil en gestion de patrimoine, architecture et bureaux d'études, immobilier et syndics, services à la personne, transport et logistique, propreté. Le diagnostic vous oriente.</p>
+      </div>
+    </section>
+
+    <!-- ================= SIMULATEUR ================= -->
+    <section class="section" style="padding-top:0" aria-labelledby="simTitle">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="reveal">
+            <span class="mono">[SYS-07] Simulateur</span>
+            <h2 class="h2" id="simTitle">Combien de temps <em>récupérable ?</em></h2>
+          </div>
+          <p class="lede reveal" style="--rd:.1s">Un ordre de grandeur, pas une promesse. Les hypothèses de calcul sont affichées : c'est l'audit qui les confirme ou les corrige.</p>
+        </div>
+        <div class="frame sim reveal" id="simulator">
+          <span class="x1" aria-hidden="true">+</span><span class="x2" aria-hidden="true">+</span>
+          <div class="sim-inputs">
+            <div class="field">
+              <div class="field-row"><label for="simPeople">Personnes concernées par l'administratif</label><output for="simPeople" id="simPeopleOut">5</output></div>
+              <input type="range" id="simPeople" min="1" max="60" value="5">
+            </div>
+            <div class="field">
+              <div class="field-row"><label for="simHours">Heures de tâches répétitives / semaine / personne</label><output for="simHours" id="simHoursOut">8 h</output></div>
+              <input type="range" id="simHours" min="1" max="30" value="8">
+            </div>
+            <div class="field" style="margin-bottom:0">
+              <div class="field-row"><label for="simCost">Coût horaire chargé moyen</label><output for="simCost" id="simCostOut">32 €</output></div>
+              <input type="range" id="simCost" min="15" max="90" value="32">
+            </div>
+          </div>
+          <div class="sim-out" aria-live="polite">
+            <div>
+              <span class="mono">Temps potentiellement récupérable</span>
+              <p class="sim-big"><span id="simHoursRange">35 – 55</span> <small>h / mois</small></p>
+              <p class="sim-sub">Soit environ <strong id="simEuroRange">12 200 – 19 500 €</strong> de temps qualifié réaffecté par an.</p>
+            </div>
+            <p class="sim-hyp">Hypothèses : 20 à 32 % des tâches répétitives automatisables ou assistées, 4,33 semaines par mois, 11 mois travaillés par an. Estimation indicative non garantie, à confirmer par l'audit opérationnel.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= DIAGNOSTIC ================= -->
+    <section class="section" id="diagnostic" style="background:var(--stone); border-top:1px solid var(--edge); border-bottom:1px solid var(--edge)" aria-labelledby="diagTitle">
+      <div class="wrap diag">
+        <div class="diag-side reveal">
+          <span class="mono">[SYS-08] Diagnostic</span>
+          <h2 class="h2" id="diagTitle">Votre orientation <em>en trois minutes.</em></h2>
+          <p class="lede" style="margin-top:1.2rem">Six questions et aucune inscription préalable. Vous obtenez immédiatement votre niveau de maturité, vos trois priorités et la première étape recommandée.</p>
+          <ol class="diag-steps" id="diagSteps">
+            <li data-k="0"><b>01</b>Comprendre votre activité</li>
+            <li data-k="2"><b>02</b>Localiser les pertes de temps</li>
+            <li data-k="4"><b>03</b>Évaluer vos fondations</li>
+            <li data-k="6"><b>04</b>Recevoir votre orientation</li>
+            <li data-k="7"><b>05</b>Demander un rendez-vous</li>
+          </ol>
+        </div>
+        <div class="frame diag-panel reveal" style="--rd:.1s" id="diagPanel">
+          <span class="x1" aria-hidden="true">+</span><span class="x2" aria-hidden="true">+</span>
+          <div id="diagStage"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= MÉTHODE & GARDE-FOUS ================= -->
+    <section class="section" id="methode" aria-labelledby="methTitle">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="reveal">
+            <span class="mono">[SYS-09] Méthode &amp; garde-fous</span>
+            <h2 class="h2" id="methTitle">L'IA, <em>sous contrôle.</em></h2>
+          </div>
+          <p class="lede reveal" style="--rd:.1s">Ce que nous nous interdisons compte autant que ce que nous construisons. Ces principes s'appliquent à chaque mission.</p>
+        </div>
+        <div class="principles">
+          <div class="principle reveal"><span class="mono">P-01</span><div><h3>Validation humaine obligatoire</h3><p>Aucun envoi, aucune décision engageante sans l'accord explicite d'une personne habilitée.</p></div></div>
+          <div class="principle reveal" style="--rd:.06s"><span class="mono">P-02</span><div><h3>Traçabilité complète</h3><p>Chaque action du système est journalisée, horodatée et peut être auditée.</p></div></div>
+          <div class="principle reveal"><span class="mono">P-03</span><div><h3>Vos données restent les vôtres</h3><p>Hébergement et traitements alignés sur le RGPD, avec la minimisation des données comme règle par défaut.</p></div></div>
+          <div class="principle reveal" style="--rd:.06s"><span class="mono">P-04</span><div><h3>Intégrer avant de remplacer</h3><p>Nous partons de vos logiciels existants et ne remplaçons que ce qui doit l'être.</p></div></div>
+          <div class="principle reveal"><span class="mono">P-05</span><div><h3>Mesurer, pas promettre</h3><p>Les gains sont estimés pendant l'audit puis mesurés en exploitation. Aucun chiffre n'est avancé sans base.</p></div></div>
+          <div class="principle reveal" style="--rd:.06s"><span class="mono">P-06</span><div><h3>Réversibilité</h3><p>Une documentation remise et des données exportables : vous n'êtes jamais captif.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CTA FINAL ================= -->
+    <section class="night final" aria-labelledby="finalTitle">
+      <div class="wrap">
+        <span class="mono">[SYS-10] Prochaine étape</span>
+        <h2 class="display reveal" id="finalTitle" style="margin-top:1rem">Concevons votre <em>système.</em></h2>
+        <p class="lede reveal" style="margin-top:1.6rem">Commencez par le diagnostic. Si votre projet s'y prête, un premier échange de 30 minutes permet de cadrer l'audit.</p>
+        <div class="final-actions reveal">
+          <a href="#diagnostic" class="btn btn-primary" id="finalDiagBtn">Réaliser le diagnostic <span class="arrow" aria-hidden="true">→</span></a>
+          <a href="#demonstration" class="btn btn-ghost">Revoir la démonstration</a>
+        </div>
+
+        <footer class="footer-grid">
+          <div>
+            <a class="brand" href="#top" style="color:var(--cream)"><svg class="brand-mark" viewBox="0 0 26 26" fill="none" aria-hidden="true"><rect x="6.5" y="6.5" width="13" height="13" stroke-width="1.4"/><path d="M13 1v24M1 13h24" stroke-width="1.1"/></svg><span class="brand-name">Cantara</span></a>
+            <p style="margin:1rem 0 0;max-width:30rem">Cabinet d'ingénierie et d'intégration de l'intelligence artificielle pour les opérations d'entreprise.</p>
+          </div>
+          <div>
+            <h4>Explorer</h4>
+            <ul>
+              <li><a href="#capacites">Capacités</a></li>
+              <li><a href="#demonstration">Démonstration</a></li>
+              <li><a href="../demonstrateur/index.html">Cockpit chiffré (existant)</a></li>
+              <li><a href="#methode">Méthode</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Marchés &amp; pôles</h4>
+            <ul>
+              <li><a href="../france/securite-privee/index.html">France — Sécurité privée</a></li>
+              <li><a href="../france/batiment-renovation/index.html">France — Bâtiment &amp; BTP</a></li>
+              <li><a href="../algerie/index.html">Algérie — Entreprises</a></li>
+              <li><a href="../shared/mentions-legales-confidentialite.html">Mentions légales &amp; RGPD</a></li>
+            </ul>
+          </div>
+        </footer>
+        <p class="footer-legal">Prototype interne non publié · Nom provisoire · Mentions légales en cours de finalisation · Démonstrations simulées sur données fictives</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="../shared/syntesia-forms.js" defer></script>
+  <script src="cantara.js" defer></script>
+</body>
+</html>
