@@ -15,9 +15,9 @@ python3 scripts/harness_ctl.py preflight
 
 Puis consultez dans l'ordre :
 1. La **Charte de Franchise et de Non-Complaisance envers le PDG** : **[CHARTE-FRANCHISE-NON-COMPLAISANCE.md](file:///home/antigravity/naitconv-web/agia-infrastructure/CHARTE-FRANCHISE-NON-COMPLAISANCE.md)** *(obligatoire : devoir de vérité, contradiction argumentée, grille 7 points `GO/NO-GO`, 6 niveaux épistémiques, zéro complaisance)*.
-2. La **Charte de Collaboration du Directeur Général** : **[docs/CHARTE_COLLABORATION_IA_DG.md](file:///home/antigravity/agia-infrastructure/docs/CHARTE_COLLABORATION_IA_DG.md)** *(obligatoire : langage simple sans jargon, décisions par consultation OUI/NON/VALIDER/REFUSER, prise en charge technique autonome)*.
+2. La **Charte de Collaboration du Directeur Général** : **[docs/CHARTE_COLLABORATION_IA_DG.md](file:///home/antigravity/naitconv-web/agia-infrastructure/docs/CHARTE_COLLABORATION_IA_DG.md)** *(obligatoire : langage simple sans jargon, décisions par consultation OUI/NON/VALIDER/REFUSER, prise en charge technique autonome)* et la **Directive Globale de Comportement et de Bienséance** : **[docs/DIRECTIVE_GLOBALE_COMPORTEMENT_ET_BIENSEANCE.md](file:///home/antigravity/naitconv-web/agia-infrastructure/docs/DIRECTIVE_GLOBALE_COMPORTEMENT_ET_BIENSEANCE.md)**.
 3. La sortie du préflight (état Git, dernier checkpoint actif dans `docs/harness/checkpoints/LATEST.json`, alertes de conflits éventuels).
-4. Le registre central de mémoire : **[docs/harness/REGISTRE_MEMOIRE.md](file:///home/antigravity/agia-infrastructure/docs/harness/REGISTRE_MEMOIRE.md)** (`FACTS`, `DECISIONS`, `PROJECTS`, `TASKS`, `SHARDS`, `SOURCES`).
+4. Le registre central de mémoire : **[docs/harness/REGISTRE_MEMOIRE.md](file:///home/antigravity/naitconv-web/agia-infrastructure/docs/harness/REGISTRE_MEMOIRE.md)** (`FACTS`, `DECISIONS`, `PROJECTS`, `TASKS`, `SHARDS`, `SOURCES`).
 5. **Chargement parcimonieux (*Progressive Disclosure*) :** Ne lisez **que** le(s) `SHARD(S)` directement liés à la mission demandée (voir §5 de `REGISTRE_MEMOIRE.md`) afin d'économiser les tokens et le quota du fondateur.
 
 ---
@@ -32,16 +32,16 @@ Puis consultez dans l'ordre :
 3. **Rigueur Épistémique (`DOCUMENTÉ ≠ IMPLÉMENTÉ ≠ TESTÉ ≠ VALIDÉ EN PRODUCTION`) :**
    - Chaque fait ou tâche porte un statut explicite : `CONFIRMED`, `DECLARED`, `PROPOSED`, `IN_PROGRESS`, `BLOCKED`, `SUPERSEDED`.
    - Ne jamais transformer silencieusement une hypothèse (`PROPOSED`) ou une déclaration non vérifiée (`DECLARED`) en fait confirmé (`CONFIRMED`).
-   - En cas de contradiction entre deux documents (`CONFLICT_DETECTED`), ne jamais écraser silencieusement l'un des deux : signaler le conflit et appliquer la règle de [PROTOCOLE_VALIDATION.md](file:///home/antigravity/agia-infrastructure/docs/harness/PROTOCOLE_VALIDATION.md).
+   - En cas de contradiction entre deux documents (`CONFLICT_DETECTED`), ne jamais écraser silencieusement l'un des deux : signaler le conflit et appliquer la règle de [PROTOCOLE_VALIDATION.md](file:///home/antigravity/naitconv-web/agia-infrastructure/docs/harness/PROTOCOLE_VALIDATION.md).
 4. **Réflexe Bibliothèque Technologique & Refero :**
-   - Avant tout nouveau développement, consulter [docs/bibliotheque_technologique/INDEX_ET_GOUVERNANCE.md](file:///home/antigravity/agia-infrastructure/docs/bibliotheque_technologique/INDEX_ET_GOUVERNANCE.md).
-   - Pour tout travail d'interface UI/UX, respecter la direction artistique Refero ([DIRECTION_ARTISTIQUE_REFERO_SYNTESIA.md](file:///home/antigravity/agia-infrastructure/docs/bibliotheque_technologique/DIRECTION_ARTISTIQUE_REFERO_SYNTESIA.md) et `sites/shared/syntesia-design-system.css`).
+   - Avant tout nouveau développement, consulter [docs/bibliotheque_technologique/INDEX_ET_GOUVERNANCE.md](file:///home/antigravity/naitconv-web/agia-infrastructure/docs/bibliotheque_technologique/INDEX_ET_GOUVERNANCE.md).
+   - Pour tout travail d'interface UI/UX, respecter la direction artistique Refero ([DIRECTION_ARTISTIQUE_REFERO_SYNTESIA.md](file:///home/antigravity/naitconv-web/agia-infrastructure/docs/bibliotheque_technologique/DIRECTION_ARTISTIQUE_REFERO_SYNTESIA.md) et `sites/shared/syntesia-design-system.css`).
 
 ---
 
 ## 3. BOUCLE D'EXÉCUTION ET CLÔTURE OBLIGATOIRE (CHECKPOINT)
 
-1. **Boucle de travail :** `PLAN → EXECUTE → TEST → VERIFY → CORRECT (max 3 essais) → REPORT` ([PROTOCOLE_VALIDATION.md](file:///home/antigravity/agia-infrastructure/docs/harness/PROTOCOLE_VALIDATION.md)). Aucune tâche n'est déclarée terminée sans preuve d'exécution vérifiable.
+1. **Boucle de travail :** `PLAN → EXECUTE → TEST → VERIFY → CORRECT (max 3 essais) → REPORT` ([PROTOCOLE_VALIDATION.md](file:///home/antigravity/naitconv-web/agia-infrastructure/docs/harness/PROTOCOLE_VALIDATION.md)). Aucune tâche n'est déclarée terminée sans preuve d'exécution vérifiable.
 2. **Clôture et Sauvegarde de Reprise :** À la fin de chaque mission (ou dès que le quota approche d'un seuil critique), générez et committez le checkpoint de reprise :
 
 ```bash
@@ -52,10 +52,10 @@ python3 scripts/harness_ctl.py checkpoint --mission <ID_MISSION> --status CONFIR
 
 ## 4. RÉPERTOIRE DE LA DOCUMENTATION HARNESS
 
-- [AUDIT_HARNESS_EXISTANT.md](file:///home/antigravity/agia-infrastructure/docs/harness/AUDIT_HARNESS_EXISTANT.md) — État réel avant AGIA-011 et registre des contradictions résolues/ouvertes.
-- [ARCHITECTURE_SYNTESIA_HARNESS.md](file:///home/antigravity/agia-infrastructure/docs/harness/ARCHITECTURE_SYNTESIA_HARNESS.md) — Les 6 couches (`MODEL`, `CONTEXT`, `TOOLS`, `WORKFLOWS`, `LOOPS`, `OBSERVABILITY`).
-- [REGISTRE_MEMOIRE.md](file:///home/antigravity/agia-infrastructure/docs/harness/REGISTRE_MEMOIRE.md) — Mémoire persistante structurée du portefeuille.
-- [PROTOCOLE_PREFLIGHT.md](file:///home/antigravity/agia-infrastructure/docs/harness/PROTOCOLE_PREFLIGHT.md) — Procédure de vérification au démarrage.
-- [PROTOCOLE_CHECKPOINT.md](file:///home/antigravity/agia-infrastructure/docs/harness/PROTOCOLE_CHECKPOINT.md) — Format à 12 champs et procédure de reprise sans conversation.
-- [PROTOCOLE_VALIDATION.md](file:///home/antigravity/agia-infrastructure/docs/harness/PROTOCOLE_VALIDATION.md) — Boucles de vérification et preuves.
-- [RAPPORT_TESTS_RESILIENCE.md](file:///home/antigravity/agia-infrastructure/docs/harness/RAPPORT_TESTS_RESILIENCE.md) — Résultats et preuves des 6 scénarios de résistance (`Test A` à `Test F`).
+- [AUDIT_HARNESS_EXISTANT.md](file:///home/antigravity/naitconv-web/agia-infrastructure/docs/harness/AUDIT_HARNESS_EXISTANT.md) — État réel avant AGIA-011 et registre des contradictions résolues/ouvertes.
+- [ARCHITECTURE_SYNTESIA_HARNESS.md](file:///home/antigravity/naitconv-web/agia-infrastructure/docs/harness/ARCHITECTURE_SYNTESIA_HARNESS.md) — Les 6 couches (`MODEL`, `CONTEXT`, `TOOLS`, `WORKFLOWS`, `LOOPS`, `OBSERVABILITY`).
+- [REGISTRE_MEMOIRE.md](file:///home/antigravity/naitconv-web/agia-infrastructure/docs/harness/REGISTRE_MEMOIRE.md) — Mémoire persistante structurée du portefeuille.
+- [PROTOCOLE_PREFLIGHT.md](file:///home/antigravity/naitconv-web/agia-infrastructure/docs/harness/PROTOCOLE_PREFLIGHT.md) — Procédure de vérification au démarrage.
+- [PROTOCOLE_CHECKPOINT.md](file:///home/antigravity/naitconv-web/agia-infrastructure/docs/harness/PROTOCOLE_CHECKPOINT.md) — Format à 12 champs et procédure de reprise sans conversation.
+- [PROTOCOLE_VALIDATION.md](file:///home/antigravity/naitconv-web/agia-infrastructure/docs/harness/PROTOCOLE_VALIDATION.md) — Boucles de vérification et preuves.
+- [RAPPORT_TESTS_RESILIENCE.md](file:///home/antigravity/naitconv-web/agia-infrastructure/docs/harness/RAPPORT_TESTS_RESILIENCE.md) — Résultats et preuves des 6 scénarios de résistance (`Test A` à `Test F`).
