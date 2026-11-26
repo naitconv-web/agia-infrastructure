@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<!--
+  CANTARA — Site Vitrine Ultra-Épuré V3 (France uniquement)
+  ADN CANTARA + Cinétique inspirée du navigateur Comet.
+  Vitrine mère sans boutique intégrée : oriente vers les Espaces Métiers et leurs sites dédiés (ex. Securiaxe).
+-->
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CANTARA — Systèmes opérationnels IA par métier (France)</title>
+  <meta name="description" content="CANTARA conçoit des systèmes opérationnels IA dédiés par métier en France. Testez nos démonstrateurs avant de rejoindre nos espaces spécialisés comme Securiaxe.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#F4F3EE">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23161513'/%3E%3Cpath d='M16 6v20M6 16h20' stroke='%23F4F3EE' stroke-width='1.5'/%3E%3Crect x='10' y='10' width='12' height='12' fill='none' stroke='%23F4F3EE' stroke-width='1.5'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="comet.css">
+</head>
+<body>
+  <a class="skip" href="#main">Aller au contenu principal</a>
+  <div class="scroll-rail" aria-hidden="true"><i></i></div>
+
+  <header class="site-header" id="siteHeader">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html">
+        <svg class="brand-mark" viewBox="0 0 26 26" fill="none" aria-hidden="true">
+          <rect x="6.5" y="6.5" width="13" height="13" stroke-width="1.35"/>
+          <path d="M13 1v24M1 13h24" stroke-width="1.1"/>
+        </svg>
+        <span class="brand-name">Cantara</span>
+        <span class="brand-note">France</span>
+      </a>
+      <nav class="nav" id="mainNav" aria-label="Navigation principale">
+        <a href="#systeme">Système</a>
+        <a href="#espaces">Espaces métiers</a>
+        <a href="#methode">Méthode</a>
+        <a href="#diagnostic">Diagnostic</a>
+        <a href="#espaces" class="btn btn-primary btn-sm nav-cta">Explorer les espaces</a>
+      </nav>
+      <a href="#diagnostic" class="btn btn-primary btn-sm header-cta">Diagnostic · 3 min</a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mainNav">Menu</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ================= HERO ORBITAL ================= -->
+    <section class="hero-comet" id="top" aria-labelledby="heroTitle">
+      <svg class="orbit-bg" viewBox="0 0 1440 760" fill="none" preserveAspectRatio="xMidYMin slice" aria-hidden="true">
+        <path id="orb1" d="M -80 560 Q 720 60 1520 420" stroke="#CCCAC0" stroke-width="1"/>
+        <path id="orb2" d="M -120 340 Q 680 680 1560 180" stroke="#D8D6CD" stroke-width="1" stroke-dasharray="4 6"/>
+        <path id="orb3" d="M 140 -40 Q 740 420 1340 780" stroke="#DDDCD4" stroke-width="1"/>
+        <circle r="3.5" fill="#1D4ED8">
+          <animateMotion dur="14s" repeatCount="indefinite" path="M -80 560 Q 720 60 1520 420"/>
+        </circle>
+        <circle r="2.8" fill="#161513">
+          <animateMotion dur="18s" begin="3s" repeatCount="indefinite" path="M -120 340 Q 680 680 1560 180"/>
+        </circle>
+        <circle r="2.5" fill="#9A3412">
+          <animateMotion dur="16s" begin="1.5s" repeatCount="indefinite" path="M 140 -40 Q 740 420 1340 780"/>
+        </circle>
+      </svg>
+
+      <div class="wrap">
+        <div class="hero-kicker mono">
+          <i aria-hidden="true"></i>
+          <span>Ingénierie IA · Systèmes par métier</span>
+        </div>
+        <h1 class="display" id="heroTitle">
+          <span class="reveal-line"><span>Vos opérations,</span></span>
+          <span class="reveal-line"><span>orchestrées avec <em>justesse.</em></span></span>
+        </h1>
+        <p class="lede">
+          CANTARA conçoit des systèmes opérationnels taillés par métier. Explorez un espace, testez l'outil en direct, puis rejoignez la plateforme dédiée si le système correspond à votre réalité.
+        </p>
+        <div class="hero-actions">
+          <a href="#espaces" class="btn btn-primary">Explorer les espaces métiers <span class="arrow" aria-hidden="true">→</span></a>
+          <a href="#systeme" class="btn btn-ghost">Voir le système en action</a>
+        </div>
+        <p class="hero-subline">France uniquement · Validation humaine systématique · Zéro boîte noire</p>
+      </div>
+    </section>
+
+    <!-- ================= FENÊTRE FLOTTANTE 3D TYPE COMET ================= -->
+    <section class="comet-stage" id="systeme" aria-labelledby="cometTitle">
+      <div class="wrap">
+        <h2 class="sr-only" id="cometTitle">Démonstration interactive de la barre d'intention système</h2>
+        <div class="comet-window" data-scroll-3d>
+          <div class="comet-chrome">
+            <div class="comet-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+            <span class="comet-address" id="cometAddress">cantara://espace/securite-privee</span>
+            <span class="mono" style="color:var(--signal)">Simulation · Données fictives</span>
+          </div>
+
+          <div class="comet-body">
+            <div class="intent-bar" aria-live="polite">
+              <div class="intent-prompt">
+                <span class="mono" style="color:var(--signal)">Intention</span>
+                <span id="intentText">Vérifier la rentabilité d'un devis Sécurité Nuit à 23,00 €/h</span>
+                <span class="intent-cursor" aria-hidden="true"></span>
+              </div>
+              <a href="securite-privee.html" class="btn btn-primary btn-sm" id="intentSpaceLink">Ouvrir l'espace →</a>
+            </div>
+
+            <div class="intent-pills" role="tablist" aria-label="Choisir une démonstration d'intention">
+              <button type="button" class="intent-pill" role="tab" aria-selected="true" data-intent="bouclier">Sécurité · Vérifier une marge Nuit</button>
+              <button type="button" class="intent-pill" role="tab" aria-selected="false" data-intent="planning">Sécurité · Double affectation &amp; 11 h</button>
+              <button type="button" class="intent-pill" role="tab" aria-selected="false" data-intent="btp">BTP · Relancer un devis J+7</button>
+            </div>
+
+            <div class="comet-canvas">
+              <div class="comet-card">
+                <span class="mono" id="cometKicker">[ANALYSE DÉTERMINISTE]</span>
+                <div class="comet-metrics" id="cometMetrics"></div>
+                <p id="cometSummary" style="margin:0;font-size:.92rem;color:var(--cream-muted);line-height:1.6"></p>
+              </div>
+
+              <div class="comet-card">
+                <span class="mono">[CHAÎNE DE CONTRÔLE &amp; SAS HUMAIN]</span>
+                <ul class="comet-steps" id="cometSteps"></ul>
+                <div style="display:flex;gap:.55rem;flex-wrap:wrap;margin-top:.3rem">
+                  <button type="button" class="btn btn-primary btn-sm" id="btnCometApprove">Valider [OUI]</button>
+                  <button type="button" class="btn btn-ghost btn-sm" id="btnCometReject">Rejeter [NON]</button>
+                </div>
+                <div class="comet-log" id="cometLog" aria-live="polite">
+                  <b>[PRÊT]</b> Aucune action ne s'exécute sans votre signature.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= MANIFESTE LUMINEUX (ADN CANTARA) ================= -->
+    <section class="manifesto-section" aria-label="Notre conviction">
+      <div class="wrap">
+        <span class="mono">[Conviction]</span>
+        <p class="manifesto-text" id="manifesto">Nous ne vendons pas un discours sur l'intelligence artificielle. Nous construisons des espaces dédiés par métier, que vous pouvez voir et tester librement avant de décider.</p>
+      </div>
+    </section>
+
+    <!-- ================= ESPACES MÉTIERS ================= -->
+    <section class="section section-bordered" id="espaces" aria-labelledby="spacesTitle">
+      <div class="wrap">
+        <div class="section-head fade-up">
+          <div>
+            <span class="mono">[Espaces métiers]</span>
+            <h2 class="h2" id="spacesTitle">Un espace clair<br>pour <em>chaque métier.</em></h2>
+          </div>
+          <p class="lede">Chaque page présente les enjeux du métier et vous laisse tester un outil concret sur CANTARA, avant de vous orienter vers le site spécialisé correspondant.</p>
+        </div>
+
+        <div class="spaces-grid">
+          <article class="tilt-card fade-up">
+            <div class="space-top">
+              <span class="mono">Espace 01 · Ouvert</span>
+              <span class="space-tag">Site dédié : Securiaxe</span>
+            </div>
+            <h3>Sécurité Privée<br><em>CSI &amp; IDCC 1351</em></h3>
+            <p>Rentabilité des vacations, alertes CNAPS, repos quotidien 11 h, appels d'offres et pilotage dirigeant. Testez le Bouclier de marge et l'aperçu Securiaxe Director ici, puis commandez sur Securiaxe.</p>
+            <ul class="space-points">
+              <li>Test en direct sur CANTARA : Simulateur Bouclier Anti-Pertes</li>
+              <li>Aperçu guidé en 7 étapes : Securiaxe Director</li>
+              <li>Acquisition &amp; outils dédiés sur la plateforme Securiaxe</li>
+            </ul>
+            <div class="space-foot">
+              <a href="securite-privee.html" class="btn btn-primary">Entrer dans l'espace Sécurité <span class="arrow" aria-hidden="true">→</span></a>
+              <span class="space-dest">Achat → Securiaxe</span>
+            </div>
+          </article>
+
+          <article class="tilt-card fade-up">
+            <div class="space-top">
+              <span class="mono">Espace 02 · Ouvert</span>
+              <span class="space-tag">Espace BTP &amp; Services</span>
+            </div>
+            <h3>BTP &amp; Rénovation<br><em>Relance Devis</em></h3>
+            <p>Suivi courtois de vos devis en attente (J+3 / J+7) sous validation humaine et vigilance sur vos pièces légales (Décennale, URSSAF). Testez le cockpit en direct avant d'évaluer votre déploiement.</p>
+            <ul class="space-points">
+              <li>Test en direct sur CANTARA : Cockpit Relance Devis France</li>
+              <li>Simulateur de devis récupérés sur vos propres montants</li>
+              <li>Site métier dédié en préparation · accès par diagnostic</li>
+            </ul>
+            <div class="space-foot">
+              <a href="btp.html" class="btn btn-primary">Entrer dans l'espace BTP <span class="arrow" aria-hidden="true">→</span></a>
+              <span class="space-dest">Espace dédié → En préparation</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="next-spaces fade-up">
+          <span><strong>Prochains espaces métiers à l'étude :</strong> Hôtellerie-Restauration · Gestion de patrimoine · Services B2B.</span>
+          <a href="#diagnostic" class="mono" style="text-decoration:underline;text-underline-offset:4px;color:var(--ink)">Proposer votre métier →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SCÈNE NOCTURNE : MÉTHODE ================= -->
+    <section class="night section" id="methode" aria-labelledby="methodTitle">
+      <div class="wrap">
+        <div class="section-head fade-up">
+          <div>
+            <span class="mono">[Principes d'ingénierie]</span>
+            <h2 class="h2" id="methodTitle">Quatre règles <em>inviolables.</em></h2>
+          </div>
+          <p class="lede">Un système opérationnel n'a de valeur que s'il protège le dirigeant au lieu de créer une dépendance.</p>
+        </div>
+
+        <div class="night-grid fade-up">
+          <div class="night-col">
+            <b>01</b>
+            <h3>Contrôle humain</h3>
+            <p>Aucune action sensible ne part seule. Chaque décision passe par un Sas explicite [OUI] / [NON].</p>
+          </div>
+          <div class="night-col">
+            <b>02</b>
+            <h3>Calculs vérifiables</h3>
+            <p>Les chiffres et règles légales (IDCC 1351, repos 11 h, plancher 6 h) sont déterministes, jamais improvisés.</p>
+          </div>
+          <div class="night-col">
+            <b>03</b>
+            <h3>Preuve avant achat</h3>
+            <p>Vous voyez et testez les mécanismes sur CANTARA avant de basculer sur le site métier dédié.</p>
+          </div>
+          <div class="night-col">
+            <b>04</b>
+            <h3>Données souveraines</h3>
+            <p>Zéro revente, zéro traceur publicitaire, polices locales et pseudonymisation avant tout traitement assisté.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= DIAGNOSTIC ÉPURÉ (3 MIN) ================= -->
+    <section class="section" id="diagnostic" aria-labelledby="diagTitle">
+      <div class="wrap">
+        <div class="diag-shell">
+          <div style="text-align:center;margin-bottom:2.4rem" class="fade-up">
+            <span class="mono">[Orientation · 3 minutes]</span>
+            <h2 class="h2" id="diagTitle">Trouvez votre <em>espace.</em></h2>
+            <p class="lede" style="margin:1rem auto 0">Quatre questions simples pour vous orienter vers le bon espace métier ou préparer un échange ciblé.</p>
+          </div>
+
+          <div class="diag-box fade-up" id="diagBox" aria-live="polite">
+            <!-- Rendu par home-v3.js -->
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="index.html" style="color:var(--cream)">
+            <svg class="brand-mark" viewBox="0 0 26 26" fill="none" aria-hidden="true">
+              <rect x="6.5" y="6.5" width="13" height="13" stroke-width="1.35"/>
+              <path d="M13 1v24M1 13h24" stroke-width="1.1"/>
+            </svg>
+            <span class="brand-name">Cantara</span>
+          </a>
+          <p style="margin:.9rem 0 0;max-width:26rem">Cabinet d'ingénierie IA concevant des espaces opérationnels dédiés par métier en France.</p>
+        </div>
+        <div>
+          <p class="footer-title">Espaces métiers</p>
+          <ul>
+            <li><a href="securite-privee.html">Sécurité Privée (Securiaxe)</a></li>
+            <li><a href="btp.html">BTP &amp; Rénovation</a></li>
+            <li><a href="#diagnostic">Diagnostic · 3 min</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-title">Informations</p>
+          <ul>
+            <li><a href="#methode">Principes d'ingénierie</a></li>
+            <li><a href="mentions.html">Mentions légales &amp; RGPD</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer-legal">
+        CANTARA (nom commercial provisoire) · France uniquement · Entreprise Individuelle SIREN 849 261 870 · Prévisualisation privée · Aucune donnée transmise
+      </p>
+    </div>
+  </footer>
+
+  <script src="comet.js" defer></script>
+  <script src="home-v3.js" defer></script>
+</body>
+</html>

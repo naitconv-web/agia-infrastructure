@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<!--
+  CANTARA — Espace Métier 02 : BTP & Rénovation (France uniquement)
+  Présentation + Test en direct du Cockpit Relance Devis + Simulateur rapide.
+  Espace dédié en préparation · Orientation via diagnostic CANTARA.
+-->
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Espace BTP &amp; Rénovation — CANTARA (Relance Devis France)</title>
+  <meta name="description" content="Testez le cockpit de relance de devis dormants J+3/J+7 avec Sas dirigeant et simulez le chiffre d'affaires récupérable pour votre entreprise du bâtiment en France.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#F4F3EE">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23161513'/%3E%3Cpath d='M16 6v20M6 16h20' stroke='%23F4F3EE' stroke-width='1.5'/%3E%3Crect x='10' y='10' width='12' height='12' fill='none' stroke='%23F4F3EE' stroke-width='1.5'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="comet.css">
+</head>
+<body>
+  <a class="skip" href="#main">Aller au contenu principal</a>
+  <div class="scroll-rail" aria-hidden="true"><i></i></div>
+
+  <header class="site-header" id="siteHeader">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html">
+        <svg class="brand-mark" viewBox="0 0 26 26" fill="none" aria-hidden="true">
+          <rect x="6.5" y="6.5" width="13" height="13" stroke-width="1.35"/>
+          <path d="M13 1v24M1 13h24" stroke-width="1.1"/>
+        </svg>
+        <span class="brand-name">Cantara</span>
+        <span class="brand-note">Espace BTP</span>
+      </a>
+      <nav class="nav" id="mainNav" aria-label="Navigation principale">
+        <a href="index.html">Accueil</a>
+        <a href="securite-privee.html">Sécurité Privée</a>
+        <a href="btp.html" aria-current="page">BTP &amp; Rénovation</a>
+        <a href="index.html#diagnostic">Diagnostic</a>
+        <a href="index.html#diagnostic" class="btn btn-primary btn-sm nav-cta">Lancer le diagnostic</a>
+      </nav>
+      <a href="index.html#diagnostic" class="btn btn-primary btn-sm header-cta">Diagnostic · 3 min</a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mainNav">Menu</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ================= HERO ESPACE BTP ================= -->
+    <section class="hero-comet" aria-labelledby="btpTitle">
+      <svg class="orbit-bg" viewBox="0 0 1440 700" fill="none" preserveAspectRatio="xMidYMin slice" aria-hidden="true">
+        <path d="M -80 480 Q 700 60 1520 390" stroke="#CCCAC0" stroke-width="1"/>
+        <path d="M -100 310 Q 720 630 1540 170" stroke="#D8D6CD" stroke-width="1" stroke-dasharray="4 6"/>
+        <circle r="3.4" fill="#9A3412">
+          <animateMotion dur="15s" repeatCount="indefinite" path="M -80 480 Q 700 60 1520 390"/>
+        </circle>
+      </svg>
+
+      <div class="wrap">
+        <div class="hero-kicker mono">
+          <i style="background:var(--accent-btp)" aria-hidden="true"></i>
+          <span>Espace Métier 02 · BTP, Artisans &amp; Rénovation (France)</span>
+        </div>
+        <h1 class="display" id="btpTitle">
+          <span class="reveal-line"><span>BTP &amp; Rénovation.</span></span>
+          <span class="reveal-line"><span>Aucun devis ne reste <em>sans suite.</em></span></span>
+        </h1>
+        <p class="lede">
+          Récupérez les chantiers déjà chiffrés grâce à un suivi courtois J+3 / J+7 (jours ouvrés 08h30–19h00, max 2 relances) et une vigilance sur vos attestations Décennale et URSSAF.
+        </p>
+        <div class="hero-actions">
+          <a href="#cockpit" class="btn btn-primary">Tester le cockpit maintenant <span class="arrow" aria-hidden="true">→</span></a>
+          <a href="#simulateur" class="btn btn-ghost">Simuler mes devis récupérés</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= COCKPIT RELANCE DEVIS (FENÊTRE 3D COMET) ================= -->
+    <section class="comet-stage" id="cockpit" aria-labelledby="btpCockpitTitle">
+      <div class="wrap">
+        <h2 class="sr-only" id="btpCockpitTitle">Démonstrateur Cockpit Relance Devis BTP</h2>
+        <div class="comet-window" data-scroll-3d>
+          <div class="comet-chrome">
+            <div class="comet-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+            <span class="comet-address">cantara://espace/btp/cockpit-relance</span>
+            <span class="mono" style="color:var(--signal)">08h30–19h00 · Max 2 relances · Fictif</span>
+          </div>
+
+          <div class="comet-body">
+            <div class="intent-pills" role="tablist" aria-label="Choisir un devis fictif en attente">
+              <button type="button" class="intent-pill" role="tab" aria-selected="true" data-deal="0">DEV-148 · Isolation &amp; PAC (11 400 €)</button>
+              <button type="button" class="intent-pill" role="tab" aria-selected="false" data-deal="1">DEV-152 · Réfection toiture (18 900 €)</button>
+              <button type="button" class="intent-pill" role="tab" aria-selected="false" data-deal="2">DEV-159 · Salle de bain (6 850 €)</button>
+            </div>
+
+            <div class="comet-canvas" id="btpStage" aria-live="polite">
+              <!-- Rendu dynamique par btp-v3.js -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SIMULATEUR DEVIS RÉCUPÉRÉS ================= -->
+    <section class="section section-bordered" id="simulateur" aria-labelledby="btpSimTitle">
+      <div class="wrap">
+        <div class="section-head fade-up">
+          <div>
+            <span class="mono">[Test en direct sur CANTARA]</span>
+            <h2 class="h2" id="btpSimTitle">Estimez vos <em>devis récupérables.</em></h2>
+          </div>
+          <p class="lede">Entrez votre volume habituel de devis et votre panier moyen. Hypothèse prudente sans promesse automatique.</p>
+        </div>
+
+        <div class="panel-clean sim-split fade-up">
+          <div class="sim-left">
+            <div class="field">
+              <div class="field-row">
+                <label for="rVol">Devis envoyés chaque mois</label>
+                <output id="rVolOut" for="rVol">15 devis</output>
+              </div>
+              <input type="range" id="rVol" min="4" max="50" step="1" value="15">
+            </div>
+            <div class="field">
+              <div class="field-row">
+                <label for="rTicket">Montant moyen d'un devis (€)</label>
+                <output id="rTicketOut" for="rTicket">4 500 €</output>
+              </div>
+              <input type="range" id="rTicket" min="800" max="25000" step="100" value="4500">
+            </div>
+            <div class="field" style="margin-bottom:0">
+              <div class="field-row">
+                <label for="rRate">Devis récupérés par suivi J+3/J+7 (%)</label>
+                <output id="rRateOut" for="rRate">10 %</output>
+              </div>
+              <input type="range" id="rRate" min="5" max="25" step="1" value="10">
+            </div>
+          </div>
+
+          <div class="sim-right">
+            <div>
+              <span class="mono" style="color:var(--ink-stone)">[Potentiel brut mensuel]</span>
+              <div class="sim-big gain" id="rGain">+6 750 €</div>
+              <p id="rSummary" style="margin:.4rem 0 0;font-size:.94rem;color:var(--ink)"></p>
+            </div>
+            <p style="margin:0;font-size:.8rem;color:var(--ink-stone);border-top:1px dashed var(--edge-strong);padding-top:.85rem">
+              Calcul purement indicatif basé sur vos paramètres : 1 seul devis moyen récupéré amortit généralement la mise en place.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PASSERELLE ESPACE DÉDIÉ BTP ================= -->
+    <section class="section section-bordered" aria-labelledby="btpHandoffTitle">
+      <div class="wrap">
+        <div class="handoff-box fade-up">
+          <div>
+            <span class="mono">[Passerelle métier · Site dédié en préparation]</span>
+            <h2 class="h2" id="btpHandoffTitle" style="margin-top:.55rem">Deux paliers clairs,<br><em>zéro engagement captif.</em></h2>
+            <p class="lede" style="margin-top:1rem">
+              La plateforme dédiée BTP est en cours d'ouverture. En attendant son adresse propre, vous pouvez évaluer votre besoin en 3 minutes via le diagnostic CANTARA.
+            </p>
+            <ul class="handoff-list">
+              <li><span>Palier Essentiel (mise en route 72 h)</span><strong>390 € + 69 €/mois</strong></li>
+              <li><span>Déploiement Complet 7 jours + Conformité</span><strong>1 490 € (+190 €/mois opt.)</strong></li>
+            </ul>
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:.85rem">
+            <a href="index.html#diagnostic" class="btn btn-primary">
+              Faire le diagnostic (3 min) <span class="arrow" aria-hidden="true">→</span>
+            </a>
+            <a href="securite-privee.html" class="btn btn-ghost">
+              Voir l'espace Sécurité Privée
+            </a>
+            <p class="mono" style="margin:.4rem 0 0;line-height:1.6">
+              TVA non applicable (art. 293 B CGI) · Jours ouvrés 08h30–19h00 · Validation humaine systématique.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="index.html" style="color:var(--cream)">
+            <svg class="brand-mark" viewBox="0 0 26 26" fill="none" aria-hidden="true">
+              <rect x="6.5" y="6.5" width="13" height="13" stroke-width="1.35"/>
+              <path d="M13 1v24M1 13h24" stroke-width="1.1"/>
+            </svg>
+            <span class="brand-name">Cantara</span>
+          </a>
+          <p style="margin:.9rem 0 0;max-width:26rem">Espace BTP &amp; Rénovation · Relance de devis courtoise et conformité administrative en France.</p>
+        </div>
+        <div>
+          <p class="footer-title">Navigation</p>
+          <ul>
+            <li><a href="index.html">Accueil CANTARA</a></li>
+            <li><a href="securite-privee.html">Espace Sécurité Privée</a></li>
+            <li><a href="index.html#diagnostic">Diagnostic · 3 min</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-title">Informations</p>
+          <ul>
+            <li><a href="mentions.html">Mentions légales &amp; RGPD</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer-legal">
+        CANTARA (nom commercial provisoire) · Espace BTP &amp; Rénovation · France uniquement · Entreprise Individuelle SIREN 849 261 870
+      </p>
+    </div>
+  </footer>
+
+  <script src="comet.js" defer></script>
+  <script src="btp-v3.js" defer></script>
+</body>
+</html>
