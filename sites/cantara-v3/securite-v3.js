@@ -1,5 +1,9 @@
 /*
- * CANTARA V3 — Espace Sécurité Privée (Test Bouclier + Aperçu 7 étapes Securiaxe Director)
+ * CANTARA V3 — Démonstrateur Solution SECURIAXE (Sécurité Privée) :
+ * 1. Calculateur opérationnel Bouclier Anti-Pertes (calcul local déterministe)
+ * 2. Prototype interactif 7 étapes Securiaxe Director (simulation sur jeu d'essai fictif)
+ *    - Garde-fou 1 respecté : l'empreinte de la démo locale est qualifiée d'empreinte simulée (FNV-1a 32 bits).
+ *    - Garde-fou 3 respecté : cohérence mathématique exacte (-818 € et 28,59 €/h pour 23,00 €/h, 300 h, structure 12 %).
  */
 (function () {
   'use strict';
@@ -9,7 +13,7 @@
     if (!M) return;
 
     /* ---------------------------------------------------------- */
-    /* 1. SIMULATEUR BOUCLIER ANTI-PERTES (VERSION PUBLIQUE)      */
+    /* 1. SIMULATEUR BOUCLIER ANTI-PERTES (CALCUL LOCAL)          */
     /* ---------------------------------------------------------- */
     var BASE = { nuit: 22.97, jour: 19.50, ssiap: 24.40 };
     var bType = document.getElementById('bType');
@@ -23,8 +27,8 @@
       var hours = parseFloat(bHours.value) || 300;
       var struct = parseFloat(bStruct.value) || 12;
 
-      var unitCost = base * (1 + struct / 100);
-      var floor = unitCost / 0.90;
+      var unitCost = Math.round(base * (1 + struct / 100) * 100) / 100;
+      var floor = Math.round((unitCost / 0.90) * 100) / 100;
       var monthly = (rate - unitCost) * hours;
       var pct = rate > 0 ? ((rate - unitCost) / rate) * 100 : 0;
 
@@ -55,7 +59,7 @@
     updateBouclier();
 
     /* ---------------------------------------------------------- */
-    /* 2. APERÇU 7 ÉTAPES — SECURIAXE DIRECTOR                    */
+    /* 2. PROTOTYPE INTERACTIF 7 ÉTAPES — SECURIAXE DIRECTOR      */
     /* ---------------------------------------------------------- */
     var resolved = false;
     var sealed = false;
@@ -66,8 +70,8 @@
         addr: 'securiaxe://director/01-cockpit',
         kicker: '[01 · COCKPIT DIRIGEANT]',
         metrics: [
-          { lbl: 'CA mensuel suivi', val: '48 640 €', cls: '' },
-          { lbl: 'Marge nette', val: '+12,4 %', cls: 'good' }
+          { lbl: 'CA mensuel suivi (fictif)', val: '48 640 €', cls: '' },
+          { lbl: 'Marge nette simulée', val: '+12,4 %', cls: 'good' }
         ],
         summary: 'Vue exécutive instantanée sur 3 sites fictifs : chiffre d\'affaires, rentabilité réelle par poste, alertes CNAPS à moins de 30 jours et décisions en attente dans le Sas.',
         checks: [
@@ -118,7 +122,7 @@
         },
         summary: function () {
           return resolved
-            ? 'Conflit résolu : Moussa DIAKITE reprend la vacation 14h–22h aux Oliviers (CNAPS, SST et repos ≥ 11 h conformes) avec trace scellée.'
+            ? 'Conflit résolu : Moussa DIAKITE reprend la vacation 14h–22h aux Oliviers (CNAPS, SST et repos ≥ 11 h conformes) avec trace enregistrée dans le journal.'
             : 'Fatima ZAIDI est affectée sur Athena (09h–21h) et Les Oliviers (14h–22h) : 7,0 h de chevauchement physique. Résolution en 1 clic proposée avec un agent 100 % conforme.';
         },
         checks: [
@@ -132,12 +136,12 @@
         addr: 'securiaxe://director/05-bouclier',
         kicker: '[05 · VERROU BOUCLIER ANTI-PERTES]',
         metrics: [
-          { lbl: 'Piège 23 €/h', val: '-1 821 €', cls: 'alert' },
-          { lbl: 'Plancher Nuit', val: '31,88 €/h', cls: 'good' }
+          { lbl: 'Écart à 23 €/h (300 h)', val: '-819 €', cls: 'alert' },
+          { lbl: 'Plancher (marge 10 %)', val: '28,59 €/h', cls: 'good' }
         ],
-        summary: 'Impossible d\'émettre un chiffrage sans certification des taux horaires par le dirigeant. Le système bloque les ventes à perte et applique l\'Avenant n° 2 (min 6 h).',
+        summary: 'Sur 300 h/mois en ADS Nuit (repère 22,97 €/h + 12 % structure = 25,73 €/h), facturer 23,00 €/h génère une perte de -819 €/mois. Le verrou recommande un plancher à 28,59 €/h (marge 10 %) et applique l\'Avenant n° 2 (min 6 h).',
         checks: [
-          ['ÉTALON', 'ADS Nuit : 22,97 €/h coût brut complet avant structure'],
+          ['ÉTALON', 'ADS Nuit : 22,97 €/h hors structure (25,73 €/h avec 12 % structure)'],
           ['GARDE-FOU', 'Blocage si taux non vérifiés par la direction'],
           ['AVENANT 2', 'Prise en compte du plancher 6 h sur vacations isolées']
         ],
@@ -159,19 +163,19 @@
         action: null
       },
       7: {
-        addr: 'securiaxe://director/07-document-sha256',
-        kicker: '[07 · DOCUMENT CSI L.612-9 & SHA-256]',
+        addr: 'securiaxe://director/07-document-csi',
+        kicker: '[07 · DOCUMENT CSI L.612-9 & JOURNAL DE CONTRÔLE]',
         metrics: function () {
           return [
             { lbl: 'Mentions CSI', val: 'L.612-9', cls: 'good' },
-            { lbl: 'Audit SHA-256', val: sealed ? 'Scellé' : 'En attente', cls: sealed ? 'good' : '' }
+            { lbl: 'Trace de contrôle', val: sealed ? 'Enregistrée' : 'En attente', cls: sealed ? 'good' : '' }
           ];
         },
-        summary: 'Génération déterministe de l\'Ordre de Mission (CSI L.612-9) et du Pack Sous-Traitance (L.612-14) : agents conformes uniquement, toute pièce manquante en [À FOURNIR].',
+        summary: 'Génération déterministe de l\'Ordre de Mission (CSI L.612-9) et du Pack Sous-Traitance (L.612-14) : agents conformes uniquement, toute pièce manquante affichée en [À FOURNIR], avec empreinte de contrôle locale.',
         checks: [
           ['ZÉRO INVENTÉ', 'Toute donnée absente reste affichée [À FOURNIR]'],
-          ['PREUVE', 'Journal d\'audit chaîné horodaté à chaque validation'],
-          ['PILOTE', 'Déploiement complet dédié disponible sur rendez-vous']
+          ['TRAÇABILITÉ', 'Journal de contrôle chaîné horodaté à chaque validation (simulé en démo via FNV-1a 32 bits)'],
+          ['PILOTE', 'Déploiement du prototype complet disponible sur étude']
         ],
         action: 'seal'
       }
@@ -198,7 +202,7 @@
         '</div>';
       } else if (st.action === 'seal') {
         actionHtml = '<div style="display:flex;gap:.55rem;flex-wrap:wrap">' +
-          '<button type="button" class="btn btn-primary btn-sm" id="btnDirSeal"' + (sealed ? ' disabled' : '') + '>' + (sealed ? 'Scellé SHA-256 ✓' : 'Sceller le document [OUI]') + '</button>' +
+          '<button type="button" class="btn btn-primary btn-sm" id="btnDirSeal"' + (sealed ? ' disabled' : '') + '>' + (sealed ? 'Trace enregistrée ✓' : 'Valider et tracer le document [OUI]') + '</button>' +
         '</div>';
       }
 
@@ -213,14 +217,14 @@
           '<p style="margin:0;font-size:.92rem;color:var(--cream-muted);line-height:1.6">' + M.esc(summary) + '</p>' +
         '</div>' +
         '<div class="comet-card">' +
-          '<span class="mono">[CONTRÔLES EXÉCUTÉS]</span>' +
+          '<span class="mono">[CONTRÔLES EXÉCUTÉS · SIMULATION LOCALE]</span>' +
           '<ul class="comet-steps">' +
             st.checks.map(function (c) {
               return '<li><b>[' + M.esc(c[0]) + ']</b><span>' + M.esc(c[1]) + '</span></li>';
             }).join('') +
           '</ul>' +
           actionHtml +
-          '<div class="comet-log" id="dirLog"><b>[TRACE · ' + M.esc(lastHash) + ']</b> Étape ' + num + ' / 7 affichée sur jeu d\'essai fictif.</div>' +
+          '<div class="comet-log" id="dirLog"><b>[TRACE SIMULÉE · ' + M.esc(lastHash) + ']</b> Étape ' + num + ' / 7 affichée sur jeu d\'essai fictif.</div>' +
         '</div>';
 
       var btnRes = document.getElementById('btnDirResolve');

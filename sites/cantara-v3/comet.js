@@ -1,16 +1,20 @@
 /*
  * CANTARA V3 — Moteur cinétique Comet × ADN CANTARA (JS natif, 0 dépendance, 60 fps)
+ * - Configuration gelée (ENVIRONMENT: 'PREPROD', WEBHOOK_ENABLED: false)
+ * - Utilitaires : échappement XSS esc(), formatage monétaire fmtEur(), empreinte locale FNV-1a 32-bit hashDemo()
+ * - Suivi analytique local sans cookie des clics sortants (trackOutbound)
  * - Barre de progression de lecture + transition en-tête jour/nuit
  * - Fenêtre 3D qui se redresse au scroll (Comet Container Scroll Animation)
  * - Parallaxe douce des courbes orbitales
  * - Manifeste mot à mot illuminé au scroll
- * - Perspective tilt 3D subtile sur les cartes Espaces Métiers
+ * - Perspective tilt 3D subtile sur les cartes du Portfolio
  * - Menu mobile accessible (touche Échap + restauration du focus)
  */
 (function () {
   'use strict';
 
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var outboundEvents = [];
 
   window.CANTARA_MOTION = {
     CONFIG: Object.freeze({
@@ -18,6 +22,7 @@
       WEBHOOK_ENABLED: false,
       SECURIAXE_URL: 'https://naitconv-web.github.io/cos-operations-simulateur/boutique/'
     }),
+    reduceMotion: reduceMotion,
     esc: function (s) {
       return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
         return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[c];
@@ -28,6 +33,7 @@
       var sign = rounded < 0 ? '-' : '';
       return sign + Math.abs(rounded).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' €';
     },
+    /* Empreinte de contrôle locale simulée (algorithme déterministe FNV-1a 32 bits) */
     hashDemo: function (txt, prev) {
       var input = String(prev || 'GENESIS') + '|' + String(txt || '');
       var h = 0x811c9dc5;
@@ -35,7 +41,19 @@
         h ^= input.charCodeAt(i);
         h = Math.imul(h, 0x01000193) >>> 0;
       }
-      return h.toString(16).padStart(8, '0').toUpperCase();
+      return 'FNV32-' + h.toString(16).padStart(8, '0').toUpperCase();
+    },
+    trackOutbound: function (product, url) {
+      var evt = {
+        product: String(product || 'unknown'),
+        url: String(url || ''),
+        timestamp: new Date().toISOString()
+      };
+      outboundEvents.push(evt);
+      return evt;
+    },
+    getOutboundEvents: function () {
+      return outboundEvents.slice();
     }
   };
 
@@ -46,6 +64,17 @@
     var nights = Array.prototype.slice.call(document.querySelectorAll('.night'));
     var cometWindows = Array.prototype.slice.call(document.querySelectorAll('.comet-window[data-scroll-3d]'));
     var orbitBg = document.querySelector('.orbit-bg');
+
+    /* Suivi analytique sans cookie des clics sortants vers les sites métiers */
+    document.addEventListener('click', function (e) {
+      var link = e.target && e.target.closest ? e.target.closest('[data-outbound-product]') : null;
+      if (link) {
+        window.CANTARA_MOTION.trackOutbound(
+          link.getAttribute('data-outbound-product'),
+          link.getAttribute('href')
+        );
+      }
+    });
 
     /* Manifeste mot à mot (ADN CANTARA) */
     var manifesto = document.getElementById('manifesto');
@@ -107,12 +136,11 @@
         cometWindows.forEach(function (win) {
           var rect = win.getBoundingClientRect();
           var vh = window.innerHeight || 800;
-          /* p = 0 quand le haut arrive en bas d'écran, p = 1 quand le haut atteint 22% du viewport */
           var p = (vh - rect.top) / (vh * 0.78);
           p = Math.max(0, Math.min(1, p));
-          var rotX = (1 - p) * 10;
-          var scale = 0.945 + p * 0.055;
-          var ty = (1 - p) * 20;
+          var rotX = (1 - p) * 9;
+          var scale = 0.955 + p * 0.045;
+          var ty = (1 - p) * 18;
           win.style.transform = 'rotateX(' + rotX.toFixed(2) + 'deg) scale(' + scale.toFixed(4) + ') translate3d(0,' + ty.toFixed(1) + 'px,0)';
         });
 
@@ -139,15 +167,15 @@
     window.addEventListener('resize', onScroll);
     onScroll();
 
-    /* Perspective 3D Tilt douce façon Comet sur les cartes Espaces Métiers (desktop uniquement) */
+    /* Perspective 3D Tilt douce façon Comet sur les cartes du Portfolio (desktop uniquement) */
     if (!reduceMotion && window.matchMedia && window.matchMedia('(pointer: fine)').matches) {
       Array.prototype.slice.call(document.querySelectorAll('.tilt-card')).forEach(function (card) {
         card.addEventListener('mousemove', function (e) {
           var r = card.getBoundingClientRect();
           var rx = (e.clientX - r.left) / r.width;
           var ry = (e.clientY - r.top) / r.height;
-          var tiltY = (rx - 0.5) * 4.5;
-          var tiltX = (0.5 - ry) * 4.5;
+          var tiltY = (rx - 0.5) * 4;
+          var tiltX = (0.5 - ry) * 4;
           card.style.setProperty('--mx', (rx * 100).toFixed(1) + '%');
           card.style.setProperty('--my', (ry * 100).toFixed(1) + '%');
           card.style.transform = 'perspective(1100px) rotateX(' + tiltX.toFixed(2) + 'deg) rotateY(' + tiltY.toFixed(2) + 'deg) translateY(-3px)';
