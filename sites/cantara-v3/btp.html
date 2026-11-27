@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<!--
+  CANTARA — Démonstrateur Solution 02 : OMNIRENOV (BTP, Chantiers & Rénovation · France)
+  Présentation + Simulation de coordination de chantier & suivi de devis J+3/J+7 + Simulateur de potentiel.
+  Site métier indépendant : URL à confirmer (en préparation) · Orientation via la vitrine CANTARA.
+-->
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OMNIRENOV — Démonstrateur BTP, Chantiers &amp; Suivi Devis sur CANTARA</title>
+  <meta name="description" content="Explorez la démonstration OMNIRENOV sur CANTARA : coordination de chantier, contrôle des attestations Décennale et URSSAF, suivi courtois des devis J+3/J+7 et simulateur de potentiel.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#F4F3EE">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23161513'/%3E%3Cpath d='M16 6v20M6 16h20' stroke='%23F4F3EE' stroke-width='1.5'/%3E%3Crect x='10' y='10' width='12' height='12' fill='none' stroke='%23F4F3EE' stroke-width='1.5'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="comet.css">
+</head>
+<body>
+  <a class="skip" href="#main">Aller au contenu principal</a>
+  <div class="scroll-rail" aria-hidden="true"><i></i></div>
+
+  <header class="site-header" id="siteHeader">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html">
+        <svg class="brand-mark" viewBox="0 0 26 26" fill="none" aria-hidden="true">
+          <rect x="6.5" y="6.5" width="13" height="13" stroke-width="1.35"/>
+          <path d="M13 1v24M1 13h24" stroke-width="1.1"/>
+        </svg>
+        <span class="brand-name">Cantara</span>
+        <span class="brand-note">Solution Omnirenov</span>
+      </a>
+      <nav class="nav" id="mainNav" aria-label="Navigation principale">
+        <a href="index.html">Vitrine CANTARA</a>
+        <a href="securite-privee.html">Securiaxe (Sécurité)</a>
+        <a href="btp.html" aria-current="page">Omnirenov (BTP)</a>
+        <a href="index.html#lab">Cantara Lab</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="index.html#contact" class="btn btn-primary btn-sm nav-cta">Demander une démonstration</a>
+      </nav>
+      <a href="index.html#contact" class="btn btn-primary btn-sm header-cta">Demander une démo →</a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mainNav">Menu</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ================= HERO SOLUTION OMNIRENOV ================= -->
+    <section class="hero-comet" aria-labelledby="btpTitle">
+      <svg class="orbit-bg" viewBox="0 0 1440 700" fill="none" preserveAspectRatio="xMidYMin slice" aria-hidden="true">
+        <path d="M -80 480 Q 700 60 1520 390" stroke="#CCCAC0" stroke-width="1"/>
+        <path d="M -100 310 Q 720 630 1540 170" stroke="#D8D6CD" stroke-width="1" stroke-dasharray="4 6"/>
+        <circle r="3.4" fill="#9A3412">
+          <animateMotion dur="15s" repeatCount="indefinite" path="M -80 480 Q 700 60 1520 390"/>
+        </circle>
+      </svg>
+
+      <div class="wrap">
+        <div class="hero-kicker mono">
+          <i style="background:var(--accent-btp)" aria-hidden="true"></i>
+          <span>Portfolio CANTARA · Solution OMNIRENOV (BTP, Chantiers &amp; Rénovation)</span>
+        </div>
+        <h1 class="display" id="btpTitle">
+          <span class="reveal-line"><span>OMNIRENOV.</span></span>
+          <span class="reveal-line"><span>Coordonnez vos chantiers, <em>suivez chaque devis.</em></span></span>
+        </h1>
+        <p class="lede">
+          Démonstration simulée de gestion opérationnelle de chantier, de vérification des attestations légales (Décennale et vigilance URSSAF) et de suivi courtois des devis en attente (J+3 / J+7, créneaux ouvrés 08h30–19h00, validation humaine systématique).
+        </p>
+        <div class="hero-actions">
+          <a href="#cockpit" class="btn btn-primary">Tester la simulation Omnirenov <span class="arrow" aria-hidden="true">→</span></a>
+          <a href="#simulateur" class="btn btn-ghost">Calculateur de devis récupérables</a>
+        </div>
+        <div class="hero-pillars" aria-label="Engagements CANTARA">
+          <span>Proximité</span>
+          <span>Confidentialité</span>
+          <span>Fiabilité</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= COCKPIT OMNIRENOV : CHANTIER & SUIVI DEVIS (FENÊTRE 3D COMET) ================= -->
+    <section class="comet-stage" id="cockpit" aria-labelledby="btpCockpitTitle" style="padding-bottom:clamp(4rem,8vw,6.5rem)">
+      <div class="wrap">
+        <div class="section-head fade-up">
+          <div>
+            <div style="display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;margin-bottom:.35rem">
+              <span class="mono">[Démonstration interactive sur CANTARA]</span>
+              <span class="status-badge sim">Simulation · Scénario sur données fictives</span>
+            </div>
+            <h2 class="h2" id="btpCockpitTitle">Coordination de chantier <em>&amp; suivi de devis.</em></h2>
+          </div>
+          <p class="lede">Sélectionnez l'un des trois dossiers travaux fictifs pour inspecter la conformité des intervenants, l'état d'avancement du lot et le brouillon de relance soumis au Sas dirigeant.</p>
+        </div>
+
+        <div class="comet-window" data-scroll-3d>
+          <div class="comet-chrome">
+            <div class="comet-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+            <span class="comet-address">omnirenov://cockpit/chantiers-et-devis</span>
+            <span class="status-badge sim">Simulation · 08h30–19h00 · Max 2 relances · Fictif</span>
+          </div>
+
+          <div class="comet-body">
+            <div class="intent-pills" role="tablist" aria-label="Choisir un dossier chantier et devis fictif">
+              <button type="button" class="intent-pill" role="tab" aria-selected="true" data-deal="0">DEV-148 · Isolation &amp; PAC (11 400 €)</button>
+              <button type="button" class="intent-pill" role="tab" aria-selected="false" data-deal="1">DEV-152 · Charpente &amp; Toiture (18 900 €)</button>
+              <button type="button" class="intent-pill" role="tab" aria-selected="false" data-deal="2">DEV-159 · Rénovation intérieure (6 850 €)</button>
+            </div>
+
+            <div class="comet-canvas" id="btpStage" aria-live="polite">
+              <!-- Rendu dynamique par btp-v3.js -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SIMULATEUR DEVIS RÉCUPÉRÉS ================= -->
+    <section class="section section-bordered" id="simulateur" aria-labelledby="btpSimTitle">
+      <div class="wrap">
+        <div class="section-head fade-up">
+          <div>
+            <div style="display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;margin-bottom:.35rem">
+              <span class="mono">[Calculateur déterministe sur CANTARA]</span>
+              <span class="status-badge op">Fonctionnalité opérationnelle · Calcul local</span>
+            </div>
+            <h2 class="h2" id="btpSimTitle">Estimez vos <em>devis récupérables.</em></h2>
+          </div>
+          <p class="lede">Entrez votre volume habituel de devis mensuels et votre montant moyen de chantier. Calcul mathématique local sans promesse automatique.</p>
+        </div>
+
+        <div class="panel-clean sim-split fade-up">
+          <div class="sim-left">
+            <div class="field">
+              <div class="field-row">
+                <label for="rVol">Devis envoyés chaque mois</label>
+                <output id="rVolOut" for="rVol">15 devis</output>
+              </div>
+              <input type="range" id="rVol" min="4" max="50" step="1" value="15">
+            </div>
+            <div class="field">
+              <div class="field-row">
+                <label for="rTicket">Montant moyen d'un devis (€)</label>
+                <output id="rTicketOut" for="rTicket">4 500 €</output>
+              </div>
+              <input type="range" id="rTicket" min="800" max="25000" step="100" value="4500">
+            </div>
+            <div class="field" style="margin-bottom:0">
+              <div class="field-row">
+                <label for="rRate">Devis récupérés par suivi J+3/J+7 (%)</label>
+                <output id="rRateOut" for="rRate">10 %</output>
+              </div>
+              <input type="range" id="rRate" min="5" max="25" step="1" value="10">
+            </div>
+          </div>
+
+          <div class="sim-right">
+            <div>
+              <span class="mono" style="color:var(--ink-stone)">[Potentiel brut mensuel]</span>
+              <div class="sim-big gain" id="rGain">+6 750 €</div>
+              <p id="rSummary" style="margin:.4rem 0 0;font-size:.94rem;color:var(--ink)"></p>
+            </div>
+            <p style="margin:0;font-size:.8rem;color:var(--ink-stone);border-top:1px dashed var(--edge-strong);padding-top:.85rem">
+              Calcul purement indicatif basé sur vos paramètres : 1 seul chantier moyen récupéré amortit généralement la mise en place.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PASSERELLE OMNIRENOV ================= -->
+    <section class="section section-bordered" aria-labelledby="btpHandoffTitle">
+      <div class="wrap">
+        <div class="handoff-box fade-up">
+          <div>
+            <div style="display:flex;align-items:center;gap:.6rem;flex-wrap:wrap">
+              <span class="mono">[Passerelle métier · OMNIRENOV]</span>
+              <span class="status-badge sim">Site dédié : URL à confirmer</span>
+            </div>
+            <h2 class="h2" id="btpHandoffTitle" style="margin-top:.55rem">Déployer OMNIRENOV<br><em>dans votre structure.</em></h2>
+            <p class="lede" style="margin-top:1rem">
+              Le site métier indépendant <strong>Omnirenov</strong> est en cours d'ouverture (URL officielle à confirmer). Vous pouvez dès aujourd'hui demander une démonstration appliquée à vos dossiers ou un déploiement accompagné via CANTARA.
+            </p>
+            <ul class="handoff-list">
+              <li><span>Palier Essentiel (mise en route 72 h)</span><strong>390 € + 69 €/mois</strong></li>
+              <li><span>Déploiement Complet 7 jours + Conformité chantier</span><strong>1 490 € (+190 €/mois opt.)</strong></li>
+            </ul>
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:.85rem">
+            <a href="index.html#contact" class="btn btn-primary">
+              <span>Demander une démonstration Omnirenov</span>
+              <span class="arrow" aria-hidden="true">→</span>
+            </a>
+            <a href="securite-privee.html" class="btn btn-ghost">
+              Découvrir la solution Securiaxe
+            </a>
+            <p class="mono" style="margin:.4rem 0 0;line-height:1.6">
+              TVA non applicable (art. 293 B CGI) · Jours ouvrés 08h30–19h00 · Validation humaine systématique.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="index.html" style="color:var(--cream)">
+            <svg class="brand-mark" viewBox="0 0 26 26" fill="none" aria-hidden="true">
+              <rect x="6.5" y="6.5" width="13" height="13" stroke-width="1.35"/>
+              <path d="M13 1v24M1 13h24" stroke-width="1.1"/>
+            </svg>
+            <span class="brand-name">Cantara</span>
+          </a>
+          <p style="margin:.8rem 0 .4rem;color:var(--cream);font-family:var(--serif);font-size:1.15rem">L'ingénierie au service de votre performance.</p>
+          <p class="mono" style="margin:0">Proximité · Confidentialité · Fiabilité</p>
+        </div>
+        <div>
+          <p class="footer-title">Vitrine CANTARA</p>
+          <ul>
+            <li><a href="index.html#ingenierie">Notre ingénierie</a></li>
+            <li><a href="index.html#portfolio">Portfolio des solutions</a></li>
+            <li><a href="index.html#lab">CANTARA LAB</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-title">Solutions métiers</p>
+          <ul>
+            <li><a href="securite-privee.html">SECURIAXE (Sécurité privée)</a></li>
+            <li><a href="btp.html">OMNIRENOV (BTP &amp; rénovation)</a></li>
+            <li><a href="index.html#portfolio">OMNIPATRIMOINE (En incubation)</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-title">Contact &amp; Légal</p>
+          <ul>
+            <li><a href="index.html#contact">Demander une consultation</a></li>
+            <li><a href="mentions.html">Mentions légales &amp; RGPD</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer-legal">
+        CANTARA (marque institutionnelle provisoire) · Solution OMNIRENOV · France uniquement · Entreprise Individuelle SIREN 849 261 870
+      </p>
+    </div>
+  </footer>
+
+  <script src="comet.js" defer></script>
+  <script src="btp-v3.js" defer></script>
+</body>
+</html>
