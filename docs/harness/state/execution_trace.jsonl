@@ -138,3 +138,4 @@
 {"timestamp_utc": "2026-11-27T02:56:42Z", "mission_id": "AGIA-011", "agent_runtime": "Antigravity-HarnessCtl", "event_type": "PREFLIGHT_OK", "details": {"branch": "main", "head": "c2d1ada", "facts_count": 8, "franchise_charter_v2": true}}
 {"timestamp_utc": "2026-11-27T03:41:12Z", "mission_id": "CANTARA-V3-ANTI-SLOP", "agent_runtime": "Antigravity-HarnessCtl", "event_type": "CHECKPOINT_CREATED", "details": {"checkpoint": "CP-CANTARA-V3-ANTI-SLOP.json", "files_count": 13}}
 {"timestamp_utc": "2026-11-27T03:41:30Z", "mission_id": "CANTARA-V3-ANTI-SLOP", "agent_runtime": "Antigravity-HarnessCtl", "event_type": "CHECKPOINT_CREATED", "details": {"checkpoint": "CP-CANTARA-V3-ANTI-SLOP.json", "files_count": 13}}
+{"timestamp_utc": "2026-11-27T07:38:44Z", "mission_id": "CANTARA-V3-ECOSYSTEM", "agent_runtime": "Antigravity-HarnessCtl", "event_type": "CHECKPOINT_CREATED", "details": {"checkpoint": "CP-CANTARA-V3-ECOSYSTEM.json", "files_count": 13}}

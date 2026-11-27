@@ -1,149 +1,127 @@
-# RAPPORT FINAL — CANTARA V3 : AI SLOP REMOVAL (HUMANISATION INTÉGRALE)
+# RAPPORT FINAL — CANTARA V3 (AI SLOP REMOVAL) & SITES PRODUITS INDÉPENDANTS (SECURIAXE & OMNIRENOV)
 
 - **Autorité :** PDG
-- **Périmètre :** Intégralité des pages, feuilles de style et scripts de [`sites/cantara-v3/`](file:///home/antigravity/naitconv-web/agia-infrastructure/sites/cantara-v3)
-- **Surveillance indépendante :** Sous-agent `cantara_qa_guardian` (Session [50f849bddb4755f23b9a2d456a91031b](conversation://50f849bddb4755f23b9a2d456a91031b))
-- **Commit de livraison :** `152ded3` (`152ded3670581031c7d5a4561c61d384cccd91d5`) sur `main` et `cantara/v3-epure-comet`
-- **URL publique déployée (GitHub Pages) :** https://naitconv-web.github.io/agia-infrastructure/sites/cantara-v3/
+- **Périmètre :**
+  1. Vitrine institutionnelle & démonstrateurs [`sites/cantara-v3/`](file:///home/antigravity/naitconv-web/agia-infrastructure/sites/cantara-v3) (Commit `152ded3`)
+  2. Chantier 1 — Site produit indépendant **SECURIAXE (Offres B2B & Proforma)** [`sites/boutique/`](file:///home/antigravity/naitconv-web/agia-infrastructure/sites/boutique) (Commit `21294d0`)
+  3. Chantier 2 — Site produit indépendant **OMNIRENOV (BTP, Chantiers 6 jalons & Vigilance)** [`sites/omnirenov/`](file:///home/antigravity/naitconv-web/agia-infrastructure/sites/omnirenov) (Commit `21294d0`)
+- **Surveillance indépendante :** Sous-agent `cantara_qa_guardian` (Sessions [50f849bddb4755f23b9a2d456a91031b](conversation://50f849bddb4755f23b9a2d456a91031b) et [11512470572440a65340858bc31d859c](conversation://11512470572440a65340858bc31d859c))
+- **URL publiques déployées (GitHub Pages) :**
+  - **Vitrine CANTARA V3 :** https://naitconv-web.github.io/agia-infrastructure/sites/cantara-v3/
+  - **Boutique & Proforma SECURIAXE :** https://naitconv-web.github.io/agia-infrastructure/sites/boutique/ (et https://naitconv-web.github.io/cos-operations-simulateur/boutique/)
+  - **Site produit OMNIRENOV (BTP) :** https://naitconv-web.github.io/agia-infrastructure/sites/omnirenov/
 
 > [!IMPORTANT]
-> **Verdict final du sous-agent indépendant `cantara_qa_guardian` :** **GO VALIDÉ (100 %)**.
-> Les **64 marqueurs de crochets pseudo-techniques `[...]`**, les **14 répétitions mécaniques d'italique en fin de titre (`<em>mot.</em>`)**, les **fausses URL de protocole (`cantara://`, `securiaxe://`, `omnirenov://`, `omnipatrimoine://`)**, les **faux boutons macOS (`.comet-dots`)**, la **taxonomie interne de prompt (`Famille A` à `Famille F`, `Cas d'application` ×9)**, les **grilles de cartes répétitives à 3 colonnes** et les **gadgets 3D/halo curseur** ont été intégralement éliminés.
+> **Verdict final du sous-agent indépendant `cantara_qa_guardian` :** **GO VALIDÉ (100 %)** sur l'ensemble des 3 espaces (`cantara-v3/`, `boutique/`, `omnirenov/`).
+> Zéro occurrence de `SYNTESIA` ou `OMNISECUR`, zéro crochet pseudo-technique `[...]`, zéro italique mécanique en fin de titre, zéro fausse URL (`cantara://`, `securiaxe://`, `omnirenov://`), zéro `.comet-dots`, zéro fuite des coordonnées personnelles du dirigeant hors [`mentions.html`](file:///home/antigravity/naitconv-web/agia-infrastructure/sites/cantara-v3/mentions.html), et **0 violation WCAG 2.1/2.2 AA** sur les 6 pages (Desktop et Mobile Android).
 
 ---
 
-## LIVRABLE 1 — INVENTAIRE DES MARQUEURS « AI SLOP » DÉTECTÉS (CLASSÉS P0 / P1 / P2)
+## LIVRABLE 1 — INVENTAIRE DES MARQUEURS « AI SLOP » DÉTECTÉS ET ÉLIMINÉS (P0 / P1 / P2)
 
-L'audit initial mené conjointement avec le sous-agent indépendant `cantara_qa_guardian` ([50f849bddb4755f23b9a2d456a91031b](conversation://50f849bddb4755f23b9a2d456a91031b)) a recensé et classé les défauts suivants selon leur impact sur la crédibilité d'une agence d'ingénierie haut de gamme :
-
-| Priorité | Code | Marqueur « AI Slop » identifié | Occurrences avant correction | Impact sur la crédibilité commerciale |
+| Priorité | Code | Marqueur « AI Slop » ou défaut identifié | Occurrences éliminées | Impact sur la crédibilité commerciale |
 | :---: | :---: | :--- | :---: | :--- |
-| **P0** | **P0-1** | **Abus de crochets pseudo-techniques `[...]`** dans les surtitres (`[ 01 / NOTRE INGÉNIERIE ]`), étiquettes (`[ PILIER 01 ]` à `[ PILIER 09 ]`), boutons (`[ APPROUVER & ARCHIVER ]`, `[ BLOQUER LE DOSSIER ]`) et alertes (`[EXCEPTION INTERCEPTÉE]`). | **64** occurrences (HTML + JS) | Donne l'impression immédiate d'un gabarit sci-fi ou cyber-SaaS généré automatiquement par un LLM. |
-| **P0** | **P0-2** | **Tic typographique mécanique `Romain + <em>dernier mot en italique avec point.</em>`** répété sur la quasi-totalité des titres `h1`, `h2` et `h3` des 4 pages. | **15** titres (dont 14 hors signature Hero) | Signature typique des landing pages produites en série par prompt ; annule la hiérarchie éditoriale. |
-| **P0** | **P0-3** | **Faux navigateur macOS (`.comet-dots` rouge/jaune/vert) et fausses URL de protocole** (`cantara://lab/...`, `securiaxe://director/...`, `omnirenov://cockpit/...`, `omnipatrimoine://...`). | **4** barres + **9** fausses URL | Artifice visuel factice qui décrédibilise des démonstrations techniques pourtant fondées sur de vrais calculs. |
-| **P1** | **P1-1** | **Fuite de la nomenclature interne du cahier des charges dans l'interface :** onglets `Famille F`, `Famille A`... dans le LAB ; préfixe `Cas d'application :` répété 9 fois ; cartes Portfolio découpées en 3 sous-boîtes scolaires (`Problématique métier / Proposition de valeur / Niveau de maturité`). | **21** occurrences | Révèle la structure du prompt initial au lieu de s'adresser à un dirigeant dans son langage métier. |
-| **P1** | **P1-2** | **Monotonie structurelle des grilles de cartes à 3 colonnes et gadgets SaaS :** répétition de `grid-template-columns: repeat(3, 1fr)` sur `#ingenierie`, `#portfolio` et `#services` ; halo radial suivant la souris (`.tilt-card::before`) ; bascule 3D au survol et `rotateX` au défilement. | **3** sections consécutives + **2** scripts d'effet 3D | Aspect « template IA interchangeable » incompatible avec la sobriété d'un cabinet d'ingénierie. |
-| **P1** | **P1-3** | **Uniformité visuelle des 6 postes du CANTARA LAB :** tous les métiers utilisaient les mêmes cartes `.inspect-block` génériques au lieu de tables de gestion propres à chaque secteur. | **6** postes uniformes | Réduit l'effet de maîtrise sectorielle (comptabilité, sécurité privée, BTP, patrimoine, commerce, hôtellerie). |
-| **P2** | **P2-1** | **Icônes Unicode multimédias (`▶`, `⏸`, `⚡`, `↺`, `✓`) et empreintes brutes `FNV32-XXXXXXXX`** affichées dans les boutons et journaux de simulation. | **14** occurrences | Bruit visuel artificiel dans les postes de démonstration. |
+| **P0** | **P0-1** | **Abus de crochets pseudo-techniques `[...]`** dans les surtitres, étiquettes, boutons, alertes et modèles Proforma (`cantara-v3/` et `boutique/`). | **68** occurrences | Supprime l'aspect « gabarit cyber-SaaS généré par prompt ». |
+| **P0** | **P0-2** | **Tic typographique mécanique `Romain + <em>dernier mot en italique avec point.</em>`** répété sur les titres `h1`, `h2` et `h3`. | **14** titres corrigés | Rétablit une hiérarchie éditoriale sobre ; l'italique est réservé exclusivement à la signature Hero (« L'ingénierie au service de votre *performance.* »). |
+| **P0** | **P0-3** | **Faux navigateur macOS (`.comet-dots` rouge/jaune/vert) et fausses URL de protocole** (`cantara://`, `securiaxe://`, `omnirenov://`, `omnipatrimoine://`). | **4** barres + **9** fausses URL | Remplacés par des bandeaux de poste de travail métier (`.workstation-brand`). |
+| **P0** | **P0-4** | **Traces résiduelles `SYNTESIA` / `OMNISECUR`, chemins CSS/JS cassés (`../styles.css`, `../site-config.js`) et exposition d'`Albi (81)` dans `sites/boutique/`.** | **100 %** purgés | Alignement complet de la boutique Securiaxe avec l'identité CANTARA V3 et cloisonnement strict des coordonnées personnelles dans `mentions.html`. |
+| **P1** | **P1-1** | **Fuite de la nomenclature interne du cahier des charges** (`Famille A` à `Famille F`, `Cas d'application :` ×9, sous-boîtes scolaires du Portfolio). | **21** occurrences | Remplacés par des intitulés sectoriels directs et des tables de spécifications d'édition logicielle (`.spec-table`). |
+| **P1** | **P1-2** | **Monotonie des grilles de cartes à 3 colonnes et gadgets 3D/halo curseur** (`.tilt-card::before`, `mousemove` 3D tilt, `rotateX` au scroll). | **3** sections + **2** scripts 3D | Diversification architecturale : Hero asymétrique (`.hero-layout`), Registre tabulaire 4 colonnes (`.eng-ledger`), Fiches d'édition (`.spec-table`), Mise en page éditoriale asymétrique (`.services-editorial`). |
+| **P1** | **P1-3** | **Uniformité des démonstrateurs du CANTARA LAB** et absence de site produit dédié **Omnirenov**. | **6** postes + **1** site produit créé | Création de 6 tables d'exploitation métier (`.ops-table`) dans le LAB et création du site produit indépendant [`sites/omnirenov/`](file:///home/antigravity/naitconv-web/agia-infrastructure/sites/omnirenov/index.html). |
+| **P2** | **P2-1** | **Icônes Unicode multimédias (`▶`, `⏸`, `⚡`, `↺`, `✓`) et empreintes brutes `FNV32-XXXXXXXX`** visibles dans l'interface. | **14** occurrences | Remplacés par des verbes d'action explicites en français. |
 
 ---
 
-## LIVRABLE 2 — REGISTRE DES CORRECTIONS EFFECTUÉES
+## LIVRABLE 2 — REGISTRE DES CORRECTIONS ET DES DEUX CHANTIERS PRODUITS
 
-### 2.1. Refonte de la direction artistique et de l'architecture CSS/JS ([`comet.css`](file:///home/antigravity/naitconv-web/agia-infrastructure/sites/cantara-v3/comet.css), [`comet.js`](file:///home/antigravity/naitconv-web/agia-infrastructure/sites/cantara-v3/comet.js))
+### 2.1. Chantier 1 — Alignement et humanisation de la boutique SECURIAXE ([`sites/boutique/`](file:///home/antigravity/naitconv-web/agia-infrastructure/sites/boutique))
+- **Correction des chemins d'assets et de navigation ([`sites/boutique/index.html`](file:///home/antigravity/naitconv-web/agia-infrastructure/sites/boutique/index.html)) :**
+  - Chargement de `styles.css` et `site-config.js` en chemins relatifs directs (suppression des 404 `../styles.css` et `../site-config.js`).
+  - Raccordement des polices auto-hébergées `../cantara-v3/fonts/*.woff2` (`Instrument Serif`, `Plus Jakarta Sans`, `JetBrains Mono`) dans [`sites/boutique/styles.css`](file:///home/antigravity/naitconv-web/agia-infrastructure/sites/boutique/styles.css) avec renforcement des contrastes WCAG 2.1/2.2 AA (`--ink-soft: #57544E`, `--emerald: #365314`).
+  - Liens de navigation bidirectionnels vers `../cantara-v3/securite-privee.html#bouclier`, `../cantara-v3/securite-privee.html#director`, `../cantara-v3/index.html` et `../cantara-v3/mentions.html`.
+- **Purge intégrale des anciennes marques et protection des données personnelles ([`sites/boutique/site-config.js`](file:///home/antigravity/naitconv-web/agia-infrastructure/sites/boutique/site-config.js), [`sites/boutique/boutique.js`](file:///home/antigravity/naitconv-web/agia-infrastructure/sites/boutique/boutique.js)) :**
+  - Remplacement de `SYNTESIA` et `OMNISECUR_CONFIG` par `Securiaxe — Solution CANTARA` et `SECURIAXE_CONFIG`.
+  - Retrait d'`Albi (81)`, `nait.conv@gmail.com` et `+33 6 17 17 99 74` de l'affichage public par défaut (renvoi vers `Mentions légales`, tout en conservant le tiroir opérateur local `?admin=1`).
+  - Suppression de l'allégation non vérifiée « purge sous 30 jours » et remplacement de tous les crochets `[...]` du modèle Proforma A4 par des parenthèses.
 
-1. **Suppression totale des gadgets visuels SaaS :**
-   - Suppression du halo lumineux suivant le curseur (`.tilt-card::before`).
-   - Suppression de la rotation 3D `perspective(1100px) rotateX(...) rotateY(...)` au survol de la souris et de l'inclinaison `rotateX` au scroll dans [`comet.js`](file:///home/antigravity/naitconv-web/agia-infrastructure/sites/cantara-v3/comet.js#L1-L78).
-   - Suppression des faux boutons de fenêtre `.comet-dots`.
-2. **Diversification architecturale des sections (fin de la répétition des grilles de 3 cartes) :**
-   - **Hero asymétrique éditorial (`.hero-layout`) :** composition en 2 colonnes (`1.25fr / 0.75fr`) séparées par un filet vertical architectural, avec la signature et les 2 CTA à gauche, et le texte de cadrage + les 3 engagements (`Proximité · Confidentialité · Fiabilité`) dans la colonne `.hero-aside` à droite.
-   - **Section `01 — Ingénierie & architecture` en Registre tabulaire (`.eng-ledger`) :** remplacement de la grille de 9 boîtes par un registre architectural à 4 colonnes (`Réf. 01..09`, `Domaine d'intervention`, `Méthode & fonctionnement opérationnel`, `Livrable & application concrète`).
-   - **Section `02 — Portfolio des solutions` en Fiches d'édition logicielle (`.spec-table`) :** remplacement des 3 sous-boîtes scolaires et du faux terminal sombre par un texte éditorial suivi d'une table de spécifications (`Périmètre fonctionnel`, `Démonstration locale`, `État & accès`).
-   - **Section `03 — Atelier de démonstration (CANTARA LAB)` en Poste de travail métier (`.workstation-brand` + `.ops-table`) :** bandeau d'identification sobre et tables d'exploitation propres à chaque secteur.
-   - **Section `04 — Services & accompagnement` en Mise en page éditoriale asymétrique (`.services-editorial`) :** colonne d'introduction fixe à gauche (`0.75fr`) et 3 chapitres horizontaux numérotés à droite (`1.25fr`).
-
-### 2.2. Humanisation éditoriale et métier des 4 pages HTML et des 3 moteurs JS
-
-- **[`index.html`](file:///home/antigravity/naitconv-web/agia-infrastructure/sites/cantara-v3/index.html) & [`home-v3.js`](file:///home/antigravity/naitconv-web/agia-infrastructure/sites/cantara-v3/home-v3.js) :**
-  - Élimination de tous les crochets `[...]` et de tous les italiques mécaniques `<em>mot.</em>` sur les titres de section (conservé uniquement sur la signature Hero : « L'ingénierie au service de votre *performance.* »).
-  - Renommage des 6 onglets du CANTARA LAB avec des intitulés métiers explicites : `Services & finance`, `Sécurité privée (Securiaxe)`, `BTP & chantiers (Omnirenov)`, `Patrimoine (Omnipatrimoine)`, `Commerce & stocks`, `Hôtellerie & restauration`.
-  - Création de **6 tables d'exploitation sectorielles (`.ops-table`)** dans [`home-v3.js`](file:///home/antigravity/naitconv-web/agia-infrastructure/sites/cantara-v3/home-v3.js) :
-    1. *Services & finance :* Table de rapprochement comptable 3 voies (`BC-104` / `BL-209` / `FAC-8841`) et matrice d'examen de cahier des charges (`300 h Nuit`).
-    2. *Sécurité privée :* Grille horaire de contrôle des vacations (détection du chevauchement `07 h 00 < 11 h` sur `M. BENALI`) et table de décomposition du coût horaire (`22,97 €/h` → `25,73 €/h` → `28,59 €/h`).
-    3. *BTP & chantiers :* Registre des pièces réglementaires des sous-traitants (alerte URSSAF) et journal des 6 jalons de chantier.
-    4. *Patrimoine (En incubation) :* Table de diagnostic de concentration par horizon de liquidité et registre de vérification documentaire.
-    5. *Commerce & stocks :* Compte d'exploitation unitaire (`SKU-408`) et table de couverture logistique / réapprovisionnement.
-    6. *Hôtellerie & restauration :* Registre de couverture des services (`Service du midi`, `Service du soir`, `Réception & étages`) et table de traitement de la réclamation `CH-204`.
-- **[`securite-privee.html`](file:///home/antigravity/naitconv-web/agia-infrastructure/sites/cantara-v3/securite-privee.html) & [`securite-v3.js`](file:///home/antigravity/naitconv-web/agia-infrastructure/sites/cantara-v3/securite-v3.js) :**
-  - Suppression des crochets, des italiques automatiques, de `.comet-dots` et de la fausse URL `securiaxe://director/...`.
-  - Remplacement des cartes génériques de Securiaxe Director par une table de contrôle opérationnel à chaque étape (`Affectation`, `Conformité`, `Facturation`, `Remplacement d'urgence`).
-- **[`btp.html`](file:///home/antigravity/naitconv-web/agia-infrastructure/sites/cantara-v3/btp.html) & [`btp-v3.js`](file:///home/antigravity/naitconv-web/agia-infrastructure/sites/cantara-v3/btp-v3.js) :**
-  - Suppression des crochets, des italiques automatiques, de `.comet-dots` et de la fausse URL `omnirenov://relance-devis/...`.
-  - Structuration du dossier chantier (Lyon, Bordeaux, Toulouse) autour d'une table de qualification technique et de chiffrage HT.
-- **[`mentions.html`](file:///home/antigravity/naitconv-web/agia-infrastructure/sites/cantara-v3/mentions.html) :**
-  - Suppression des crochets `[ CADRE JURIDIQUE & CONFIDENTIALITÉ ]` et de l'italique mécanique, maintien intégral des mentions légales obligatoires (`Mounir NAIT MOHAND EI`, `81000 Albi`, `nait.conv@gmail.com`, `+33 6 17 17 99 74`).
+### 2.2. Chantier 2 — Création du site produit indépendant OMNIRENOV ([`sites/omnirenov/`](file:///home/antigravity/naitconv-web/agia-infrastructure/sites/omnirenov))
+- **[`sites/omnirenov/index.html`](file:///home/antigravity/naitconv-web/agia-infrastructure/sites/omnirenov/index.html) & [`sites/omnirenov/omnirenov.js`](file:///home/antigravity/naitconv-web/agia-infrastructure/sites/omnirenov/omnirenov.js) :**
+  - **Hero éditorial asymétrique (`.hero-layout`)** avec statut transparent `Prototype · Démonstration locale & Cadrage pilote`, signature CANTARA et engagements.
+  - **Section `01 — Architecture par filière` (`.eng-ledger` à 4 colonnes) :** distinction opérationnelle entre `01. Rénovation & Second Œuvre`, `02. Bâtiment Neuf & Gros Œuvre`, `03. Travaux Publics, VRD & Génie Civil` et `04. Compatibilité logicielle (Batigest, Obat, EBP, Onaya, Tolteck, Excel) & bienséance (08h30–19h00, max 2 relances)`.
+  - **Section `02 — Poste de démonstration n° 1` (Cockpit Chantier 6 jalons & Vigilance Sous-Traitants) :** simulation interactive sur 2 opérations fictives (Lyon Part-Dieu `420 000 € HT` et Bordeaux Caudéran `185 000 € HT`) avec table `.ops-table` de contrôle URSSAF / Décennale / DC4 et déblocage de situation après validation humaine.
+  - **Section `03 — Poste de démonstration n° 2` (Simulateur de devis en sommeil) :** calcul temps réel du chiffre d'affaires mensuel immobilisé dans les devis sans réponse à J+15 et du potentiel sur 10 % de reprise.
+  - **Section `04 — Déploiement & intégration` (`.spec-table`) & Section `05 — Formulaire honnête de demande de pilote` :** relié à `M.submitServerContact` (`WEBHOOK_ENABLED: false` -> état explicite `unconfigured`, zéro envoi simulé).
 
 ---
 
-## LIVRABLE 3 — CAPTURES COMPARATIVES AVANT / APRÈS HUMANISATION
+## LIVRABLE 3 — CAPTURES VISUELLES (CANTARA V3, SECURIAXE & OMNIRENOV)
 
 ````carousel
-![AVANT Humanisation — Accueil Desktop (crochets [...], titre centré standard)](/home/antigravity/.gemini/jetski/brain/v1/default/jetski_remote_agents_3p_devbox/cabe0c80-70b4-4544-8fa0-150be6ccf090/recette/avant_unslop_home_desktop.png)
+![CANTARA V3 — Accueil Desktop après humanisation](/home/antigravity/.gemini/jetski/brain/v1/default/jetski_remote_agents_3p_devbox/cabe0c80-70b4-4544-8fa0-150be6ccf090/recette/apres_unslop_home_desktop.png)
 <!-- slide -->
-![APRÈS Humanisation — Accueil Desktop (Hero asymétrique éditorial, surtitre 01 — Ingénierie & architecture sans crochets)](/home/antigravity/.gemini/jetski/brain/v1/default/jetski_remote_agents_3p_devbox/cabe0c80-70b4-4544-8fa0-150be6ccf090/recette/apres_unslop_home_desktop.png)
+![CANTARA LAB — Poste Services & Finance avec table de rapprochement comptable 3 voies](/home/antigravity/.gemini/jetski/brain/v1/default/jetski_remote_agents_3p_devbox/cabe0c80-70b4-4544-8fa0-150be6ccf090/recette/apres_unslop_lab_desktop.png)
 <!-- slide -->
-![AVANT Humanisation — CANTARA LAB Desktop (faux boutons macOS, fausse URL cantara://, onglets Famille F..E, emojis)](/home/antigravity/.gemini/jetski/brain/v1/default/jetski_remote_agents_3p_devbox/cabe0c80-70b4-4544-8fa0-150be6ccf090/recette/avant_unslop_lab_desktop.png)
+![Chantier 1 — Boutique & Proforma SECURIAXE Desktop (alignée CANTARA, 0 SYNTESIA/OMNISECUR)](/home/antigravity/.gemini/jetski/brain/v1/default/jetski_remote_agents_3p_devbox/cabe0c80-70b4-4544-8fa0-150be6ccf090/recette/securiaxe_boutique_desktop.png)
 <!-- slide -->
-![APRÈS Humanisation — CANTARA LAB Desktop (bandeau de poste métier, onglets sectoriels, table de rapprochement comptable 3 voies BC-104 / BL-209 / FAC-8841)](/home/antigravity/.gemini/jetski/brain/v1/default/jetski_remote_agents_3p_devbox/cabe0c80-70b4-4544-8fa0-150be6ccf090/recette/apres_unslop_lab_desktop.png)
+![Chantier 1 — Boutique & Proforma SECURIAXE Mobile Android](/home/antigravity/.gemini/jetski/brain/v1/default/jetski_remote_agents_3p_devbox/cabe0c80-70b4-4544-8fa0-150be6ccf090/recette/securiaxe_boutique_android.png)
 <!-- slide -->
-![AVANT Humanisation — Accueil Mobile Android](/home/antigravity/.gemini/jetski/brain/v1/default/jetski_remote_agents_3p_devbox/cabe0c80-70b4-4544-8fa0-150be6ccf090/recette/avant_unslop_home_android.png)
+![Chantier 2 — Site produit indépendant OMNIRENOV Desktop](/home/antigravity/.gemini/jetski/brain/v1/default/jetski_remote_agents_3p_devbox/cabe0c80-70b4-4544-8fa0-150be6ccf090/recette/omnirenov_desktop.png)
 <!-- slide -->
-![APRÈS Humanisation — Accueil Mobile Android](/home/antigravity/.gemini/jetski/brain/v1/default/jetski_remote_agents_3p_devbox/cabe0c80-70b4-4544-8fa0-150be6ccf090/recette/apres_unslop_home_android.png)
-<!-- slide -->
-![AVANT Humanisation — Espace Sécurité Privée Desktop (crochets et italique mécanique)](/home/antigravity/.gemini/jetski/brain/v1/default/jetski_remote_agents_3p_devbox/cabe0c80-70b4-4544-8fa0-150be6ccf090/recette/avant_unslop_securite_desktop.png)
-<!-- slide -->
-![APRÈS Humanisation — Espace Sécurité Privée Desktop (surtitre sobre 01 — Calculateur de marge, titre franc sans italique automatique)](/home/antigravity/.gemini/jetski/brain/v1/default/jetski_remote_agents_3p_devbox/cabe0c80-70b4-4544-8fa0-150be6ccf090/recette/apres_unslop_securite_desktop.png)
+![Chantier 2 — Site produit indépendant OMNIRENOV Mobile Android](/home/antigravity/.gemini/jetski/brain/v1/default/jetski_remote_agents_3p_devbox/cabe0c80-70b4-4544-8fa0-150be6ccf090/recette/omnirenov_android.png)
 ````
 
 ---
 
-## LIVRABLE 4 — RÉSULTATS DES TESTS TECHNIQUES ET D'ACCESSIBILITÉ
+## LIVRABLE 4 — RÉSULTATS DES TESTS TECHNIQUES ET D'ACCESSIBILITÉ (6 PAGES)
 
-La suite automatisée Playwright E2E + Axe-Core WCAG 2.1/2.2 AA ([`verify_cantara_v3.mjs`](file:///home/antigravity/cantara-devtools/verify_cantara_v3.mjs)) a été exécutée sur les 4 pages en résolutions Desktop (`1440×900`) et Mobile Android (`Pixel 7`) :
+La suite Playwright E2E + Axe-Core WCAG 2.1/2.2 AA ([`verify_cantara_v3.mjs`](file:///home/antigravity/cantara-devtools/verify_cantara_v3.mjs)) valide **100 % des 6 pages** sur Desktop (`1440×900`) et Mobile Android (`Pixel 7`) :
 
-| Page / Test | Desktop (`1440×900`) | Mobile (`Pixel 7`) | Débordement (`overflowX`) | Erreurs JS / Réseau | Requêtes externes | Violations WCAG 2.1/2.2 AA |
+| Page testée | Desktop (`1440×900`) | Mobile (`Pixel 7`) | `overflowX` | Erreurs JS / 404 | Requêtes externes | Violations WCAG 2.1/2.2 AA |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| [`index.html`](file:///home/antigravity/naitconv-web/agia-infrastructure/sites/cantara-v3/index.html) | **200 OK** | **200 OK** | `0 px` | `0` | `0` | **0 violation** |
-| [`securite-privee.html`](file:///home/antigravity/naitconv-web/agia-infrastructure/sites/cantara-v3/securite-privee.html) | **200 OK** | **200 OK** | `0 px` | `0` | `0` | **0 violation** |
-| [`btp.html`](file:///home/antigravity/naitconv-web/agia-infrastructure/sites/cantara-v3/btp.html) | **200 OK** | **200 OK** | `0 px` | `0` | `0` | **0 violation** |
-| [`mentions.html`](file:///home/antigravity/naitconv-web/agia-infrastructure/sites/cantara-v3/mentions.html) | **200 OK** | **200 OK** | `0 px` | `0` | `0` | **0 violation** |
+| [`cantara-v3/index.html`](file:///home/antigravity/naitconv-web/agia-infrastructure/sites/cantara-v3/index.html) | **200 OK** | **200 OK** | `0 px` | `0` | `0` | **0 violation** |
+| [`cantara-v3/securite-privee.html`](file:///home/antigravity/naitconv-web/agia-infrastructure/sites/cantara-v3/securite-privee.html) | **200 OK** | **200 OK** | `0 px` | `0` | `0` | **0 violation** |
+| [`cantara-v3/btp.html`](file:///home/antigravity/naitconv-web/agia-infrastructure/sites/cantara-v3/btp.html) | **200 OK** | **200 OK** | `0 px` | `0` | `0` | **0 violation** |
+| [`cantara-v3/mentions.html`](file:///home/antigravity/naitconv-web/agia-infrastructure/sites/cantara-v3/mentions.html) | **200 OK** | **200 OK** | `0 px` | `0` | `0` | **0 violation** |
+| [`boutique/index.html` (Securiaxe)](file:///home/antigravity/naitconv-web/agia-infrastructure/sites/boutique/index.html) | **200 OK** | **200 OK** | `0 px` | `0` | `0` | **0 violation** |
+| [`omnirenov/index.html` (Omnirenov)](file:///home/antigravity/naitconv-web/agia-infrastructure/sites/omnirenov/index.html) | **200 OK** | **200 OK** | `0 px` | `0` | `0` | **0 violation** |
 
-- **Tests fonctionnels E2E (`interactions.passed: true`) :**
-  - Menu mobile (`aria-expanded`, fermeture `Escape`, restauration du focus sur `#menuBtn`) : **PASS**
-  - Comptages structurels (`9` compétences dans `.eng-ledger`, `3` solutions Portfolio, `9` prestations dans `.services-editorial`, `6` postes CANTARA LAB, `10` besoins dans le formulaire) : **PASS**
-  - Exécution interactive des 6 postes du CANTARA LAB (`labFamFOk`, `labFamAOk`, `labFamBOk`, `labFamCOk`, `labFamDOk`, `labFamEOk`) : **PASS (6/6)**
-  - Assistant d'orientation à 4 étapes (`diagTitle`) : **PASS**
-  - Formulaire de contact honnête sans endpoint configuré (`data-form-state="unconfigured"`, `0` fausse confirmation) : **PASS**
-  - Simulateur Bouclier Anti-Pertes (`-819 €` à `23,00 €/h` → `+2 781 €` à `35,00 €/h`) et Securiaxe Director (`0,0 h` non couverte après remplacement) : **PASS**
-  - Démonstrateur Omnirenov (`btp.html`, approbation dans le Sas de validation humaine) : **PASS**
+- **Vérifications fonctionnelles E2E (`allPassed: true`) :**
+  - `cantara-v3` : Menu mobile + `Escape` (`menuOk: true`), 6 postes CANTARA LAB (`labFamFOk` à `labFamEOk`: `true`), assistant 4 questions (`diagTitle`), formulaire honnête (`honestFormOk: true`), Bouclier (`-819 €` → `+2 781 €`), Securiaxe Director (`0,0 h`).
+  - `boutique/index.html` (`securiaxeStoreOk: true`) : Sélection du Pack 3 (`Commando Réponse AO 48h`), saisie raison sociale et mise à jour temps réel du Bon de Commande / Proforma A4 (`#proformaSheet`).
+  - `omnirenov/index.html` (`omnirenovSiteOk: true`) : Résolution d'alerte URSSAF sous-traitant dans le cockpit 6 jalons, recalcul du simulateur de devis en sommeil (`150 000 € HT`) et comportement honnête du formulaire de pilote (`data-form-state="unconfigured"`).
 
 ---
 
-## LIVRABLE 5 — RAPPORT INDÉPENDANT DU SOUS-AGENT `cantara_qa_guardian`
+## LIVRABLE 5 — RAPPORTS INDÉPENDANTS DU SOUS-AGENT `cantara_qa_guardian`
 
-Le sous-agent indépendant `cantara_qa_guardian` ([50f849bddb4755f23b9a2d456a91031b](conversation://50f849bddb4755f23b9a2d456a91031b)) a audité l'ensemble des fichiers avant et après correction :
-
-- **Contrôle P0-1 (Crochets `[...]`) :** `0 / 64` occurrence restante dans le HTML et les chaînes JS (`VALIDÉ 100 %`).
-- **Contrôle P0-2 (Italique mécanique en fin de titre) :** `14 / 14` occurrences parasites supprimées, italique réservé exclusivement à la signature institutionnelle du Hero (`VALIDÉ 100 %`).
-- **Contrôle P0-3 (Fausses URL `xxx://` et `.comet-dots`) :** `0` fausse URL et `0` `.comet-dots` (`VALIDÉ 100 %`).
-- **Contrôle P1-1 / P1-2 / P1-3 / P2 (Nomenclature interne, diversification des architectures CSS, tables métier `.ops-table`, suppression des gadgets 3D/halo et des emojis/hash) :** `VALIDÉ 100 %`.
-- **Contrôle des garde-fous non négociables (§7) :** signature et engagements intacts, `0` terme interdit, données personnelles strictement cloisonnées dans `mentions.html`, honnêteté du formulaire de contact (`WEBHOOK_ENABLED: false`).
-- **Verdict émis :** **`GO POUR PUBLICATION (ÉTAPE 8)`**.
+1. **Session [50f849bddb4755f23b9a2d456a91031b](conversation://50f849bddb4755f23b9a2d456a91031b) (Audit Anti-Slop CANTARA V3) :** Validation à 100 % de l'élimination des 64 crochets `[...]`, des 14 italiques mécaniques, des fausses URL `xxx://` et de `.comet-dots` -> Verdict **`GO`**.
+2. **Session [11512470572440a65340858bc31d859c](conversation://11512470572440a65340858bc31d859c) (Audit Securiaxe `sites/boutique/` & Omnirenov `sites/omnirenov/`) :** Validation ligne par ligne des 6 critères (0 `SYNTESIA`/`OMNISECUR`, 0 crochet `[...]`, 0 italique mécanique, 0 fuite de coordonnées personnelles hors `mentions.html`, 0 promesse non vérifiée, formulaire honnête) -> Verdict **`GO POUR LE DÉPLOIEMENT GITHUB PAGES`** (la note de cohérence sur le badge passerelle de `btp.html` a également été intégrée avant commit).
 
 ---
 
 ## LIVRABLE 6 — SHA DES COMMITS
 
-| Référence | Branche(s) | SHA court | SHA complet | Objet |
+| Étape | Branche(s) | SHA court | SHA complet | Objet |
 | :--- | :--- | :---: | :--- | :--- |
-| **Release Anti-Slop** | `main`, `cantara/v3-epure-comet` | `152ded3` | `152ded3670581031c7d5a4561c61d384cccd91d5` | `feat(cantara-v3): humanisation éditoriale, visuelle et technique intégrale (AI Slop Removal)` |
+| **1. Humanisation CANTARA V3** | `main`, `cantara/v3-epure-comet` | `152ded3` | `152ded3670581031c7d5a4561c61d384cccd91d5` | `feat(cantara-v3): humanisation éditoriale, visuelle et technique intégrale (AI Slop Removal)` |
+| **2. Sites Securiaxe & Omnirenov** | `main`, `cantara/v3-epure-comet` | `21294d0` | `21294d090f1ec4a7a9d4f21ccebe32177b9eb593` | `feat(sites): alignement boutique Securiaxe et création du site produit indépendant Omnirenov` |
 
 ---
 
-## LIVRABLE 7 — VÉRIFICATION DU SITE RÉELLEMENT PUBLIÉ
+## LIVRABLE 7 — VÉRIFICATION DES SITES RÉELLEMENT PUBLIÉS
 
-La publication effective sur GitHub Pages a été vérifiée par interrogation de l'API GitHub Pages (`status: "built"`, commit `152ded3670581031c7d5a4561c61d384cccd91d5` compilé à `2026-11-27T03:39:25Z`) et requête HTTP directe :
-
-- **Accueil :** https://naitconv-web.github.io/agia-infrastructure/sites/cantara-v3/ (`HTTP/2 200`, présence vérifiée de `.sec-eyebrow`, `.eng-ledger`, `.spec-table`, `.workstation-brand`, `.services-editorial`)
-- **Solution Securiaxe :** https://naitconv-web.github.io/agia-infrastructure/sites/cantara-v3/securite-privee.html (`HTTP/2 200`)
-- **Solution Omnirenov :** https://naitconv-web.github.io/agia-infrastructure/sites/cantara-v3/btp.html (`HTTP/2 200`)
+- **Vitrine CANTARA V3 :** https://naitconv-web.github.io/agia-infrastructure/sites/cantara-v3/ (`HTTP/2 200`)
+- **Espace Sécurité CANTARA :** https://naitconv-web.github.io/agia-infrastructure/sites/cantara-v3/securite-privee.html (`HTTP/2 200`)
+- **Espace BTP CANTARA :** https://naitconv-web.github.io/agia-infrastructure/sites/cantara-v3/btp.html (`HTTP/2 200`)
 - **Mentions légales :** https://naitconv-web.github.io/agia-infrastructure/sites/cantara-v3/mentions.html (`HTTP/2 200`)
+- **Boutique & Proforma SECURIAXE :** https://naitconv-web.github.io/agia-infrastructure/sites/boutique/ (`HTTP/2 200`)
+- **Site produit indépendant OMNIRENOV :** https://naitconv-web.github.io/agia-infrastructure/sites/omnirenov/ (`HTTP/2 200`)
 
 ---
 
 ## LIVRABLE 8 — ANOMALIES RESTANTES ET ARBITRAGES NÉCESSAIRES
 
 1. **Anomalies techniques, visuelles ou éditoriales restantes :** **Aucune (`0` anomalie P0, P1 ou P2).**
-2. **Arbitrage opérationnel ouvert (inchangé, à la main du PDG) :**
-   - **Activation de la réception serveur du formulaire de contact :** Conformément à la règle de véracité (§7) et au mandat, [`comet.js`](file:///home/antigravity/naitconv-web/agia-infrastructure/sites/cantara-v3/comet.js#L13-L16) maintient `WEBHOOK_ENABLED: false` et `CONTACT_ENDPOINT: ''` tant qu'un endpoint serveur de réception n'est pas fourni, et affiche honnêtement l'état `Transmission serveur non effectuée — Aucun envoi simulé`. Dès que vous fournirez l'URL du webhook de réception, il suffira de renseigner `CONTACT_ENDPOINT` et `WEBHOOK_ENABLED: true` pour activer l'envoi `POST` JSON réel.
+2. **Paramètres commerciaux à la main du PDG (sans modification de code requise) :**
+   - **Réception serveur des formulaires CANTARA V3 & Omnirenov :** Renseigner `CONTACT_ENDPOINT` et `WEBHOOK_ENABLED: true` dans [`sites/cantara-v3/comet.js`](file:///home/antigravity/naitconv-web/agia-infrastructure/sites/cantara-v3/comet.js#L18-L21) dès que votre webhook serveur est prêt.
+   - **Coordonnées bancaires / liens de paiement de la boutique Securiaxe :** Configurables directement depuis votre navigateur via le tiroir opérateur (`?admin=1` ou bouton `Config Paiements & IBAN` en pied de page de [`sites/boutique/index.html`](file:///home/antigravity/naitconv-web/agia-infrastructure/sites/boutique/index.html)) qui génère le fichier `site-config.js`.
