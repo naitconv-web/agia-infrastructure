@@ -1,27 +1,79 @@
 /*
- * COS Opérations — Engineered Editorial Design System v2.0 (Refero Styles Lock)
- * Derived from styles.refero.design Reference Lock:
- * - Primary: Antimetal (448e303d-7d89-4c38-ab62-bfe5bac45d92) — Warm Engineering Paper, Editorial Serif, Monospace Equipment Markings, Bracketed Frames (+), Atmospheric Night System Theater
- * - Secondary #1: Cursor (4e3b4717-84c8-4599-baaf-a343c3d619b6) — Canvas Parchment & Pebble Paper Surfaces, Architectural Multi-layer Elevation
- * - Secondary #2: ElevenLabs (031056ff-7af1-46db-8daa-115f731c5d26) — High-contrast Achromatic Ink (20:1), Pill Primary Actions vs Crisp Square Content Panels
+ * SECURIAXE (Solution CANTARA) — Engineered Editorial Design System v3.0
  */
+@font-face {
+  font-family: "Instrument Serif";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../cantara-v3/fonts/instrument-serif-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Instrument Serif";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../cantara-v3/fonts/instrument-serif-400-italic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../cantara-v3/fonts/plus-jakarta-sans-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../cantara-v3/fonts/plus-jakarta-sans-500-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../cantara-v3/fonts/plus-jakarta-sans-600-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../cantara-v3/fonts/plus-jakarta-sans-700-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../cantara-v3/fonts/jetbrains-mono-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../cantara-v3/fonts/jetbrains-mono-500-normal.woff2") format("woff2");
+}
 
 :root {
-  /* Refero Surfaces & Canvas (Warm Engineering Paper) */
+  /* Surfaces & Canvas (Warm Engineering Paper) */
   --bg: #F4F3EE;
   --bg-subtle: #EAE9E2;
   --surface: #FAF9F5;
   --surface-tint: #EFEFEA;
-  --frost: rgba(244, 243, 238, 0.88);
+  --frost: rgba(244, 243, 238, 0.92);
 
-  /* Ink Hierarchy (Warm Obsidian & Editorial Body Ink) */
+  /* Ink Hierarchy (WCAG 2.1/2.2 AA verified >= 4.5:1) */
   --navy: #161513;
   --navy-deep: #141413;
   --navy-soft: #2C2A26;
   --ink: #161513;
   --ink-muted: #464440;
-  --ink-soft: #6E6B65;
-  --marking: #8A8780;
+  --ink-soft: #57544E;
+  --marking: #5C5953;
 
   /* Structural Lines & Blueprint Edges */
   --border: #D5D4CC;
@@ -33,18 +85,18 @@
   --night-panel: #101720;
   --night-edge: #1E293B;
   --cream: #F4F4E7;
-  --cream-muted: #94A3B8;
+  --cream-muted: #CBD5E1;
 
-  /* Semantic & Engineering Annotations (Restrained Earth & Precision Tones) */
+  /* Semantic & Engineering Annotations */
   --accent-fr: #1D4ED8;
-  --emerald: #3F6212;
-  --emerald-hover: #365314;
+  --emerald: #365314;
+  --emerald-hover: #2E4810;
   --emerald-bg: #F2F5EA;
   --emerald-bd: #B7C496;
   --danger: #991B1B;
   --danger-bg: #FAF0EE;
   --danger-bd: #E2B4AD;
-  --warn: #9A3412;
+  --warn: #852C0F;
   --warn-bg: #FBF4EC;
   --warn-bd: #DFC09F;
 

@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self' data:; object-src 'none'; base-uri 'self';" />
-  <title>Securiaxe — Boutique B2B Dirigeants Sécurité Privée &amp; Commande Directe</title>
-  <meta name="description" content="Securiaxe (futur pôle intégré SYNTESIA) équipe les dirigeants de sécurité privée (IDCC 1351 / CSI) : Arsenal Chiffrage &amp; 6 Mémoires AO, suite COS Opérations (Sentinelle IA) et Commando 48h." />
+  <title>Securiaxe (Solution CANTARA) — Offres B2B Dirigeants Sécurité Privée &amp; Proforma</title>
+  <meta name="description" content="Securiaxe, solution éditée par CANTARA pour les dirigeants de sécurité privée (IDCC 1351 / CSI) : Arsenal Chiffrage &amp; 6 Mémoires AO, suite COS Opérations et Commando 48h." />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Crect width='36' height='36' fill='%23161513'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' fill='%23FAF9F5' font-family='monospace' font-weight='600' font-size='14'%3ESX%3C/text%3E%3C/svg%3E" />
-  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="boutique.css" />
 </head>
 <body>
@@ -15,19 +15,20 @@
   <!-- En-tête principal -->
   <header class="site-header no-print">
     <div class="container header-inner">
-      <a class="brand" href="../index.html">
+      <a class="brand" href="../cantara-v3/securite-privee.html">
         <div class="brand-mark">SX</div>
         <div class="brand-text">
           <strong>Securiaxe</strong>
-          <span>Solutions Dirigeants Sécurité Privée</span>
+          <span>Solution CANTARA · Sécurité Privée</span>
         </div>
       </a>
 
       <nav class="nav-links" aria-label="Navigation boutique">
-        <a href="../index.html#simulateur">Calculateur IDCC 1351</a>
-        <a href="../agence/securite-privee/index.html">L'Agence Securiaxe</a>
-        <a href="#catalogue" style="color:var(--ink);font-weight:700">Nos 3 Packs B2B</a>
+        <a href="../cantara-v3/securite-privee.html#bouclier">Simulateur Bouclier</a>
+        <a href="../cantara-v3/securite-privee.html#director">Securiaxe Director</a>
+        <a href="#catalogue" style="color:var(--ink);font-weight:700">Les 3 Packs B2B</a>
         <a href="#checkout-section">Règlement &amp; Proforma</a>
+        <a href="../cantara-v3/index.html">Vitrine CANTARA</a>
       </nav>
 
       <div class="header-actions">
@@ -48,15 +49,15 @@
       </div>
 
       <div class="form-grid-2" style="grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px">
-        <div class="field"><label>Nom de la Banque Pro</label><input id="admBankName" type="text" placeholder="Ex : Qonto / Crédit Agricole / Revolut Pro" /></div>
-        <div class="field"><label>IBAN Officiel (FR76...)</label><input id="admIban" type="text" placeholder="FR76 .... .... .... ...." /></div>
-        <div class="field"><label>Code BIC / SWIFT</label><input id="admBic" type="text" placeholder="Ex : QNTOFRP1XXX" /></div>
-        <div class="field"><label>Lien Carte Bancaire Pro (SumUp / Qonto / Mollie / PayPlug)</label><input id="admCardGlobal" type="url" placeholder="https://pay.sumup.com/..." /></div>
-        <div class="field"><label>Lien PayPal Business / PayPal 4x</label><input id="admPaypal" type="url" placeholder="https://www.paypal.com/paypalme/..." /></div>
-        <div class="field"><label>Lien Mandat / Prélèvement GoCardless</label><input id="admGc" type="url" placeholder="https://pay.gocardless.com/..." /></div>
-        <div class="field"><label>SIREN / SIRET émetteur</label><input id="admSiren" type="text" /></div>
+        <div class="field"><label for="admBankName">Nom de la Banque Pro</label><input id="admBankName" type="text" placeholder="Ex : Qonto / Crédit Agricole / Revolut Pro" /></div>
+        <div class="field"><label for="admIban">IBAN Officiel (FR76...)</label><input id="admIban" type="text" placeholder="FR76 .... .... .... ...." /></div>
+        <div class="field"><label for="admBic">Code BIC / SWIFT</label><input id="admBic" type="text" placeholder="Ex : QNTOFRP1XXX" /></div>
+        <div class="field"><label for="admCardGlobal">Lien Carte Bancaire Pro (SumUp / Qonto / Mollie / PayPlug)</label><input id="admCardGlobal" type="url" placeholder="https://pay.sumup.com/..." /></div>
+        <div class="field"><label for="admPaypal">Lien PayPal Business / PayPal 4x</label><input id="admPaypal" type="url" placeholder="https://www.paypal.com/paypalme/..." /></div>
+        <div class="field"><label for="admGc">Lien Mandat / Prélèvement GoCardless</label><input id="admGc" type="url" placeholder="https://pay.gocardless.com/..." /></div>
+        <div class="field"><label for="admSiren">SIREN / SIRET émetteur</label><input id="admSiren" type="text" /></div>
         <div class="field">
-          <label>Régime TVA unique</label>
+          <label for="admTvaRegime">Régime TVA unique</label>
           <select id="admTvaRegime">
             <option value="293B">Franchise en base — art. 293 B du CGI / art. L. 223-3 du CIBS</option>
             <option value="20">TVA normale 20 %</option>
@@ -199,7 +200,7 @@
 
             <label class="consent-check" style="margin-top:12px">
               <input id="ordRgpdConsent" type="checkbox" />
-              <span>J'accepte les Conditions Générales de Vente B2B et le traitement professionnel de mes coordonnées exclusivement pour cette commande (RGPD art. 13/28 — aucune revente commerciale).</span>
+              <span>J'accepte les Conditions Générales de Vente B2B et le traitement professionnel de mes coordonnées exclusivement pour la gestion de cette commande (RGPD art. 13/28).</span>
             </label>
           </div>
 
@@ -238,8 +239,8 @@
               </div>
             </div>
 
-            <label style="display:block;font-size:13px;font-weight:700;margin-bottom:8px">Choisissez votre moyen de paiement :</label>
-            <div class="pay-tabs" role="tablist">
+            <div style="display:block;font-size:13px;font-weight:700;margin-bottom:8px">Choisissez votre moyen de paiement :</div>
+            <div class="pay-tabs" role="group" aria-label="Moyens de paiement">
               <button id="tabPay_virement" class="pay-tab active" type="button">
                 <strong>Virement SEPA Express</strong>
                 <span>0 % frais &middot; Copie IBAN 1 clic</span>
@@ -296,7 +297,7 @@
 
               <div id="bankPendingBox" class="status-box warn" style="margin-bottom:12px">
                 <strong>RIB / IBAN professionnel &amp; Sécurité anti-fraude B2B :</strong><br />
-                Téléchargez votre Proforma A4 ci-dessous puis demandez notre RIB officiel rattaché au SIREN 849 261 870. Vérifiez systématiquement la concordance du RIB écrit avec votre Bon de Commande avant exécution du virement (réponse &lt; 2h ouvrées).
+                Téléchargez votre Proforma A4 ci-dessous puis demandez notre RIB officiel rattaché à l'éditeur. Vérifiez systématiquement la concordance du RIB écrit avec votre Bon de Commande avant exécution du virement (réponse sous 2h ouvrées).
                 <div class="action-cluster" style="margin-top:10px">
                   <button id="btnAskRibWa" class="btn btn-emerald btn-sm" type="button">Recevoir le RIB officiel (WhatsApp)</button>
                   <button id="btnAskRibMail" class="btn btn-primary btn-sm" type="button">Recevoir le RIB officiel (Email)</button>
@@ -363,7 +364,7 @@
               <div class="action-cluster" style="margin-top:0">
                 <button id="btnPrintProforma" class="btn btn-primary btn-sm" type="button">Imprimer / PDF Proforma A4</button>
                 <button id="btnDownloadProformaTxt" class="btn btn-sm" type="button">Télécharger BC (.txt)</button>
-                <button id="btnOpenCalStore" class="btn btn-sm" type="button">Prendre RDV Dirigeant (Cal.com)</button>
+                <a class="btn btn-sm" href="../cantara-v3/index.html?need=securiaxe#contact">Échanger avec CANTARA</a>
               </div>
             </div>
           </div>
@@ -382,14 +383,14 @@
   <footer class="site-footer no-print">
     <div class="container footer-grid">
       <div>
-        <strong>Securiaxe — Solutions Sécurité Privée</strong><br />
-        <span>Accompagnement dirigeants &amp; suite COS Opérations &middot; Hors activités réglementées CNAPS (art. L.611-1 CSI) &middot; SIREN 849 261 870 &middot; Albi (81)</span>
+        <strong>Securiaxe — Solution éditée par CANTARA</strong><br />
+        <span>L'ingénierie au service de votre performance. &middot; Proximité &middot; Confidentialité &middot; Fiabilité &middot; Hors activités réglementées CNAPS (art. L.611-1 CSI)</span>
       </div>
       <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
-        <a href="../index.html#simulateur">Calculateur IDCC 1351</a>
-        <a href="../agence/securite-privee/index.html">L'Agence Securiaxe</a>
-        <a href="../mentions-legales.html">Mentions légales</a>
-        <a href="../cgv-rgpd.html">CGV &amp; RGPD</a>
+        <a href="../cantara-v3/securite-privee.html#bouclier">Simulateur Bouclier</a>
+        <a href="../cantara-v3/securite-privee.html">Espace Sécurité CANTARA</a>
+        <a href="../cantara-v3/index.html">Vitrine CANTARA</a>
+        <a href="../cantara-v3/mentions.html">Mentions légales &amp; RGPD</a>
         <button id="btnOpenStoreAdmin" class="btn btn-sm" type="button" style="background:rgba(255,255,255,0.08);color:#e2e8f0;border-color:rgba(255,255,255,0.22)">Config Paiements &amp; IBAN</button>
       </div>
     </div>
@@ -397,7 +398,7 @@
 
   <div id="storeToast" class="toast hidden no-print" role="status"></div>
 
-  <script src="../site-config.js"></script>
+  <script src="site-config.js"></script>
   <script src="boutique.js"></script>
 </body>
 </html>

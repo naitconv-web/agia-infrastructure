@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<!--
+  OMNIRENOV (Solution CANTARA) — Site Produit Indépendant BTP, Bâtiment & Rénovation
+  Cockpit Chantier 6 Jalons, Registre de Vigilance Sous-Traitants (Art. L.8222-1) & Suivi des Devis.
+-->
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
+  <title>Omnirenov (Solution CANTARA) — Coordination de Chantier, Vigilance Sous-Traitants &amp; Suivi des Devis BTP</title>
+  <meta name="description" content="Omnirenov, solution éditée par CANTARA pour le Bâtiment, le BTP et la Rénovation : cockpit de chantier à 6 jalons, contrôle de conformité sous-traitants (URSSAF, décennale) et relance encadrée des devis.">
+  <meta name="theme-color" content="#F4F3EE">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Crect width='36' height='36' rx='6' fill='%23161513'/%3E%3Ctext x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='%23FAF9F5' font-family='serif' font-size='15'%3EOR%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../cantara-v3/fonts.css">
+  <link rel="stylesheet" href="../cantara-v3/comet.css">
+</head>
+<body>
+  <a class="skip" href="#main">Aller au contenu principal</a>
+  <div class="scroll-rail" aria-hidden="true"><i></i></div>
+
+  <header class="site-header" id="siteHeader">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html">
+        <svg class="brand-mark" viewBox="0 0 26 26" fill="none" aria-hidden="true">
+          <rect x="6.5" y="6.5" width="13" height="13" stroke-width="1.35"/>
+          <path d="M13 1v24M1 13h24" stroke-width="1.1"/>
+        </svg>
+        <span class="brand-name">Omnirenov</span>
+        <span class="brand-note">Solution CANTARA · BTP</span>
+      </a>
+      <nav class="nav" id="mainNav" aria-label="Navigation principale">
+        <a href="#filieres">Filières &amp; compatibilité</a>
+        <a href="#cockpit">Cockpit 6 jalons</a>
+        <a href="#simulateur-devis">Simulateur devis</a>
+        <a href="#deploiement">Déploiement pilote</a>
+        <a href="../cantara-v3/index.html">Vitrine CANTARA</a>
+        <a href="#contact-pilote" class="btn btn-primary btn-sm nav-cta">Demander un pilote</a>
+      </nav>
+      <a href="#contact-pilote" class="btn btn-primary btn-sm header-cta">Demander un pilote →</a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mainNav">Menu</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ================= HERO ÉDITORIAL ASYMÉTRIQUE ================= -->
+    <section class="hero-comet" aria-labelledby="omniTitle">
+      <svg class="orbit-bg" viewBox="0 0 1440 700" fill="none" preserveAspectRatio="xMidYMin slice" aria-hidden="true">
+        <path d="M -80 480 Q 700 60 1520 390" stroke="#CCCAC0" stroke-width="1"/>
+        <path d="M -100 310 Q 720 630 1540 170" stroke="#D8D6CD" stroke-width="1" stroke-dasharray="4 6"/>
+      </svg>
+
+      <div class="wrap hero-layout">
+        <div>
+          <div class="hero-kicker">
+            <i style="background:var(--accent-btp)" aria-hidden="true"></i>
+            <span>OMNIRENOV · SOLUTION CANTARA POUR LE BÂTIMENT, LE BTP &amp; LA RÉNOVATION</span>
+          </div>
+          <div style="margin-bottom:.85rem">
+            <span class="status-badge proto">Prototype · Démonstration locale &amp; Cadrage pilote</span>
+          </div>
+          <h1 class="display" id="omniTitle">
+            <span class="reveal-line"><span>Coordination de chantier,</span></span>
+            <span class="reveal-line"><span>vigilance sous-traitants et devis</span></span>
+          </h1>
+          <div class="hero-actions">
+            <a href="#cockpit" class="btn btn-primary">Tester le cockpit 6 jalons <span class="arrow" aria-hidden="true">→</span></a>
+            <a href="#simulateur-devis" class="btn btn-ghost">Simuler vos devis en sommeil</a>
+          </div>
+        </div>
+
+        <div class="hero-aside">
+          <p class="lede">
+            <strong>OMNIRENOV</strong> structure le suivi commercial et administratif des entreprises de travaux sans remplacer votre logiciel de chiffrage actuel (Batigest, Obat, EBP, Onaya, Tolteck ou Excel). Chaque relance et chaque déblocage de situation restent soumis à votre validation.
+          </p>
+          <p style="margin:0;font-size:.88rem;color:var(--ink-stone)">
+            Signature CANTARA : <em>« L'ingénierie au service de votre performance. »</em>
+          </p>
+          <div class="hero-pillars" aria-label="Engagements CANTARA">
+            <span>Proximité</span>
+            <span>Confidentialité</span>
+            <span>Fiabilité</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 01. FILIÈRES & COMPATIBILITÉ (REGISTRE TABULAIRE 4 COLONNES) ================= -->
+    <section class="section section-bordered" id="filieres" aria-labelledby="filieresTitle">
+      <div class="wrap">
+        <div class="section-head fade-up">
+          <div>
+            <span class="sec-eyebrow">01 — Architecture par filière</span>
+            <h2 class="h2" id="filieresTitle">Trois réalités de chantier et une intégration sans migration comptable</h2>
+          </div>
+          <p class="lede">Un artisan du second œuvre, une PME de gros œuvre en marchés allotis et une entreprise de travaux publics n'ont pas les mêmes contraintes documentaires. Omnirenov adapte ses contrôles à chaque métier.</p>
+        </div>
+
+        <div class="eng-ledger">
+          <div class="eng-ledger-head" aria-hidden="true">
+            <span>Réf.</span>
+            <span>Filière / Intégration</span>
+            <span>Problématique &amp; processus outillé</span>
+            <span>Contrôles &amp; livrables opérationnels</span>
+          </div>
+
+          <article class="eng-card eng-row fade-up">
+            <div class="eng-index">01</div>
+            <h3>Rénovation &amp; Second Œuvre</h3>
+            <p>Plomberie-chauffage, menuiserie, électricité, peinture, rénovation énergétique RGE et contractants généraux en cycles courts.</p>
+            <div class="eng-case">Qualification des demandes avant déplacement sur site, relance courtoise des devis en attente (J+3, J+7) et sécurisation de l'acompte.</div>
+          </article>
+
+          <article class="eng-card eng-row fade-up">
+            <div class="eng-index">02</div>
+            <h3>Bâtiment Neuf &amp; Gros Œuvre</h3>
+            <p>Maçonnerie, charpente-couverture, façades et lots techniques CVC/CFO-CFA intervenant en marchés allotis privés ou publics.</p>
+            <div class="eng-case">Contrôle de vigilance sous-traitance (art. L.8222-1 C. trav. : URSSAF, décennale par activité, CIBTP, acte DC4), situations sur DPGF et levée des réserves OPR.</div>
+          </article>
+
+          <article class="eng-card eng-row fade-up">
+            <div class="eng-index">03</div>
+            <h3>Travaux Publics, VRD &amp; Génie Civil</h3>
+            <p>Terrassement, voirie et réseaux divers, canalisations et ouvrages d'art en marchés publics et accords-cadres.</p>
+            <div class="eng-case">Suivi des échéances DT-DICT, habilitations AIPR et CACES des équipes, remontée des rapports journaliers et structuration des mémoires techniques BOAMP.</div>
+          </article>
+
+          <article class="eng-card eng-row fade-up">
+            <div class="eng-index">04</div>
+            <h3>Compatibilité logicielle &amp; bienséance</h3>
+            <p>Greffe sur votre organisation actuelle sans changement d'outil de facturation ni envoi automatisé non supervisé.</p>
+            <div class="eng-case">Compatible exports Batigest, Obat, EBP, Onaya, Tolteck et Excel · Relances limitées aux jours ouvrés (08h30–19h00, max 2 relances) après validation humaine.</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 02. POSTE 1 : COCKPIT CHANTIER 6 JALONS & VIGILANCE ================= -->
+    <section class="section night" id="cockpit" aria-labelledby="cockpitTitle">
+      <div class="wrap">
+        <div class="section-head fade-up">
+          <div>
+            <span class="sec-eyebrow">02 — Poste de démonstration n° 1</span>
+            <h2 class="h2" id="cockpitTitle">Cockpit de coordination de chantier (6 jalons) &amp; vigilance sous-traitants</h2>
+          </div>
+          <p class="lede">Inspectez l'avancement d'une opération sur 6 jalons, contrôlez la validité des pièces réglementaires des sous-traitants (URSSAF, décennale, DC4) et testez le blocage préventif d'une situation de travaux.</p>
+        </div>
+
+        <div class="comet-window">
+          <div class="comet-chrome">
+            <span class="workstation-brand">Omnirenov · Cockpit Chantier &amp; Vigilance</span>
+            <span class="comet-address" id="omniCockpitTitle">Opération : Réhabilitation Plateau Tertiaire — Lyon Part-Dieu (420 000 € HT)</span>
+            <span class="status-badge proto" id="omniCockpitBadge">Prototype · Simulation locale</span>
+          </div>
+
+          <div class="comet-body" id="omniCockpitStage" aria-live="polite">
+            <!-- Rendu dynamique par omnirenov.js -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 03. POSTE 2 : SIMULATEUR DE DEVIS EN SOMMEIL ================= -->
+    <section class="section section-bordered" id="simulateur-devis" aria-labelledby="simDevisTitle">
+      <div class="wrap">
+        <div class="section-head fade-up">
+          <div>
+            <div style="display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;margin-bottom:.35rem">
+              <span class="sec-eyebrow">03 — Poste de démonstration n° 2</span>
+              <span class="status-badge op">Opérationnel vérifié · Simulation locale</span>
+            </div>
+            <h2 class="h2" id="simDevisTitle">Simulateur de chiffre d'affaires immobilisé dans les devis en attente</h2>
+          </div>
+          <p class="lede">Ajustez votre volume mensuel de devis émis, votre panier moyen HT et la part des propositions restant sans réponse à 15 jours pour mesurer l'enjeu financier d'un suivi structuré.</p>
+        </div>
+
+        <div class="panel-clean sim-split fade-up">
+          <div class="sim-left">
+            <div class="field">
+              <div class="field-row">
+                <label for="omQuoteCount">Devis émis par mois</label>
+                <output id="omQuoteCountOut" for="omQuoteCount">18 devis / mois</output>
+              </div>
+              <input type="range" id="omQuoteCount" min="4" max="60" step="1" value="18">
+            </div>
+
+            <div class="field">
+              <div class="field-row">
+                <label for="omQuoteAvg">Montant moyen d'un devis (€ HT)</label>
+                <output id="omQuoteAvgOut" for="omQuoteAvg">12 500 € HT</output>
+              </div>
+              <input type="range" id="omQuoteAvg" min="1500" max="50000" step="500" value="12500">
+            </div>
+
+            <div class="field" style="margin-bottom:0">
+              <div class="field-row">
+                <label for="omDormantPct">Part des devis sans réponse à J+15 (%)</label>
+                <output id="omDormantPctOut" for="omDormantPct">40 %</output>
+              </div>
+              <input type="range" id="omDormantPct" min="15" max="70" step="5" value="40">
+            </div>
+          </div>
+
+          <div class="sim-right" aria-live="polite">
+            <div>
+              <span class="mono" style="color:var(--ink-stone)">Chiffre d'affaires mensuel en attente de décision</span>
+              <div class="sim-big gain" id="omDormantAmount">90 000 € HT</div>
+              <p id="omDormantVerdict" style="margin:.4rem 0 0;font-size:.94rem;color:var(--ink)">
+                Soit environ 7 devis par mois restés sans retour client explicite (oui, non ou ajustement de périmètre).
+              </p>
+            </div>
+
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem;border-top:1px solid var(--edge-strong);padding-top:.85rem">
+              <div>
+                <span class="mono" style="color:var(--ink-stone);display:block">Volume mensuel chiffré</span>
+                <strong id="omTotalMonthly" style="font-size:1.05rem">225 000 € HT</strong>
+              </div>
+              <div>
+                <span class="mono" style="color:var(--ink-stone);display:block">Potentiel sur 10 % de reprise</span>
+                <strong id="omRecovered10" style="font-size:1.05rem;color:var(--accent-ok)">+9 000 € HT / mois</strong>
+              </div>
+            </div>
+
+            <p style="margin:0;font-size:.78rem;color:var(--ink-stone)">
+              Simulation indicative sur vos hypothèses de volume · Cadence Omnirenov : relance J+3 et J+7 (max 2 relances, jours ouvrés 08h30–19h00, validation dans le Sas humain).
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 04. MODALITÉS DE DÉPLOIEMENT PILOTE (.spec-table) ================= -->
+    <section class="section section-stone" id="deploiement" aria-labelledby="deploiementTitle">
+      <div class="wrap">
+        <div class="section-head fade-up">
+          <div>
+            <span class="sec-eyebrow">04 — Déploiement &amp; intégration</span>
+            <h2 class="h2" id="deploiementTitle">Trois périmètres de déploiement pilote sur vos chantiers</h2>
+          </div>
+          <p class="lede">OMNIRENOV est déployé de manière progressive : vous pouvez activer séparément le suivi des devis, la vigilance sous-traitants ou le cockpit complet en 6 jalons.</p>
+        </div>
+
+        <div class="spaces-grid">
+          <article class="tilt-card fade-up">
+            <div class="space-top">
+              <span class="mono">Module 01 · Commercial</span>
+              <span class="status-badge proto">Prototype · Pilote</span>
+            </div>
+            <h3>Suivi &amp; Relance des Devis</h3>
+            <p class="sol-sub">Cadence J+3 / J+7 avec sas de validation humaine</p>
+            <p class="sol-narrative">
+              Structuration du suivi de vos devis émis depuis votre logiciel habituel, avec préparation des relances à J+3 et J+7 soumises à l'accord du dirigeant avant tout envoi.
+            </p>
+            <table class="spec-table" aria-label="Spécifications du module Relance Devis">
+              <tbody>
+                <tr>
+                  <th>Entrées</th>
+                  <td>Export devis (Batigest, Obat, EBP, Onaya, Excel)</td>
+                </tr>
+                <tr>
+                  <th>Garde-fou</th>
+                  <td>Validation humaine obligatoire, jours ouvrés 08h30–19h00</td>
+                </tr>
+                <tr>
+                  <th>Livrable</th>
+                  <td>Tableau de suivi des devis &amp; trames de relance par filière</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="space-foot">
+              <a href="#contact-pilote" class="btn btn-ghost btn-sm" data-select-module="Module 01 — Suivi & Relance des Devis">
+                <span>Demander un pilote sur ce module</span>
+                <span class="arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="tilt-card fade-up">
+            <div class="space-top">
+              <span class="mono">Module 02 · Conformité</span>
+              <span class="status-badge proto">Prototype · Pilote</span>
+            </div>
+            <h3>Vigilance Sous-Traitants</h3>
+            <p class="sol-sub">Contrôle URSSAF, décennale par lot, CIBTP &amp; DC4</p>
+            <p class="sol-narrative">
+              Registre centralisé de contrôle des pièces obligatoires de vos sous-traitants (art. L.8222-1 C. trav. et Loi n° 75-1334) avec alerte avant échéance et blocage préventif des situations.
+            </p>
+            <table class="spec-table" aria-label="Spécifications du module Vigilance Sous-Traitants">
+              <tbody>
+                <tr>
+                  <th>Périmètre</th>
+                  <td>Art. L.8222-1 C. trav. &amp; Loi n° 75-1334 (acte DC4)</td>
+                </tr>
+                <tr>
+                  <th>Garde-fou</th>
+                  <td>Alerte d'échéance à J-15 &amp; suspension préventive du bon à payer</td>
+                </tr>
+                <tr>
+                  <th>Livrable</th>
+                  <td>Registre de conformité sous-traitants &amp; relances de pièces</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="space-foot">
+              <a href="#contact-pilote" class="btn btn-ghost btn-sm" data-select-module="Module 02 — Vigilance Sous-Traitants">
+                <span>Demander un pilote sur ce module</span>
+                <span class="arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="tilt-card fade-up">
+            <div class="space-top">
+              <span class="mono">Module 03 · Exécution</span>
+              <span class="status-badge proto">Prototype · Pilote</span>
+            </div>
+            <h3>Cockpit Chantier 6 Jalons &amp; OPR</h3>
+            <p class="sol-sub">Suivi complet de la qualification à la levée des réserves</p>
+            <p class="sol-narrative">
+              Déploiement complet associant suivi des devis, registre des sous-traitants, jalons d'avancement des situations de travaux et suivi des levées de réserves OPR.
+            </p>
+            <table class="spec-table" aria-label="Spécifications du Cockpit Chantier 6 Jalons">
+              <tbody>
+                <tr>
+                  <th>Périmètre</th>
+                  <td>Cycle complet en 6 jalons de la qualification à la réception OPR</td>
+                </tr>
+                <tr>
+                  <th>Intégration</th>
+                  <td>Cadrage avec vos conducteurs de travaux et chargés d'affaires</td>
+                </tr>
+                <tr>
+                  <th>Livrable</th>
+                  <td>Cockpit opérationnel paramétré sur vos chantiers pilotes</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="space-foot">
+              <a href="#contact-pilote" class="btn btn-primary btn-sm" data-select-module="Module 03 — Cockpit Chantier Complet (6 jalons)">
+                <span>Cadrer un déploiement complet</span>
+                <span class="arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 05. DEMANDE DE PILOTE OMNIRENOV ================= -->
+    <section class="section section-bordered" id="contact-pilote" aria-labelledby="piloteContactTitle">
+      <div class="wrap">
+        <div class="section-head fade-up">
+          <div>
+            <span class="sec-eyebrow">05 — Demande d'étude &amp; pilote</span>
+            <h2 class="h2" id="piloteContactTitle">Cadrer un déploiement Omnirenov pour votre entreprise</h2>
+          </div>
+          <p class="lede">Indiquez votre filière (Rénovation, Bâtiment neuf ou Travaux Publics), votre logiciel de devis actuel et le module que vous souhaitez expérimenter.</p>
+        </div>
+
+        <div class="contact-layout">
+          <div class="diag-box fade-up">
+            <span class="mono">Méthode d'intégration sur vos chantiers</span>
+            <h3 class="q-title" style="margin-top:.4rem">Déploiement sans rupture d'exploitation</h3>
+            <p style="font-size:.9rem;color:var(--ink-body);margin:.6rem 0 1rem">
+              Nous intervenons sur vos trames existantes sans immobiliser vos conducteurs de travaux ni imposer une migration comptable.
+            </p>
+            <table class="spec-table" aria-label="Étapes de mise en place du pilote Omnirenov">
+              <tbody>
+                <tr>
+                  <th>Étape 1</th>
+                  <td>Diagnostic de vos exports de devis (Batigest, Obat, EBP, Excel) et de votre registre sous-traitants</td>
+                </tr>
+                <tr>
+                  <th>Étape 2</th>
+                  <td>Paramétrage du sas de validation humaine et des seuils d'alerte (URSSAF J-15, relance J+3/J+7)</td>
+                </tr>
+                <tr>
+                  <th>Étape 3</th>
+                  <td>Recette accompagnée sur 1 à 3 chantiers pilotes avec votre équipe</td>
+                </tr>
+              </tbody>
+            </table>
+            <div style="margin-top:1.15rem;display:flex;gap:.65rem;flex-wrap:wrap">
+              <a href="../cantara-v3/btp.html" class="btn btn-ghost btn-sm">Revoir la fiche Omnirenov sur CANTARA →</a>
+              <a href="../cantara-v3/index.html#lab" class="btn btn-ghost btn-sm">Ouvrir CANTARA LAB →</a>
+            </div>
+          </div>
+
+          <div class="diag-box fade-up">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:.75rem;flex-wrap:wrap;margin-bottom:.8rem">
+              <span class="mono">Demande de pilote OMNIRENOV</span>
+              <span class="status-badge prep" id="formChannelBadge">Canal serveur : vérification d'état</span>
+            </div>
+            <h3 class="q-title" style="margin-bottom:.5rem">Qualifier votre besoin BTP</h3>
+
+            <form id="omniContactForm" novalidate>
+              <div class="hp-trap" aria-hidden="true">
+                <label for="cWebsite">Ne pas remplir ce champ</label>
+                <input type="text" id="cWebsite" name="website_url" tabindex="-1" autocomplete="off">
+              </div>
+
+              <fieldset class="form-fieldset">
+                <legend>1. Périmètre du pilote souhaité</legend>
+                <div class="form-grid">
+                  <div class="field">
+                    <label for="cNeed">Module prioritaire *</label>
+                    <select class="input-ctrl" id="cNeed" required>
+                      <option value="OMNIRENOV — Cockpit Chantier Complet (6 jalons)">Module 03 — Cockpit Chantier Complet (6 jalons)</option>
+                      <option value="OMNIRENOV — Suivi &amp; Relance des Devis">Module 01 — Suivi &amp; Relance des Devis</option>
+                      <option value="OMNIRENOV — Vigilance Sous-Traitants (URSSAF / Décennale)">Module 02 — Vigilance Sous-Traitants (URSSAF / Décennale)</option>
+                      <option value="OMNIRENOV — Intégration sur mesure (Batigest / Obat / EBP)">Adaptation sur mesure (Batigest, Obat, EBP, Onaya)</option>
+                    </select>
+                  </div>
+
+                  <div class="field">
+                    <label for="cSector">Filière principale *</label>
+                    <select class="input-ctrl" id="cSector" required>
+                      <option value="BTP — Rénovation &amp; Second Œuvre">Rénovation &amp; Second Œuvre</option>
+                      <option value="BTP — Bâtiment Neuf &amp; Gros Œuvre">Bâtiment Neuf, Gros Œuvre &amp; Lots techniques</option>
+                      <option value="BTP — Travaux Publics, VRD &amp; Génie Civil">Travaux Publics, VRD &amp; Génie Civil</option>
+                    </select>
+                  </div>
+
+                  <div class="field full">
+                    <label for="cMsg">Logiciel de devis actuel et volume de chantiers / sous-traitants *</label>
+                    <textarea class="input-ctrl" id="cMsg" required placeholder="Précisez votre outil actuel (Obat, Batigest, EBP, Excel...), votre volume mensuel de devis ou le nombre de sous-traitants à suivre."></textarea>
+                    <span class="err" id="eMsg"></span>
+                  </div>
+                </div>
+              </fieldset>
+
+              <fieldset class="form-fieldset">
+                <legend>2. Vos coordonnées professionnelles</legend>
+                <div class="form-grid">
+                  <div class="field">
+                    <label for="cName">Nom et fonction *</label>
+                    <input class="input-ctrl" id="cName" required autocomplete="name" placeholder="Ex. Jean-Marc Leroux — Gérant">
+                    <span class="err" id="eName"></span>
+                  </div>
+
+                  <div class="field">
+                    <label for="cOrg">Raison sociale de l'entreprise *</label>
+                    <input class="input-ctrl" id="cOrg" required autocomplete="organization" placeholder="Ex. Leroux Bâtiment SAS">
+                    <span class="err" id="eOrg"></span>
+                  </div>
+
+                  <div class="field full">
+                    <label for="cMail">E-mail professionnel *</label>
+                    <input class="input-ctrl" id="cMail" type="email" required autocomplete="email" placeholder="contact@entreprise-btp.fr">
+                    <span class="err" id="eMail"></span>
+                  </div>
+                </div>
+              </fieldset>
+
+              <div class="privacy-info-box">
+                <strong>Information de confidentialité :</strong> Les informations renseignées sont strictement limitées à l'étude de votre demande professionnelle par l'exploitant identifié dans les <a href="../cantara-v3/mentions.html" style="text-decoration:underline">Mentions légales &amp; RGPD</a>. Aucune confirmation d'envoi n'est affichée sans confirmation effective du service de réception serveur.
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-sm" id="btnSubmitContact">Transmettre la demande de pilote →</button>
+              <div id="contactNotice" aria-live="polite"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="index.html" style="color:var(--cream)">
+            <svg class="brand-mark" viewBox="0 0 26 26" fill="none" aria-hidden="true">
+              <rect x="6.5" y="6.5" width="13" height="13" stroke-width="1.35"/>
+              <path d="M13 1v24M1 13h24" stroke-width="1.1"/>
+            </svg>
+            <span class="brand-name">Omnirenov</span>
+          </a>
+          <p style="margin:.8rem 0 .4rem;color:var(--cream);font-family:var(--serif);font-size:1.15rem">L'ingénierie au service de votre performance.</p>
+          <p class="mono" style="margin:0">Proximité · Confidentialité · Fiabilité</p>
+        </div>
+        <div>
+          <p class="footer-title">Modules Omnirenov</p>
+          <ul>
+            <li><a href="#filieres">Filières Rénovation / Bâtiment / TP</a></li>
+            <li><a href="#cockpit">Cockpit Chantier 6 jalons</a></li>
+            <li><a href="#simulateur-devis">Simulateur Devis en sommeil</a></li>
+            <li><a href="#deploiement">Déploiement pilote</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-title">Écosystème CANTARA</p>
+          <ul>
+            <li><a href="../cantara-v3/index.html">Vitrine institutionnelle CANTARA</a></li>
+            <li><a href="../cantara-v3/btp.html">Démonstrateur BTP sur CANTARA</a></li>
+            <li><a href="../cantara-v3/securite-privee.html">Solution Securiaxe (Sécurité)</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-title">Contact &amp; Légal</p>
+          <ul>
+            <li><a href="#contact-pilote">Demander un pilote</a></li>
+            <li><a href="../cantara-v3/mentions.html">Mentions légales &amp; RGPD</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer-legal">
+        OMNIRENOV — Solution éditée par CANTARA (Prototype fonctionnel) · Entreprise Individuelle SIREN 849 261 870
+      </p>
+    </div>
+  </footer>
+
+  <script src="../cantara-v3/comet.js" defer></script>
+  <script src="omnirenov.js" defer></script>
+</body>
+</html>

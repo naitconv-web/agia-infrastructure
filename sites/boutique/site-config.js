@@ -1,25 +1,25 @@
 /**
- * Securiaxe & idcc1351.fr — Configuration Production Émetteur & Canaux de Vente
- * SIREN 849 261 870
+ * Securiaxe (Solution CANTARA) — Configuration Émetteur & Canaux de Vente B2B
+ * Identité légale complète consultable dans ../cantara-v3/mentions.html
  */
-window.COS_OPERATIONS_CONFIG = window.OMNISECUR_CONFIG = {
+window.COS_OPERATIONS_CONFIG = window.SECURIAXE_CONFIG = {
   issuer: {
-    raison: "Securiaxe",
+    raison: "Securiaxe — Solution CANTARA",
     enseigne: "Securiaxe",
     rep: "Direction Securiaxe",
-    capital: "Entreprise Individuelle (SIREN 849 261 870)",
-    siege: "Albi (81)",
+    capital: "Entreprise Individuelle (identité légale complète aux Mentions légales)",
+    siege: "France (voir Mentions légales)",
     siren: "849 261 870 00018",
     tvaRegime: "293B",
     tvaNum: ""
   },
   channels: {
-    domainUrl: "https://idcc1351.fr",
-    hostProvider: "o2switch SASU, Clermont-Ferrand (France)",
-    email: "nait.conv@gmail.com",
-    tel: "+33 6 17 17 99 74",
-    whatsapp: "33617179974",
-    calUrl: "https://cal.com/nait-p5qttl",
+    domainUrl: "https://naitconv-web.github.io/agia-infrastructure/sites/boutique/",
+    hostProvider: "GitHub Pages (GitHub, Inc.)",
+    email: "",
+    tel: "",
+    whatsapp: "",
+    calUrl: "",
     crmWebhookUrl: "",
     stripeVerifyUrl: "",
     bankName: "",

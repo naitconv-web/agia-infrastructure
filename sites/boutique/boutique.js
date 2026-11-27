@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  var LS_CFG = "omnisecur_prod_v1_cfg";
+  var LS_CFG = "securiaxe_prod_v3_cfg";
 
   var CATALOG = {
     1: {
@@ -182,11 +182,11 @@
   function getBaseConfig() {
     var base = {
       issuer: {
-        raison: "Securiaxe",
+        raison: "Securiaxe — Solution CANTARA",
         enseigne: "Securiaxe",
         rep: "Direction Securiaxe",
-        capital: "Entreprise Individuelle (SIREN 849 261 870)",
-        siege: "Albi (81)",
+        capital: "Entreprise Individuelle (identité légale complète aux Mentions légales)",
+        siege: "France (voir Mentions légales)",
         siren: "849 261 870 00018",
         tvaRegime: "293B",
         tvaNum: ""
@@ -194,10 +194,10 @@
       channels: {
         domainUrl: "",
         hostProvider: "",
-        email: "nait.conv@gmail.com",
-        tel: "+33 6 17 17 99 74",
-        whatsapp: "33617179974",
-        calUrl: "https://cal.com/nait-p5qttl",
+        email: "",
+        tel: "",
+        whatsapp: "",
+        calUrl: "",
         crmWebhookUrl: "",
         stripeVerifyUrl: "",
         bankName: "",
@@ -212,7 +212,7 @@
         metaPixelId: ""
       }
     };
-    var ext = window.COS_OPERATIONS_CONFIG || window.OMNISECUR_CONFIG;
+    var ext = window.COS_OPERATIONS_CONFIG || window.SECURIAXE_CONFIG;
     if (ext && typeof ext === "object") {
       if (ext.issuer) Object.assign(base.issuer, ext.issuer);
       if (ext.channels) {
@@ -476,8 +476,8 @@
       "Art. 2 — Prix, TVA, Sécurité IBAN & Règlements : Régime fiscal unique appliqué : " + (iss.tvaRegime === "20" ? "TVA normale 20 %" : "TVA non applicable — art. 293 B du CGI (codifié à l'art. L. 223-3 du CIBS, franchise en base)") + ". Règlement par virement SEPA instantané sur Proforma/Bon de Commande (acompte ou comptant — Sécurité anti-fraude B2B : vérifiez systématiquement la concordance du RIB officiel Securiaxe rattaché au SIREN 849 261 870 avant virement), lien bancaire CB ou prélèvement SEPA. Conformément aux art. L.441-10 et D.441-5 C. com., tout retard entraîne des pénalités (3 × taux légal) + indemnité forfaitaire de 40 €.",
       "Art. 3 — Délais & Obligation de moyens : Livraison numérique immédiate dès confirmation d'encaissement pour le Pack 1 ; atelier sous 48h ouvrées pour le Pack 2 ; livraison sous 48h ouvrées dès réception de 100 % des pièces J0 pour le Pack 3 (1 lot <= 15 p., max 2 dossiers simultanés). Le prestataire est tenu à une obligation de moyens sans garantie d'attribution.",
       "Art. 4 — Propriété intellectuelle : Licence d'usage interne, personnelle et non transférable accordée à l'entité cliente après paiement complet. Toute revente ou diffusion publique est interdite.",
-      "Art. 5 — Responsabilité & RGPD (Art. 13/28 & BYOK) : Responsabilité plafonnée au montant HT encaissé. Securiaxe n'entraîne aucun modèle IA sur vos données ; en mode BYOK local, la clé API reste en sessionStorage sur le poste du Client sans transit par nos serveurs (le traitement par le fournisseur API choisi relevant des conditions de ce fournisseur). Purge des pièces confiées sous 30 jours après clôture.",
-      "Art. 6 — Juridiction : Droit français ; compétence exclusive du Tribunal de commerce du siège du prestataire (" + (iss.siege || "Albi") + ")."
+      "Art. 5 — Responsabilité & RGPD (Art. 13/28 & BYOK) : Responsabilité plafonnée au montant HT encaissé. Securiaxe n'entraîne aucun modèle IA sur vos données ; en mode BYOK local, la clé API reste en sessionStorage sur le poste du Client sans transit par nos serveurs (le traitement par le fournisseur API choisi relevant des conditions de ce fournisseur). Conservation des pièces confiées limitée à la durée de la mission et suppression sur simple demande écrite.",
+      "Art. 6 — Juridiction : Droit français ; compétence exclusive du Tribunal de commerce du ressort du siège du prestataire (voir Mentions légales)."
     ];
   }
 
@@ -485,10 +485,10 @@
     var el = $("proformaSheet");
     if (!el) return;
     var cgvHtml = getCgvParagraphs(cfg).map(function (p) { return "<p>" + esc(p) + "</p>"; }).join("");
-    var clientNomAff = o.clientNom || "[Raison sociale acheteur à compléter ci-dessus]";
+    var clientNomAff = o.clientNom || "(Raison sociale acheteur à compléter ci-dessus)";
     var clientInfoAff = [
-      o.clientSiren ? "SIREN : " + o.clientSiren : "[SIREN]",
-      o.clientAdresse || "[Adresse complète]",
+      o.clientSiren ? "SIREN : " + o.clientSiren : "(SIREN à compléter)",
+      o.clientAdresse || "(Adresse complète à compléter)",
       o.clientRep ? "Représenté par : " + o.clientRep : ""
     ].filter(Boolean).join(" · ");
     var contactParts = [cfg.channels.email, cfg.channels.tel].filter(Boolean);
@@ -578,7 +578,7 @@
     var cfg = loadCfg();
     var wa = sanitizeWaDigits(cfg.channels.whatsapp || cfg.channels.tel);
     if (!wa) {
-      toast("Numéro WhatsApp non configuré.");
+      toast("Canal WhatsApp en attente de configuration opérateur — Utilisez le téléchargement Proforma A4 ou le formulaire CANTARA.");
       return;
     }
     window.open("https://wa.me/" + wa + "?text=" + encodeURIComponent(buildOrderMessage(actionLabel)), "_blank", "noopener,noreferrer");
@@ -589,11 +589,11 @@
     var cfg = loadCfg();
     var dest = sanitizeEmail(cfg.channels.email);
     if (!dest) {
-      toast("Email émetteur non configuré.");
+      toast("Email de réception en attente de configuration opérateur — Téléchargez votre Proforma A4 ou passez par le formulaire CANTARA.");
       return;
     }
     var o = computeTotals(cfg);
-    var subj = "[" + cfg.issuer.enseigne + "] " + actionLabel + " — " + o.ref + " (" + o.clientNom + ")";
+    var subj = "(" + cfg.issuer.enseigne + ") " + actionLabel + " — " + o.ref + " (" + o.clientNom + ")";
     window.location.href = "mailto:" + encodeURIComponent(dest) + "?subject=" + encodeURIComponent(subj) + "&body=" + encodeURIComponent(buildOrderMessage(actionLabel));
   }
 
@@ -655,7 +655,7 @@
         var nextCfg = readAdmin();
         saveCfg(nextCfg);
         renderOrderState();
-        var content = "/* Généré depuis Boutique B2B COS Opérations × SYNTESIA */\nwindow.COS_OPERATIONS_CONFIG = window.OMNISECUR_CONFIG = " + JSON.stringify(nextCfg, null, 2) + ";\n";
+        var content = "/* Généré depuis Boutique B2B Securiaxe (Solution CANTARA) */\nwindow.COS_OPERATIONS_CONFIG = window.SECURIAXE_CONFIG = " + JSON.stringify(nextCfg, null, 2) + ";\n";
         var blob = new Blob([content], { type: "application/javascript;charset=utf-8;" });
         var url = URL.createObjectURL(blob);
         var a = document.createElement("a");
@@ -665,7 +665,7 @@
         a.click();
         document.body.removeChild(a);
         setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
-        toast("site-config.js téléchargé — Déposez-le à la racine de votre hébergement o2switch.");
+        toast("site-config.js téléchargé.");
       });
     }
   }
@@ -784,7 +784,7 @@
           "BON DE COMMANDE & PROFORMA B2B — " + o.ref,
           "Date : " + o.date,
           "Prestataire : " + cfg.issuer.raison + " (" + cfg.issuer.enseigne + ") — SIREN " + cfg.issuer.siren + " — " + cfg.issuer.siege,
-          "Client : " + (o.clientNom || "[À compléter]") + " | SIREN " + (o.clientSiren || "[À compléter]"),
+          "Client : " + (o.clientNom || "(À compléter)") + " | SIREN " + (o.clientSiren || "(À compléter)"),
           "---------------------------------------------------------------",
           "Formule    : " + o.item.title + " (" + o.item.code + ")",
           "Total HT   : " + fmtMoney(o.ht),
