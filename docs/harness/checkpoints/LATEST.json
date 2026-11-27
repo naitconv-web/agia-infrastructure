@@ -1,6 +1,6 @@
 {
-  "mission_id": "CANTARA-V3-UX-INTERACTIVE-SPEC",
-  "generated_at_utc": "2026-11-27T01:54:15Z",
+  "mission_id": "MANDAT-CANTARA-V3",
+  "generated_at_utc": "2026-11-27T02:56:40Z",
   "objective": "Concevoir, implémenter et valider par 6 tests de résistance le Harness Engineering commun aux projets SYNTESIA (0 dépendance à la mémoire conversationnelle).",
   "current_state": {
     "status": "IN_PROGRESS",
@@ -8,14 +8,14 @@
     "self_certification_blocked": true,
     "auditor": "NONE",
     "audit_verdict": "PENDING",
-    "audit_proof": "docs/harness/AUDIT_CANTARA_V3_COMPLET.md",
-    "audit_proof_sha256": "9d2db4bf2093",
+    "audit_proof": "docs/harness/RAPPORT_EXECUTION_MANDAT_CANTARA_V3.md",
+    "audit_proof_sha256": "ab696c288849",
     "loop_phase": "REPORT",
     "attempt": 1,
     "max_attempts": 3,
-    "branch": "cantara/v3-epure-comet",
-    "head_commit": "2bdf7a0",
-    "summary": "Audit 360 + Specification UX/UI v1.0 + Implementation Lots 1-2-3 CANTARA V3 validee 100% par sous-agent independant cantara_qa_guardian (0 WCAG AA, 0 SHA-256 trompeur, 0 fuite Albi)."
+    "branch": "main",
+    "head_commit": "cbebe63",
+    "summary": "Execution integrale du Mandat CANTARA V3 (Phases 0 a 4) sous surveillance du sous-agent independant cantara_qa_guardian : perimetre ouvert, 9 capacites, statuts normalises, CANTARA LAB 6 familles A-F, formulaire 10 besoins a 4 etats serveur explicites, deploye sur GitHub Pages (cbebe63)."
   },
   "confirmed_decisions": [
     "DEC-01: Régime financier F1 (0,00 € autonome)",
@@ -130,11 +130,11 @@
     }
   ],
   "commits_made": [
+    "cbebe63 feat(cantara-v3): refonte mandat PDG (perimetre ouvert, 9 capacites, CANTARA LAB 6 familles A-F, formulaire 10 besoins et etats serveur)",
+    "0dba496 merge(cantara-v3): deploiement vitrine institutionnelle transversale, portfolio 3 solutions et CANTARA LAB",
+    "29939db chore(harness): checkpoint CANTARA-V3-UX-INTERACTIVE-SPEC et rapport AUDIT_CANTARA_V3_COMPLET.md pour audit independant",
     "2bdf7a0 feat(cantara-v3): vitrine institutionnelle transversale, portfolio 3 solutions, CANTARA LAB 3 experiences et correctifs QA",
-    "85e649a feat(cantara-v3): vitrine ultra-epuree ADN CANTARA + cinetique Comet + Espaces Metiers (vers Securiaxe)",
-    "4325f67 merge(cantara): hybrid phase 2 — offres commerciales et corrections accessibilité",
-    "9d51a38 fix(cantara-phase2): résorber les 4 anomalies pré-fusion (ANOM-P2-01 à 04)",
-    "8fada69 feat(cantara-hybrid-p2): page offres.html (AGIA-010, 0 WCAG, 0 requete tierce) + fix ARIA critique demonstrateur"
+    "85e649a feat(cantara-v3): vitrine ultra-epuree ADN CANTARA + cinetique Comet + Espaces Metiers (vers Securiaxe)"
   ],
   "tests_executed": {
     "resilience_tests": "6/6 PASSED (Test A: Perte conversation, Test B: Changement modèle, Test C: Interruption brutale, Test D: Contradiction, Test E: Multi-projets, Test F: Preuve d'exécution)",
