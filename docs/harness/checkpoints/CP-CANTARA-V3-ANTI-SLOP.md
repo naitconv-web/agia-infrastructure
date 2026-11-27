@@ -1,6 +1,6 @@
 # CHECKPOINT DE REPRISE — `CANTARA-V3-ANTI-SLOP`
-- **Généré le (UTC) :** `2026-11-27T03:41:12Z`
-- **Branche & Commit de base :** `main` @ `152ded3`
+- **Généré le (UTC) :** `2026-11-27T03:41:30Z`
+- **Branche & Commit de base :** `main` @ `67ca1fa`
 - **Statut & Phase Boucle :** `IN_PROGRESS` (`REPORT` — Tentative `1/3`)
 
 ## 1. Objectif & État Actuel
