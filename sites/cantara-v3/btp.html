@@ -49,53 +49,55 @@
       <svg class="orbit-bg" viewBox="0 0 1440 700" fill="none" preserveAspectRatio="xMidYMin slice" aria-hidden="true">
         <path d="M -80 480 Q 700 60 1520 390" stroke="#CCCAC0" stroke-width="1"/>
         <path d="M -100 310 Q 720 630 1540 170" stroke="#D8D6CD" stroke-width="1" stroke-dasharray="4 6"/>
-        <circle r="3.4" fill="#9A3412">
-          <animateMotion dur="15s" repeatCount="indefinite" path="M -80 480 Q 700 60 1520 390"/>
-        </circle>
       </svg>
 
-      <div class="wrap">
-        <div class="hero-kicker mono">
-          <i style="background:var(--accent-btp)" aria-hidden="true"></i>
-          <span>Portfolio CANTARA · Solution OMNIRENOV (BTP, Chantiers &amp; Rénovation)</span>
+      <div class="wrap hero-layout">
+        <div>
+          <div class="hero-kicker">
+            <i style="background:var(--accent-btp)" aria-hidden="true"></i>
+            <span>Portfolio CANTARA · Solution OMNIRENOV (BTP, Chantiers &amp; Rénovation)</span>
+          </div>
+          <h1 class="display" id="btpTitle">
+            <span class="reveal-line"><span>OMNIRENOV — Coordination</span></span>
+            <span class="reveal-line"><span>de chantier et suivi des devis</span></span>
+          </h1>
+          <div class="hero-actions">
+            <a href="#cockpit" class="btn btn-primary">Tester la simulation Omnirenov <span class="arrow" aria-hidden="true">→</span></a>
+            <a href="#simulateur" class="btn btn-ghost">Calculateur de devis récupérables</a>
+          </div>
         </div>
-        <h1 class="display" id="btpTitle">
-          <span class="reveal-line"><span>OMNIRENOV.</span></span>
-          <span class="reveal-line"><span>Coordonnez vos chantiers, <em>suivez chaque devis.</em></span></span>
-        </h1>
-        <p class="lede">
-          Démonstration simulée de coordination opérationnelle de chantier, de suivi des pièces et attestations (Décennale, vigilance URSSAF) et de relance courtoise des devis en attente (J+3 / J+7, créneaux ouvrés 08h30–19h00, validation humaine systématique).
-        </p>
-        <div class="hero-actions">
-          <a href="#cockpit" class="btn btn-primary">Tester la simulation Omnirenov <span class="arrow" aria-hidden="true">→</span></a>
-          <a href="#simulateur" class="btn btn-ghost">Calculateur de devis récupérables</a>
-        </div>
-        <div class="hero-pillars" aria-label="Engagements CANTARA">
-          <span>Proximité</span>
-          <span>Confidentialité</span>
-          <span>Fiabilité</span>
+
+        <div class="hero-aside">
+          <p class="lede">
+            Démonstration simulée de coordination opérationnelle de chantier, de suivi des pièces et attestations (Décennale, vigilance URSSAF) et de relance courtoise des devis en attente (J+3 et J+7, créneaux ouvrés 08h30–19h00, validation humaine systématique).
+          </p>
+          <div class="hero-pillars" aria-label="Engagements CANTARA">
+            <span>Proximité</span>
+            <span>Confidentialité</span>
+            <span>Fiabilité</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ================= COCKPIT OMNIRENOV : CHANTIER & SUIVI DEVIS (FENÊTRE 3D COMET) ================= -->
-    <section class="comet-stage" id="cockpit" aria-labelledby="btpCockpitTitle" style="padding-bottom:clamp(4rem,8vw,6.5rem)">
+    <!-- ================= COCKPIT OMNIRENOV : CHANTIER & SUIVI DEVIS ================= -->
+    <section class="section" id="cockpit" aria-labelledby="btpCockpitTitle">
       <div class="wrap">
         <div class="section-head fade-up">
           <div>
             <div style="display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;margin-bottom:.35rem">
-              <span class="mono">[Démonstration interactive sur CANTARA]</span>
+              <span class="sec-eyebrow">01 — Poste de suivi</span>
               <span class="status-badge sim">Simulation locale · Données fictives</span>
             </div>
-            <h2 class="h2" id="btpCockpitTitle">Coordination de chantier <em>&amp; suivi de devis.</em></h2>
+            <h2 class="h2" id="btpCockpitTitle">Coordination des lots et relance des devis en attente</h2>
           </div>
-          <p class="lede">Sélectionnez l'un des trois dossiers travaux fictifs pour inspecter la vérification des pièces intervenants, l'état d'avancement du lot et le brouillon de relance soumis au Sas dirigeant.</p>
+          <p class="lede">Sélectionnez l'un des trois dossiers travaux fictifs pour inspecter la conformité des intervenants, l'état d'avancement du lot et le brouillon de relance soumis à l'accord du dirigeant.</p>
         </div>
 
-        <div class="comet-window" data-scroll-3d>
+        <div class="comet-window">
           <div class="comet-chrome">
-            <div class="comet-dots" aria-hidden="true"><i></i><i></i><i></i></div>
-            <span class="comet-address">omnirenov://cockpit/chantiers-et-devis</span>
+            <span class="workstation-brand">Omnirenov · Poste de démonstration</span>
+            <span class="comet-address">Module : Dossiers travaux &amp; relances J+3 / J+7 (08h30–19h00)</span>
             <span class="status-badge sim">Simulation locale · Données fictives</span>
           </div>
 
@@ -120,10 +122,10 @@
         <div class="section-head fade-up">
           <div>
             <div style="display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;margin-bottom:.35rem">
-              <span class="mono">[Calculateur déterministe sur CANTARA]</span>
+              <span class="sec-eyebrow">02 — Calculateur commercial</span>
               <span class="status-badge op">Opérationnel vérifié · Simulation locale</span>
             </div>
-            <h2 class="h2" id="btpSimTitle">Estimez vos <em>devis récupérables.</em></h2>
+            <h2 class="h2" id="btpSimTitle">Estimation du volume de devis récupérables</h2>
           </div>
           <p class="lede">Faites varier votre volume habituel de devis mensuels, votre montant moyen de chantier et le taux de conversion sur relance. Calcul mathématique local sur hypothèses explicites.</p>
         </div>
@@ -155,11 +157,11 @@
 
           <div class="sim-right">
             <div>
-              <span class="mono" style="color:var(--ink-stone)">[Potentiel brut mensuel simulé]</span>
+              <span class="mono" style="color:var(--ink-stone)">Potentiel brut mensuel simulé</span>
               <div class="sim-big gain" id="rGain">+6 750 €</div>
               <p id="rSummary" style="margin:.4rem 0 0;font-size:.94rem;color:var(--ink)"></p>
             </div>
-            <p style="margin:0;font-size:.8rem;color:var(--ink-stone);border-top:1px dashed var(--edge-strong);padding-top:.85rem">
+            <p style="margin:0;font-size:.8rem;color:var(--ink-stone);border-top:1px solid var(--edge-strong);padding-top:.85rem">
               Calcul purement indicatif basé sur vos paramètres : 1 seul chantier moyen récupéré couvre généralement la mise en place.
             </p>
           </div>
@@ -173,12 +175,12 @@
         <div class="handoff-box fade-up">
           <div>
             <div style="display:flex;align-items:center;gap:.6rem;flex-wrap:wrap">
-              <span class="mono">[Passerelle métier · OMNIRENOV]</span>
+              <span class="sec-eyebrow">03 — Déploiement</span>
               <span class="status-badge prep">Site dédié : En préparation</span>
             </div>
-            <h2 class="h2" id="btpHandoffTitle" style="margin-top:.55rem">Déployer OMNIRENOV<br><em>dans votre structure.</em></h2>
+            <h2 class="h2" id="btpHandoffTitle" style="margin-top:.55rem">Étudier la mise en place d'OMNIRENOV</h2>
             <p class="lede" style="margin-top:1rem">
-              Le site métier indépendant <strong>Omnirenov</strong> est actuellement en préparation. Vous pouvez dès aujourd'hui tester le cockpit de chantier en 6 jalons dans CANTARA LAB ou demander une étude appliquée à votre entreprise.
+              Le site métier indépendant <strong>Omnirenov</strong> est actuellement en préparation. Vous pouvez dès aujourd'hui tester le registre de chantier en 6 jalons dans CANTARA LAB ou demander une étude appliquée à votre entreprise.
             </p>
             <ul class="handoff-list">
               <li><span>Palier Essentiel (mise en route 72 h)</span><strong>390 € + 69 €/mois</strong></li>
@@ -192,7 +194,7 @@
               <span class="arrow" aria-hidden="true">→</span>
             </a>
             <a href="index.html#lab" class="btn btn-ghost">
-              Tester le cockpit 6 jalons dans CANTARA LAB
+              Tester le registre 6 jalons dans CANTARA LAB
             </a>
             <p class="mono" style="margin:.4rem 0 0;line-height:1.6">
               TVA non applicable (art. 293 B CGI) · Jours ouvrés 08h30–19h00 · Validation humaine systématique.
@@ -236,7 +238,7 @@
         <div>
           <p class="footer-title">Contact &amp; Légal</p>
           <ul>
-            <li><a href="index.html#contact">Parler de votre projet</a></li>
+            <li><a href="index.html#contact">Étudier un projet</a></li>
             <li><a href="mentions.html">Mentions légales &amp; RGPD</a></li>
           </ul>
         </div>

@@ -1,15 +1,11 @@
 /*
- * CANTARA V3 — Moteur cinétique Comet × ADN CANTARA & Socle réutilisable (JS natif, 0 dépendance, 60 fps)
+ * CANTARA V3 — Socle commun & utilitaires (JS natif, 0 dépendance)
  * - Configuration gelée (CONTACT_ENDPOINT configurable côté serveur, WEBHOOK_ENABLED: false par défaut)
- * - Utilitaires : échappement XSS esc(), formatage monétaire fmtEur(), empreinte locale FNV-1a 32-bit hashDemo()
- * - Client de transmission serveur submitServerContact() avec AbortController, anti-double envoi et 4 états explicites (§2.2)
+ * - Utilitaires : échappement XSS esc(), formatage monétaire fmtEur(), référence de journal hashDemo()
+ * - Client de transmission serveur submitServerContact() avec AbortController, anti-double envoi et 4 états explicites
  * - Suivi analytique local sans cookie des clics sortants (trackOutbound)
  * - Barre de progression de lecture + transition en-tête jour/nuit
- * - Fenêtre 3D qui se redresse au scroll (Comet Container Scroll Animation)
- * - Parallaxe douce des courbes orbitales
- * - Manifeste mot à mot illuminé au scroll
- * - Perspective tilt 3D subtile sur les cartes du Portfolio
- * - Menu mobile accessible (touche Échap + restauration du focus)
+ * - Manifeste illuminé au défilement + Menu mobile accessible (touche Échap + restauration du focus)
  */
 (function () {
   'use strict';
@@ -36,15 +32,15 @@
       var sign = rounded < 0 ? '-' : '';
       return sign + Math.abs(rounded).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' €';
     },
-    /* Empreinte de contrôle locale simulée (algorithme déterministe FNV-1a 32 bits) */
+    /* Identifiant de journalisation déterministe local */
     hashDemo: function (txt, prev) {
-      var input = String(prev || 'GENESIS') + '|' + String(txt || '');
+      var input = String(prev || 'INIT') + '|' + String(txt || '');
       var h = 0x811c9dc5;
       for (var i = 0; i < input.length; i++) {
         h ^= input.charCodeAt(i);
         h = Math.imul(h, 0x01000193) >>> 0;
       }
-      return 'FNV32-' + h.toString(16).padStart(8, '0').toUpperCase();
+      return 'JRN-' + (h >>> 0).toString(16).slice(0, 6).toUpperCase();
     },
     trackOutbound: function (product, url) {
       var evt = {
@@ -60,8 +56,8 @@
     },
     /*
      * Client de transmission serveur (§2.2 du Mandat)
-     * Retourne une Promise résolue avec { status: 'CONFIRMED' | 'TIMEOUT' | 'ERROR' | 'UNCONFIGURED', message, ref }
-     * Ne simule JAMAIS un envoi réussi si aucun endpoint serveur n'a confirmé la réception.
+     * Retourne une Promise résolue avec { status: 'CONFIRMED' | 'TIMEOUT' | 'ERROR' | 'UNCONFIGURED', message, serverRef }
+     * Ne simule JAMAIS un envoi réussi si aucun service de réception n'a confirmé l'enregistrement.
      */
     submitServerContact: function (payload) {
       var cfg = window.CANTARA_MOTION.CONFIG;
@@ -69,7 +65,7 @@
       if (!endpoint) {
         return Promise.resolve({
           status: 'UNCONFIGURED',
-          message: 'Aucun service de réception serveur n\'est raccordé sur cet environnement statique (prérequis externe en attente de configuration). Aucune donnée n\'a été transmise sur le réseau.'
+          message: 'Aucun service de réception serveur n\'est raccordé sur cet hébergement statique (prérequis externe en attente de configuration). Aucune donnée n\'a été transmise sur le réseau.'
         });
       }
       var ctrl = typeof AbortController !== 'undefined' ? new AbortController() : null;
@@ -124,8 +120,6 @@
     var menuBtn = document.getElementById('menuBtn');
     var railBar = document.querySelector('.scroll-rail i');
     var nights = Array.prototype.slice.call(document.querySelectorAll('.night'));
-    var cometWindows = Array.prototype.slice.call(document.querySelectorAll('.comet-window[data-scroll-3d]'));
-    var orbitBg = document.querySelector('.orbit-bg');
 
     /* Suivi analytique sans cookie des clics sortants vers les sites métiers */
     document.addEventListener('click', function (e) {
@@ -149,7 +143,7 @@
       manifestoWords = Array.prototype.slice.call(manifesto.querySelectorAll('.w'));
     }
 
-    /* Révélations douces au scroll */
+    /* Révélations sobres au défilement */
     var fadeEls = Array.prototype.slice.call(document.querySelectorAll('.fade-up'));
     if (reduceMotion || !('IntersectionObserver' in window)) {
       fadeEls.forEach(function (el) { el.classList.add('in'); });
@@ -165,7 +159,7 @@
       fadeEls.forEach(function (el) { obs.observe(el); });
     }
 
-    /* Boucle scroll rAF (60 fps, GPU transform uniquement) */
+    /* Boucle scroll rAF (barre de lecture, en-tête jour/nuit, manifeste) */
     var ticking = false;
     function onScroll() {
       ticking = false;
@@ -188,34 +182,14 @@
         }
       }
 
-      if (!reduceMotion) {
-        /* Parallaxe orbitale douce */
-        if (orbitBg && y < window.innerHeight * 1.4) {
-          orbitBg.style.transform = 'translate3d(0,' + (y * 0.14).toFixed(1) + 'px,0)';
-        }
-
-        /* Fenêtre 3D Comet qui se redresse au scroll */
-        cometWindows.forEach(function (win) {
-          var rect = win.getBoundingClientRect();
-          var vh = window.innerHeight || 800;
-          var p = (vh - rect.top) / (vh * 0.78);
-          p = Math.max(0, Math.min(1, p));
-          var rotX = (1 - p) * 9;
-          var scale = 0.955 + p * 0.045;
-          var ty = (1 - p) * 18;
-          win.style.transform = 'rotateX(' + rotX.toFixed(2) + 'deg) scale(' + scale.toFixed(4) + ') translate3d(0,' + ty.toFixed(1) + 'px,0)';
-        });
-
-        /* Illumination du manifeste mot à mot */
-        if (manifesto && manifestoWords.length) {
-          var mr = manifesto.getBoundingClientRect();
-          var vh2 = window.innerHeight || 800;
-          var prog = (vh2 * 0.85 - mr.top) / (mr.height + vh2 * 0.35);
-          prog = Math.max(0, Math.min(1, prog));
-          var litCount = Math.round(prog * manifestoWords.length);
-          for (var i = 0; i < manifestoWords.length; i++) {
-            manifestoWords[i].classList.toggle('lit', i < litCount);
-          }
+      if (!reduceMotion && manifesto && manifestoWords.length) {
+        var mr = manifesto.getBoundingClientRect();
+        var vh2 = window.innerHeight || 800;
+        var prog = (vh2 * 0.85 - mr.top) / (mr.height + vh2 * 0.35);
+        prog = Math.max(0, Math.min(1, prog));
+        var litCount = Math.round(prog * manifestoWords.length);
+        for (var i = 0; i < manifestoWords.length; i++) {
+          manifestoWords[i].classList.toggle('lit', i < litCount);
         }
       }
     }
@@ -228,25 +202,6 @@
     }, { passive: true });
     window.addEventListener('resize', onScroll);
     onScroll();
-
-    /* Perspective 3D Tilt douce façon Comet sur les cartes du Portfolio (desktop uniquement) */
-    if (!reduceMotion && window.matchMedia && window.matchMedia('(pointer: fine)').matches) {
-      Array.prototype.slice.call(document.querySelectorAll('.tilt-card')).forEach(function (card) {
-        card.addEventListener('mousemove', function (e) {
-          var r = card.getBoundingClientRect();
-          var rx = (e.clientX - r.left) / r.width;
-          var ry = (e.clientY - r.top) / r.height;
-          var tiltY = (rx - 0.5) * 4;
-          var tiltX = (0.5 - ry) * 4;
-          card.style.setProperty('--mx', (rx * 100).toFixed(1) + '%');
-          card.style.setProperty('--my', (ry * 100).toFixed(1) + '%');
-          card.style.transform = 'perspective(1100px) rotateX(' + tiltX.toFixed(2) + 'deg) rotateY(' + tiltY.toFixed(2) + 'deg) translateY(-3px)';
-        });
-        card.addEventListener('mouseleave', function () {
-          card.style.transform = '';
-        });
-      });
-    }
 
     /* Menu mobile accessible (Échap + focus restore) */
     if (header && menuBtn) {
