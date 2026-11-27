@@ -1,7 +1,8 @@
 /*
- * CANTARA V3 — Moteur cinétique Comet × ADN CANTARA (JS natif, 0 dépendance, 60 fps)
- * - Configuration gelée (ENVIRONMENT: 'PREPROD', WEBHOOK_ENABLED: false)
+ * CANTARA V3 — Moteur cinétique Comet × ADN CANTARA & Socle réutilisable (JS natif, 0 dépendance, 60 fps)
+ * - Configuration gelée (CONTACT_ENDPOINT configurable côté serveur, WEBHOOK_ENABLED: false par défaut)
  * - Utilitaires : échappement XSS esc(), formatage monétaire fmtEur(), empreinte locale FNV-1a 32-bit hashDemo()
+ * - Client de transmission serveur submitServerContact() avec AbortController, anti-double envoi et 4 états explicites (§2.2)
  * - Suivi analytique local sans cookie des clics sortants (trackOutbound)
  * - Barre de progression de lecture + transition en-tête jour/nuit
  * - Fenêtre 3D qui se redresse au scroll (Comet Container Scroll Animation)
@@ -20,6 +21,8 @@
     CONFIG: Object.freeze({
       ENVIRONMENT: 'PREPROD',
       WEBHOOK_ENABLED: false,
+      CONTACT_ENDPOINT: '',
+      CONTACT_TIMEOUT_MS: 8000,
       SECURIAXE_URL: 'https://naitconv-web.github.io/cos-operations-simulateur/boutique/'
     }),
     reduceMotion: reduceMotion,
@@ -54,6 +57,65 @@
     },
     getOutboundEvents: function () {
       return outboundEvents.slice();
+    },
+    /*
+     * Client de transmission serveur (§2.2 du Mandat)
+     * Retourne une Promise résolue avec { status: 'CONFIRMED' | 'TIMEOUT' | 'ERROR' | 'UNCONFIGURED', message, ref }
+     * Ne simule JAMAIS un envoi réussi si aucun endpoint serveur n'a confirmé la réception.
+     */
+    submitServerContact: function (payload) {
+      var cfg = window.CANTARA_MOTION.CONFIG;
+      var endpoint = (cfg.WEBHOOK_ENABLED && cfg.CONTACT_ENDPOINT) ? String(cfg.CONTACT_ENDPOINT).trim() : '';
+      if (!endpoint) {
+        return Promise.resolve({
+          status: 'UNCONFIGURED',
+          message: 'Aucun service de réception serveur n\'est raccordé sur cet environnement statique (prérequis externe en attente de configuration). Aucune donnée n\'a été transmise sur le réseau.'
+        });
+      }
+      var ctrl = typeof AbortController !== 'undefined' ? new AbortController() : null;
+      var timer = setTimeout(function () {
+        if (ctrl) ctrl.abort();
+      }, cfg.CONTACT_TIMEOUT_MS || 8000);
+
+      return fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload),
+        signal: ctrl ? ctrl.signal : undefined
+      }).then(function (res) {
+        clearTimeout(timer);
+        if (!res.ok) {
+          return {
+            status: 'ERROR',
+            message: 'Le service de réception a retourné un code d\'erreur HTTP (' + res.status + ').'
+          };
+        }
+        return res.json().catch(function () { return { ok: true }; }).then(function (data) {
+          if (data && (data.ok === true || data.status === 'success' || data.received === true)) {
+            return {
+              status: 'CONFIRMED',
+              message: 'Votre demande a été reçue et confirmée par le serveur.',
+              serverRef: data.id || data.ref || null
+            };
+          }
+          return {
+            status: 'ERROR',
+            message: 'Réponse serveur reçue sans confirmation explicite d\'enregistrement.'
+          };
+        });
+      }).catch(function (err) {
+        clearTimeout(timer);
+        if (err && err.name === 'AbortError') {
+          return {
+            status: 'TIMEOUT',
+            message: 'Délai d\'attente dépassé (' + Math.round((cfg.CONTACT_TIMEOUT_MS || 8000) / 1000) + ' s) sans réponse du serveur.'
+          };
+        }
+        return {
+          status: 'ERROR',
+          message: 'Impossible de joindre le service de réception serveur.'
+        };
+      });
     }
   };
 
